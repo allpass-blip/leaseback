@@ -126,10 +126,11 @@
   flex: 1;
 }.mobile-lp .phone-num{
   color: #1e6dd8;
-  font-size: 26px;
+  font-size: 23px;
   font-weight: 900;
   letter-spacing: 0.01em;
   line-height: 1.1;
+  white-space: nowrap;
 }.mobile-lp .phone-hours{
   margin-top: 4px;
   color: #666;
@@ -645,4 +646,198 @@
   color: #444;
   font-size: 11.5px;
   line-height: 1.7;
+}
+
+.mobile-lp .mobile-title-break{
+  display: block;
+}
+
+.mobile-lp .hero-cta{
+  gap: 8px;
+  padding: 18px 10px;
+  font-size: 18px;
+  letter-spacing: 0;
+  white-space: nowrap;
+}
+
+.mobile-lp .hero-cta .play{
+  flex: 0 0 auto;
+}
+
+.mobile-lp .lease-title{
+  font-size: clamp(22px, 6.4vw, 25px);
+  line-height: 1.32;
+  letter-spacing: 0;
+  word-break: normal;
+  overflow-wrap: normal;
+  line-break: strict;
+}
+
+.mobile-lp .lease-steps .lease-title,
+.mobile-lp .lease-reasons .lease-title{
+  font-size: clamp(21px, 6.2vw, 24px);
+}
+
+.mobile-lp .lease-lead{
+  font-size: 14px;
+  line-height: 1.9;
+  word-break: normal;
+  overflow-wrap: normal;
+  line-break: strict;
+}
+
+.mobile-lp .lease-worry-list li{
+  gap: 12px;
+}
+
+.mobile-lp .lease-worry-list li span:last-child{
+  min-width: 0;
+  font-size: 15px;
+  word-break: normal;
+  overflow-wrap: normal;
+  line-break: strict;
+}
+
+.mobile-lp .radio-opt{
+  min-width: 0;
+  gap: 6px;
+  padding: 12px 8px;
+  font-size: 14px;
+  white-space: nowrap;
+}
+
+.mobile-lp .radio-opt input{
+  flex: 0 0 auto;
+}
+
+.mobile-lp .submit{
+  padding: 18px 10px;
+  font-size: 17px;
+  letter-spacing: 0;
+  white-space: nowrap;
+}
+
+.mobile-lp .lease-step-illust img{
+  display: block;
+  max-height: 132px;
+  max-width: 84%;
+  object-fit: contain;
+}
+
+.mobile-lp .lease-reason-circle img,
+.mobile-lp .lease-photo-circle img{
+  display: block;
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.mobile-lp .lease-merit-icon img{
+  display: block;
+  width: 78px;
+  height: 78px;
+  object-fit: contain;
+}
+
+.mobile-lp .mobile-footer{
+  background: #143b8a;
+  padding: 24px 20px 40px;
+  color: rgba(255, 255, 255, 0.86);
+  text-align: center;
+}
+
+.mobile-lp .mobile-footer p{
+  margin: 0;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+}
+
+.mobile-lp .js-reveal{
+  opacity: 0;
+  transform: translateY(18px);
+  transition:
+    opacity 0.62s ease,
+    transform 0.62s cubic-bezier(0.2, 0.75, 0.22, 1);
+  transition-delay: var(--reveal-delay, 0ms);
+  will-change: opacity, transform;
+}
+
+.mobile-lp .js-reveal.is-visible{
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.mobile-lp .hero-photo img{
+  animation: mobile-photo-breathe 12s ease-in-out infinite alternate;
+}
+
+.mobile-lp .hero-cta,
+.mobile-lp .submit{
+  animation: mobile-cta-breathe 3.6s ease-in-out infinite;
+}
+
+.mobile-lp .lease-step-illust img,
+.mobile-lp .lease-merit-icon img,
+.mobile-lp .step-img img{
+  animation: mobile-icon-float 4.8s ease-in-out infinite;
+}
+
+.mobile-lp .lease-worry-list li,
+.mobile-lp .radio-opt,
+.mobile-lp .faq-q{
+  transition:
+    transform 0.2s ease,
+    box-shadow 0.2s ease,
+    background-color 0.2s ease;
+}
+
+.mobile-lp .lease-worry-list li:active,
+.mobile-lp .radio-opt:active,
+.mobile-lp .faq-q:active{
+  transform: scale(0.985);
+}
+
+@keyframes mobile-photo-breathe{
+  from{
+    transform: scale(1);
+  }
+  to{
+    transform: scale(1.025);
+  }
+}
+
+@keyframes mobile-cta-breathe{
+  0%, 100%{
+    box-shadow: 0 5px 0 rgba(200, 85, 10, 0.4), 0 8px 18px rgba(255, 122, 28, 0.28);
+  }
+  50%{
+    box-shadow: 0 5px 0 rgba(200, 85, 10, 0.4), 0 13px 28px rgba(255, 122, 28, 0.4);
+  }
+}
+
+@keyframes mobile-icon-float{
+  0%, 100%{
+    transform: translateY(0);
+  }
+  50%{
+    transform: translateY(-4px);
+  }
+}
+
+@media (prefers-reduced-motion: reduce){
+  .mobile-lp *,
+  .mobile-lp *::before,
+  .mobile-lp *::after{
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    scroll-behavior: auto !important;
+    transition-duration: 0.001ms !important;
+  }
+
+  .mobile-lp .js-reveal{
+    opacity: 1;
+    transform: none;
+  }
 }

@@ -18,11 +18,346 @@ html, body { margin: 0; padding: 0; }
   .mobile-lp { display: none !important; }
   .responsive-lp { display: block; }
 }
+.deadline-bar {
+  position: fixed;
+  z-index: 9999;
+  right: max(14px, env(safe-area-inset-right));
+  bottom: max(14px, env(safe-area-inset-bottom));
+  left: max(14px, env(safe-area-inset-left));
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  gap: 14px;
+  align-items: center;
+  max-width: 980px;
+  margin: 0 auto;
+  border: 2px solid #ff2f1f;
+  border-radius: 12px;
+  background: linear-gradient(90deg, #b90012 0%, #e42b1e 45%, #ff7a1a 100%);
+  box-shadow: 0 18px 42px rgba(85, 14, 10, 0.35);
+  padding: 12px 16px 14px;
+  color: #fff;
+  font-family: "Noto Sans JP", "Hiragino Kaku Gothic ProN", "Yu Gothic", Meiryo, sans-serif;
+  transition: opacity 0.22s ease, transform 0.22s ease, visibility 0.22s ease;
+}
+.deadline-bar.is-hidden-at-footer {
+  visibility: hidden;
+  opacity: 0;
+  pointer-events: none;
+  transform: translateY(calc(100% + 24px));
+}
+.deadline-bar::after {
+  content: "";
+  position: absolute;
+  right: 12px;
+  bottom: 7px;
+  left: 12px;
+  height: 4px;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.28);
+}
+.deadline-bar__progress {
+  position: absolute;
+  right: 12px;
+  bottom: 7px;
+  left: 12px;
+  z-index: 1;
+  height: 4px;
+  transform-origin: left center;
+  transform: scaleX(var(--deadline-progress, 1));
+  border-radius: 999px;
+  background: #ffe45c;
+  box-shadow: 0 0 14px rgba(255, 228, 92, 0.8);
+}
+.deadline-bar__alert {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  border-radius: 999px;
+  background: rgba(0, 0, 0, 0.24);
+  padding: 8px 12px;
+  font-size: 0.82rem;
+  font-weight: 900;
+  letter-spacing: 0.08em;
+  white-space: nowrap;
+}
+.deadline-bar__alert::before {
+  content: "";
+  width: 9px;
+  height: 9px;
+  border-radius: 50%;
+  background: #ffe45c;
+  box-shadow: 0 0 0 0 rgba(255, 228, 92, 0.8);
+  animation: deadline-pulse 1s infinite;
+}
+.deadline-bar__copy {
+  display: grid;
+  gap: 2px;
+  min-width: 0;
+}
+.deadline-bar__copy strong {
+  font-size: clamp(0.98rem, 1.6vw, 1.18rem);
+  font-weight: 900;
+  line-height: 1.25;
+}
+.deadline-bar__copy span {
+  color: rgba(255, 255, 255, 0.88);
+  font-size: 0.82rem;
+  font-weight: 700;
+}
+.deadline-bar__time {
+  display: flex;
+  align-items: baseline;
+  gap: 5px;
+  font-family: Inter, "Noto Sans JP", sans-serif;
+  line-height: 1;
+  white-space: nowrap;
+}
+.deadline-bar__time span {
+  min-width: 38px;
+  border-radius: 7px;
+  background: #1b0c12;
+  padding: 7px 6px;
+  color: #ffe45c;
+  font-size: clamp(1.25rem, 2.4vw, 1.75rem);
+  font-weight: 900;
+  text-align: center;
+}
+.deadline-bar__time em {
+  color: #fff7cf;
+  font-family: "Noto Sans JP", sans-serif;
+  font-size: 0.78rem;
+  font-style: normal;
+  font-weight: 900;
+}
+@keyframes deadline-pulse {
+  0% { box-shadow: 0 0 0 0 rgba(255, 228, 92, 0.78); }
+  70% { box-shadow: 0 0 0 9px rgba(255, 228, 92, 0); }
+  100% { box-shadow: 0 0 0 0 rgba(255, 228, 92, 0); }
+}
+@media (max-width: 767px) {
+  .deadline-bar {
+    grid-template-columns: 1fr;
+    gap: 8px;
+    padding: 12px 12px 14px;
+    text-align: center;
+  }
+  .deadline-bar__alert {
+    justify-content: center;
+    justify-self: center;
+    padding: 6px 12px;
+  }
+  .deadline-bar__copy strong {
+    font-size: 0.96rem;
+  }
+  .deadline-bar__copy span {
+    display: none;
+  }
+  .deadline-bar__time {
+    justify-content: center;
+  }
+  .deadline-bar__time span {
+    min-width: 40px;
+    font-size: 1.48rem;
+  }
+}
+.deadline-bar {
+  grid-template-columns: auto minmax(0, 1fr) auto auto;
+  border: 1px solid #ffd3a3;
+  border-radius: 16px;
+  background:
+    linear-gradient(90deg, rgba(255, 242, 232, 0.96), rgba(255, 255, 255, 0.96) 38%),
+    #fff;
+  box-shadow: 0 16px 34px rgba(20, 59, 138, 0.14);
+  color: #143b8a;
+  padding: 11px 12px 14px;
+}
+.deadline-bar::after {
+  right: 14px;
+  bottom: 6px;
+  left: 14px;
+  height: 3px;
+  background: #f2dfcb;
+}
+.deadline-bar__progress {
+  right: 14px;
+  bottom: 6px;
+  left: 14px;
+  height: 3px;
+  background: linear-gradient(90deg, #ffb35c, #ff7a1a);
+  box-shadow: none;
+}
+.deadline-bar__alert {
+  background: #fff2e8;
+  color: #d85d0f;
+  padding: 7px 11px;
+  font-size: 0.8rem;
+}
+.deadline-bar__alert::before {
+  background: #ff7a1a;
+  box-shadow: 0 0 0 0 rgba(255, 122, 26, 0.38);
+  animation-duration: 1.45s;
+}
+.deadline-bar__copy strong {
+  color: #143b8a;
+  font-size: clamp(0.95rem, 1.35vw, 1.08rem);
+}
+.deadline-bar__copy span {
+  color: #5d6470;
+  font-size: 0.8rem;
+}
+.deadline-bar__time span {
+  min-width: 34px;
+  border: 1px solid #cfdff7;
+  background: #edf5ff;
+  color: #143b8a;
+  font-size: clamp(1.12rem, 1.8vw, 1.42rem);
+}
+.deadline-bar__time em {
+  color: #d85d0f;
+}
+.deadline-bar__action {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 42px;
+  border-radius: 999px;
+  background: linear-gradient(180deg, #ff942c 0%, #ff7411 100%);
+  box-shadow: 0 3px 0 rgba(193, 77, 4, 0.26);
+  padding: 9px 15px;
+  color: #fff;
+  font-size: 0.9rem;
+  font-weight: 900;
+  text-decoration: none;
+  white-space: nowrap;
+}
+.deadline-bar__action--mobile {
+  display: none;
+}
+@media (max-width: 767px) {
+  .deadline-bar {
+    grid-template-columns: auto 1fr auto;
+    gap: 8px;
+    padding: 10px 10px 13px;
+    text-align: left;
+  }
+  .deadline-bar__alert {
+    align-self: start;
+    justify-self: start;
+    padding: 6px 9px;
+    font-size: 0.72rem;
+  }
+  .deadline-bar__copy strong {
+    display: block;
+    font-size: 0.88rem;
+    line-height: 1.35;
+  }
+  .deadline-bar__time {
+    grid-column: 2 / 3;
+    justify-content: flex-start;
+    gap: 4px;
+  }
+  .deadline-bar__time span {
+    min-width: 31px;
+    padding: 6px 5px;
+    font-size: 1.08rem;
+  }
+  .deadline-bar__time em {
+    font-size: 0.66rem;
+  }
+  .deadline-bar__action {
+    grid-column: 3 / 4;
+    grid-row: 1 / 3;
+    align-self: center;
+    min-height: 44px;
+    padding: 8px 12px;
+    font-size: 0.82rem;
+  }
+  .deadline-bar__action--desktop {
+    display: none;
+  }
+  .deadline-bar__action--mobile {
+    display: inline-flex;
+  }
+}
+@media (max-width: 767px) {
+  .deadline-bar {
+    grid-template-columns: minmax(0, 1fr) auto;
+    grid-template-areas:
+      "alert action"
+      "copy action"
+      "time time";
+    gap: 6px 10px;
+    padding: 10px 12px 14px;
+    text-align: left;
+  }
+  .deadline-bar__alert {
+    grid-area: alert;
+    align-self: center;
+    justify-self: start;
+    padding: 6px 9px;
+    font-size: 0.72rem;
+    white-space: nowrap;
+  }
+  .deadline-bar__copy {
+    grid-area: copy;
+    min-width: 0;
+  }
+  .deadline-bar__copy strong {
+    display: block;
+    font-size: 0.82rem;
+    line-height: 1.35;
+  }
+  .deadline-bar__copy span {
+    display: none;
+  }
+  .deadline-bar__time {
+    grid-area: time;
+    justify-content: center;
+    gap: 4px;
+  }
+  .deadline-bar__time span {
+    min-width: 35px;
+    padding: 6px 5px;
+    font-size: 1.04rem;
+  }
+  .deadline-bar__time em {
+    font-size: 0.62rem;
+  }
+  .deadline-bar__action {
+    grid-area: action;
+    align-self: center;
+    min-height: 42px;
+    padding: 8px 11px;
+    font-size: 0.78rem;
+  }
+  .deadline-bar__action--desktop {
+    display: none;
+  }
+  .deadline-bar__action--mobile {
+    display: inline-flex;
+  }
+}
 </style>
   <script src="assets/mobile/app.js" defer></script>
   <script src="assets/responsive/app.js" defer></script>
+  <script src="assets/countdown.js" defer></script>
 </head>
 <body>
+<aside class="deadline-bar" data-countdown aria-label="本日の無料相談カウントダウン">
+<div class="deadline-bar__progress" data-countdown-progress></div>
+<div class="deadline-bar__alert">本日受付分</div>
+<div class="deadline-bar__copy">
+<strong>本日の無料査定を受付中</strong>
+<span>迷っている方も、まずは査定額だけ確認できます。</span>
+</div>
+<div class="deadline-bar__time" aria-live="polite">
+<span data-countdown-hours>00</span><em>時間</em>
+<span data-countdown-minutes>00</span><em>分</em>
+<span data-countdown-seconds>00</span><em>秒</em>
+</div>
+<a class="deadline-bar__action deadline-bar__action--desktop" href="#cta">無料相談へ</a>
+<a class="deadline-bar__action deadline-bar__action--mobile" href="#form">査定へ</a>
+</aside>
 <div class="mobile-lp">
 <main class="lp-shell">
 <section aria-label="ファーストビュー" class="hero">
@@ -32,11 +367,10 @@ html, body { margin: 0; padding: 0; }
             そのまま住める。
           </h1>
 <p class="hero-lead">
-            引越し不要 / 秘密厳守 / 買戻し可能<br/>
             ご事情に合わせたご相談を丁寧に承ります
           </p>
 <div class="hero-photo">
-<img alt="リースバックのファーストビュー" decoding="async" fetchpriority="high" src="assets/mobile/01.png" width="420"/>
+<img alt="リースバックのファーストビュー" decoding="async" fetchpriority="high" src="assets/mobile/fv-generated.png" width="420"/>
 </div>
 <a class="hero-cta" href="#form">
 <span class="play">▶</span>かんたん査定はこちら
@@ -61,7 +395,7 @@ html, body { margin: 0; padding: 0; }
 </section>
 <section aria-label="こんなお悩み、一人で抱えていませんか？" class="lease-block lease-worries">
 <h2 class="lease-title">
-            こんなお悩み、<br/>一人で抱えていませんか？
+            こんなお悩み、<br class="mobile-title-break"/>一人で抱えていませんか？
           </h2>
 <p class="lease-lead">
             人生100年時代と言われる今、<br/>
@@ -76,7 +410,7 @@ html, body { margin: 0; padding: 0; }
 </li>
 <li>
 <span class="lease-check"><svg fill="none" viewbox="0 0 24 24"><path d="M4 12l5 5L20 6" stroke="#1d4fd6" stroke-linecap="round" stroke-linejoin="round" stroke-width="3"></path></svg></span>
-<span>退職後も住宅ローンの返済が<br/>続いてつらい</span>
+<span>退職後も住宅ローンの返済が続いてつらい</span>
 </li>
 <li>
 <span class="lease-check"><svg fill="none" viewbox="0 0 24 24"><path d="M4 12l5 5L20 6" stroke="#1d4fd6" stroke-linecap="round" stroke-linejoin="round" stroke-width="3"></path></svg></span>
@@ -108,34 +442,15 @@ html, body { margin: 0; padding: 0; }
 </section>
 <section aria-label="家に住んだまま、まとまった資金が手に入る" class="lease-block lease-steps">
 <h2 class="lease-title">
-            家に住んだまま、<br/>
-<span class="orange">まとまった資金</span>が手に入る
+            家に住んだまま、<br class="mobile-title-break"/><span class="orange">まとまった資金</span>が手に入る
           </h2>
 <p class="lease-lead">
-            リースバックとは、ご自宅を当社が買い取り、<br/>
-            賃貸契約で同じ家に住み続けられる仕組みです。
+            リースバックとは、ご自宅を当社が買い取り、賃貸契約で同じ家に住み続けられる仕組みです。
           </p>
 <div class="lease-step-card">
 <span class="lease-step-badge">STEP 01</span>
 <div class="lease-step-illust">
-<svg viewbox="0 0 260 140" xmlns="http://www.w3.org/2000/svg">
-<ellipse cx="35" cy="115" fill="#d8e6ff" rx="25" ry="7"></ellipse>
-<path d="M40 60 L90 30 L140 60 L140 115 L40 115 Z" fill="#fff" stroke="#143b8a" stroke-linejoin="round" stroke-width="2.5"></path>
-<path d="M30 65 L90 25 L150 65" fill="none" stroke="#ff7a1a" stroke-linecap="round" stroke-linejoin="round" stroke-width="3"></path>
-<path d="M40 60 L90 30 L140 60 Z" fill="#ffe2cc"></path>
-<rect fill="#cfe0ff" height="20" stroke="#143b8a" stroke-width="2" width="22" x="60" y="80"></rect>
-<rect fill="#fff" height="35" stroke="#143b8a" stroke-width="2" width="22" x="100" y="80"></rect>
-<circle cx="116" cy="98" fill="#143b8a" r="1.5"></circle>
-<rect fill="#fff" height="90" rx="4" stroke="#143b8a" stroke-width="2.5" width="75" x="160" y="30"></rect>
-<rect fill="#143b8a" height="12" rx="2" width="40" x="170" y="42"></rect>
-<text fill="#fff" font-family="Noto Sans JP" font-size="8" font-weight="700" text-anchor="middle" x="190" y="51">契約書</text>
-<line stroke="#cfd8e6" stroke-width="2" x1="170" x2="225" y1="68" y2="68"></line>
-<line stroke="#cfd8e6" stroke-width="2" x1="170" x2="225" y1="78" y2="78"></line>
-<line stroke="#cfd8e6" stroke-width="2" x1="170" x2="210" y1="88" y2="88"></line>
-<path d="M172 102 C180 94, 192 112, 208 98" fill="none" stroke="#ff7a1a" stroke-linecap="round" stroke-width="2.5"></path>
-<path d="M215 95 L240 70 L246 76 L221 101 Z" fill="#ff7a1a" stroke="#143b8a" stroke-linejoin="round" stroke-width="2"></path>
-<path d="M215 95 L221 101 L218 108 Z" fill="#143b8a"></path>
-</svg>
+<img alt="" src="assets/img/generated-icons/contract.png"/>
 </div>
 <p class="lease-step-caption">ご自宅を当社が買い取ります</p>
 </div>
@@ -145,23 +460,7 @@ html, body { margin: 0; padding: 0; }
 <div class="lease-step-card">
 <span class="lease-step-badge">STEP 02</span>
 <div class="lease-step-illust">
-<svg viewbox="0 0 260 140" xmlns="http://www.w3.org/2000/svg">
-<path d="M10 70 Q25 60 55 68 L75 75 L75 105 L10 105 Z" fill="#ffd4b0" stroke="#143b8a" stroke-linejoin="round" stroke-width="2"></path>
-<rect fill="#ff7a1a" height="20" stroke="#143b8a" stroke-width="2" width="20" x="5" y="95"></rect>
-<rect fill="#fff4c4" height="45" rx="3" stroke="#143b8a" stroke-width="2" width="120" x="70" y="55"></rect>
-<rect fill="#ffeca0" height="45" rx="3" stroke="#143b8a" stroke-width="2" width="120" x="65" y="62"></rect>
-<rect fill="#ffe277" height="45" rx="3" stroke="#143b8a" stroke-width="2" width="120" x="60" y="70"></rect>
-<circle cx="120" cy="92" fill="none" r="14" stroke="#143b8a" stroke-width="2"></circle>
-<text fill="#143b8a" font-family="Inter" font-size="18" font-weight="900" text-anchor="middle" x="120" y="98">¥</text>
-<ellipse cx="52" cy="118" fill="#143b8a" opacity=".15" rx="15" ry="4"></ellipse>
-<rect fill="#ff7a1a" height="22" rx="2" stroke="#143b8a" stroke-width="2" width="28" x="38" y="92"></rect>
-<rect fill="#143b8a" height="4" opacity=".2" width="28" x="38" y="96"></rect>
-<rect fill="#143b8a" height="4" opacity=".2" width="28" x="38" y="102"></rect>
-<circle cx="70" cy="118" fill="#ffe277" r="11" stroke="#143b8a" stroke-width="2"></circle>
-<text fill="#143b8a" font-family="Inter" font-size="11" font-weight="900" text-anchor="middle" x="70" y="123">¥</text>
-<path d="M250 70 Q235 60 205 68 L185 75 L185 105 L250 105 Z" fill="#ffd4b0" stroke="#143b8a" stroke-linejoin="round" stroke-width="2"></path>
-<rect fill="#ff7a1a" height="20" stroke="#143b8a" stroke-width="2" width="20" x="235" y="95"></rect>
-</svg>
+<img alt="" src="assets/img/generated-icons/cash.png"/>
 </div>
 <p class="lease-step-caption">売却代金を一括でお受け取り</p>
 </div>
@@ -171,19 +470,7 @@ html, body { margin: 0; padding: 0; }
 <div class="lease-step-card">
 <span class="lease-step-badge">STEP 03</span>
 <div class="lease-step-illust">
-<svg viewbox="0 0 260 140" xmlns="http://www.w3.org/2000/svg">
-<ellipse cx="40" cy="118" fill="#d8e6ff" rx="22" ry="5"></ellipse>
-<ellipse cx="220" cy="118" fill="#d8e6ff" rx="22" ry="5"></ellipse>
-<path d="M130 18 C125 12, 115 14, 115 22 C115 30, 130 38, 130 38 C130 38, 145 30, 145 22 C145 14, 135 12, 130 18 Z" fill="#ff7a1a"></path>
-<path d="M70 60 L130 25 L190 60 L190 120 L70 120 Z" fill="#fff" stroke="#143b8a" stroke-linejoin="round" stroke-width="2.5"></path>
-<path d="M60 65 L130 20 L200 65" fill="#ff7a1a" stroke="#143b8a" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5"></path>
-<circle cx="100" cy="85" fill="#143b8a" r="8"></circle>
-<rect fill="#143b8a" height="27" rx="4" width="16" x="92" y="93"></rect>
-<circle cx="130" cy="90" fill="#143b8a" r="6"></circle>
-<rect fill="#143b8a" height="23" rx="3" width="12" x="124" y="97"></rect>
-<circle cx="160" cy="85" fill="#143b8a" r="8"></circle>
-<rect fill="#143b8a" height="27" rx="4" width="16" x="152" y="93"></rect>
-</svg>
+<img alt="" src="assets/img/generated-icons/family-home.png"/>
 </div>
 <p class="lease-step-caption">賃貸契約でそのまま住み続ける</p>
 </div>
@@ -197,39 +484,7 @@ html, body { margin: 0; padding: 0; }
 <span class="lease-reason-num">01</span>
 <div class="lease-reason-visual">
 <div class="lease-photo-circle">
-<svg viewbox="0 0 170 170" xmlns="http://www.w3.org/2000/svg">
-<defs>
-<clippath id="c1"><circle cx="85" cy="85" r="85"></circle></clippath>
-<lineargradient id="bg1" x1="0" x2="0" y1="0" y2="1">
-<stop offset="0" stop-color="#f8e3c3"></stop>
-<stop offset="1" stop-color="#e6c497"></stop>
-</lineargradient>
-</defs>
-<g clip-path="url(#c1)">
-<rect fill="url(#bg1)" height="170" width="170"></rect>
-<rect fill="#fff8e8" height="80" opacity=".45" width="60" x="0" y="0"></rect>
-<rect fill="#b88553" height="40" width="170" x="0" y="130"></rect>
-<ellipse cx="55" cy="78" fill="#ddd6d0" rx="22" ry="23"></ellipse>
-<circle cx="55" cy="82" fill="#f4d2b0" r="18"></circle>
-<path d="M46 82 Q55 90 64 82" fill="none" stroke="#8a5a3a" stroke-linecap="round" stroke-width="1.5"></path>
-<circle cx="49" cy="80" fill="#3a2a1a" r="1.5"></circle>
-<circle cx="61" cy="80" fill="#3a2a1a" r="1.5"></circle>
-<path d="M30 110 Q55 100 80 110 L82 145 L28 145 Z" fill="#f1e3d0"></path>
-<ellipse cx="120" cy="72" fill="#ddd6d0" rx="22" ry="20"></ellipse>
-<circle cx="120" cy="78" fill="#f4c7a0" r="19"></circle>
-<path d="M110 80 Q120 88 130 80" fill="none" stroke="#5a3a22" stroke-linecap="round" stroke-width="1.5"></path>
-<circle cx="114" cy="76" fill="#3a2a1a" r="1.5"></circle>
-<circle cx="126" cy="76" fill="#3a2a1a" r="1.5"></circle>
-<path d="M95 108 Q120 98 145 108 L148 145 L92 145 Z" fill="#5a6b7a"></path>
-<ellipse cx="78" cy="135" fill="#fff" rx="15" ry="9" stroke="#8a5a3a" stroke-width="1"></ellipse>
-<path d="M63 132 L56 128" stroke="#fff" stroke-linecap="round" stroke-width="3"></path>
-<path d="M63 132 L56 128" stroke="#8a5a3a" stroke-linecap="round" stroke-width="1"></path>
-<ellipse cx="65" cy="148" fill="#fff" rx="10" ry="4" stroke="#8a5a3a" stroke-width="1"></ellipse>
-<ellipse cx="105" cy="148" fill="#fff" rx="10" ry="4" stroke="#8a5a3a" stroke-width="1"></ellipse>
-<ellipse cx="65" cy="146" fill="#6a4a2a" rx="8" ry="3"></ellipse>
-<ellipse cx="105" cy="146" fill="#6a4a2a" rx="8" ry="3"></ellipse>
-</g>
-</svg>
+<img alt="" src="assets/img/generated-icons/family-home.png"/>
 </div>
 </div>
 <h3 class="lease-reason-title">住み慣れた我が家に<br/>そのまま住める</h3>
@@ -241,20 +496,7 @@ html, body { margin: 0; padding: 0; }
 <span class="lease-reason-num">02</span>
 <div class="lease-reason-visual">
 <div class="lease-reason-circle">
-<svg viewbox="0 0 140 140" xmlns="http://www.w3.org/2000/svg">
-<polyline fill="none" points="10,60 35,45 55,55 80,25" stroke="#143b8a" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5"></polyline>
-<circle cx="10" cy="60" fill="#143b8a" r="3"></circle>
-<circle cx="35" cy="45" fill="#143b8a" r="3"></circle>
-<circle cx="55" cy="55" fill="#143b8a" r="3"></circle>
-<path d="M72 30 L85 18 L75 15 M85 18 L82 28" fill="none" stroke="#ff7a1a" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5"></path>
-<path d="M20 75 L55 50 L90 75 L90 120 L20 120 Z" fill="#fff" stroke="#143b8a" stroke-linejoin="round" stroke-width="2.5"></path>
-<path d="M15 78 L55 46 L95 78" fill="#ff7a1a" stroke="#143b8a" stroke-linejoin="round" stroke-width="2.5"></path>
-<rect fill="#cfe0ff" height="14" stroke="#143b8a" stroke-width="2" width="14" x="35" y="90"></rect>
-<rect fill="#fff" height="22" stroke="#143b8a" stroke-width="2" width="14" x="60" y="90"></rect>
-<circle cx="105" cy="78" fill="#fff" opacity=".95" r="22" stroke="#ff7a1a" stroke-width="3.5"></circle>
-<circle cx="105" cy="78" fill="#cfe0ff" opacity=".35" r="22"></circle>
-<line stroke="#ff7a1a" stroke-linecap="round" stroke-width="5" x1="121" x2="135" y1="94" y2="110"></line>
-</svg>
+<img alt="" src="assets/img/generated-icons/chart.png"/>
 </div>
 </div>
 <h3 class="lease-reason-title">複数社比較で納得の<br/>高額査定</h3>
@@ -266,19 +508,7 @@ html, body { margin: 0; padding: 0; }
 <span class="lease-reason-num">03</span>
 <div class="lease-reason-visual">
 <div class="lease-reason-circle">
-<svg viewbox="0 0 140 140" xmlns="http://www.w3.org/2000/svg">
-<path d="M20 60 A50 50 0 0 1 115 45" fill="none" stroke="#2f72e0" stroke-linecap="round" stroke-width="3"></path>
-<path d="M115 45 L108 38 M115 45 L105 50" fill="none" stroke="#2f72e0" stroke-linecap="round" stroke-width="3"></path>
-<path d="M120 80 A50 50 0 0 1 25 95" fill="none" stroke="#ff7a1a" stroke-linecap="round" stroke-width="3"></path>
-<path d="M25 95 L32 102 M25 95 L35 90" fill="none" stroke="#ff7a1a" stroke-linecap="round" stroke-width="3"></path>
-<path d="M40 75 L70 50 L100 75 L100 115 L40 115 Z" fill="#fff" stroke="#143b8a" stroke-linejoin="round" stroke-width="2.5"></path>
-<path d="M35 78 L70 46 L105 78" fill="#ff7a1a" stroke="#143b8a" stroke-linejoin="round" stroke-width="2.5"></path>
-<rect fill="#fff" height="22" stroke="#143b8a" stroke-width="2" width="14" x="52" y="90"></rect>
-<rect fill="#cfe0ff" height="14" stroke="#143b8a" stroke-width="2" width="14" x="76" y="90"></rect>
-<circle cx="100" cy="95" fill="none" r="7" stroke="#ff7a1a" stroke-width="3"></circle>
-<line stroke="#ff7a1a" stroke-linecap="round" stroke-width="3" x1="106" x2="120" y1="99" y2="113"></line>
-<line stroke="#ff7a1a" stroke-linecap="round" stroke-width="3" x1="113" x2="118" y1="106" y2="101"></line>
-</svg>
+<img alt="" src="assets/img/generated-icons/buyback.png"/>
 </div>
 </div>
 <h3 class="lease-reason-title">いつでも<br/>買い戻せる安心</h3>
@@ -296,17 +526,7 @@ html, body { margin: 0; padding: 0; }
 <div class="lease-merit-card">
 <span class="lease-merit-num">01</span>
 <div class="lease-merit-icon">
-<svg viewbox="0 0 80 80" xmlns="http://www.w3.org/2000/svg">
-<path d="M20 8 L22 14 L28 16 L22 18 L20 24 L18 18 L12 16 L18 14 Z" fill="#ff7a1a"></path>
-<path d="M58 10 L59 14 L63 15 L59 16 L58 20 L57 16 L53 15 L57 14 Z" fill="#ff7a1a"></path>
-<rect fill="#2f72e0" height="38" rx="5" stroke="#143b8a" stroke-width="2" width="52" x="14" y="28"></rect>
-<rect fill="#4d8cf0" height="10" width="52" x="14" y="28"></rect>
-<rect fill="#fff3b0" height="18" stroke="#143b8a" stroke-width="2" width="28" x="26" y="20"></rect>
-<text fill="#143b8a" font-family="Inter" font-size="10" font-weight="900" text-anchor="middle" x="40" y="33">¥</text>
-<circle cx="55" cy="47" fill="#ff7a1a" r="4" stroke="#143b8a" stroke-width="2"></circle>
-<circle cx="60" cy="68" fill="#ffc95c" r="9" stroke="#143b8a" stroke-width="2"></circle>
-<text fill="#143b8a" font-family="Inter" font-size="8" font-weight="900" text-anchor="middle" x="60" y="72">100</text>
-</svg>
+<img alt="" src="assets/img/generated-icons/cash.png"/>
 </div>
 <h3 class="lease-merit-title">まとまった資金が<br/>一括で手に入る</h3>
 <p class="lease-merit-desc">老後資金・ローン返済・事業資金など、用途を問わず自由に使えます。</p>
@@ -314,16 +534,7 @@ html, body { margin: 0; padding: 0; }
 <div class="lease-merit-card">
 <span class="lease-merit-num">02</span>
 <div class="lease-merit-icon">
-<svg viewbox="0 0 80 80" xmlns="http://www.w3.org/2000/svg">
-<rect fill="#eaf2ff" height="26" rx="2" stroke="#ff7a1a" stroke-width="2.5" width="38" x="8" y="28"></rect>
-<path d="M46 38 L60 38 L68 48 L68 54 L46 54 Z" fill="#eaf2ff" stroke="#ff7a1a" stroke-linejoin="round" stroke-width="2.5"></path>
-<rect fill="#cfe0ff" height="9" stroke="#ff7a1a" stroke-width="1.5" width="14" x="49" y="41"></rect>
-<circle cx="22" cy="58" fill="#fff" r="5" stroke="#ff7a1a" stroke-width="2.5"></circle>
-<circle cx="56" cy="58" fill="#fff" r="5" stroke="#ff7a1a" stroke-width="2.5"></circle>
-<text fill="#ff7a1a" font-family="Noto Sans JP" font-size="11" font-weight="900" text-anchor="middle" x="27" y="46">引越</text>
-<circle cx="40" cy="40" fill="none" opacity=".85" r="32" stroke="#ff4a1a" stroke-width="4.5"></circle>
-<line opacity=".85" stroke="#ff4a1a" stroke-linecap="round" stroke-width="4.5" x1="17" x2="63" y1="17" y2="63"></line>
-</svg>
+<img alt="" src="assets/img/generated-icons/no-moving.png"/>
 </div>
 <h3 class="lease-merit-title">引越費用も<br/>仮住まいも不要</h3>
 <p class="lease-merit-desc">住み慣れた家にそのまま。体力的負担もありません。</p>
@@ -331,15 +542,7 @@ html, body { margin: 0; padding: 0; }
 <div class="lease-merit-card">
 <span class="lease-merit-num">03</span>
 <div class="lease-merit-icon">
-<svg viewbox="0 0 80 80" xmlns="http://www.w3.org/2000/svg">
-<path d="M18 35 L40 20 L62 35 L62 65 L18 65 Z" fill="#fff" stroke="#143b8a" stroke-linejoin="round" stroke-width="2.5"></path>
-<path d="M14 38 L40 18 L66 38" fill="#ff7a1a" stroke="#143b8a" stroke-linejoin="round" stroke-width="2.5"></path>
-<rect fill="#cfe0ff" height="14" stroke="#143b8a" stroke-width="2" width="12" x="43" y="44"></rect>
-<path d="M30 40 L30 58 L24 58 L33 68 L42 58 L36 58 L36 40 Z" fill="#ff7a1a" stroke="#143b8a" stroke-linejoin="round" stroke-width="1.5"></path>
-<circle cx="55" cy="65" fill="none" r="3" stroke="#143b8a" stroke-width="2"></circle>
-<circle cx="67" cy="75" fill="none" r="3" stroke="#143b8a" stroke-width="2"></circle>
-<line stroke="#143b8a" stroke-linecap="round" stroke-width="2" x1="54" x2="68" y1="76" y2="64"></line>
-</svg>
+<img alt="" src="assets/img/generated-icons/money-bag.png"/>
 </div>
 <h3 class="lease-merit-title">固定資産税・修繕費<br/>の負担がなくなる</h3>
 <p class="lease-merit-desc">所有者が当社に移り、維持コストから解放されます。</p>
@@ -347,29 +550,7 @@ html, body { margin: 0; padding: 0; }
 <div class="lease-merit-card">
 <span class="lease-merit-num">04</span>
 <div class="lease-merit-icon">
-<svg viewbox="0 0 80 80" xmlns="http://www.w3.org/2000/svg">
-<circle cx="22" cy="25" fill="#f4d2b0" r="9" stroke="#143b8a" stroke-width="2"></circle>
-<path d="M14 22 Q22 14 30 22 Q28 17 22 16 Q16 17 14 22 Z" fill="#b8b8b8"></path>
-<circle cx="19" cy="26" fill="#143b8a" r="1"></circle>
-<circle cx="25" cy="26" fill="#143b8a" r="1"></circle>
-<path d="M19 30 Q22 32 25 30" fill="none" stroke="#143b8a" stroke-width="1"></path>
-<circle cx="42" cy="25" fill="#f4d2b0" r="9" stroke="#143b8a" stroke-width="2"></circle>
-<path d="M34 22 Q42 14 50 22 Q48 16 42 15 Q36 16 34 22 Z" fill="#b8b8b8"></path>
-<circle cx="39" cy="26" fill="#143b8a" r="1"></circle>
-<circle cx="45" cy="26" fill="#143b8a" r="1"></circle>
-<path d="M39 30 Q42 32 45 30" fill="none" stroke="#143b8a" stroke-width="1"></path>
-<line stroke="#143b8a" stroke-width="1.5" x1="32" x2="32" y1="36" y2="44"></line>
-<line stroke="#143b8a" stroke-width="1.5" x1="20" x2="62" y1="44" y2="44"></line>
-<line stroke="#143b8a" stroke-width="1.5" x1="20" x2="20" y1="44" y2="48"></line>
-<line stroke="#143b8a" stroke-width="1.5" x1="62" x2="62" y1="44" y2="48"></line>
-<circle cx="20" cy="56" fill="#f4d2b0" r="7" stroke="#143b8a" stroke-width="2"></circle>
-<path d="M13 54 Q20 47 27 54" fill="#3a2a1a"></path>
-<circle cx="38" cy="56" fill="#f4d2b0" r="7" stroke="#143b8a" stroke-width="2"></circle>
-<path d="M31 54 Q38 45 45 54 L44 60 L32 60 Z" fill="#d86a6a"></path>
-<path d="M56 55 L66 47 L76 55 L76 70 L56 70 Z" fill="#fff" stroke="#143b8a" stroke-linejoin="round" stroke-width="2"></path>
-<path d="M54 56 L66 46 L78 56" fill="#ff7a1a" stroke="#143b8a" stroke-width="2"></path>
-<rect fill="#cfe0ff" height="8" stroke="#143b8a" stroke-width="1.5" width="6" x="63" y="60"></rect>
-</svg>
+<img alt="" src="assets/img/generated-icons/family.png"/>
 </div>
 <h3 class="lease-merit-title">相続対策にも<br/>活用できる</h3>
 <p class="lease-merit-desc">現金化で分割がスムーズ。家族間のトラブル防止に。</p>
@@ -377,16 +558,7 @@ html, body { margin: 0; padding: 0; }
 <div class="lease-merit-card">
 <span class="lease-merit-num">05</span>
 <div class="lease-merit-icon">
-<svg viewbox="0 0 80 80" xmlns="http://www.w3.org/2000/svg">
-<path d="M16 32 L38 18 L60 32 L60 62 L16 62 Z" fill="#fff" stroke="#143b8a" stroke-linejoin="round" stroke-width="2.5"></path>
-<path d="M12 35 L38 16 L64 35" fill="#ff7a1a" stroke="#143b8a" stroke-linejoin="round" stroke-width="2.5"></path>
-<rect fill="#cfe0ff" height="20" stroke="#143b8a" stroke-width="2" width="12" x="34" y="42"></rect>
-<circle cx="26" cy="58" fill="none" r="6" stroke="#ff7a1a" stroke-width="3"></circle>
-<line stroke="#ff7a1a" stroke-linecap="round" stroke-width="3" x1="21" x2="10" y1="63" y2="74"></line>
-<line stroke="#ff7a1a" stroke-linecap="round" stroke-width="3" x1="15" x2="12" y1="69" y2="72"></line>
-<path d="M58 45 Q62 40 66 45 L66 70 L58 70 Z" fill="#f4d2b0" stroke="#143b8a" stroke-linejoin="round" stroke-width="2"></path>
-<line stroke="#143b8a" stroke-linecap="round" stroke-width="2" x1="62" x2="62" y1="40" y2="30"></line>
-</svg>
+<img alt="" src="assets/img/generated-icons/lock.png"/>
 </div>
 <h3 class="lease-merit-title">ご近所・親戚に<br/>知られない</h3>
 <p class="lease-merit-desc">看板・内覧・引越しなし。ひっそりと手続きが完結します。</p>
@@ -394,15 +566,7 @@ html, body { margin: 0; padding: 0; }
 <div class="lease-merit-card">
 <span class="lease-merit-num">06</span>
 <div class="lease-merit-icon">
-<svg viewbox="0 0 80 80" xmlns="http://www.w3.org/2000/svg">
-<path d="M12 42 A28 28 0 0 1 58 22" fill="none" stroke="#2f72e0" stroke-linecap="round" stroke-width="3"></path>
-<path d="M58 22 L52 18 M58 22 L54 28" fill="none" stroke="#2f72e0" stroke-linecap="round" stroke-width="3"></path>
-<path d="M68 38 A28 28 0 0 1 22 58" fill="none" stroke="#ff7a1a" stroke-linecap="round" stroke-width="3"></path>
-<path d="M22 58 L28 62 M22 58 L26 52" fill="none" stroke="#ff7a1a" stroke-linecap="round" stroke-width="3"></path>
-<path d="M28 40 L40 30 L52 40 L52 60 L28 60 Z" fill="#fff" stroke="#143b8a" stroke-linejoin="round" stroke-width="2.5"></path>
-<path d="M24 42 L40 28 L56 42" fill="none" stroke="#143b8a" stroke-linejoin="round" stroke-width="2.5"></path>
-<rect fill="#cfe0ff" height="14" stroke="#143b8a" stroke-width="1.8" width="8" x="36" y="46"></rect>
-</svg>
+<img alt="" src="assets/img/generated-icons/buyback.png"/>
 </div>
 <h3 class="lease-merit-title">将来<br/>買い戻せる</h3>
 <p class="lease-merit-desc">お客様のご都合の良いタイミングで買戻しが可能です。</p>
@@ -430,7 +594,7 @@ html, body { margin: 0; padding: 0; }
 <div class="step-card">
 <div class="step-num"><span class="n">02</span><span class="t">ご案内</span></div>
 <div class="step-head">
-<h3>ヒアリング・ご説明</h3>
+<h3>ヒアリング・<br/>ご説明</h3>
 <span class="step-badge">内容確認</span>
 </div>
 <p class="step-desc">ご状況やご希望を伺い リースバックの仕組みを分かりやすくご説明します。</p>
@@ -457,7 +621,7 @@ html, body { margin: 0; padding: 0; }
 <div class="step-card">
 <div class="step-num"><span class="n">05</span><span class="t">開始</span></div>
 <div class="step-head">
-<h3>お振込み・新生活スタート</h3>
+<h3>お振込み・<br/>新生活スタート</h3>
 <span class="step-badge">ご契約後</span>
 </div>
 <p class="step-desc">売却代金をお振込み。お住まいはそのまま、新しい安心の暮らしが始まります。</p>
@@ -596,6 +760,9 @@ html, body { margin: 0; padding: 0; }
 </form>
 </section>
 </main>
+<footer class="mobile-footer">
+<p>運用会社 asp management</p>
+</footer>
 </div>
 
 <div class="responsive-lp">
@@ -811,13 +978,13 @@ html, body { margin: 0; padding: 0; }
 <section class="hero section">
 <div class="container hero__grid">
 <div class="hero__content">
-<h1 class="hero__title">自宅を売っても、<br/><span class="hero__title-line">住み慣れた我が家に</span><br/>そのまま住める。</h1>
-<p class="hero__lead">最短5営業日で現金化 / 引越し不要 / 秘密厳守<br/>将来の買戻しも可能。経験豊富なスタッフが、<br/>大切な暮らしを守ります。</p>
+<h1 class="hero__title">自宅を売っても、<br/><span class="hero__title-line"><span class="keep-ja">住み慣れた</span><span class="keep-ja">我が家に</span></span><br/>そのまま住める。</h1>
+<p class="hero__lead">将来の買戻しも可能。経験豊富なスタッフが、<br/>ご事情に合わせたご相談を丁寧に承ります。</p>
 <div class="hero__actions">
 <a class="btn btn--primary" href="#cta"><span class="btn__arrow">▶</span>60秒でカンタン無料査定</a>
 <a aria-label="0120-XXX-XXXに電話" class="phone-card" href="tel:0120-000-000">
 <svg class="phone-card__icon icon"><use href="#i-phone"></use></svg>
-<div class="phone-card__body"><strong>0120-XXX-XXX</strong><span>無料 / 9-19時 / 土日祝OK</span></div>
+<div class="phone-card__body"><strong>0120-XXX-XXX</strong></div>
 </a>
 </div>
 </div>
@@ -825,18 +992,18 @@ html, body { margin: 0; padding: 0; }
 <p class="hero__scribble">これからも<br/>この家で。</p>
 <div class="hero__photo">
 <picture>
-<source media="(max-width: 767px)" srcset="assets/img/hero-couple-mobile.png"/>
-<img alt="笑顔で座る夫婦" src="assets/img/hero-couple.png"/>
+<source media="(max-width: 767px)" srcset="assets/img/hero-fv-generated-mobile.png"/>
+<img alt="笑顔で座る夫婦" src="assets/img/hero-fv-generated.png"/>
 </picture>
 </div>
 </div>
 </div>
 <div class="trust-strip">
 <div class="container trust-strip__grid">
-<article class="trust-item trust-item--first"><svg class="icon"><use href="#i-building"></use></svg><div><h2>住み慣れた家で<br/>そのまま暮らせる</h2><p>売却後も賃貸として住み続けられるため、生活環境を大きく変えずに進められます。</p></div></article>
-<article class="trust-item"><svg class="icon"><use href="#i-group"></use></svg><div><h2>経験豊富なスタッフが対応</h2><p>ご状況やご希望を丁寧に伺い、無理のない進め方をご提案します。</p></div></article>
-<article class="trust-item"><svg class="icon"><use href="#i-lock"></use></svg><div><h2>わかりやすいご説明</h2><p>仕組みや条件を一つずつ整理し、不安を減らしながら進められるよう丁寧にご案内します。</p></div></article>
-<article class="trust-item"><svg class="icon"><use href="#i-hand-heart"></use></svg><div><h2>ご状況に合わせてご提案</h2><p>住宅ローンや老後資金などのお悩みに応じて、進め方を柔軟にご案内します。</p></div></article>
+<article class="trust-item trust-item--first"><img class="icon generated-icon" alt="" src="assets/img/generated-icons/house.png"/><div><h2>住み慣れた家で<br/>暮らせる</h2><p>売却後も賃貸として住み続けられるため、生活環境を大きく変えずに進められます。</p></div></article>
+<article class="trust-item"><img class="icon generated-icon" alt="" src="assets/img/generated-icons/advisors.png"/><div><h2>経験豊富な<br/>スタッフが対応</h2><p>ご状況やご希望を丁寧に伺い、無理のない進め方をご提案します。</p></div></article>
+<article class="trust-item"><img class="icon generated-icon" alt="" src="assets/img/generated-icons/lock.png"/><div><h2>わかりやすい<br/>ご説明</h2><p>仕組みや条件を一つずつ整理し、不安を減らしながら進められるよう丁寧にご案内します。</p></div></article>
+<article class="trust-item"><img class="icon generated-icon" alt="" src="assets/img/generated-icons/heart-hand.png"/><div><h2>ご状況に<br/>合わせてご提案</h2><p>住宅ローンや老後資金などのお悩みに応じて、進め方を柔軟にご案内します。</p></div></article>
 </div>
 </div>
 </section>
@@ -872,22 +1039,22 @@ html, body { margin: 0; padding: 0; }
 <div class="process__grid">
 <article class="process-card">
 <span class="process-card__badge">STEP 01</span>
-<div class="process-card__icon"><svg viewbox="0 0 260 140"><use href="#i-process-1"></use></svg></div>
+<div class="process-card__icon"><img alt="" src="assets/img/generated-icons/contract.png"/></div>
 <h3>ご自宅を当社が買い取ります</h3>
 <p>査定後、ご納得いただいた価格で当社が買主となります。</p>
 </article>
 <div aria-hidden="true" class="process__arrow"></div>
 <article class="process-card">
 <span class="process-card__badge">STEP 02</span>
-<div class="process-card__icon"><svg viewbox="0 0 260 140"><use href="#i-process-2"></use></svg></div>
-<h3>売却代金を一括でお受け取り</h3>
+<div class="process-card__icon"><img alt="" src="assets/img/generated-icons/cash.png"/></div>
+<h3>売却代金を一括で<br/>お受け取り</h3>
 <p>老後資金やローン返済など、用途を問わず自由にお使いいただけます。</p>
 </article>
 <div aria-hidden="true" class="process__arrow"></div>
 <article class="process-card">
 <span class="process-card__badge">STEP 03</span>
-<div class="process-card__icon"><svg viewbox="0 0 260 140"><use href="#i-process-3"></use></svg></div>
-<h3>賃貸契約でそのまま住み続ける</h3>
+<div class="process-card__icon"><img alt="" src="assets/img/generated-icons/family-home.png"/></div>
+<h3>賃貸契約で<br/>そのまま住み続ける</h3>
 <p>これまでと変わらず、同じ家での暮らしが続きます。</p>
 </article>
 </div>
@@ -904,19 +1071,19 @@ html, body { margin: 0; padding: 0; }
 <span class="reason-card__num">01</span>
 <div class="reason-card__photo"><img alt="笑顔で座る夫婦" src="assets/img/hero-couple.png"/></div>
 <div class="reason-card__content">
-<h3>住み慣れた我が家にそのまま住める</h3>
+<h3>住み慣れた我が家に<br/>そのまま住める</h3>
 <p>引越しの必要はありません。お子さまの学区も、ご近所付き合いも、いつもの暮らしも、何ひとつ変わりません。家族写真も、思い出の家具も、そのまま。「家を失う」のではなく、「住み続けながら家を活かす」のがリースバックです。</p>
 </div>
 </article>
 <article class="reason-card">
 <span class="reason-card__num">02</span>
-<div class="reason-card__visual"><svg viewbox="0 0 140 140"><use href="#i-reason-chart"></use></svg></div>
-<h3>複数社比較で納得の高額査定</h3>
+<div class="reason-card__visual"><img alt="" src="assets/img/generated-icons/chart.png"/></div>
+<h3>複数社比較で<br/>納得の高額査定</h3>
 <p>当社は提携不動産会社のネットワークを活用し、お客様の物件にもっとも高い価格を提示できる買主を選定します。一社査定では実現できない、複数社の競争原理による高額査定が可能です。</p>
 </article>
 <article class="reason-card">
 <span class="reason-card__num">03</span>
-<div class="reason-card__visual"><svg viewbox="0 0 140 140"><use href="#i-reason-buyback"></use></svg></div>
+<div class="reason-card__visual"><img alt="" src="assets/img/generated-icons/buyback.png"/></div>
 <h3>いつでも買い戻せる安心</h3>
 <p>将来、経済状況が好転したら、売却した我が家を買い戻すことができます。将来の買い戻しが可能なため、家族の大切な思い出を未来へつなげられます。</p>
 </article>
@@ -935,11 +1102,10 @@ html, body { margin: 0; padding: 0; }
 <div class="merits__layout">
 <article class="merit-feature">
 <div class="merit-feature__media merit-feature__media--desktop">
-<div class="merit-feature__room"><img alt="明るい室内" src="assets/img/merit-room.png"/></div>
-<div class="merit-feature__house"><img alt="戸建て住宅" src="assets/img/merit-house.png"/></div>
+<div class="merit-feature__room"><img alt="自宅で資金計画を確認する夫婦" src="assets/img/merit-funds-generated.png"/></div>
 </div>
 <div class="merit-feature__media merit-feature__media--tablet">
-<img alt="相談しながら書類を見る夫婦" src="assets/img/merit-writing.png"/>
+<img alt="自宅で資金計画を確認する夫婦" src="assets/img/merit-funds-generated.png"/>
 </div>
 <div class="merit-feature__content">
 <p class="merit-feature__tag">メリット <strong>01</strong></p>
@@ -948,11 +1114,11 @@ html, body { margin: 0; padding: 0; }
 </div>
 </article>
 <div class="merits__list">
-<article class="merit-row"><div class="merit-row__icon"><svg viewbox="0 0 80 80"><use href="#i-merit-truck"></use></svg></div><div class="merit-row__text"><span class="merit-row__num">02</span><h3>引越し不要で、そのまま住み続けられる</h3><p>住み慣れた我が家で、今まで通りの生活が続けられます。お子さまの学校やご近所との関係もそのままです。</p></div></article>
-<article class="merit-row"><div class="merit-row__icon"><svg viewbox="0 0 80 80"><use href="#i-merit-bag"></use></svg></div><div class="merit-row__text"><span class="merit-row__num">03</span><h3>固定資産税などの負担が軽くなる</h3><p>所有者が当社になるため、固定資産税や都市計画税などの維持費の負担がなくなり、家計にゆとりが生まれます。</p></div></article>
-<article class="merit-row"><div class="merit-row__icon"><svg class="icon-lockbig" viewbox="0 0 64 64"><use href="#i-lock"></use></svg></div><div class="merit-row__text"><span class="merit-row__num">04</span><h3>プライバシーを守り、周囲に知られずに進められる</h3><p>ご近所や親戚に知られることなく、安心してご相談いただけます。秘密厳守を徹底しています。</p></div></article>
-<article class="merit-row"><div class="merit-row__icon"><svg viewbox="0 0 80 80"><use href="#i-merit-doc"></use></svg></div><div class="merit-row__text"><span class="merit-row__num">05</span><h3>将来の買い戻しが可能で安心</h3><p>将来、経済状況が好転した際には、売却した我が家を買い戻すことができます。</p></div></article>
-<article class="merit-row"><div class="merit-row__icon"><svg viewbox="0 0 80 80"><use href="#i-merit-family"></use></svg></div><div class="merit-row__text"><span class="merit-row__num">06</span><h3>相続対策としても活用できる</h3><p>現金化することで相続時の資産分割がしやすくなり、相続トラブルの予防にもつながります。</p></div></article>
+<article class="merit-row"><div class="merit-row__icon"><img alt="" src="assets/img/generated-icons/no-moving.png"/></div><div class="merit-row__text"><span class="merit-row__num">02</span><h3>引越し不要で、<br/>そのまま住み続けられる</h3><p>住み慣れた我が家で、今まで通りの生活が続けられます。お子さまの学校やご近所との関係もそのままです。</p></div></article>
+<article class="merit-row"><div class="merit-row__icon"><img alt="" src="assets/img/generated-icons/money-bag.png"/></div><div class="merit-row__text"><span class="merit-row__num">03</span><h3>固定資産税などの負担が軽くなる</h3><p>所有者が当社になるため、固定資産税や都市計画税などの維持費の負担がなくなり、家計にゆとりが生まれます。</p></div></article>
+<article class="merit-row"><div class="merit-row__icon"><img alt="" src="assets/img/generated-icons/lock.png"/></div><div class="merit-row__text"><span class="merit-row__num">04</span><h3>プライバシーを守り、<br/><span class="keep-ja">周囲に知られず</span>に<br/>進められる</h3><p>ご近所や親戚に知られることなく、安心してご相談いただけます。秘密厳守を徹底しています。</p></div></article>
+<article class="merit-row"><div class="merit-row__icon"><img alt="" src="assets/img/generated-icons/buyback.png"/></div><div class="merit-row__text"><span class="merit-row__num">05</span><h3>将来の買い戻しが可能で安心</h3><p>将来、経済状況が好転した際には、売却した我が家を買い戻すことができます。</p></div></article>
+<article class="merit-row"><div class="merit-row__icon"><img alt="" src="assets/img/generated-icons/family.png"/></div><div class="merit-row__text"><span class="merit-row__num">06</span><h3>相続対策としても<br/>活用できる</h3><p>現金化することで相続時の資産分割がしやすくなり、相続トラブルの予防にもつながります。</p></div></article>
 </div>
 </div>
 <div class="merits__banner"><svg class="icon"><use href="#i-lock"></use></svg><p>大切なご家族の未来と、穏やかな暮らしを守る選択肢、それが<strong>リースバック</strong>です。</p></div>
@@ -962,40 +1128,40 @@ html, body { margin: 0; padding: 0; }
 <div class="container">
 <p aria-hidden="true" class="section-dots">•••</p>
 <h2 class="section-title section-title--center">ご利用までの、<span>5ステップ</span></h2>
-<p class="section-copy section-copy--center">お問い合わせから最短◯日で、お振込みまで完了します。</p>
+<p class="section-copy section-copy--center">ご相談内容に合わせて、査定からお手続きまで丁寧に進めます。</p>
 <div class="flow__list">
 <article class="flow-card">
 <span class="flow-card__step">01</span>
-<span class="flow-card__time">約60秒</span>
-<div class="flow-card__icon"><svg class="icon"><use href="#i-flow-call"></use></svg></div>
+<span class="flow-card__time">ご相談</span>
+<div class="flow-card__icon"><img class="icon generated-icon" alt="" src="assets/img/generated-icons/phone.png"/></div>
 <div class="flow-card__body"><h3>お問い合わせ</h3><p>Webフォームまたはお電話で、お気軽にご相談ください。経験豊富なスタッフが丁寧に対応します。</p></div>
 </article>
 <article class="flow-card">
 <span class="flow-card__step">02</span>
-<span class="flow-card__time">1〜2日</span>
-<div class="flow-card__icon"><svg class="icon"><use href="#i-flow-chat"></use></svg></div>
-<div class="flow-card__body"><h3>ヒアリング・ご説明</h3><p>お客様のご状況やご希望を伺い、リースバックの仕組みを分かりやすくご説明します。</p></div>
+<span class="flow-card__time">確認</span>
+<div class="flow-card__icon"><img class="icon generated-icon" alt="" src="assets/img/generated-icons/chat.png"/></div>
+<div class="flow-card__body"><h3>ヒアリング・<br class="br-tablet"/>ご説明</h3><p>お客様のご状況やご希望を伺い、リースバックの仕組みを分かりやすくご説明します。</p></div>
 </article>
 <article class="flow-card">
 <span class="flow-card__step">03</span>
-<span class="flow-card__time">2〜3日</span>
-<div class="flow-card__icon"><svg class="icon"><use href="#i-flow-search"></use></svg></div>
+<span class="flow-card__time">査定</span>
+<div class="flow-card__icon"><img class="icon generated-icon" alt="" src="assets/img/generated-icons/chart.png"/></div>
 <div class="flow-card__body"><h3>査定・条件提示</h3><p>物件を査定し、買取価格・賃料・契約条件を明確にご提示します。</p></div>
 </article>
 <article class="flow-card">
 <span class="flow-card__step">04</span>
-<span class="flow-card__time">1日</span>
-<div class="flow-card__icon"><svg class="icon"><use href="#i-flow-handshake"></use></svg></div>
+<span class="flow-card__time">ご契約</span>
+<div class="flow-card__icon"><img class="icon generated-icon" alt="" src="assets/img/generated-icons/heart-hand.png"/></div>
 <div class="flow-card__body"><h3>売買契約・賃貸契約</h3><p>条件にご納得いただけましたら、売買契約と賃貸契約を同時に締結します。</p></div>
 </article>
 <article class="flow-card">
 <span class="flow-card__step">05</span>
-<span class="flow-card__time">最短即日</span>
-<div class="flow-card__icon"><svg class="icon"><use href="#i-flow-bank"></use></svg></div>
-<div class="flow-card__body"><h3>お振込み・新生活スタート</h3><p>売却代金をお振込み。お住まいはそのまま、新しい安心の暮らしが始まります。</p></div>
+<span class="flow-card__time">お振込み</span>
+<div class="flow-card__icon"><img class="icon generated-icon" alt="" src="assets/img/generated-icons/bank-transfer.png"/></div>
+<div class="flow-card__body"><h3>お振込み・<br class="br-tablet"/>新生活スタート</h3><p>売却代金をお振込み。お住まいはそのまま、新しい安心の暮らしが始まります。</p></div>
 </article>
 </div>
-<p class="flow__footnote">※所要日数は条件により前後します。</p>
+<p class="flow__footnote">※ご状況により進行内容は異なります。</p>
 </div>
 </section>
 <section class="faq section">
@@ -1039,7 +1205,7 @@ html, body { margin: 0; padding: 0; }
 </article>
 <article class="faq-item">
 <button aria-expanded="false" class="faq-item__q" type="button"><span class="faq-item__bubble">Q</span><span>申込みから入金までどのくらいかかりますか？</span><span class="faq-item__toggle"></span></button>
-<div class="faq-item__a"><div class="faq-item__answer"><span class="faq-item__bubble faq-item__bubble--a">A</span><p>最短では数日で完了するケースもあります。物件や条件によって前後するため、詳しくはご相談時にご案内します。</p></div></div>
+<div class="faq-item__a"><div class="faq-item__answer"><span class="faq-item__bubble faq-item__bubble--a">A</span><p>物件や条件によって前後するため、スケジュールはご相談時に個別にご案内します。</p></div></div>
 </article>
 </div>
 </div>
@@ -1056,7 +1222,7 @@ html, body { margin: 0; padding: 0; }
 <div class="cta-card__actions">
 <a class="phone-card phone-card--cta" href="tel:0120-000-000">
 <div class="phone-card__label">お電話でのご相談はこちら（通話無料）</div>
-<div class="phone-card__main"><svg class="phone-card__icon icon"><use href="#i-phone"></use></svg><div class="phone-card__body"><strong>0120-XXX-XXX</strong><span>受付 / 9-19時 / 土日祝OK</span></div></div>
+<div class="phone-card__main"><svg class="phone-card__icon icon"><use href="#i-phone"></use></svg><div class="phone-card__body"><strong>0120-XXX-XXX</strong></div></div>
 </a>
 <a class="btn btn--primary btn--large" href="#">60秒でカンタン無料査定</a>
 </div>
@@ -1066,11 +1232,11 @@ html, body { margin: 0; padding: 0; }
 </section>
 </main><footer class="footer">
 <div class="container footer__features">
-<article class="footer__feature"><svg class="icon"><use href="#i-hand-heart"></use></svg><div><h2>住み慣れた家で暮らせる</h2><p>売却後も住環境を大きく変えず、これまで通りの暮らしを続けやすい仕組みです。</p></div></article>
-<article class="footer__feature"><svg class="icon"><use href="#i-group"></use></svg><div><h2>経験豊富なスタッフが対応</h2><p>お客様一人ひとりのご事情を伺い、無理のない進め方を一緒に考えます。</p></div></article>
-<article class="footer__feature"><svg class="icon"><use href="#i-lock"></use></svg><div><h2>丁寧にご説明します</h2><p>仕組みや条件をわかりやすく整理し、納得しながらご検討いただけるようご案内します。</p></div></article>
+<article class="footer__feature"><img class="icon generated-icon" alt="" src="assets/img/generated-icons/family-home.png"/><div><h2>住み慣れた家で<br/>暮らせる</h2><p>売却後も住環境を大きく変えず、これまで通りの暮らしを続けやすい仕組みです。</p></div></article>
+<article class="footer__feature"><img class="icon generated-icon" alt="" src="assets/img/generated-icons/advisors.png"/><div><h2>経験豊富な<br/>スタッフが対応</h2><p>お客様一人ひとりのご事情を伺い、無理のない進め方を一緒に考えます。</p></div></article>
+<article class="footer__feature"><img class="icon generated-icon" alt="" src="assets/img/generated-icons/document-check.png"/><div><h2>丁寧に<br/>ご説明します</h2><p>仕組みや条件をわかりやすく整理し、納得しながらご検討いただけるようご案内します。</p></div></article>
 </div>
-<p class="footer__copy">© Leaseback Co., Ltd. All rights reserved.</p>
+<p class="footer__company">運用会社 asp management</p>
 </footer>
 </div>
 
