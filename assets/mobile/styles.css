@@ -411,6 +411,21 @@
 }.mobile-lp .submit:active{
   transform: translateY(2px);
   box-shadow: 0 2px 0 rgba(210, 90, 10, 0.35);
+}.mobile-lp .submit:disabled{
+  cursor: wait;
+  opacity: 0.72;
+}.mobile-lp .form-status{
+  min-height: 1.6em;
+  margin: 14px 0 0;
+  color: #1f2937;
+  font-size: 14px;
+  font-weight: 700;
+  line-height: 1.6;
+  text-align: center;
+}.mobile-lp .form-status[data-status="success"]{
+  color: #147a39;
+}.mobile-lp .form-status[data-status="error"]{
+  color: #c53030;
 }.mobile-lp .lease-block{
   --lease-navy: #143b8a;
   --lease-orange: #ff7a1a;

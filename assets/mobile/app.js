@@ -68,11 +68,4 @@ document.addEventListener("DOMContentLoaded", function () {
     }
   });
 
-  var form = mobileRoot.querySelector(".form-box");
-  if (form) {
-    form.addEventListener("submit", function (event) {
-      event.preventDefault();
-      window.alert("送信しました（デモ）");
-    });
-  }
 });
