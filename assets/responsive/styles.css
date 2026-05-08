@@ -351,8 +351,8 @@ button {
 .hero__scribble {
   position: absolute;
   z-index: 2;
-  right: clamp(54px, 7vw, 86px);
-  top: clamp(0px, 0.45vw, 10px);
+  left: clamp(44px, 6vw, 96px);
+  top: clamp(28px, 3vw, 54px);
   color: var(--blue);
   font-size: clamp(1.15rem, 1.8vw, 1.75rem);
   font-weight: 700;
@@ -1406,8 +1406,8 @@ button {
   }
 
   .hero__scribble {
-    right: clamp(92px, 11vw, 138px);
-    top: -14px;
+    left: clamp(54px, 6vw, 108px);
+    top: 34px;
   }
 
   .reasons__grid {
@@ -1823,8 +1823,8 @@ button {
   }
 
   .hero__scribble {
-    right: 28px;
-    top: 2px;
+    left: 24px;
+    top: 20px;
     font-size: 1.05rem;
   }
 
