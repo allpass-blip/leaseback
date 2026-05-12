@@ -12,9 +12,7 @@
   font-family: "Hiragino Kaku Gothic ProN", "ヒラギノ角ゴ ProN W3", "Noto Sans JP", "Yu Gothic", Meiryo, sans-serif;
 }
 
-.deadline-bar{
-  display: none !important;
-}.mobile-lp .hero-headline,
+.mobile-lp .hero-headline,
 .mobile-lp .lease-title,
 .mobile-lp .lease-step-caption,
 .mobile-lp .lease-reason-title,
@@ -738,9 +736,11 @@
 
 .mobile-lp .lease-step-illust img{
   display: block;
-  max-height: 132px;
-  max-width: 84%;
-  object-fit: contain;
+  width: 132px;
+  height: 132px;
+  border-radius: 999px;
+  object-fit: cover;
+  box-shadow: 0 8px 18px rgba(20, 59, 138, 0.12);
 }
 
 .mobile-lp .lease-reason-circle img,
@@ -754,9 +754,11 @@
 
 .mobile-lp .lease-merit-icon img{
   display: block;
-  width: 78px;
-  height: 78px;
-  object-fit: contain;
+  width: 94px;
+  height: 94px;
+  border-radius: 999px;
+  object-fit: cover;
+  box-shadow: 0 6px 14px rgba(20, 59, 138, 0.12);
 }
 
 .mobile-lp .mobile-footer{
@@ -1072,7 +1074,7 @@
 
 .mobile-lp .hero-point{
   display: grid;
-  grid-template-columns: 32px minmax(0, 1fr);
+  grid-template-columns: 38px minmax(0, 1fr);
   gap: 8px;
   align-items: center;
   min-height: 54px;
@@ -1090,9 +1092,11 @@
 }
 
 .mobile-lp .hero-point img{
-  width: 27px;
-  height: 27px;
-  object-fit: contain;
+  width: 34px;
+  height: 34px;
+  border-radius: 10px;
+  object-fit: cover;
+  box-shadow: 0 4px 10px rgba(6, 23, 51, 0.12);
 }
 
 .mobile-lp .hero-point strong{

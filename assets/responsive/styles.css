@@ -431,11 +431,12 @@ button {
 .merit-row__icon img,
 .flow-card__icon img {
   display: block;
-  object-fit: contain;
+  object-fit: cover;
+  box-shadow: 0 8px 18px rgba(6, 23, 51, 0.1);
 }
 
 .generated-icon {
-  border-radius: 16px;
+  border-radius: 14px;
 }
 
 .trust-item h2 {
@@ -602,7 +603,7 @@ button {
   width: min(100%, 260px);
   aspect-ratio: 1 / 1;
   margin: 14px auto 0;
-  padding: 18px;
+  padding: 12px;
   border-radius: 50%;
   background: rgba(255, 255, 255, 0.62);
 }
@@ -611,8 +612,8 @@ button {
 .process-card__icon img {
   width: 100%;
   max-width: 220px;
-  height: auto;
-  border-radius: 28px;
+  height: 100%;
+  border-radius: 999px;
 }
 
 .process-card h3 {
@@ -727,9 +728,9 @@ button {
 
 .reason-card__visual svg,
 .reason-card__visual img {
-  width: 126px;
-  height: 126px;
-  border-radius: 28px;
+  width: 138px;
+  height: 138px;
+  border-radius: 999px;
 }
 
 .reason-card h3 {
@@ -935,9 +936,9 @@ button {
 
 .merit-row__icon svg,
 .merit-row__icon img {
-  width: 70px;
-  height: 70px;
-  border-radius: 18px;
+  width: 78px;
+  height: 78px;
+  border-radius: 999px;
 }
 
 .icon-lockbig {
@@ -1077,7 +1078,7 @@ button {
 .flow-card__icon .icon {
   width: 82px;
   height: 82px;
-  border-radius: 22px;
+  border-radius: 999px;
 }
 
 .flow-card__body h3 {
@@ -2745,10 +2746,6 @@ button {
   color: var(--hero-ink);
 }
 
-.deadline-bar {
-  display: none !important;
-}
-
 .hero--editorial::before,
 .hero--editorial::after {
   content: "";
@@ -3131,10 +3128,12 @@ button {
 }
 
 .hero--editorial .hero__points img {
-  width: 24px;
-  height: 24px;
+  width: 34px;
+  height: 34px;
   margin: 0 auto;
-  object-fit: contain;
+  border-radius: 10px;
+  object-fit: cover;
+  box-shadow: 0 4px 10px rgba(8, 23, 53, 0.12);
 }
 
 .hero--editorial .hero__points strong {
