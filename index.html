@@ -351,7 +351,7 @@ html, body { margin: 0; padding: 0; }
 <input type="text" name="送信元"/>
 <input type="text" name="物件種別"/>
 <input type="text" name="都道府県"/>
-<input type="text" name="市区町村"/>
+<input type="text" name="市区町村・区"/>
 <input type="text" name="売却希望時期"/>
 <input type="text" name="お名前"/>
 <input type="tel" name="電話番号"/>
@@ -734,16 +734,12 @@ html, body { margin: 0; padding: 0; }
 <div class="fld-label">都道府県 <span class="req">必須</span></div>
 <select class="sel" name="都道府県" required="">
 <option value="">選択してください</option>
-<option>北海道</option><option>青森県</option><option>岩手県</option>
-<option>東京都</option><option>神奈川県</option><option>大阪府</option>
+<option>東京都</option><option>神奈川県</option><option>千葉県</option><option>埼玉県</option><option>その他</option>
 </select>
 </div>
 <div class="fld">
-<div class="fld-label">市区町村 <span class="req">必須</span></div>
-<select class="sel" name="市区町村" required="">
-<option value="">選択してください</option>
-<option>横浜市</option><option>川崎市</option><option>平塚市</option>
-</select>
+<div class="fld-label">市区町村・区 <span class="req">必須</span></div>
+<input autocomplete="address-level2" class="inp" maxlength="80" name="市区町村・区" placeholder="例：世田谷区、練馬区、八王子市" required="" type="text"/>
 </div>
 <div class="fld">
 <div class="fld-label">ご希望の売却時期 <span class="req">必須</span></div>
@@ -1283,16 +1279,12 @@ html, body { margin: 0; padding: 0; }
 <div class="desktop-fld-label">都道府県 <span class="desktop-req">必須</span></div>
 <select class="desktop-sel sel" name="都道府県" required="">
 <option value="">選択してください</option>
-<option>北海道</option><option>青森県</option><option>岩手県</option>
-<option>東京都</option><option>神奈川県</option><option>大阪府</option>
+<option>東京都</option><option>神奈川県</option><option>千葉県</option><option>埼玉県</option><option>その他</option>
 </select>
 </div>
 <div class="desktop-fld">
-<div class="desktop-fld-label">市区町村 <span class="desktop-req">必須</span></div>
-<select class="desktop-sel sel" name="市区町村" required="">
-<option value="">選択してください</option>
-<option>横浜市</option><option>川崎市</option><option>平塚市</option>
-</select>
+<div class="desktop-fld-label">市区町村・区 <span class="desktop-req">必須</span></div>
+<input autocomplete="address-level2" class="desktop-inp" maxlength="80" name="市区町村・区" placeholder="例：世田谷区、練馬区、八王子市" required="" type="text"/>
 </div>
 <div class="desktop-fld">
 <div class="desktop-fld-label">ご希望の売却時期 <span class="desktop-req">必須</span></div>
