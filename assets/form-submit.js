@@ -21,9 +21,20 @@
     return payload;
   }
 
+  function toUrlEncoded(form) {
+    var data = new FormData(form);
+    data.set("pageUrl", window.location.href);
+    return new URLSearchParams(data).toString();
+  }
+
+  function isNetlifyForm(form) {
+    return form.dataset.netlify === "true" || form.hasAttribute("netlify");
+  }
+
   async function submitForm(form) {
     var submit = form.querySelector('[type="submit"]');
     var originalText = submit ? submit.textContent : "";
+    var netlifyForm = isNetlifyForm(form);
 
     if (submit) {
       submit.disabled = true;
@@ -33,10 +44,12 @@
     setStatus(form, "pending", "送信しています。しばらくお待ちください。");
 
     try {
-      var response = await fetch(form.action || "/api/contact", {
-        method: form.method || "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(toPayload(form)),
+      var response = await fetch(netlifyForm ? "/" : form.action || "/api/contact", {
+        method: "POST",
+        headers: netlifyForm
+          ? { "Content-Type": "application/x-www-form-urlencoded" }
+          : { "Content-Type": "application/json" },
+        body: netlifyForm ? toUrlEncoded(form) : JSON.stringify(toPayload(form)),
       });
 
       var result = await response.json().catch(function () {
@@ -51,7 +64,8 @@
       form.querySelectorAll(".sel").forEach(function (select) {
         select.classList.remove("is-filled");
       });
-      setStatus(form, "success", "送信しました。担当者より折り返しご連絡いたします。");
+      setStatus(form, "success", "送信しました。完了ページへ移動します。");
+      window.location.href = form.dataset.successUrl || "thanks.html";
     } catch (error) {
       setStatus(form, "error", error.message || "送信できませんでした。時間をおいて再度お試しください。");
     } finally {

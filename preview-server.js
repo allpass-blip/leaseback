@@ -3,6 +3,7 @@ const fs = require("fs");
 const path = require("path");
 const net = require("net");
 const tls = require("tls");
+const zlib = require("zlib");
 
 const host = process.env.HOST || "127.0.0.1";
 const port = Number(process.env.PORT || 4173);
@@ -18,7 +19,16 @@ const contentTypes = {
   ".json": "application/json; charset=utf-8",
   ".png": "image/png",
   ".svg": "image/svg+xml",
+  ".webp": "image/webp",
 };
+
+const compressibleTypes = new Set([
+  ".css",
+  ".html",
+  ".js",
+  ".json",
+  ".svg",
+]);
 
 loadEnvFile();
 
@@ -35,7 +45,7 @@ const server = http.createServer((req, res) => {
     return;
   }
 
-  serveStatic(urlPath, res);
+  serveStatic(req, urlPath, res);
 });
 
 server.listen(port, host, () => {
@@ -68,7 +78,7 @@ function loadEnvFile() {
   });
 }
 
-function serveStatic(urlPath, res) {
+function serveStatic(req, urlPath, res) {
   const relativePath = urlPath === "/" ? "index.html" : urlPath.replace(/^\/+/, "");
   const filePath = path.normalize(path.join(root, relativePath));
 
@@ -84,11 +94,68 @@ function serveStatic(urlPath, res) {
     }
 
     const ext = path.extname(filePath).toLowerCase();
-    res.writeHead(200, {
+    const headers = {
       "Content-Type": contentTypes[ext] || "application/octet-stream",
-    });
-    res.end(data);
+      "X-Content-Type-Options": "nosniff",
+    };
+
+    if (relativePath.startsWith("assets/")) {
+      headers["Cache-Control"] = "public, max-age=31536000, immutable";
+    } else {
+      headers["Cache-Control"] = "no-cache";
+    }
+
+    sendStaticResponse(req, res, 200, headers, ext, data);
   });
+}
+
+function sendStaticResponse(req, res, statusCode, headers, ext, data) {
+  if (!compressibleTypes.has(ext) || data.length < 1024) {
+    res.writeHead(statusCode, headers);
+    res.end(data);
+    return;
+  }
+
+  const acceptEncoding = String(req.headers["accept-encoding"] || "");
+
+  if (acceptEncoding.includes("br")) {
+    zlib.brotliCompress(data, (error, compressed) => {
+      if (error) {
+        res.writeHead(statusCode, headers);
+        res.end(data);
+        return;
+      }
+
+      res.writeHead(statusCode, {
+        ...headers,
+        "Content-Encoding": "br",
+        "Vary": "Accept-Encoding",
+      });
+      res.end(compressed);
+    });
+    return;
+  }
+
+  if (acceptEncoding.includes("gzip")) {
+    zlib.gzip(data, (error, compressed) => {
+      if (error) {
+        res.writeHead(statusCode, headers);
+        res.end(data);
+        return;
+      }
+
+      res.writeHead(statusCode, {
+        ...headers,
+        "Content-Encoding": "gzip",
+        "Vary": "Accept-Encoding",
+      });
+      res.end(compressed);
+    });
+    return;
+  }
+
+  res.writeHead(statusCode, headers);
+  res.end(data);
 }
 
 async function handleContact(req, res) {
@@ -127,6 +194,7 @@ async function handleContact(req, res) {
     sendJson(res, 200, {
       ok: true,
       mailSent,
+      submissionId: record.id,
       message: "送信しました。担当者より折り返しご連絡いたします。",
     });
   } catch (error) {
@@ -196,13 +264,13 @@ function validateContact(contact) {
     ["type", "物件の種類"],
     ["prefecture", "都道府県"],
     ["city", "市区町村"],
-    ["timing", "売却時期"],
+    ["timing", "ご希望の売却時期"],
     ["name", "お名前"],
     ["phone", "電話番号"],
-    ["privacy", "同意確認"],
+    ["privacy", "プライバシーポリシーへの同意"],
   ].forEach(([key, label]) => {
     if (!contact[key]) {
-      errors.push(`${label}を入力してください。`);
+      errors.push(label + "を入力してください。");
     }
   });
 
@@ -227,7 +295,7 @@ function hasSmtpConfig() {
 async function sendContactMail(record) {
   const to = process.env.MAIL_TO || "info@seed2.tokyo";
   const from = process.env.MAIL_FROM || process.env.SMTP_USER;
-  const subject = "リースバックLPから査定フォーム送信";
+  const subject = "【リースバックLP】無料条件確認フォームから送信がありました";
   const message = buildMailMessage({ to, from, subject, record });
 
   await sendSmtp({
@@ -243,38 +311,40 @@ async function sendContactMail(record) {
 function buildMailMessage({ to, from, subject, record }) {
   const contact = record.contact;
   const body = [
-    "リースバックLPから査定フォームの送信がありました。",
+    "リースバックLPの無料条件確認フォームから送信がありました。",
     "",
-    `受付ID: ${record.id}`,
-    `受付日時: ${record.receivedAt}`,
+    "受付ID: " + record.id,
+    "受付日時: " + record.receivedAt,
     "",
-    `物件の種類: ${contact.type}`,
-    `都道府県: ${contact.prefecture}`,
-    `市区町村: ${contact.city}`,
-    `売却時期: ${contact.timing}`,
-    `お名前: ${contact.name}`,
-    `電話番号: ${contact.phone}`,
-    `メールアドレス: ${contact.email || "未入力"}`,
-    `ページURL: ${contact.pageUrl || "不明"}`,
+    "【お客様情報】",
+    "物件の種類: " + contact.type,
+    "都道府県: " + contact.prefecture,
+    "市区町村: " + contact.city,
+    "ご希望の売却時期: " + contact.timing,
+    "お名前: " + contact.name,
+    "電話番号: " + contact.phone,
+    "メールアドレス: " + (contact.email || "未入力"),
+    "送信元ページ: " + (contact.pageUrl || "不明"),
     "",
-    `IP: ${record.meta.ip}`,
-    `User-Agent: ${record.meta.userAgent}`,
+    "【送信メタ情報】",
+    "IP: " + record.meta.ip,
+    "User-Agent: " + record.meta.userAgent,
   ].join("\r\n");
 
   const headers = [
-    `From: ${sanitizeHeader(from)}`,
-    `To: ${sanitizeHeader(to)}`,
-    `Subject: ${encodeMimeHeader(subject)}`,
+    "From: " + sanitizeHeader(from),
+    "To: " + sanitizeHeader(to),
+    "Subject: " + encodeMimeHeader(subject),
     "MIME-Version: 1.0",
     "Content-Type: text/plain; charset=UTF-8",
     "Content-Transfer-Encoding: 8bit",
   ];
 
   if (contact.email && /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(contact.email)) {
-    headers.push(`Reply-To: ${sanitizeHeader(contact.email)}`);
+    headers.push("Reply-To: " + sanitizeHeader(contact.email));
   }
 
-  return `${headers.join("\r\n")}\r\n\r\n${body}`;
+  return headers.join("\r\n") + "\r\n\r\n" + body;
 }
 
 async function sendSmtp(config, message, envelope) {
