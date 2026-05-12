@@ -347,16 +347,16 @@ html, body { margin: 0; padding: 0; }
 <form name="leaseback-contact" method="post" data-netlify="true" netlify-honeypot="bot-field" hidden>
 <input type="hidden" name="form-name" value="leaseback-contact"/>
 <input type="text" name="bot-field"/>
-<input type="text" name="source"/>
-<input type="text" name="type"/>
-<input type="text" name="prefecture"/>
-<input type="text" name="city"/>
-<input type="text" name="timing"/>
-<input type="text" name="name"/>
-<input type="tel" name="phone"/>
-<input type="email" name="email"/>
-<input type="text" name="privacy"/>
-<input type="text" name="pageUrl"/>
+<input type="text" name="送信元"/>
+<input type="text" name="物件種別"/>
+<input type="text" name="都道府県"/>
+<input type="text" name="市区町村"/>
+<input type="text" name="売却希望時期"/>
+<input type="text" name="お名前"/>
+<input type="tel" name="電話番号"/>
+<input type="email" name="メールアドレス"/>
+<input type="text" name="同意状況"/>
+<input type="text" name="送信ページ"/>
 </form>
 <aside class="deadline-bar" data-countdown aria-label="無料条件確認カウントダウン">
 <div class="deadline-bar__progress" data-countdown-progress></div>
@@ -719,18 +719,18 @@ html, body { margin: 0; padding: 0; }
 </h2>
 <form class="form-box" accept-charset="UTF-8" action="/thanks.html" data-contact-form data-netlify="true" data-success-url="thanks.html" method="post" name="leaseback-contact" netlify-honeypot="bot-field">
 <input name="form-name" type="hidden" value="leaseback-contact"/>
-<input name="source" type="hidden" value="mobile-form"/>
+<input name="送信元" type="hidden" value="mobile-form"/>
 <p hidden><label>この項目は入力しないでください <input autocomplete="off" name="bot-field" tabindex="-1" type="text"/></label></p>
 <div class="fld">
 <div class="fld-label">物件の種類 <span class="req">必須</span></div>
 <div class="radios">
-<label class="radio-opt"><input name="type" required="" type="radio" value="戸建"/> 戸建</label>
-<label class="radio-opt"><input name="type" type="radio" value="マンション"/> マンション</label>
+<label class="radio-opt"><input name="物件種別" required="" type="radio" value="戸建"/> 戸建</label>
+<label class="radio-opt"><input name="物件種別" type="radio" value="マンション"/> マンション</label>
 </div>
 </div>
 <div class="fld">
 <div class="fld-label">都道府県 <span class="req">必須</span></div>
-<select class="sel" name="prefecture" required="">
+<select class="sel" name="都道府県" required="">
 <option value="">選択してください</option>
 <option>北海道</option><option>青森県</option><option>岩手県</option>
 <option>東京都</option><option>神奈川県</option><option>大阪府</option>
@@ -738,14 +738,14 @@ html, body { margin: 0; padding: 0; }
 </div>
 <div class="fld">
 <div class="fld-label">市区町村 <span class="req">必須</span></div>
-<select class="sel" name="city" required="">
+<select class="sel" name="市区町村" required="">
 <option value="">選択してください</option>
 <option>横浜市</option><option>川崎市</option><option>平塚市</option>
 </select>
 </div>
 <div class="fld">
 <div class="fld-label">ご希望の売却時期 <span class="req">必須</span></div>
-<select class="sel" name="timing" required="">
+<select class="sel" name="売却希望時期" required="">
 <option value="">選択してください</option>
 <option>なるべく早く進めたい</option>
 <option>時期をみて進めたい</option>
@@ -755,18 +755,18 @@ html, body { margin: 0; padding: 0; }
 </div>
 <div class="fld">
 <div class="fld-label">お名前 <span class="req">必須</span></div>
-<input autocomplete="name" class="inp" maxlength="80" name="name" placeholder="山田 太郎" required="" type="text"/>
+<input autocomplete="name" class="inp" maxlength="80" name="お名前" placeholder="山田 太郎" required="" type="text"/>
 </div>
 <div class="fld">
 <div class="fld-label">電話番号 <span class="req">必須</span></div>
-<input autocomplete="tel" class="inp" inputmode="tel" maxlength="20" name="phone" pattern="[0-9+\-\s()]{8,20}" placeholder="09012345678" required="" type="tel"/>
+<input autocomplete="tel" class="inp" inputmode="tel" maxlength="20" name="電話番号" pattern="[0-9+\-\s()]{8,20}" placeholder="09012345678" required="" type="tel"/>
 </div>
 <div class="fld">
 <div class="fld-label">メールアドレス</div>
-<input autocomplete="email" class="inp" maxlength="254" name="email" placeholder="example@mail.com" type="email"/>
+<input autocomplete="email" class="inp" maxlength="254" name="メールアドレス" placeholder="example@mail.com" type="email"/>
 </div>
 <div class="privacy">
-<input aria-label="プライバシーポリシーに同意する" name="privacy" required="" type="checkbox" value="同意済み"/>
+<input aria-label="プライバシーポリシーに同意する" name="同意状況" required="" type="checkbox" value="同意済み"/>
 <span><a href="privacy-policy.html">プライバシーポリシー</a> に同意のうえ送信します</span>
 </div>
 <button class="submit" type="submit">無料で条件を確認する ▶</button>
@@ -1266,19 +1266,19 @@ html, body { margin: 0; padding: 0; }
 </div>
 <form class="desktop-form-box" accept-charset="UTF-8" action="/thanks.html" data-contact-form data-netlify="true" data-success-url="thanks.html" method="post" name="leaseback-contact" netlify-honeypot="bot-field">
 <input name="form-name" type="hidden" value="leaseback-contact"/>
-<input name="source" type="hidden" value="desktop-form"/>
+<input name="送信元" type="hidden" value="desktop-form"/>
 <p hidden><label>この項目は入力しないでください <input autocomplete="off" name="bot-field" tabindex="-1" type="text"/></label></p>
 <div class="desktop-form-grid">
 <div class="desktop-fld">
 <div class="desktop-fld-label">物件の種類 <span class="desktop-req">必須</span></div>
 <div class="desktop-radios">
-<label class="desktop-radio-opt"><input name="type" required="" type="radio" value="戸建"/> 戸建</label>
-<label class="desktop-radio-opt"><input name="type" type="radio" value="マンション"/> マンション</label>
+<label class="desktop-radio-opt"><input name="物件種別" required="" type="radio" value="戸建"/> 戸建</label>
+<label class="desktop-radio-opt"><input name="物件種別" type="radio" value="マンション"/> マンション</label>
 </div>
 </div>
 <div class="desktop-fld">
 <div class="desktop-fld-label">都道府県 <span class="desktop-req">必須</span></div>
-<select class="desktop-sel sel" name="prefecture" required="">
+<select class="desktop-sel sel" name="都道府県" required="">
 <option value="">選択してください</option>
 <option>北海道</option><option>青森県</option><option>岩手県</option>
 <option>東京都</option><option>神奈川県</option><option>大阪府</option>
@@ -1286,14 +1286,14 @@ html, body { margin: 0; padding: 0; }
 </div>
 <div class="desktop-fld">
 <div class="desktop-fld-label">市区町村 <span class="desktop-req">必須</span></div>
-<select class="desktop-sel sel" name="city" required="">
+<select class="desktop-sel sel" name="市区町村" required="">
 <option value="">選択してください</option>
 <option>横浜市</option><option>川崎市</option><option>平塚市</option>
 </select>
 </div>
 <div class="desktop-fld">
 <div class="desktop-fld-label">ご希望の売却時期 <span class="desktop-req">必須</span></div>
-<select class="desktop-sel sel" name="timing" required="">
+<select class="desktop-sel sel" name="売却希望時期" required="">
 <option value="">選択してください</option>
 <option>なるべく早く進めたい</option>
 <option>時期をみて進めたい</option>
@@ -1303,19 +1303,19 @@ html, body { margin: 0; padding: 0; }
 </div>
 <div class="desktop-fld">
 <div class="desktop-fld-label">お名前 <span class="desktop-req">必須</span></div>
-<input autocomplete="name" class="desktop-inp" maxlength="80" name="name" placeholder="山田 太郎" required="" type="text"/>
+<input autocomplete="name" class="desktop-inp" maxlength="80" name="お名前" placeholder="山田 太郎" required="" type="text"/>
 </div>
 <div class="desktop-fld">
 <div class="desktop-fld-label">電話番号 <span class="desktop-req">必須</span></div>
-<input autocomplete="tel" class="desktop-inp" inputmode="tel" maxlength="20" name="phone" pattern="[0-9+\-\s()]{8,20}" placeholder="09012345678" required="" type="tel"/>
+<input autocomplete="tel" class="desktop-inp" inputmode="tel" maxlength="20" name="電話番号" pattern="[0-9+\-\s()]{8,20}" placeholder="09012345678" required="" type="tel"/>
 </div>
 <div class="desktop-fld desktop-fld--wide">
 <div class="desktop-fld-label">メールアドレス</div>
-<input autocomplete="email" class="desktop-inp" maxlength="254" name="email" placeholder="example@mail.com" type="email"/>
+<input autocomplete="email" class="desktop-inp" maxlength="254" name="メールアドレス" placeholder="example@mail.com" type="email"/>
 </div>
 </div>
 <div class="desktop-privacy">
-<input aria-label="プライバシーポリシーに同意する" name="privacy" required="" type="checkbox" value="同意済み"/>
+<input aria-label="プライバシーポリシーに同意する" name="同意状況" required="" type="checkbox" value="同意済み"/>
 <span><a href="privacy-policy.html">プライバシーポリシー</a> に同意のうえ送信します</span>
 </div>
 <button class="desktop-submit" type="submit">無料で条件を確認する</button>

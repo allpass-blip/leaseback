@@ -11,7 +11,7 @@
 
   function toUrlEncoded(form) {
     var data = new FormData(form);
-    data.set("pageUrl", window.location.href);
+    data.set("送信ページ", window.location.href);
     return new URLSearchParams(data).toString();
   }
 
