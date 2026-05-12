@@ -9,32 +9,15 @@
     status.dataset.status = type;
   }
 
-  function toPayload(form) {
-    var data = new FormData(form);
-    var payload = {};
-
-    data.forEach(function (value, key) {
-      payload[key] = String(value).trim();
-    });
-
-    payload.pageUrl = window.location.href;
-    return payload;
-  }
-
   function toUrlEncoded(form) {
     var data = new FormData(form);
     data.set("pageUrl", window.location.href);
     return new URLSearchParams(data).toString();
   }
 
-  function isNetlifyForm(form) {
-    return form.dataset.netlify === "true" || form.hasAttribute("netlify");
-  }
-
   async function submitForm(form) {
     var submit = form.querySelector('[type="submit"]');
     var originalText = submit ? submit.textContent : "";
-    var netlifyForm = isNetlifyForm(form);
 
     if (submit) {
       submit.disabled = true;
@@ -44,12 +27,10 @@
     setStatus(form, "pending", "送信しています。しばらくお待ちください。");
 
     try {
-      var response = await fetch(netlifyForm ? "/" : form.action || "/api/contact", {
+      var response = await fetch("/", {
         method: "POST",
-        headers: netlifyForm
-          ? { "Content-Type": "application/x-www-form-urlencoded" }
-          : { "Content-Type": "application/json" },
-        body: netlifyForm ? toUrlEncoded(form) : JSON.stringify(toPayload(form)),
+        headers: { "Content-Type": "application/x-www-form-urlencoded" },
+        body: toUrlEncoded(form),
       });
 
       var result = await response.json().catch(function () {

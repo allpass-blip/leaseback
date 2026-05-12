@@ -1,33 +1,15 @@
-# リースバック ランディングページ
+# リースバック LP
 
-リースバック相談用のランディングページ一式です。
+Netlifyで公開する静的LPです。フォーム送信はNetlify Formsで受け取ります。
 
-## 内容
+## Netlify設定
 
-- `index.html`: ランディングページ本体
-- `assets/`: CSS、JavaScript、画像
-- `preview-server.js`: ローカル確認用サーバー兼フォーム送信受付
-- `.env.example`: メール送信用SMTP設定のサンプル
-- `FORM_SETUP.md`: フォーム送信設定の詳細
+1. GitHubリポジトリをNetlifyに接続します。
+2. Build commandは空欄で問題ありません。
+3. Publish directoryはリポジトリのルートを指定します。
+4. デプロイ後、NetlifyのForms画面で `leaseback-contact` が検出されるか確認します。
+5. メール通知はNetlify管理画面の `Form submission notifications` で設定します。
 
-## 確認方法
+## フォーム
 
-Node.js が入っている環境で、以下を実行してください。
-
-```bash
-node preview-server.js
-```
-
-ブラウザで `http://127.0.0.1:4173/` を開くと確認できます。
-
-## フォーム送信
-
-フォームは `POST /api/contact` に送信されます。
-
-SMTP設定がない場合でも、送信内容は `submissions/` に保存されます。メール送信まで行う場合は、`.env.example` をコピーして `.env` を作成し、SMTP情報を設定してください。
-
-送信先メールアドレスの初期値は `info@seed2.tokyo` です。
-
-## 配布時の注意
-
-`.env`、`submissions/`、`server.out.log`、`server.err.log`、`.git/` は配布しないでください。
+`index.html` にNetlify検出用の静的フォーム定義を置き、実際の入力フォームは同じ `leaseback-contact` 名で送信します。

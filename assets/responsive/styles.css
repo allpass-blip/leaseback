@@ -2805,9 +2805,10 @@ button {
   width: clamp(310px, 26vw, 390px);
   height: clamp(128px, 13vw, 190px);
   display: grid;
-  place-content: center;
-  padding: 16px 10px 18px clamp(96px, 8vw, 126px);
-  clip-path: polygon(22% 0, 100% 0, 100% 100%, 62% 82%);
+  align-content: center;
+  justify-content: end;
+  padding: 18px clamp(20px, 2.3vw, 34px) 20px clamp(128px, 11vw, 168px);
+  clip-path: polygon(28% 0, 100% 0, 100% 100%, 66% 84%);
   background: linear-gradient(135deg, #061327 0%, #0d2946 100%);
   color: #fff;
   font-family: "Noto Serif JP", "Yu Mincho", "Hiragino Mincho ProN", serif;
@@ -3417,7 +3418,10 @@ button {
   }
 
   .hero--editorial .hero__corner-proof {
-    right: -42px;
+    right: 0;
+    width: clamp(280px, 34vw, 330px);
+    padding-left: clamp(116px, 14vw, 140px);
+    padding-right: 18px;
   }
 
   .hero--editorial .hero__grid {
