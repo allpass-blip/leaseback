@@ -1206,8 +1206,8 @@ button {
   grid-template-columns: 32px 1fr;
   gap: 12px;
   padding: 0 18px 18px 16px;
-  color: var(--muted);
-  font-size: 0.98rem;
+  color: #4a4f5a;
+  font-size: 1.05rem;
   line-height: 1.85;
 }
 
@@ -2976,8 +2976,8 @@ button {
   border-bottom: 1px solid rgba(8, 23, 53, 0.55);
   color: var(--hero-ink);
   font-family: "Noto Serif JP", "Yu Mincho", "Hiragino Mincho ProN", serif;
-  font-size: clamp(1.1rem, 1.55vw, 1.62rem);
-  font-weight: 600;
+  font-size: clamp(1.3rem, 1.8vw, 1.85rem);
+  font-weight: 900;
   letter-spacing: 0.12em;
 }
 
@@ -3035,10 +3035,16 @@ button {
   padding-left: 18px;
   color: #1c2030;
   font-family: "Noto Serif JP", "Yu Mincho", "Hiragino Mincho ProN", serif;
-  font-size: clamp(1rem, 1.22vw, 1.28rem);
+  font-size: clamp(1.05rem, 1.3vw, 1.35rem);
   font-weight: 600;
   line-height: 1.8;
   letter-spacing: 0.06em;
+}
+
+.hero--editorial .hero__lead-keyword {
+  color: #165cc9;
+  font-size: 1.15em;
+  font-weight: 900;
 }
 
 .hero--editorial .hero__lead::before {
