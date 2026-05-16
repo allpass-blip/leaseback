@@ -340,7 +340,6 @@ html, body { margin: 0; padding: 0; }
 </style>
   <script src="assets/mobile/app.js" defer></script>
   <script src="assets/responsive/app.js" defer></script>
-  <script src="assets/countdown.js" defer></script>
   <script src="assets/form-submit.js" defer></script>
   <script src="assets/gtm.js"></script>
   <script src="assets/affilicode-tracking.js" defer></script>
@@ -362,30 +361,15 @@ html, body { margin: 0; padding: 0; }
 <input type="text" name="同意状況"/>
 <input type="text" name="送信ページ"/>
 </form>
-<aside class="deadline-bar" data-countdown aria-label="無料条件確認カウントダウン">
-<div class="deadline-bar__progress" data-countdown-progress></div>
-<div class="deadline-bar__alert">本日も受付中</div>
-<div class="deadline-bar__copy">
-<strong>無料で条件確認を受付中</strong>
-<span>売却後も住み続けられる可能性を、まずは状況だけ送信して確認できます。</span>
-</div>
-<div class="deadline-bar__time" aria-live="polite">
-<span data-countdown-hours>00</span><em>時間</em>
-<span data-countdown-minutes>00</span><em>分</em>
-<span data-countdown-seconds>00</span><em>秒</em>
-</div>
-<a class="deadline-bar__action deadline-bar__action--desktop" href="#desktop-form">無料確認へ</a>
-<a class="deadline-bar__action deadline-bar__action--mobile" href="#form">確認へ</a>
-</aside>
 <div class="mobile-lp">
 <main class="lp-shell">
 <section aria-label="ファーストビュー" class="hero hero-editorial-mobile">
-<div class="hero-mobile-proof" aria-label="無料相談受付中">
+<div class="hero-mobile-proof" aria-label="無料相談受付中" hidden>
 <span>売却後も</span>
 <strong>住める</strong>
 <em>無料相談</em>
 </div>
-<p class="hero-eyebrow">持ち家を活かす、これからの<span>賢い選択。</span></p>
+<p class="hero-eyebrow" hidden>持ち家を活かす、これからの<span>賢い選択。</span></p>
 <h1 class="hero-headline">
 <span>家を手放す<span class="accent">不安</span>に、</span>
 <span>住み続ける<span class="accent">安心</span>を。</span>
@@ -405,7 +389,6 @@ html, body { margin: 0; padding: 0; }
 <a class="hero-cta" href="#form">
 <span class="free">無料</span><span>住み続けられるか確認する</span><span class="arrow">›</span>
 </a>
-<p class="hero-free-note">ご相談・ご利用はすべて無料です。安心してご利用ください。</p>
 </section>
 <section aria-label="こんなお悩み、一人で抱えていませんか？" class="lease-block lease-worries">
 <h2 class="lease-title">
