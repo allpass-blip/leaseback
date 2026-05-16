@@ -357,7 +357,7 @@ html, body { margin: 0; padding: 0; }
 <input type="text" name="売却希望時期"/>
 <input type="text" name="お名前"/>
 <input type="tel" name="電話番号"/>
-<input type="email" name="メールアドレス"/>
+<input type="email" name="メールアドレス" required/>
 <input type="text" name="同意状況"/>
 <input type="text" name="送信ページ"/>
 </form>
@@ -746,8 +746,8 @@ html, body { margin: 0; padding: 0; }
 <input autocomplete="tel" class="inp" inputmode="tel" maxlength="20" name="電話番号" pattern="[0-9+()\s-]{8,20}" placeholder="09012345678" required="" type="tel"/>
 </div>
 <div class="fld">
-<div class="fld-label">メールアドレス</div>
-<input autocomplete="email" class="inp" maxlength="254" name="メールアドレス" placeholder="example@mail.com" type="email"/>
+<div class="fld-label">メールアドレス <span class="req">必須</span></div>
+<input autocomplete="email" class="inp" maxlength="254" name="メールアドレス" placeholder="example@mail.com" required="" type="email"/>
 </div>
 <div class="privacy">
 <input aria-label="プライバシーポリシーに同意する" name="同意状況" required="" type="checkbox" value="同意済み"/>
@@ -1229,24 +1229,6 @@ html, body { margin: 0; padding: 0; }
 <p class="faq__contact"><svg class="icon"><use href="#i-phone"></use></svg>その他のご質問は、お気軽にフォームからお問い合わせください。</p>
 </div>
 </section>
-<section class="cta section" id="cta">
-<div class="container">
-<div class="cta-card">
-<div class="cta-card__photo"><img loading="lazy" decoding="async" width="391" height="470" alt="笑顔で座る夫婦" src="assets/img/hero-couple.webp"/></div>
-<div class="cta-card__content">
-<p class="cta-card__eyebrow">住み慣れた我が家で、これからも安心して暮らしたい方へ。</p>
-<h2>住み続けられる条件を、無料で確認しませんか。</h2>
-<div class="cta-card__actions">
-<a class="phone-card phone-card--cta" href="#desktop-form">
-<div class="phone-card__label">フォームでの確認はこちら</div>
-<div class="phone-card__main"><svg class="phone-card__icon icon"><use href="#i-phone"></use></svg><div class="phone-card__body"><strong>無料確認フォーム</strong><span>まずは状況だけでも送信できます</span></div></div>
-</a>
-<a class="btn btn--primary btn--large" href="#desktop-form">60秒で無料確認</a>
-</div>
-</div>
-</div>
-</div>
-</section>
 <section aria-label="相談フォーム" class="desktop-form-sec section" id="desktop-form">
 <div class="container">
 <div class="desktop-form-head">
@@ -1297,8 +1279,8 @@ html, body { margin: 0; padding: 0; }
 <input autocomplete="tel" class="desktop-inp" inputmode="tel" maxlength="20" name="電話番号" pattern="[0-9+()\s-]{8,20}" placeholder="09012345678" required="" type="tel"/>
 </div>
 <div class="desktop-fld desktop-fld--wide">
-<div class="desktop-fld-label">メールアドレス</div>
-<input autocomplete="email" class="desktop-inp" maxlength="254" name="メールアドレス" placeholder="example@mail.com" type="email"/>
+<div class="desktop-fld-label">メールアドレス <span class="desktop-req">必須</span></div>
+<input autocomplete="email" class="desktop-inp" maxlength="254" name="メールアドレス" placeholder="example@mail.com" required="" type="email"/>
 </div>
 </div>
 <div class="desktop-privacy">

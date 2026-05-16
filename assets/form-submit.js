@@ -33,12 +33,8 @@
         body: toUrlEncoded(form),
       });
 
-      var result = await response.json().catch(function () {
-        return {};
-      });
-
-      if (!response.ok || result.ok === false) {
-        throw new Error(result.message || "送信に失敗しました。");
+      if (!response.ok) {
+        throw new Error("送信に失敗しました。");
       }
 
       form.reset();
