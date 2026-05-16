@@ -12,6 +12,7 @@ document.addEventListener("DOMContentLoaded", function () {
     ".hero-headline",
     ".hero-lead",
     ".hero-photo",
+    ".hero-trust-bar",
     ".hero-cta",
     ".phone-box",
     ".lease-title",
@@ -21,6 +22,7 @@ document.addEventListener("DOMContentLoaded", function () {
     ".lease-step-card",
     ".lease-reason-card",
     ".lease-merit-card",
+    ".mid-cta-banner",
     ".step-card",
     ".faq-item",
     ".form-box",
@@ -50,6 +52,62 @@ document.addEventListener("DOMContentLoaded", function () {
     revealItems.forEach(function (item) {
       item.classList.add("is-visible");
     });
+  }
+
+  // Keep the fixed CTA out of the first view and the form area.
+  var stickyBar = mobileRoot.querySelector(".sticky-cta-bar");
+  var heroSec = mobileRoot.querySelector(".hero-editorial-mobile");
+  var formSec = mobileRoot.querySelector(".form-sec");
+  if (stickyBar && heroSec && formSec) {
+    var stickyState = {
+      heroVisible: true,
+      formVisible: false,
+    };
+    var updateStickyCta = function () {
+      stickyBar.classList.toggle("is-visible", !stickyState.heroVisible && !stickyState.formVisible);
+    };
+
+    if ("IntersectionObserver" in window) {
+      var heroObserver = new IntersectionObserver(function (entries) {
+        entries.forEach(function (entry) {
+          stickyState.heroVisible = entry.isIntersecting;
+          updateStickyCta();
+        });
+      }, { threshold: 0.01 });
+
+      var formObserver = new IntersectionObserver(function (entries) {
+        entries.forEach(function (entry) {
+          stickyState.formVisible = entry.isIntersecting;
+          updateStickyCta();
+        });
+      }, { threshold: 0.05 });
+
+      heroObserver.observe(heroSec);
+      formObserver.observe(formSec);
+    } else {
+      var updateStickyCtaByScroll = function () {
+        var heroRect = heroSec.getBoundingClientRect();
+        var formRect = formSec.getBoundingClientRect();
+        stickyState.heroVisible = heroRect.bottom > 0 && heroRect.top < window.innerHeight;
+        stickyState.formVisible = formRect.bottom > 0 && formRect.top < window.innerHeight;
+        updateStickyCta();
+      };
+
+      updateStickyCtaByScroll();
+      window.addEventListener("scroll", updateStickyCtaByScroll, { passive: true });
+      window.addEventListener("resize", updateStickyCtaByScroll);
+    }
+  } else if (stickyBar) {
+    stickyBar.classList.add("is-visible");
+  }
+
+  if (stickyBar && formSec && "IntersectionObserver" in window && !heroSec) {
+    var legacyFormObserver = new IntersectionObserver(function (entries) {
+      entries.forEach(function (entry) {
+        stickyBar.classList.toggle("is-visible", !entry.isIntersecting);
+      });
+    }, { threshold: 0.15 });
+    legacyFormObserver.observe(formSec);
   }
 
   mobileRoot.querySelectorAll(".sel").forEach(syncSelectState);
