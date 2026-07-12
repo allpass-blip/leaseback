@@ -361,7 +361,6 @@ html, body { margin: 0; padding: 0; }
 <input type="text" name="送信元"/>
 <input type="text" name="物件種別"/>
 <input type="text" name="都道府県"/>
-<input type="text" name="市区町村・区"/>
 <input type="text" name="売却希望時期"/>
 <input type="text" name="お名前"/>
 <input type="tel" name="電話番号"/>
@@ -395,7 +394,7 @@ html, body { margin: 0; padding: 0; }
 <div class="hero-point"><img loading="lazy" decoding="async" width="128" height="128" alt="" src="assets/img/generated-icons/buyback.webp"/><div><strong>会社紹介</strong><span>相性のよい会社へ<br/>おつなぎ</span></div></div>
 </div>
 <a class="hero-cta" href="#form">
-<span class="free">無料</span><span>住み続けられるか確認する</span><span class="arrow">›</span>
+<span class="free">無料</span><span>まずは無料相談してみる</span><span class="arrow">›</span>
 </a>
 </section>
 <section aria-label="こんなお悩み、一人で抱えていませんか？" class="lease-block lease-worries">
@@ -720,33 +719,31 @@ html, body { margin: 0; padding: 0; }
 <div class="fld">
 <div class="fld-label">物件の種類 <span class="req">必須</span></div>
 <div class="radios">
-<label class="radio-opt"><input name="物件種別" required="" type="radio" value="戸建"/> 戸建</label>
+<label class="radio-opt"><input name="物件種別" required="" type="radio" value="戸建て"/> 戸建て</label>
 <label class="radio-opt"><input name="物件種別" type="radio" value="マンション"/> マンション</label>
+<label class="radio-opt"><input name="物件種別" type="radio" value="その他"/> その他</label>
 </div>
 </div>
 <div class="fld">
 <div class="fld-label">都道府県 <span class="req">必須</span></div>
 <select class="sel" name="都道府県" required="">
 <option value="">選択してください</option>
-<option>東京都</option><option>神奈川県</option><option>千葉県</option><option>埼玉県</option><option>その他</option>
+<option>東京都</option><option>神奈川県</option><option>千葉県</option><option>埼玉県</option><option>大阪府</option><option>奈良県</option><option>福岡県</option><option>長野県</option><option>山梨県</option><option>熊本県</option><option>長崎県</option><option>高知県</option><option>その他</option>
 </select>
-</div>
-<div class="fld">
-<div class="fld-label">市区町村・区 <span class="req">必須</span></div>
-<input autocomplete="address-level2" class="inp" maxlength="80" name="市区町村・区" placeholder="例：世田谷区、練馬区、八王子市" required="" type="text"/>
 </div>
 <div class="fld">
 <div class="fld-label">ご希望の売却時期 <span class="req">必須</span></div>
 <select class="sel" name="売却希望時期" required="">
 <option value="">選択してください</option>
-<option>なるべく早く進めたい</option>
-<option>時期をみて進めたい</option>
-<option>まだ検討中</option>
-<option>まずは相談したい</option>
+<option>1ヶ月以内</option>
+<option>3ヶ月以内</option>
+<option>半年以内</option>
+<option>1年以内</option>
+<option>未定</option>
 </select>
 </div>
 <div class="fld">
-<div class="fld-label">お名前 <span class="req">必須</span></div>
+<div class="fld-label">お名前（ニックネームも可） <span class="req">必須</span></div>
 <input autocomplete="name" class="inp" maxlength="80" name="お名前" placeholder="山田 太郎" required="" type="text"/>
 </div>
 <div class="fld">
@@ -758,10 +755,10 @@ html, body { margin: 0; padding: 0; }
 <input autocomplete="email" class="inp" maxlength="254" name="メールアドレス" placeholder="example@mail.com" required="" type="email"/>
 </div>
 <div class="privacy">
-<input aria-label="プライバシーポリシーに同意する" name="同意状況" required="" type="checkbox" value="同意済み"/>
+<input aria-label="プライバシーポリシーに同意する" checked="" name="同意状況" required="" type="checkbox" value="同意済み"/>
 <span><a href="privacy-policy.html">プライバシーポリシー</a> に同意のうえ送信します</span>
 </div>
-<button class="submit" type="submit">無料で条件を確認する ▶</button>
+<button class="submit" type="submit">上記内容で送信する</button>
 <p aria-live="polite" class="form-status" data-form-status></p>
 </form>
 </section>
@@ -772,7 +769,8 @@ html, body { margin: 0; padding: 0; }
 </footer>
 <div class="sticky-cta-bar" aria-label="無料確認フォームへの固定ボタン">
 <a class="sticky-cta-bar__button" href="#form">
-<span class="sticky-cta-bar__text">まずは無料で相談する</span>
+<span class="sticky-cta-bar__free">無料</span>
+<span class="sticky-cta-bar__text">まずは無料相談してみる</span>
 <span class="sticky-cta-bar__arrow">›</span>
 </a>
 </div>
@@ -1014,7 +1012,7 @@ html, body { margin: 0; padding: 0; }
 </ul>
 </div>
 <div class="hero__actions">
-<a class="btn btn--primary" href="#desktop-form"><span class="hero__free-badge">無料</span><span>住み続けられるか確認する</span><span class="btn__arrow">›</span></a>
+<a class="btn btn--primary" href="#desktop-form"><span class="hero__free-badge">無料</span><span>まずは無料相談してみる</span><span class="btn__arrow">›</span></a>
 </div>
 <p class="hero__note">※ 相談件数は当社調べ。条件によりご案内内容は異なります。</p>
 </div>
@@ -1253,33 +1251,31 @@ html, body { margin: 0; padding: 0; }
 <div class="desktop-fld">
 <div class="desktop-fld-label">物件の種類 <span class="desktop-req">必須</span></div>
 <div class="desktop-radios">
-<label class="desktop-radio-opt"><input name="物件種別" required="" type="radio" value="戸建"/> 戸建</label>
+<label class="desktop-radio-opt"><input name="物件種別" required="" type="radio" value="戸建て"/> 戸建て</label>
 <label class="desktop-radio-opt"><input name="物件種別" type="radio" value="マンション"/> マンション</label>
+<label class="desktop-radio-opt"><input name="物件種別" type="radio" value="その他"/> その他</label>
 </div>
 </div>
 <div class="desktop-fld">
 <div class="desktop-fld-label">都道府県 <span class="desktop-req">必須</span></div>
 <select class="desktop-sel sel" name="都道府県" required="">
 <option value="">選択してください</option>
-<option>東京都</option><option>神奈川県</option><option>千葉県</option><option>埼玉県</option><option>その他</option>
+<option>東京都</option><option>神奈川県</option><option>千葉県</option><option>埼玉県</option><option>大阪府</option><option>奈良県</option><option>福岡県</option><option>長野県</option><option>山梨県</option><option>熊本県</option><option>長崎県</option><option>高知県</option><option>その他</option>
 </select>
-</div>
-<div class="desktop-fld">
-<div class="desktop-fld-label">市区町村・区 <span class="desktop-req">必須</span></div>
-<input autocomplete="address-level2" class="desktop-inp" maxlength="80" name="市区町村・区" placeholder="例：世田谷区、練馬区、八王子市" required="" type="text"/>
 </div>
 <div class="desktop-fld">
 <div class="desktop-fld-label">ご希望の売却時期 <span class="desktop-req">必須</span></div>
 <select class="desktop-sel sel" name="売却希望時期" required="">
 <option value="">選択してください</option>
-<option>なるべく早く進めたい</option>
-<option>時期をみて進めたい</option>
-<option>まだ検討中</option>
-<option>まずは相談したい</option>
+<option>1ヶ月以内</option>
+<option>3ヶ月以内</option>
+<option>半年以内</option>
+<option>1年以内</option>
+<option>未定</option>
 </select>
 </div>
 <div class="desktop-fld">
-<div class="desktop-fld-label">お名前 <span class="desktop-req">必須</span></div>
+<div class="desktop-fld-label">お名前（ニックネームも可） <span class="desktop-req">必須</span></div>
 <input autocomplete="name" class="desktop-inp" maxlength="80" name="お名前" placeholder="山田 太郎" required="" type="text"/>
 </div>
 <div class="desktop-fld">
@@ -1292,10 +1288,10 @@ html, body { margin: 0; padding: 0; }
 </div>
 </div>
 <div class="desktop-privacy">
-<input aria-label="プライバシーポリシーに同意する" name="同意状況" required="" type="checkbox" value="同意済み"/>
+<input aria-label="プライバシーポリシーに同意する" checked="" name="同意状況" required="" type="checkbox" value="同意済み"/>
 <span><a href="privacy-policy.html">プライバシーポリシー</a> に同意のうえ送信します</span>
 </div>
-<button class="desktop-submit" type="submit">無料で条件を確認する</button>
+<button class="desktop-submit" type="submit">上記内容で送信する</button>
 <p aria-live="polite" class="form-status desktop-form-status" data-form-status></p>
 </form>
 </div>
