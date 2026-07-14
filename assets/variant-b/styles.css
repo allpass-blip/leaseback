@@ -71,10 +71,10 @@ html{scrollbar-width:none;overflow-x:hidden}html::-webkit-scrollbar{display:none
 .support-trust div:nth-child(3) b{background-position:0 0}
 .reason-list article:nth-child(3) .reason-art{background-image:url(images/trust-icons-v2.png);background-repeat:no-repeat;background-position:-185px 0;background-size:370px 370px;color:transparent;font-size:0}
 
-.comparison.page{height:1830px}
+.comparison.page{height:1970px}
 .comparison>h2{font-size:50px}
 .comparison>.intro{font-size:34px;line-height:1.6}
-.compare-table{height:1200px;grid-template-columns:230px 350px 301px}
+.compare-table{width:876px;height:1240px;grid-template-columns:228px 347px 299px}
 .compare-table .cell{border-right:1px solid #d5dde4}
 .compare-table .cell:nth-child(3n){border-right:0}
 .compare-table .cell:nth-last-child(3){margin-bottom:0;border-bottom:1px solid #d5dde4;border-radius:0}
@@ -86,7 +86,7 @@ html{scrollbar-width:none;overflow-x:hidden}html::-webkit-scrollbar{display:none
 .compare-table .featured{font-size:34px}
 .compare-table .head.featured{font-size:35px}
 .compare-table b{font-size:36px}
-.point-box{top:1530px;height:270px}
+.point-box{top:1600px;height:270px}
 .point-box b{font-size:36px}
 .point-box p{font-size:34px;line-height:1.6}
 
