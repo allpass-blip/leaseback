@@ -1,0 +1,277 @@
+/* Section-specific rhythm pass: flow, FAQ, closing guide and footer. */
+
+/* 07 / Flow: let body copy wrap to the available measure instead of at authoring breaks. */
+.flow.page {
+  height: 2680px;
+}
+
+.flow > h2 {
+  padding-top: 96px;
+  line-height: 1.42;
+}
+
+.flow > .intro {
+  width: 820px;
+  margin: 22px auto 0;
+  line-height: 1.65;
+}
+
+.timeline p br,
+.staff-banner p br {
+  display: none;
+}
+
+.timeline {
+  top: 340px;
+  left: 64px;
+  width: 825px;
+}
+
+.timeline article {
+  height: 325px;
+  grid-template-columns: 255px minmax(0, 1fr);
+}
+
+.timeline h3 {
+  line-height: 1.35;
+}
+
+.timeline p {
+  margin: 13px 0 0;
+  line-height: 1.62;
+}
+
+.staff-banner {
+  top: 1995px;
+  height: 640px;
+}
+
+.staff-banner > div {
+  width: 430px;
+  padding: 38px 0 0 34px;
+}
+
+.staff-banner h3 {
+  margin: 0;
+  padding-bottom: 20px;
+  line-height: 1.48;
+}
+
+.staff-banner p {
+  margin: 24px 0 0;
+  font-size: 32px;
+  line-height: 1.62;
+}
+
+.staff-banner img {
+  width: 400px;
+  height: 639px;
+  object-position: 48% center;
+}
+
+/* FAQ: preserve the intentional question hierarchy while removing forced body wraps. */
+.faq.page {
+  height: 1710px;
+}
+
+.faq > h2 {
+  padding-top: 58px;
+  line-height: 1.35;
+}
+
+.faq > .gold-rule {
+  margin-top: 28px;
+}
+
+.faq-panel {
+  top: 190px;
+  height: 1460px;
+  padding: 42px 29px;
+}
+
+.faq details {
+  margin-bottom: 28px;
+}
+
+.faq summary {
+  min-height: 150px;
+  grid-template-columns: 122px minmax(0, 1fr) 52px;
+  padding: 0 32px;
+  line-height: 1.45;
+}
+
+.faq summary br,
+.answer p br {
+  display: none;
+}
+
+.faq summary span {
+  width: 82px;
+  height: 82px;
+  font-size: 52px;
+}
+
+.answer {
+  min-height: 370px;
+  grid-template-columns: 122px minmax(0, 1fr);
+  padding: 40px 32px 44px;
+}
+
+.answer span {
+  width: 78px;
+  height: 78px;
+  font-size: 46px;
+}
+
+.answer p {
+  line-height: 1.72;
+}
+
+.faq-contact {
+  margin-top: 48px;
+  line-height: 1.55;
+}
+
+/* Closing guide: de-crowd the CTA, form, phone and trust row. */
+.closing.page {
+  height: 2175px;
+}
+
+.closing-hero {
+  background:
+    linear-gradient(90deg,
+      rgba(255, 255, 255, .99) 0%,
+      rgba(255, 255, 255, .97) 47%,
+      rgba(255, 255, 255, .72) 61%,
+      rgba(255, 255, 255, .22) 76%,
+      rgba(255, 255, 255, 0) 84%),
+    url(../images/hero-couple-house.png) center 45% / cover no-repeat;
+}
+
+.closing-hero h2 {
+  width: 650px;
+  font-size: 44px;
+  line-height: 1.46;
+}
+
+.closing-hero > p:last-child {
+  width: 720px;
+  margin-top: 14px;
+  font-size: 21px;
+  line-height: 1.45;
+}
+
+.closing-cta {
+  padding: 0 34px 0 40px;
+}
+
+.closing-medal {
+  flex: 0 0 126px;
+  margin-left: 0;
+}
+
+.closing-cta > span:nth-child(2) {
+  flex: 1;
+  min-width: 0;
+  margin-left: 38px;
+}
+
+.closing-cta small,
+.closing-cta strong {
+  white-space: nowrap;
+}
+
+.closing-cta i {
+  flex: 0 0 40px;
+  margin: 0 0 0 24px;
+  text-align: center;
+}
+
+.closing-inputs h3 {
+  margin-bottom: 18px;
+  line-height: 1.4;
+}
+
+.closing-inputs label {
+  height: 118px;
+  grid-template-columns: 300px minmax(0, 1fr);
+}
+
+.closing-inputs > p {
+  max-width: 770px;
+  margin: 15px auto 0;
+  font-size: 28px;
+  line-height: 1.5;
+}
+
+.closing-phone {
+  grid-template-columns: 112px minmax(0, 1fr) 142px;
+}
+
+.closing-phone > span:nth-child(2) {
+  justify-content: center;
+  line-height: 1.3;
+}
+
+.closing-phone strong {
+  line-height: 1.12;
+}
+
+.closing-trust {
+  height: 174px;
+}
+
+.closing-trust > div {
+  min-width: 0;
+  padding: 12px 10px;
+}
+
+.closing-trust > div > span {
+  flex: 0 0 76px;
+  width: 76px;
+  height: 76px;
+  margin-right: 10px;
+  font-size: 31px;
+}
+
+.closing-trust p {
+  min-width: 0;
+}
+
+.closing-trust p b {
+  font-size: 30px;
+  line-height: 1.3;
+}
+
+.closing-trust p small {
+  margin-top: 5px;
+  font-size: 22px;
+  line-height: 1.35;
+}
+
+.company-footer {
+  top: 1685px;
+  height: 430px;
+  padding-top: 28px;
+  padding-bottom: 26px;
+}
+
+.company-footer h3 {
+  font-size: 34px;
+  line-height: 1.35;
+}
+
+.company-footer p {
+  margin: 10px 0;
+  font-size: 27px;
+  line-height: 1.55;
+}
+
+.company-footer hr {
+  margin: 12px 0;
+}
+
+.copyright {
+  height: 54px;
+  line-height: 54px;
+}

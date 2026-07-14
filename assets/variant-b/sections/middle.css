@@ -1,0 +1,116 @@
+/* Section-specific rhythm: support, comparison and customer cases. */
+.support > h2,
+.comparison > h2,
+.cases > h2 {
+  text-wrap: balance;
+}
+
+.support > .intro,
+.comparison > .intro {
+  width: 820px;
+  margin-right: auto;
+  margin-left: auto;
+  text-wrap: pretty;
+}
+
+.cases > .intro {
+  width: 900px;
+  margin-right: auto;
+  margin-left: auto;
+  text-wrap: pretty;
+}
+
+.support > .intro br,
+.cases > .intro br,
+.point-box p br {
+  display: none;
+}
+
+/* Keep the section lead-in and trust strip from crowding adjacent content. */
+.support.page {
+  height: 2340px;
+}
+
+.support > .intro {
+  margin-top: 22px;
+}
+
+.reason-list {
+  top: 500px;
+}
+
+.reason-list h3 {
+  text-wrap: balance;
+}
+
+.reason-list p {
+  max-width: 520px;
+  text-wrap: pretty;
+}
+
+.support-trust {
+  top: 2070px;
+}
+
+/* Give the comparison conclusion its own beat below the dense table. */
+.comparison.page {
+  height: 2050px;
+}
+
+.comparison > .intro {
+  margin-top: 27px;
+}
+
+.compare-table {
+  top: 365px;
+}
+
+.point-box {
+  top: 1665px;
+  height: 300px;
+  padding-top: 36px;
+  padding-bottom: 36px;
+}
+
+.point-box p {
+  margin-top: 18px;
+  line-height: 1.55;
+  text-wrap: pretty;
+}
+
+/* The lead previously collided with the first case; reserve a clear handoff. */
+.cases.page {
+  height: 3290px;
+}
+
+.cases > .intro {
+  margin-top: 22px;
+}
+
+.case-list {
+  top: 425px;
+}
+
+.case-body h3 {
+  text-wrap: balance;
+}
+
+.case-body dd {
+  text-wrap: pretty;
+}
+
+.case-note {
+  top: 2920px;
+  height: 120px;
+  padding: 14px 28px;
+  line-height: 1.4;
+  text-align: left;
+  text-wrap: pretty;
+}
+
+.fineprint {
+  top: 3070px;
+  right: 39px;
+  line-height: 1.55;
+  text-wrap: pretty;
+}
