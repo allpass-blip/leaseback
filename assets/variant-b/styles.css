@@ -171,4 +171,42 @@ html{scrollbar-width:none;overflow-x:hidden}html::-webkit-scrollbar{display:none
 .company-footer h3{font-size:36px}
 .company-footer p{font-size:30px}
 .copyright{font-size:26px}
+/* Layout reconciliation after the readability pass */
+.phone-box{display:grid;height:180px;grid-template-columns:120px minmax(0,1fr) 160px;align-items:center}
+.phone-symbol.icon-phone{grid-column:1;margin:0 auto}
+.phone-box>span:nth-child(2){grid-column:2;min-width:0}
+.phone-box b{font-size:30px;white-space:nowrap}
+.phone-box strong{font-size:52px;white-space:nowrap}
+.phone-box small{font-size:26px;white-space:nowrap}
+.phone-box em{grid-column:3;margin:0 auto;padding:13px 18px;font-size:26px;white-space:nowrap}
+
+.mechanism.page{height:1980px}
+.mechanism-summary{top:1720px}
+.step-cards p br,.case-body dd br,.timeline p br{display:none}
+
+.cases.page{height:3120px}
+.case-list article{height:800px}
+.case-note{top:2820px}
+.fineprint{top:2915px}
+
+.flow.page{height:2800px}
+.staff-banner{height:650px}
+.staff-banner>div{width:400px}
+.staff-banner img{width:400px;height:649px}
+
+.faq.page{height:1840px}
+.faq-panel{height:1580px}
+.answer{min-height:430px}
+
+.closing.page{height:2240px}
+.closing-phone{display:grid;grid-template-columns:120px minmax(0,1fr) 145px;align-items:center}
+.closing-phone>span:first-child{grid-column:1;margin:0 auto}
+.closing-phone>span:nth-child(2){grid-column:2;min-width:0}
+.closing-phone small{font-size:26px;white-space:nowrap}
+.closing-phone strong{font-size:50px;white-space:nowrap}
+.closing-phone em{font-size:24px;white-space:nowrap}
+.closing-phone>b{grid-column:3;margin:0 auto;padding:12px 14px;font-size:26px;white-space:nowrap}
+.closing-inputs label>b{display:flex;align-items:center;gap:12px;white-space:nowrap}
+.closing-inputs label small{margin-left:0;font-size:24px}
+.company-footer{height:430px}
 @media print{body{background:#fff}.lp{margin:0}}
