@@ -128,10 +128,10 @@ html{scrollbar-width:none;overflow-x:hidden}html::-webkit-scrollbar{display:none
 .answer p{font-size:38px;line-height:1.75}
 .faq-contact{margin-top:56px;font-size:38px}
 
-.closing.page{height:2050px}
+.closing.page{height:2200px}
 .closing-hero{background:linear-gradient(90deg,rgba(255,255,255,.99) 0%,rgba(255,255,255,.96) 48%,rgba(255,255,255,.48) 62%,rgba(255,255,255,.12) 72%,rgba(255,255,255,0) 80%),url(images/hero-couple-house.png) center 45%/cover no-repeat}
 .closing-hero h2{width:650px}
-.closing-inputs{height:680px}
+.closing-inputs{height:690px}
 .closing-inputs h3{font-size:36px}
 .closing-inputs label{height:122px;grid-template-columns:310px 1fr}
 .closing-inputs label>b{font-size:30px}
@@ -148,7 +148,7 @@ html{scrollbar-width:none;overflow-x:hidden}html::-webkit-scrollbar{display:none
 .closing-trust>div>span{width:90px;height:90px;font-size:36px}
 .closing-trust p b{font-size:30px}
 .closing-trust p small{font-size:21px}
-.company-footer{top:1690px;height:290px}
+.company-footer{top:1690px;height:390px}
 .company-footer h3{font-size:32px}
 .company-footer p{font-size:24px;line-height:1.5}
 .copyright{font-size:22px}
