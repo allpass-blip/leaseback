@@ -7,3 +7,7 @@
 /README.md / 404!
 /FORM_SETUP.md / 404!
 /netlify.toml / 404!
+
+# Variant B public landing-page route
+/lp/1 /variant-b/ 200
+/lp/1/ /variant-b/ 200
