@@ -32,7 +32,7 @@ html{scrollbar-width:none;overflow-x:hidden}html::-webkit-scrollbar{display:none
 .hero-lead{margin-top:22px;font-size:32px;line-height:1.72}
 .main-cta{top:842px}
 .phone-box{top:1046px}
-.quick-form{top:1243px}
+.quick-form{top:1243px;height:550px}
 
 /* Mobile-size readability pass for sections 02-08 */
 .worries>.intro{font-size:36px;line-height:1.7}
