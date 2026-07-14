@@ -152,4 +152,23 @@ html{scrollbar-width:none;overflow-x:hidden}html::-webkit-scrollbar{display:none
 .company-footer h3{font-size:32px}
 .company-footer p{font-size:24px;line-height:1.5}
 .copyright{font-size:22px}
+/* Final minimum-size pass for supporting copy */
+.phone-box b{font-size:34px}
+.phone-box small{font-size:34px}
+.privacy-note{font-size:34px}
+.cases>.intro{font-size:34px}
+.case-photo span{font-size:30px}
+.case-note{font-size:30px}
+.fineprint{font-size:28px}
+.timeline p{font-size:34px}
+.staff-banner p{font-size:34px}
+.closing-hero>p:last-child{font-size:30px}
+.closing-inputs>p{font-size:30px}
+.closing-inputs label small{font-size:30px}
+.closing-phone em{font-size:30px}
+.closing-trust p b{font-size:34px}
+.closing-trust p small{font-size:28px}
+.company-footer h3{font-size:36px}
+.company-footer p{font-size:30px}
+.copyright{font-size:26px}
 @media print{body{background:#fff}.lp{margin:0}}
