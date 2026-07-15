@@ -2,7 +2,7 @@
 <html lang="ja">
 <head>
   <meta charset="utf-8">
-  <meta name="viewport" content="width=390, initial-scale=1, viewport-fit=cover">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
   <title>リースバック無料査定｜住み続けながらまとまった資金を</title>
   <meta name="description" content="ご自宅に住み続けながら資金を確保できるリースバック。査定・相談は完全無料です。">
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -13,6 +13,11 @@
   <link rel="stylesheet" href="/assets/variant-b/sections/middle.css?v=2">
   <link rel="stylesheet" href="/assets/variant-b/sections/back.css?v=2">
   <link rel="stylesheet" href="/assets/variant-b/sections/forms.css?v=2">
+  <link rel="stylesheet" href="/assets/variant-b/sections/mobile-core.css?v=3">
+  <link rel="stylesheet" href="/assets/variant-b/sections/mobile-front.css?v=3">
+  <link rel="stylesheet" href="/assets/variant-b/sections/mobile-middle.css?v=3">
+  <link rel="stylesheet" href="/assets/variant-b/sections/mobile-back.css?v=3">
+  <link rel="stylesheet" href="/assets/variant-b/sections/mobile-forms.css?v=3">
 </head>
 <body>
 <main class="lp">
@@ -35,15 +40,16 @@
     </div>
     <a class="main-cta" href="#quick-form"><span class="cta-medal">完全<br>無料</span><strong>無料査定はこちら</strong><i>›</i></a>
     <a class="phone-box" href="tel:0120123456"><span class="phone-symbol icon-phone" aria-hidden="true"></span><span><b>お電話でのご相談も受付中</b><strong>0120-123-456</strong><small>受付時間 9:00〜18:00（年中無休）</small></span><em>通話無料</em></a>
-    <form class="quick-form" id="quick-form" name="leaseback-contact" method="POST" action="/thanks.html" data-netlify="true">
+    <form class="quick-form" id="quick-form" name="leaseback-contact" method="POST" action="/thanks.html" data-netlify="true" data-contact-form>
       <input type="hidden" name="form-name" value="leaseback-contact">
       <h2>＼　まずは無料で査定価格をチェック　／</h2>
       <label><b><span>物件の種類</span><small>必須</small></b><select name="property_type" required><option value="">選択してください</option><option>戸建て</option><option>マンション</option><option>その他</option></select></label>
       <label><b><span>都道府県</span><small>必須</small></b><select name="prefecture" required><option value="">選択してください</option><option>東京都</option><option>神奈川県</option><option>千葉県</option><option>埼玉県</option><option>大阪府</option><option>奈良県</option><option>福岡県</option><option>長野県</option><option>山梨県</option><option>熊本県</option><option>長崎県</option><option>高知県</option><option>その他</option></select></label>
       <label><b><span>ご希望の売却時期</span><small>必須</small></b><select name="sale_timing" required><option value="">選択してください</option><option>1ヶ月以内</option><option>3ヶ月以内</option><option>半年以内</option><option>1年以内</option><option>未定</option></select></label>
       <label><b><span>お名前<em>（ニックネームも可）</em></span><small>必須</small></b><input name="name" autocomplete="name" required placeholder="例）山田 太郎"></label>
-      <label><b><span>電話番号</span><small>必須</small></b><input type="tel" name="phone" autocomplete="tel" inputmode="tel" required placeholder="例）09012345678"></label>
-      <label><b><span>メールアドレス</span><small>必須</small></b><input type="email" name="email" autocomplete="email" inputmode="email" required placeholder="例）sample@example.com"></label>
+      <label><b><span>電話番号</span><small>いずれか必須</small></b><input type="tel" name="phone" autocomplete="tel" inputmode="tel" placeholder="例）09012345678"></label>
+      <label><b><span>メールアドレス</span><small>いずれか必須</small></b><input type="email" name="email" autocomplete="email" inputmode="email" placeholder="例）sample@example.com"></label>
+      <p class="contact-hint" data-contact-error>電話番号またはメールアドレスのどちらかをご入力ください。</p>
       <label class="consent-row"><input type="checkbox" name="privacy_consent" value="同意する" checked required><span><a href="/privacy-policy.html" target="_blank" rel="noopener">プライバシーポリシー</a> に同意のうえ送信します</span></label>
       <button class="quick-submit" type="submit">無料査定を申し込む <i>›</i></button>
     </form>
@@ -99,7 +105,7 @@
       <div class="cell label">▧<b>所有権</b></div><div class="cell featured">売却後は<br>当社が所有</div><div class="cell">売却後は<br>買主が所有</div>
       <div class="cell label">¥<b>月々の支払い</b></div><div class="cell featured">家賃のお支払い<br>があります</div><div class="cell"><b>なし</b></div>
     </div>
-    <div class="point-box"><b>💡 リースバックのポイント</b><p>リースバックは、「住み続けられる安心」と<br>「資金の自由度」を両立できる、<br>新しい資金活用の方法です。</p></div>
+    <div class="point-box"><b>比較するときの大切なポイント</b><p>売却後は所有権を手放し、毎月の家賃が発生します。<br>売却価格・家賃・契約期間・更新条件・買戻し条件を確認し、通常売却とも比較して判断しましょう。</p></div>
   </section>
 
   <section class="cases page">
@@ -130,38 +136,43 @@
   <section class="faq page">
     <h2>よくあるご質問</h2><span class="gold-rule"></span>
     <div class="faq-panel">
-      <details open><summary><span>Q</span>本当に住み続けられますか<i></i></summary><div class="answer"><span>A</span><p>はい、リースバック後もこれまでと変わらず<br>ご自宅に住み続けていただけます。<br>賃貸借契約を結ぶことで、安心して<br>暮らしを継続できます。</p></div></details>
+      <details open><summary><span>Q</span>本当に住み続けられますか<i></i></summary><div class="answer"><span>A</span><p>売却後は賃貸借契約に基づいて、ご自宅に住み続けます。ただし、契約期間や更新・再契約の条件は契約ごとに異なります。希望する期間住み続けられるか、契約前に確認しましょう。</p></div></details>
       <details><summary><span>Q</span>家族に知られず相談できますか<i></i></summary><div class="answer"><span>A</span><p>ご相談内容と個人情報は厳重に管理します。お客様の同意なく第三者へお伝えすることはありません。</p></div></details>
       <details><summary><span>Q</span>住宅ローンが残っていても<br>利用できますか<i></i></summary><div class="answer"><span>A</span><p>売却代金でローンを完済できる見込みがあればご利用可能です。まずは無料査定で確認します。</p></div></details>
       <details><summary><span>Q</span>将来買い戻すことはできますか<i></i></summary><div class="answer"><span>A</span><p>契約条件により買い戻せる場合があります。担当者が条件をわかりやすくご案内します。</p></div></details>
-      <div class="faq-contact">＼　<span>◌</span> そのほかのご質問も<br>　　お気軽にご相談ください　／</div>
+      <details><summary><span>Q</span>リースバックの注意点は何ですか<i></i></summary><div class="answer"><span>A</span><p>売却後は所有権を手放し、毎月の家賃が発生します。売却価格、家賃、契約期間、更新条件、修繕費の負担などを通常売却とも比較して判断することが大切です。</p></div></details>
+      <details><summary><span>Q</span>家賃や契約期間はどう決まりますか<i></i></summary><div class="answer"><span>A</span><p>物件の査定結果や契約条件などをもとに提示されます。毎月無理なく支払える金額か、希望する期間住み続けられる契約かを、契約書でご確認ください。</p></div></details>
+      <details><summary><span>Q</span>査定後に断っても大丈夫ですか<i></i></summary><div class="answer"><span>A</span><p>はい。査定や相談をしただけで売却を決める必要はありません。売却価格、家賃、契約条件を確認し、納得したうえでご判断ください。</p></div></details>
+      <a class="faq-contact" href="#quick-form"><span>相談無料</span><b>分からないことを相談する</b><i>›</i></a>
     </div>
   </section>
 
   <section class="closing page" id="final-guide">
-    <form class="closing-form" name="leaseback-contact-final" method="POST" action="/thanks.html" data-netlify="true">
+    <form class="closing-form" name="leaseback-contact-final" method="POST" action="/thanks.html" data-netlify="true" data-contact-form>
       <input type="hidden" name="form-name" value="leaseback-contact-final">
       <div class="closing-hero">
         <p class="closing-ribbon">最後のご案内</p>
-        <h2>まずは、ご自宅の価値を<br><strong>無料</strong>で確認してみませんか？</h2>
+        <h2>まずは、ご自宅の価値を<br><strong>無料</strong>で確認<br>してみませんか？</h2>
         <p>相談したからといって、<b>売却を決める必要はありません。</b></p>
       </div>
 
-      <button class="closing-cta" type="submit">
+      <a class="closing-cta" href="#final-inputs">
         <span class="closing-medal">完全<br>無料</span>
         <span><small>＼ 最短即日で価格がわかる ／</small><strong>無料で査定する</strong></span>
         <i>›</i>
-      </button>
+      </a>
 
-      <div class="closing-inputs">
+      <div class="closing-inputs" id="final-inputs">
         <h3>カンタン入力｜無料査定フォーム</h3>
         <label><b><span>物件の種類</span><small>必須</small></b><select name="property_type" required><option value="">選択してください</option><option>戸建て</option><option>マンション</option><option>その他</option></select></label>
         <label><b><span>都道府県</span><small>必須</small></b><select name="prefecture" required><option value="">選択してください</option><option>東京都</option><option>神奈川県</option><option>千葉県</option><option>埼玉県</option><option>大阪府</option><option>奈良県</option><option>福岡県</option><option>長野県</option><option>山梨県</option><option>熊本県</option><option>長崎県</option><option>高知県</option><option>その他</option></select></label>
         <label><b><span>ご希望の売却時期</span><small>必須</small></b><select name="sale_timing" required><option value="">選択してください</option><option>1ヶ月以内</option><option>3ヶ月以内</option><option>半年以内</option><option>1年以内</option><option>未定</option></select></label>
         <label><b><span>お名前<em>（ニックネームも可）</em></span><small>必須</small></b><input name="name" autocomplete="name" required placeholder="例）山田 太郎"></label>
-        <label><b><span>電話番号</span><small>必須</small></b><input type="tel" name="phone" autocomplete="tel" inputmode="tel" required placeholder="例）09012345678"></label>
-        <label><b><span>メールアドレス</span><small>必須</small></b><input type="email" name="email" autocomplete="email" inputmode="email" required placeholder="例）sample@example.com"></label>
+        <label><b><span>電話番号</span><small>いずれか必須</small></b><input type="tel" name="phone" autocomplete="tel" inputmode="tel" placeholder="例）09012345678"></label>
+        <label><b><span>メールアドレス</span><small>いずれか必須</small></b><input type="email" name="email" autocomplete="email" inputmode="email" placeholder="例）sample@example.com"></label>
+        <p class="contact-hint" data-contact-error>電話番号またはメールアドレスのどちらかをご入力ください。</p>
         <label class="consent-row"><input type="checkbox" name="privacy_consent" value="同意する" checked required><span><a href="/privacy-policy.html" target="_blank" rel="noopener">プライバシーポリシー</a> に同意のうえ送信します</span></label>
+        <button class="quick-submit closing-submit" type="submit">入力内容を送信する <i>›</i></button>
       </div>
     </form>
 
@@ -180,6 +191,6 @@
     <p class="copyright">© 2024 SAMPLE REAL ESTATE Co., Ltd. All Rights Reserved.</p>
   </section>
 </main>
-<script src="/assets/variant-b/app.js?v=2"></script>
+<script src="/assets/variant-b/app.js?v=3"></script>
 </body>
 </html>

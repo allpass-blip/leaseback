@@ -69,15 +69,45 @@ document.querySelectorAll('select[name="prefecture"]').forEach((select, index) =
     menu.hidden = !opening;
   };
 
+  const focusOption = (targetIndex) => {
+    const options = Array.from(menu.querySelectorAll('.prefecture-option'));
+    if (!options.length) return;
+    const normalizedIndex = (targetIndex + options.length) % options.length;
+    options[normalizedIndex].focus();
+  };
+
   trigger.addEventListener('click', toggleMenu);
   trigger.addEventListener('keydown', (event) => {
-    if (event.key === 'ArrowDown' && !picker.classList.contains('is-open')) {
+    if (event.key === 'ArrowDown' || event.key === 'ArrowUp') {
       event.preventDefault();
-      toggleMenu();
+      if (!picker.classList.contains('is-open')) toggleMenu();
+      requestAnimationFrame(() => focusOption(event.key === 'ArrowDown' ? 0 : -1));
     }
     if (event.key === 'Escape' && picker.classList.contains('is-open')) {
       event.preventDefault();
       toggleMenu();
+    }
+  });
+
+  menu.addEventListener('keydown', (event) => {
+    const options = Array.from(menu.querySelectorAll('.prefecture-option'));
+    const currentIndex = options.indexOf(document.activeElement);
+    if (event.key === 'ArrowDown') {
+      event.preventDefault();
+      focusOption(currentIndex + 1);
+    } else if (event.key === 'ArrowUp') {
+      event.preventDefault();
+      focusOption(currentIndex - 1);
+    } else if (event.key === 'Home') {
+      event.preventDefault();
+      focusOption(0);
+    } else if (event.key === 'End') {
+      event.preventDefault();
+      focusOption(-1);
+    } else if (event.key === 'Escape') {
+      event.preventDefault();
+      toggleMenu();
+      trigger.focus();
     }
   });
 
@@ -96,4 +126,38 @@ document.querySelectorAll('select[name="prefecture"]').forEach((select, index) =
 
 document.addEventListener('click', (event) => {
   if (!event.target.closest('.prefecture-picker')) closePrefecturePickers();
+});
+
+document.querySelectorAll('[data-contact-form]').forEach((form) => {
+  const phone = form.querySelector('input[name="phone"]');
+  const email = form.querySelector('input[name="email"]');
+  const submit = form.querySelector('button[type="submit"]');
+
+  const validateContact = () => {
+    const hasContact = Boolean(phone.value.trim() || email.value.trim());
+    form.classList.toggle('is-contact-invalid', !hasContact);
+    phone.setCustomValidity(hasContact ? '' : '電話番号またはメールアドレスのどちらかをご入力ください。');
+    return hasContact;
+  };
+
+  [phone, email].forEach((input) => {
+    input.addEventListener('input', () => {
+      if (phone.value.trim() || email.value.trim()) validateContact();
+    });
+  });
+
+  form.addEventListener('submit', (event) => {
+    if (!validateContact()) {
+      event.preventDefault();
+      phone.reportValidity();
+      phone.focus();
+      return;
+    }
+
+    if (submit) {
+      submit.disabled = true;
+      submit.setAttribute('aria-busy', 'true');
+      submit.innerHTML = '送信中…';
+    }
+  });
 });

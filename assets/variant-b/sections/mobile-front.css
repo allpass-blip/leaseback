@@ -1,0 +1,594 @@
+/*
+ * Real-width mobile treatment for the first three sections.
+ * This file is intentionally additive: it replaces the original 941px,
+ * absolutely-positioned artboard with a natural 390px reading flow.
+ */
+
+.hero.page,
+.worries.page,
+.mechanism.page {
+  height: auto;
+}
+
+/* Header */
+.site-header {
+  display: flex;
+  width: 100%;
+  height: 78px;
+  align-items: center;
+  padding: 10px 16px;
+  background: #fff;
+}
+
+.brand-logo {
+  width: 132px;
+  height: 56px;
+  margin: 0;
+  object-fit: contain;
+  transform: none;
+  transform-origin: center;
+}
+
+.tagline {
+  min-width: 0;
+  margin-left: 13px;
+  padding-left: 13px;
+  border-left: 1px solid #8090a2;
+  color: #172437;
+  font-size: 14px;
+  line-height: 1.55;
+  letter-spacing: .01em;
+}
+
+/* First view: make the photograph a calm opening beat, then give the copy
+   its own high-contrast field instead of laying it across faces and walls. */
+.hero-visual {
+  width: 100%;
+  height: auto;
+  min-height: 508px;
+  background:
+    linear-gradient(180deg,
+      rgba(255, 255, 255, 0) 0,
+      rgba(255, 255, 255, 0) 185px,
+      rgba(255, 255, 255, .78) 256px,
+      #fff 326px),
+    url(../images/hero-couple-house.png) center top / 100% auto no-repeat;
+}
+
+.hero-copy {
+  width: auto;
+  max-width: none;
+  padding: 248px 20px 30px;
+}
+
+.hero-kicker {
+  margin: 0 0 14px;
+  padding: 7px 14px 8px;
+  border-radius: 999px;
+  font-size: 15px;
+  line-height: 1.45;
+  letter-spacing: .02em;
+}
+
+.hero h1 {
+  max-width: 350px;
+  margin: 0;
+  font-size: 27px;
+  line-height: 1.55;
+  letter-spacing: .01em;
+  text-wrap: balance;
+}
+
+.hero-lead {
+  max-width: 345px;
+  margin: 18px 0 0;
+  color: #172437;
+  font-size: 17px;
+  line-height: 1.78;
+  letter-spacing: 0;
+  text-wrap: pretty;
+}
+
+.hero-lead br {
+  display: initial;
+}
+
+/* Reassurance stays compact and scannable without becoming tiny. */
+.trust-row {
+  position: static;
+  display: grid;
+  width: calc(100% - 32px);
+  height: 126px;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  margin: -6px auto 0;
+  border-radius: 14px;
+  background: #fff;
+  box-shadow: 0 4px 8px rgba(6, 43, 90, .10);
+  overflow: hidden;
+}
+
+.trust-row > div {
+  min-width: 0;
+  padding: 10px 4px;
+}
+
+.trust-row > div + div {
+  border-left: 1px solid #e1e6eb;
+}
+
+.trust-icon {
+  width: 48px;
+  height: 48px;
+  margin: 0;
+  background-image: url(../images/trust-icons-v2.png);
+  background-repeat: no-repeat;
+  background-size: 96px 96px;
+  color: transparent;
+  font-size: 0;
+}
+
+.trust-icon.icon-clock {
+  background-position: 0 0;
+}
+
+.trust-icon.icon-lock {
+  background-position: -48px 0;
+}
+
+.trust-icon.icon-japan {
+  background-position: 0 -48px;
+}
+
+.trust-row b {
+  margin-top: 4px;
+  color: var(--navy);
+  font-size: 16px;
+  line-height: 1.35;
+  white-space: nowrap;
+}
+
+.trust-row small {
+  margin-top: 2px;
+  color: #344252;
+  font-size: 14px;
+  line-height: 1.35;
+  white-space: nowrap;
+}
+
+.main-cta {
+  position: static;
+  display: grid;
+  width: calc(100% - 32px);
+  height: auto;
+  min-height: 78px;
+  grid-template-columns: 58px minmax(0, 1fr) 24px;
+  align-items: center;
+  gap: 12px;
+  margin: 20px auto 0;
+  padding: 10px 16px 10px 12px;
+  border-radius: 14px;
+  box-shadow: 0 5px 8px rgba(4, 31, 67, .20);
+}
+
+.cta-medal {
+  width: 56px;
+  height: 56px;
+  margin: 0;
+  font-size: 15px;
+  line-height: 1.25;
+}
+
+.main-cta strong {
+  margin: 0;
+  font-size: 21px;
+  line-height: 1.4;
+  letter-spacing: .02em;
+  text-align: center;
+}
+
+.main-cta i {
+  margin: 0;
+  font-size: 42px;
+  line-height: 1;
+  text-align: right;
+}
+
+.phone-box {
+  position: relative;
+  top: auto;
+  left: auto;
+  display: grid;
+  width: calc(100% - 32px);
+  height: auto;
+  min-height: 112px;
+  grid-template-columns: 52px minmax(0, 1fr);
+  align-items: center;
+  column-gap: 12px;
+  margin: 14px auto 24px;
+  padding: 18px 14px;
+  border: 1px solid #0a56a2;
+  border-radius: 12px;
+}
+
+.phone-symbol.icon-phone {
+  grid-column: 1;
+  width: 48px;
+  height: 48px;
+  margin: 0;
+  background-image: url(../images/trust-icons-v2.png);
+  background-repeat: no-repeat;
+  background-position: -48px -48px;
+  background-size: 96px 96px;
+  font-size: 0;
+  transform: none;
+}
+
+.phone-box > span:nth-child(2) {
+  grid-column: 2;
+  min-width: 0;
+}
+
+.phone-box b {
+  padding-right: 68px;
+  font-size: 14px;
+  line-height: 1.4;
+  white-space: normal;
+}
+
+.phone-box strong {
+  font-size: 28px;
+  line-height: 1.25;
+  letter-spacing: .02em;
+  white-space: nowrap;
+}
+
+.phone-box small {
+  color: #27313d;
+  font-size: 14px;
+  line-height: 1.5;
+  white-space: normal;
+}
+
+.phone-box em {
+  position: absolute;
+  top: 14px;
+  right: 14px;
+  margin: 0;
+  padding: 5px 8px;
+  border: 1px solid #0a56a2;
+  border-radius: 5px;
+  font-size: 13px;
+  line-height: 1.35;
+  white-space: nowrap;
+}
+
+/* Common section spacing for the front narrative. */
+.worries,
+.mechanism {
+  padding: 62px 20px 68px;
+}
+
+.worries .section-badge {
+  display: none;
+}
+
+.worries .eyebrow {
+  margin: 0;
+  padding: 0;
+  color: var(--navy);
+  font-size: 18px;
+  line-height: 1.5;
+  letter-spacing: .02em;
+}
+
+.worries h2,
+.mechanism > h2 {
+  padding: 0;
+  font-size: 30px;
+  line-height: 1.5;
+  letter-spacing: .02em;
+  text-align: center;
+  text-wrap: balance;
+}
+
+.worries h2 {
+  margin-top: 5px;
+}
+
+.worries > .gold-rule {
+  width: 48px;
+  height: 3px;
+  margin: 20px auto 22px;
+}
+
+.worries > .intro,
+.mechanism > .intro {
+  width: auto;
+  max-width: 350px;
+  margin: 0 auto;
+  color: #172437;
+  font-size: 16px;
+  line-height: 1.85;
+  letter-spacing: 0;
+  text-wrap: pretty;
+}
+
+.worries > .intro br,
+.mechanism > .intro br {
+  display: none;
+}
+
+/* Concise one-column concerns: the image supports the text without forcing
+   four oversized, repetitive cards. */
+.worry-grid {
+  position: static;
+  display: grid;
+  width: auto;
+  grid-template-columns: 1fr;
+  gap: 14px;
+  margin-top: 32px;
+}
+
+.worry-grid article {
+  display: grid;
+  width: 100%;
+  height: auto;
+  min-height: 156px;
+  grid-template-columns: 84px minmax(0, 1fr);
+  grid-template-rows: auto 3px auto;
+  column-gap: 16px;
+  align-items: center;
+  padding: 16px;
+  border: 0;
+  border-radius: 14px;
+  background: #fff;
+  box-shadow: 0 3px 8px rgba(6, 43, 90, .10);
+  text-align: left;
+}
+
+.worry-sprite {
+  grid-column: 1;
+  grid-row: 1 / 4;
+  width: 84px;
+  height: 84px;
+  margin: 0;
+  background-size: 168px 168px;
+}
+
+.worry-sprite.s2 {
+  background-position: -84px 0;
+}
+
+.worry-sprite.s3 {
+  background-position: 0 -84px;
+}
+
+.worry-sprite.s4 {
+  background-position: -84px -84px;
+}
+
+.worry-grid h3 {
+  grid-column: 2;
+  min-height: 0;
+  margin: 0;
+  font-size: 19px;
+  line-height: 1.5;
+  letter-spacing: 0;
+  text-align: left;
+  text-wrap: balance;
+}
+
+.worry-grid i {
+  grid-column: 2;
+  width: 36px;
+  height: 3px;
+  margin: 9px 0 8px;
+}
+
+.worry-grid p {
+  grid-column: 2;
+  max-width: none;
+  margin: 0;
+  color: #263444;
+  font-size: 16px;
+  line-height: 1.7;
+  letter-spacing: 0;
+  text-align: left;
+  text-wrap: pretty;
+}
+
+.worry-grid p br {
+  display: none;
+}
+
+.section-cta {
+  position: static;
+  width: auto;
+  margin-top: 34px;
+}
+
+.section-cta p {
+  margin: 0 0 12px;
+  font-size: 16px;
+  line-height: 1.5;
+}
+
+.section-cta a {
+  display: grid;
+  width: 100%;
+  height: auto;
+  min-height: 76px;
+  grid-template-columns: 54px minmax(0, 1fr) 22px;
+  align-items: center;
+  gap: 10px;
+  padding: 9px 14px 9px 10px;
+  border-radius: 14px;
+  font-size: 17px;
+  line-height: 1.45;
+  text-align: center;
+}
+
+.section-cta a span {
+  width: 52px;
+  height: 52px;
+  margin: 0;
+  font-size: 15px;
+}
+
+.section-cta a i {
+  margin: 0;
+  font-size: 38px;
+  line-height: 1;
+}
+
+/* Mechanism: the only numbered sequence in the front half. */
+.mechanism {
+  background: #f7faff;
+}
+
+.number-strap {
+  position: static;
+  width: auto;
+  height: auto;
+  margin: 0 0 8px;
+  border-radius: 0;
+  background: transparent;
+  color: var(--navy);
+  font: 600 17px/1.5 "Noto Serif JP", serif;
+  letter-spacing: .04em;
+  text-align: center;
+}
+
+.number-strap b {
+  display: none;
+}
+
+.mechanism > .intro {
+  margin-top: 20px;
+}
+
+.step-cards {
+  position: static;
+  display: grid;
+  width: auto;
+  gap: 14px;
+  margin-top: 32px;
+}
+
+.step-cards article {
+  position: relative;
+  display: grid;
+  width: 100%;
+  height: auto;
+  min-height: 132px;
+  grid-template-columns: 40px 72px minmax(0, 1fr);
+  align-items: center;
+  gap: 10px;
+  margin: 0;
+  padding: 16px 14px;
+  border: 1px solid #d7e0e8;
+  border-radius: 14px;
+  background: #fff;
+  box-shadow: none;
+}
+
+.step-no {
+  position: static;
+  z-index: auto;
+  display: flex;
+  width: 36px;
+  height: 36px;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  font-size: 20px;
+  line-height: 1;
+}
+
+.step-cards article:not(:last-child)::after {
+  display: none;
+}
+
+.process-sprite {
+  width: 72px;
+  height: 72px;
+  margin: 0;
+  background-size: 216px 216px;
+}
+
+.process-sprite.p2 {
+  background-position: -72px 0;
+}
+
+.process-sprite.p3 {
+  background-position: -144px 0;
+}
+
+.process-sprite.p4 {
+  background-position: 0 -72px;
+}
+
+.step-cards article > div {
+  min-width: 0;
+  padding: 0;
+}
+
+.step-cards h3 {
+  margin: 0;
+  font-size: 22px;
+  line-height: 1.45;
+  letter-spacing: .02em;
+  text-wrap: balance;
+}
+
+.step-cards p {
+  margin: 7px 0 0;
+  color: #263444;
+  font-size: 16px;
+  line-height: 1.7;
+  letter-spacing: 0;
+  text-wrap: pretty;
+}
+
+.step-cards p br {
+  display: none;
+}
+
+.mechanism-summary {
+  position: static;
+  display: flex;
+  width: 100%;
+  height: auto;
+  min-height: 112px;
+  align-items: center;
+  justify-content: center;
+  gap: 18px;
+  margin-top: 24px;
+  padding: 20px 18px;
+  border: 1px solid #ead9aa;
+  border-radius: 14px;
+  background: #fffaf0;
+}
+
+.mechanism-summary span {
+  flex: 0 0 auto;
+  margin: 0;
+  font-size: 40px;
+  line-height: 1;
+}
+
+.mechanism-summary p {
+  margin: 0;
+  font-size: 19px;
+  line-height: 1.65;
+  letter-spacing: .01em;
+  text-align: left;
+  text-wrap: pretty;
+}
+
+.main-cta:focus-visible,
+.phone-box:focus-visible,
+.section-cta a:focus-visible {
+  outline: 3px solid #f2c34c;
+  outline-offset: 3px;
+}

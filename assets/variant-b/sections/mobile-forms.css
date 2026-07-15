@@ -1,0 +1,249 @@
+/* Real-width form system shared by the lead and closing forms. */
+
+.quick-form,
+.closing-inputs {
+  position: static;
+  width: auto;
+  height: auto;
+  padding: 22px 18px 20px;
+  border: 1px solid #d5dee6;
+  border-radius: 14px;
+  background: #fff;
+  box-shadow: none;
+}
+
+.quick-form {
+  margin: 0 16px 52px;
+}
+
+.quick-form h2,
+.closing-inputs h3 {
+  margin: 0 0 20px;
+  color: var(--navy);
+  font: 700 22px/1.55 "Noto Sans JP", sans-serif;
+  letter-spacing: .01em;
+  text-align: center;
+  text-wrap: balance;
+}
+
+.quick-form label,
+.closing-inputs label {
+  display: flex;
+  width: 100%;
+  height: auto;
+  min-height: 0;
+  align-items: stretch;
+  flex-direction: column;
+  margin: 0 0 16px;
+}
+
+.quick-form label > b,
+.closing-inputs label > b {
+  display: flex;
+  min-width: 0;
+  align-items: center;
+  gap: 8px;
+  margin: 0 0 7px;
+  color: var(--navy);
+  font-size: 16px;
+  line-height: 1.45;
+  white-space: normal;
+}
+
+.quick-form label > b > span,
+.closing-inputs label > b > span {
+  display: flex;
+  min-width: 0;
+  align-items: baseline;
+  flex: 1 1 auto;
+  flex-flow: row wrap;
+  gap: 3px 5px;
+  line-height: 1.45;
+}
+
+.quick-form label > b em,
+.closing-inputs label > b em {
+  margin: 0;
+  color: #4c5a69;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 500;
+}
+
+.quick-form label > b > small,
+.closing-inputs label > b > small {
+  flex: 0 0 auto;
+  margin: 0 0 0 auto;
+  padding: 3px 7px;
+  border: 1px solid #8090a2;
+  border-radius: 4px;
+  background: #f6f8fa;
+  color: #273646;
+  font-size: 14px;
+  font-weight: 600;
+  line-height: 1.35;
+}
+
+.quick-form select,
+.quick-form input:not([type="checkbox"]),
+.closing-inputs select,
+.closing-inputs input:not([type="checkbox"]),
+.prefecture-trigger {
+  width: 100%;
+  height: 54px;
+  padding: 0 15px;
+  border: 1px solid #aeb9c4;
+  border-radius: 7px;
+  background: #fff;
+  color: #172437;
+  font: 500 16px/1 "Noto Sans JP", sans-serif;
+}
+
+.quick-form input::placeholder,
+.closing-inputs input::placeholder {
+  color: #5f6d7a;
+  opacity: 1;
+}
+
+.quick-form select:focus,
+.quick-form input:focus,
+.closing-inputs select:focus,
+.closing-inputs input:focus,
+.prefecture-trigger:focus {
+  border-color: #0a4f91;
+}
+
+.quick-form .contact-hint,
+.closing-inputs .contact-hint {
+  margin: -2px 0 16px;
+  color: #4d5b68;
+  font-size: 14px;
+  line-height: 1.6;
+}
+
+form.is-contact-invalid .contact-hint {
+  color: #a51d24;
+  font-weight: 700;
+}
+
+form.is-contact-invalid input[name="phone"],
+form.is-contact-invalid input[name="email"] {
+  border-color: #b52222;
+  box-shadow: 0 0 0 2px rgba(181, 34, 34, .12);
+}
+
+.quick-form .consent-row,
+.closing-inputs .consent-row {
+  display: grid;
+  width: 100%;
+  height: auto;
+  min-height: 48px;
+  grid-template-columns: 24px minmax(0, 1fr);
+  align-items: start;
+  gap: 10px;
+  margin: 0 0 15px;
+  color: #24313f;
+  font-size: 14px;
+  line-height: 1.65;
+}
+
+.quick-form .consent-row input,
+.closing-inputs .consent-row input {
+  width: 22px;
+  height: 22px;
+  margin: 2px 0 0;
+}
+
+.consent-row a {
+  color: #064a8b;
+  text-underline-offset: 3px;
+}
+
+.quick-submit {
+  display: grid;
+  width: 100%;
+  height: 60px;
+  grid-template-columns: minmax(0, 1fr) 24px;
+  align-items: center;
+  margin: 0;
+  padding: 0 16px 0 38px;
+  border: 0;
+  border-radius: 12px;
+  background: linear-gradient(105deg, #075092, #062c5e);
+  color: #fff;
+  font: 700 19px/1.4 "Noto Sans JP", sans-serif;
+  letter-spacing: .02em;
+  cursor: pointer;
+}
+
+.quick-submit i {
+  margin: 0;
+  font-size: 35px;
+  line-height: 1;
+}
+
+.quick-submit:disabled {
+  cursor: wait;
+  filter: saturate(.65);
+  opacity: .78;
+}
+
+.prefecture-native {
+  position: absolute;
+  width: 1px !important;
+  height: 1px !important;
+}
+
+.prefecture-picker {
+  position: relative;
+  z-index: 5;
+  width: 100%;
+}
+
+.prefecture-trigger {
+  position: relative;
+  padding-right: 46px;
+  text-align: left;
+  cursor: pointer;
+}
+
+.prefecture-trigger::after {
+  top: 19px;
+  right: 18px;
+  width: 11px;
+  height: 11px;
+  border-width: 0 3px 3px 0;
+}
+
+.prefecture-picker.is-open .prefecture-trigger::after {
+  top: 24px;
+}
+
+.prefecture-menu {
+  top: calc(100% + 6px);
+  max-height: 280px;
+  border: 1px solid #0a4f91;
+  border-radius: 8px;
+  box-shadow: 0 6px 8px rgba(6, 43, 90, .18);
+}
+
+.prefecture-option {
+  min-height: 48px;
+  padding: 10px 15px;
+  font-size: 16px;
+}
+
+.closing-form {
+  display: block;
+  width: 100%;
+  margin: 0;
+}
+
+.closing-inputs {
+  margin: 20px 16px 0;
+  scroll-margin-top: 16px;
+}
+
+.closing-submit {
+  margin-top: 2px;
+}
