@@ -1,0 +1,150 @@
+/* Expanded lead forms: shared field structure and fixed-width mobile layout. */
+
+.hero.page {
+  height: 2340px;
+}
+
+.quick-form {
+  height: 1050px;
+}
+
+.quick-form label,
+.closing-inputs label {
+  grid-template-columns: 330px minmax(0, 1fr);
+}
+
+.quick-form label > b,
+.closing-inputs label > b {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  min-width: 0;
+  font-size: 27px;
+  white-space: nowrap;
+}
+
+.quick-form label > b > small,
+.closing-inputs label > b > small {
+  flex: 0 0 auto;
+  font-size: 21px;
+}
+
+.quick-form label > b > span,
+.closing-inputs label > b > span {
+  display: flex;
+  min-width: 0;
+  flex-direction: column;
+  line-height: 1.25;
+}
+
+.quick-form label > b em,
+.closing-inputs label > b em {
+  margin-top: 4px;
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 500;
+}
+
+.quick-form select,
+.quick-form input:not([type="checkbox"]),
+.closing-inputs select,
+.closing-inputs input:not([type="checkbox"]) {
+  width: 100%;
+  height: 106px;
+  padding: 0 28px;
+  border: 1px solid #cbd2d9;
+  border-radius: 6px;
+  background: #fff;
+  color: #25313d;
+  font: 30px "Noto Sans JP", sans-serif;
+}
+
+.quick-form input::placeholder,
+.closing-inputs input::placeholder {
+  color: #66717d;
+  opacity: 1;
+}
+
+.quick-form .consent-row,
+.closing-inputs .consent-row {
+  display: flex;
+  height: 86px;
+  align-items: center;
+  justify-content: center;
+  gap: 18px;
+  color: #172437;
+  font-size: 27px;
+  line-height: 1.5;
+}
+
+.quick-form .consent-row input,
+.closing-inputs .consent-row input {
+  flex: 0 0 34px;
+  width: 34px;
+  height: 34px;
+  margin: 0;
+  accent-color: #073d78;
+}
+
+.consent-row a {
+  color: #064a8b;
+  font-weight: 700;
+  text-decoration: underline;
+  text-underline-offset: 5px;
+}
+
+.quick-submit {
+  display: flex;
+  width: 100%;
+  height: 112px;
+  align-items: center;
+  justify-content: center;
+  margin-top: 12px;
+  border: 0;
+  border-radius: 14px;
+  background: linear-gradient(105deg, #075092, #062c5e);
+  color: #fff;
+  font: 700 36px "Noto Sans JP", sans-serif;
+  letter-spacing: .03em;
+  cursor: pointer;
+}
+
+.quick-submit i {
+  margin-left: 28px;
+  font: 300 54px/1 serif;
+}
+
+.closing.page {
+  height: 2450px;
+}
+
+.closing-inputs {
+  height: 950px;
+}
+
+.closing-inputs label {
+  height: 118px;
+}
+
+.closing-phone {
+  top: 1565px;
+}
+
+.closing-trust {
+  top: 1755px;
+}
+
+.company-footer {
+  top: 1955px;
+}
+
+.quick-form select:focus-visible,
+.quick-form input:focus-visible,
+.quick-submit:focus-visible,
+.closing-inputs select:focus-visible,
+.closing-inputs input:focus-visible,
+.closing-cta:focus-visible,
+.consent-row a:focus-visible {
+  outline: 5px solid #f2c34c;
+  outline-offset: 5px;
+}
