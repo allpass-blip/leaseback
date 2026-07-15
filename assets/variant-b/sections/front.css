@@ -98,7 +98,7 @@
 
 .worry-grid article {
   height: 650px;
-  padding: 30px 28px 32px;
+  padding: 30px 20px 32px;
 }
 
 .worry-grid h3 {
@@ -107,7 +107,7 @@
   align-items: center;
   justify-content: center;
   margin: 4px 0 0;
-  font-size: 35px;
+  font-size: 30px;
   line-height: 1.42;
   letter-spacing: .01em;
 }
@@ -119,14 +119,14 @@
 
 .worry-grid p {
   margin: 0 auto;
-  max-width: 350px;
-  font-size: 32px;
-  line-height: 1.72;
+  max-width: 370px;
+  font-size: 28px;
+  line-height: 1.68;
   letter-spacing: 0;
 }
 
 .worry-grid p br {
-  display: none;
+  display: initial;
 }
 
 .section-cta {
@@ -151,8 +151,9 @@
 }
 
 .mechanism > .intro {
-  width: 820px;
+  width: 880px;
   margin: 26px auto 0;
+  font-size: 33px;
   line-height: 1.62;
 }
 
@@ -178,13 +179,13 @@
 
 .step-cards p {
   margin: 14px 0 0;
-  font-size: 32px;
+  font-size: 30px;
   line-height: 1.68;
   letter-spacing: 0;
 }
 
 .step-cards p br {
-  display: none;
+  display: initial;
 }
 
 .step-cards article:not(:last-child)::after {

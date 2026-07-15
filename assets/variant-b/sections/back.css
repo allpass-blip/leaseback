@@ -18,7 +18,7 @@
 
 .timeline p br,
 .staff-banner p br {
-  display: none;
+  display: initial;
 }
 
 .timeline {
@@ -38,6 +38,7 @@
 
 .timeline p {
   margin: 13px 0 0;
+  font-size: 31px;
   line-height: 1.62;
 }
 
@@ -59,7 +60,7 @@
 
 .staff-banner p {
   margin: 24px 0 0;
-  font-size: 32px;
+  font-size: 29px;
   line-height: 1.62;
 }
 
@@ -239,13 +240,13 @@
 }
 
 .closing-trust p b {
-  font-size: 30px;
+  font-size: 28px;
   line-height: 1.3;
 }
 
 .closing-trust p small {
   margin-top: 5px;
-  font-size: 22px;
+  font-size: 20px;
   line-height: 1.35;
 }
 
@@ -263,7 +264,7 @@
 
 .company-footer p {
   margin: 10px 0;
-  font-size: 27px;
+  font-size: 24px;
   line-height: 1.55;
 }
 

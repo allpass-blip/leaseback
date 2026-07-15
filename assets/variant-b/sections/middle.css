@@ -20,10 +20,8 @@
   text-wrap: pretty;
 }
 
-.support > .intro br,
-.cases > .intro br,
 .point-box p br {
-  display: none;
+  display: initial;
 }
 
 /* Keep the section lead-in and trust strip from crowding adjacent content. */
@@ -45,6 +43,8 @@
 
 .reason-list p {
   max-width: 520px;
+  font-size: 31px;
+  line-height: 1.62;
   text-wrap: pretty;
 }
 
@@ -67,13 +67,14 @@
 
 .point-box {
   top: 1665px;
-  height: 300px;
+  height: 320px;
   padding-top: 36px;
   padding-bottom: 36px;
 }
 
 .point-box p {
   margin-top: 18px;
+  font-size: 32px;
   line-height: 1.55;
   text-wrap: pretty;
 }
@@ -96,14 +97,25 @@
 }
 
 .case-body dd {
+  font-size: 28px;
+  line-height: 1.5;
   text-wrap: pretty;
+}
+
+.case-body dd br {
+  display: initial;
+}
+
+.case-body .amount {
+  font-size: 38px;
 }
 
 .case-note {
   top: 2920px;
   height: 120px;
   padding: 14px 28px;
-  line-height: 1.4;
+  font-size: 27px;
+  line-height: 1.5;
   text-align: left;
   text-wrap: pretty;
 }
@@ -111,6 +123,7 @@
 .fineprint {
   top: 3070px;
   right: 39px;
-  line-height: 1.55;
+  font-size: 24px;
+  line-height: 1.6;
   text-wrap: pretty;
 }
