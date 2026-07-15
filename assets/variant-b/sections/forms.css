@@ -148,3 +148,113 @@
   outline: 5px solid #f2c34c;
   outline-offset: 5px;
 }
+
+/* The prefecture list always opens below the field instead of using the
+   browser-dependent native popup direction. */
+.prefecture-native {
+  position: absolute;
+  width: 1px !important;
+  height: 1px !important;
+  margin: 0;
+  padding: 0 !important;
+  opacity: 0;
+  pointer-events: none;
+}
+
+.prefecture-picker {
+  position: relative;
+  z-index: 5;
+  width: 100%;
+}
+
+.prefecture-trigger {
+  position: relative;
+  width: 100%;
+  height: 106px;
+  padding: 0 70px 0 28px;
+  border: 1px solid #cbd2d9;
+  border-radius: 6px;
+  background: #fff;
+  color: #25313d;
+  font: 30px "Noto Sans JP", sans-serif;
+  text-align: left;
+  cursor: pointer;
+}
+
+.prefecture-trigger::after {
+  content: "";
+  position: absolute;
+  top: 42px;
+  right: 29px;
+  width: 16px;
+  height: 16px;
+  border-right: 4px solid #1d2935;
+  border-bottom: 4px solid #1d2935;
+  transform: rotate(45deg);
+  transition: transform .18s ease-out;
+}
+
+.prefecture-picker.is-open {
+  z-index: 30;
+}
+
+.prefecture-picker.is-open .prefecture-trigger::after {
+  top: 49px;
+  transform: rotate(225deg);
+}
+
+.prefecture-menu {
+  position: absolute;
+  top: calc(100% + 8px);
+  right: 0;
+  left: 0;
+  z-index: 31;
+  max-height: 400px;
+  overflow-y: auto;
+  border: 2px solid #0a4f91;
+  border-radius: 8px;
+  background: #fff;
+  box-shadow: 0 8px 8px rgba(6, 43, 90, .16);
+  overscroll-behavior: contain;
+}
+
+.prefecture-menu[hidden] {
+  display: none;
+}
+
+.prefecture-option {
+  display: flex;
+  width: 100%;
+  min-height: 66px;
+  align-items: center;
+  padding: 8px 28px;
+  border: 0;
+  border-bottom: 1px solid #dce3e9;
+  background: #fff;
+  color: #172437;
+  font: 27px "Noto Sans JP", sans-serif;
+  text-align: left;
+  cursor: pointer;
+}
+
+.prefecture-option:last-child {
+  border-bottom: 0;
+}
+
+.prefecture-option:hover,
+.prefecture-option:focus-visible,
+.prefecture-option[aria-selected="true"] {
+  background: #edf5fc;
+  color: #063d75;
+}
+
+.prefecture-picker.is-invalid .prefecture-trigger {
+  border-color: #b52222;
+  box-shadow: 0 0 0 3px rgba(181, 34, 34, .12);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .prefecture-trigger::after {
+    transition: none;
+  }
+}
