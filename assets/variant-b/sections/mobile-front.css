@@ -198,7 +198,11 @@
 }
 
 .main-cta {
-  position: static;
+  position: relative;
+  z-index: 3;
+  top: auto;
+  left: auto;
+  transform: none;
   display: grid;
   width: calc(100% - 32px);
   height: auto;
@@ -206,7 +210,7 @@
   grid-template-columns: 58px minmax(0, 1fr) 24px;
   align-items: center;
   gap: 12px;
-  margin: 20px auto 0;
+  margin: -28px auto 0;
   padding: 10px 16px 10px 12px;
   border-radius: 14px;
   box-shadow: 0 5px 8px rgba(4, 31, 67, .20);
