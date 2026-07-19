@@ -1470,6 +1470,7 @@ body {
   background: #edf2f6;
   color: #172437;
   font-size: 16px;
+  font-kerning: normal;
   -webkit-text-size-adjust: 100%;
 }
 
@@ -1493,11 +1494,13 @@ body {
 .page h1,
 .page h2,
 .page h3 {
+  word-break: auto-phrase;
   text-wrap: balance;
 }
 
 .page p,
 .page dd {
+  word-break: auto-phrase;
   text-wrap: pretty;
 }
 
@@ -1945,9 +1948,9 @@ summary {
   width: 100%;
   height: auto;
   min-height: 156px;
-  grid-template-columns: 84px minmax(0, 1fr);
+  grid-template-columns: 72px minmax(0, 1fr);
   grid-template-rows: auto 3px auto;
-  column-gap: 16px;
+  column-gap: 14px;
   align-items: center;
   padding: 16px;
   border: 0;
@@ -1960,22 +1963,22 @@ summary {
 .worry-sprite {
   grid-column: 1;
   grid-row: 1 / 4;
-  width: 84px;
-  height: 84px;
+  width: 72px;
+  height: 72px;
   margin: 0;
-  background-size: 168px 168px;
+  background-size: 144px 144px;
 }
 
 .worry-sprite.s2 {
-  background-position: -84px 0;
+  background-position: -72px 0;
 }
 
 .worry-sprite.s3 {
-  background-position: 0 -84px;
+  background-position: 0 -72px;
 }
 
 .worry-sprite.s4 {
-  background-position: -84px -84px;
+  background-position: -72px -72px;
 }
 
 .worry-grid h3 {
@@ -2090,11 +2093,11 @@ summary {
   width: 100%;
   height: auto;
   min-height: 132px;
-  grid-template-columns: 40px 72px minmax(0, 1fr);
+  grid-template-columns: 34px 64px minmax(0, 1fr);
   align-items: center;
-  gap: 10px;
+  gap: 8px;
   margin: 0;
-  padding: 16px 14px;
+  padding: 16px 12px;
   border: 1px solid #d7e0e8;
   border-radius: 14px;
   background: #fff;
@@ -2105,12 +2108,12 @@ summary {
   position: static;
   z-index: auto;
   display: flex;
-  width: 36px;
-  height: 36px;
+  width: 32px;
+  height: 32px;
   align-items: center;
   justify-content: center;
   border-radius: 50%;
-  font-size: 20px;
+  font-size: 18px;
   line-height: 1;
 }
 
@@ -2119,30 +2122,33 @@ summary {
 }
 
 .process-sprite {
-  width: 72px;
-  height: 72px;
+  width: 64px;
+  height: 64px;
   margin: 0;
-  background-size: 216px 216px;
+  background-size: 192px 192px;
 }
 
 .process-sprite.p2 {
-  background-position: -72px 0;
+  background-position: -64px 0;
 }
 
 .process-sprite.p3 {
-  background-position: -144px 0;
+  background-position: -128px 0;
 }
 
 .process-sprite.p4 {
-  background-position: 0 -72px;
+  background-position: 0 -64px;
 }
 
 .step-cards article > div {
+  display: contents;
   min-width: 0;
   padding: 0;
 }
 
 .step-cards h3 {
+  grid-column: 3;
+  grid-row: 1;
   margin: 0;
   font-size: 22px;
   line-height: 1.45;
@@ -2151,7 +2157,9 @@ summary {
 }
 
 .step-cards p {
-  margin: 7px 0 0;
+  grid-column: 2 / 4;
+  grid-row: 2;
+  margin: 8px 0 0;
   color: #263444;
   font-size: 16px;
   line-height: 1.7;
@@ -2274,6 +2282,18 @@ summary {
   line-height: 1;
 }
 
+.support > h2 > span {
+  display: block;
+}
+
+.support-heading-count {
+  display: flex !important;
+  align-items: baseline;
+  justify-content: center;
+  gap: 4px;
+  margin-top: 3px;
+}
+
 .reason-list {
   position: static;
   width: auto;
@@ -2286,11 +2306,11 @@ summary {
   width: 100%;
   height: auto;
   min-height: 0;
-  grid-template-columns: 80px minmax(0, 1fr);
+  grid-template-columns: 64px minmax(0, 1fr);
   align-items: start;
-  gap: 0 16px;
+  gap: 0 14px;
   margin: 0;
-  padding: 24px 19px 25px;
+  padding: 22px 16px 23px;
   border: 1px solid #dce5ec;
   border-radius: 14px;
   background: #fff;
@@ -2312,8 +2332,8 @@ summary {
 
 .reason-art,
 .reason-art.yen {
-  width: 72px;
-  height: 72px;
+  width: 64px;
+  height: 64px;
   margin: 18px 0 0;
   border-radius: 50%;
   background-color: #fbf7ee;
@@ -2325,8 +2345,8 @@ summary {
 }
 
 .reason-list article:nth-child(3) .reason-art {
-  background-position: -72px 0;
-  background-size: 144px 144px;
+  background-position: -64px 0;
+  background-size: 128px 128px;
 }
 
 .reason-list article > div {
@@ -2573,13 +2593,13 @@ summary {
 }
 
 .case-body dt {
-  width: 39%;
+  width: 36%;
   color: var(--navy);
   font-weight: 700;
 }
 
 .case-body dd {
-  width: 61%;
+  width: 64%;
   color: #263341;
 }
 
@@ -2766,7 +2786,7 @@ summary {
   width: auto;
   height: auto;
   min-height: 258px;
-  grid-template-columns: minmax(0, 58%) minmax(0, 42%);
+  grid-template-columns: minmax(0, 64%) minmax(0, 36%);
   margin: 38px 0 0;
   overflow: hidden;
   border: 1px solid #8faec9;
@@ -2779,14 +2799,14 @@ summary {
   position: relative;
   z-index: 2;
   width: auto;
-  padding: 22px 0 22px 18px;
+  padding: 20px 0 20px 14px;
 }
 
 .staff-banner h3 {
   margin: 0;
   padding: 0 0 14px;
   border-bottom: 1px solid #8aa4bb;
-  font-size: 22px;
+  font-size: 20px;
   line-height: 1.5;
 }
 
@@ -3011,8 +3031,8 @@ summary {
 }
 
 .closing-hero h2 {
-  width: 340px;
-  max-width: 90%;
+  width: 350px;
+  max-width: 100%;
   font-size: 27px;
   line-height: 1.55;
   letter-spacing: 0.015em;
@@ -3026,6 +3046,17 @@ summary {
 .closing-hero h2 strong {
   font-size: 43px;
   line-height: 1.15;
+}
+
+.closing-hero h2 > span {
+  display: block;
+}
+
+.closing-heading-offer {
+  display: flex !important;
+  align-items: baseline;
+  gap: 3px;
+  margin-top: 2px;
 }
 
 .closing-hero > p:last-child {
