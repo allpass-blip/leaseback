@@ -1,4 +1,4 @@
-/* ===== Source: assets/variant-b/styles.css ===== */
+/* ===== Shared visual foundations ===== */
 :root {
   --navy: #062d60;
   --navy2: #08396e;
@@ -1127,7 +1127,7 @@ body {
   }
 }
 
-/* ===== Source: assets/variant-b/sections/legacy-front.css ===== */
+/* ===== Front-section foundations ===== */
 /* Front-section typesetting and spacing reconciliation (390px fixed viewport). */
 
 /* Hero: keep the copy readable over the photograph and preserve a calm vertical rhythm. */
@@ -1242,7 +1242,7 @@ body {
   margin-right: 36px;
 }
 
-/* ===== Source: assets/variant-b/sections/legacy-middle.css ===== */
+/* ===== Middle-section foundations ===== */
 /* Section-specific rhythm: support, comparison and customer cases. */
 
 .support > .intro,
@@ -1328,7 +1328,7 @@ body {
   right: 39px;
 }
 
-/* ===== Source: assets/variant-b/sections/legacy-back.css ===== */
+/* ===== Back-section foundations ===== */
 /* Section-specific rhythm pass: flow, FAQ, closing guide and footer. */
 
 /* 07 / Flow: let body copy wrap to the available measure instead of at authoring breaks. */
@@ -1432,7 +1432,7 @@ body {
   padding-bottom: 26px;
 }
 
-/* ===== Source: assets/variant-b/sections/legacy-forms.css ===== */
+/* ===== Form foundations ===== */
 /* Expanded lead forms: shared field structure and fixed-width mobile layout. */
 
 .hero.page {
@@ -1609,7 +1609,7 @@ body {
   }
 }
 
-/* ===== Source: assets/variant-b/sections/mobile-core.css ===== */
+/* ===== Mobile core ===== */
 /*
  * Production mobile foundation.
  * The original comp was authored on a 941px canvas and reduced with zoom.
@@ -1725,7 +1725,7 @@ summary {
   }
 }
 
-/* ===== Source: assets/variant-b/sections/mobile-front.css ===== */
+/* ===== Mobile front sections ===== */
 /*
  * Real-width mobile treatment for the first three sections.
  * This file is intentionally additive: it replaces the original 941px,
@@ -2372,7 +2372,7 @@ summary {
   outline-offset: 3px;
 }
 
-/* ===== Source: assets/variant-b/sections/mobile-middle.css ===== */
+/* ===== Mobile middle sections ===== */
 /*
  * Native 390px layout: support, comparison and customer cases.
  * Loaded after the legacy 941px styles; all section geometry below uses
@@ -2841,7 +2841,7 @@ summary {
   display: none;
 }
 
-/* ===== Source: assets/variant-b/sections/mobile-back.css ===== */
+/* ===== Mobile back sections ===== */
 /* 390px real-width layout: flow, FAQ, closing reassurance and company footer. */
 
 /* Flow: a compact procedural timeline, distinct from the service-mechanism cards. */
@@ -3483,7 +3483,7 @@ summary {
   }
 }
 
-/* ===== Source: assets/variant-b/sections/mobile-forms.css ===== */
+/* ===== Mobile forms ===== */
 /* Real-width form system shared by the lead and closing forms. */
 
 .quick-form,
