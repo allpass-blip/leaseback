@@ -364,42 +364,23 @@ body {
   line-height: 1.55;
   text-align: center;
 }
-.support > h2 strong {
-  color: var(--gold);
-  font-size: 75px;
-}
 .support > .intro {
   margin-top: 16px;
 }
 .reason-list {
-  position: absolute;
   top: 413px;
   left: 50px;
-  width: 841px;
 }
 .reason-list article {
-  position: relative;
-  display: grid;
-  height: 327px;
-  grid-template-columns: 270px 1fr;
-  align-items: center;
   margin-bottom: 20px;
-  border-radius: 24px;
-  background: #fff;
-  box-shadow: var(--shadow);
 }
 .reason-no {
   position: absolute;
-  top: 28px;
-  left: 28px;
   z-index: 2;
   display: flex;
-  width: 75px;
-  height: 75px;
   align-items: center;
   justify-content: center;
   border-radius: 50%;
-  background: linear-gradient(145deg, #dec172, #b98c2d);
   color: #fff;
   font:
     35px "Noto Serif JP",
@@ -417,9 +398,6 @@ body {
   color: var(--navy);
   font: 52px serif;
 }
-.reason-art.yen {
-  font-size: 76px;
-}
 .reason-list h3 {
   font:
     600 39px/1.5 "Noto Sans JP",
@@ -428,16 +406,10 @@ body {
 .reason-list h3 span {
   color: var(--gold);
 }
-.reason-list p {
-  margin: 16px 0 0;
-  font-size: 25px;
-  line-height: 1.65;
-}
 .support-trust {
   position: absolute;
   top: 1453px;
   left: 50px;
-  display: grid;
   width: 841px;
   height: 210px;
   grid-template-columns: repeat(3, 1fr);
@@ -476,59 +448,23 @@ body {
   margin-top: 23px;
 }
 .compare-table {
-  position: absolute;
   top: 322px;
   left: 30px;
-  display: grid;
-  width: 881px;
-  height: 1049px;
-  grid-template-columns: 212px 255px 204px 210px;
-  grid-template-rows: 144px repeat(5, 1fr);
-  overflow: visible;
-  border: 1px solid #d5dde4;
-  border-radius: 18px;
 }
 .compare-table .cell {
   display: flex;
   align-items: center;
   justify-content: center;
-  border-right: 1px solid #d5dde4;
-  border-bottom: 1px solid #d5dde4;
-  color: #0b1930;
-  font-size: 20px;
-  line-height: 1.5;
   text-align: center;
 }
 .compare-table .cell:nth-child(4n) {
   border-right: 0;
 }
-.compare-table .label {
-  flex-direction: column;
-  color: var(--navy);
-  font-size: 37px;
-}
-.compare-table .label b {
-  font-size: 20px;
-}
-.compare-table .head {
-  font-size: 23px;
-  font-weight: 700;
-}
 .compare-table .featured {
   position: relative;
-  z-index: 2;
-  border-right: 2px solid var(--gold);
-  border-left: 2px solid var(--gold);
-  background: linear-gradient(100deg, #062c5d, #0a467a);
-  color: #fff;
-  font-size: 21px;
 }
 .compare-table .head.featured {
   margin-top: -17px;
-  border-top: 2px solid var(--gold);
-  border-radius: 18px 18px 0 0;
-  color: #d8ae55;
-  font-size: 25px;
 }
 .compare-table .cell:nth-last-child(3) {
   margin-bottom: -14px;
@@ -536,33 +472,17 @@ body {
   border-radius: 0 0 18px 18px;
 }
 .compare-table strong {
-  font-size: 53px;
   font-weight: 400;
 }
-.compare-table b {
-  font-size: 27px;
-}
 .point-box {
-  position: absolute;
   top: 1424px;
   left: 30px;
-  width: 881px;
-  height: 228px;
-  padding: 40px 76px;
-  border: 1px solid #eddba8;
-  border-radius: 22px;
-  background: var(--cream);
 }
 .point-box b {
   color: var(--navy);
   font:
     600 28px "Noto Serif JP",
     serif;
-}
-.point-box p {
-  margin: 22px 0 0;
-  font-size: 24px;
-  line-height: 1.75;
 }
 /* cases */
 .cases > h2 {
@@ -576,21 +496,12 @@ body {
   font-size: 21px;
 }
 .case-list {
-  position: absolute;
   top: 326px;
   left: 39px;
-  width: 856px;
 }
 .case-list article {
-  display: grid;
-  height: 397px;
   grid-template-columns: 282px 1fr;
   margin-bottom: 28px;
-  overflow: hidden;
-  border: 1px solid #d7dee4;
-  border-radius: 18px;
-  background: #fff;
-  box-shadow: var(--shadow);
 }
 .case-photo {
   position: relative;
@@ -599,75 +510,19 @@ body {
 .case-photo span {
   position: absolute;
   z-index: 2;
-  top: 19px;
-  left: 21px;
-  padding: 8px 18px;
-  border-radius: 15px;
-  background: linear-gradient(100deg, #073d77, #052a59);
   color: #fff;
-  font-size: 19px;
-  letter-spacing: 0.1em;
 }
 .case-photo img {
-  width: 100%;
-  height: 100%;
   object-fit: cover;
 }
-.case-body {
-  padding: 20px 23px 14px 18px;
-}
-.case-body h3 {
-  padding: 0 0 14px;
-  border-bottom: 1px solid #c9d3dd;
-  font-size: 33px;
-}
-.case-body dl {
-  display: grid;
-  grid-template-columns: 190px 1fr;
-  margin: 0;
-}
-.case-body dt,
-.case-body dd {
-  margin: 0;
-  padding: 12px 0;
-  border-bottom: 1px solid #c9d3dd;
-  font-size: 16px;
-  line-height: 1.55;
-}
-.case-body dt {
-  font-weight: 600;
-  color: #28303a;
-}
-.case-body .amount {
-  color: var(--navy);
-  font-size: 30px;
-  font-weight: 700;
-}
-.case-body .amount small {
-  font-size: 16px;
-}
 .case-note {
-  position: absolute;
   top: 1548px;
   left: 39px;
-  width: 856px;
-  height: 49px;
-  margin: 0;
-  border: 1px solid #8fb1d2;
-  border-radius: 12px;
-  color: var(--navy);
-  font-size: 15px;
   font-weight: 600;
-  line-height: 49px;
-  text-align: center;
 }
 .fineprint {
-  position: absolute;
   top: 1612px;
   left: 39px;
-  font-size: 12px;
-  line-height: 1.6;
-  color: #4d5661;
 }
 /* flow */
 .flow > h2 {
@@ -1321,8 +1176,6 @@ body {
   top: 488px;
 }
 .reason-list article {
-  height: 480px;
-  grid-template-columns: 255px 1fr;
   margin-bottom: 26px;
 }
 .reason-art {
@@ -1330,14 +1183,8 @@ body {
   height: 185px;
   margin-left: 32px;
 }
-.reason-list h3 {
-  font-size: 42px;
-  line-height: 1.45;
-}
 .reason-list p {
   margin-top: 12px;
-  font-size: 34px;
-  line-height: 1.65;
 }
 .support-trust {
   top: 2010px;
@@ -1370,8 +1217,6 @@ body {
 .reason-list article:nth-child(3) .reason-art {
   background-image: url(images/trust-icons-v2.webp);
   background-repeat: no-repeat;
-  background-position: -185px 0;
-  background-size: 370px 370px;
   color: transparent;
   font-size: 0;
 }
@@ -1386,17 +1231,6 @@ body {
   font-size: 34px;
   line-height: 1.6;
 }
-.compare-table {
-  width: 876px;
-  height: 1260px;
-  grid-template-columns: 227px 345px 299px;
-}
-.compare-table .cell {
-  border-right: 1px solid #d5dde4;
-}
-.compare-table .cell:nth-child(3n) {
-  border-right: 0;
-}
 .compare-table .cell:nth-last-child(3) {
   margin-bottom: 0;
   border-bottom: 1px solid #d5dde4;
@@ -1407,38 +1241,8 @@ body {
   border-bottom: 2px solid var(--gold);
   border-radius: 0 0 18px 18px;
 }
-.compare-table .cell {
-  font-size: 34px;
-  line-height: 1.4;
-}
-.compare-table .label {
-  font-size: 42px;
-}
-.compare-table .label b {
-  font-size: 32px;
-}
-.compare-table .head {
-  font-size: 34px;
-}
-.compare-table .featured {
-  font-size: 34px;
-}
-.compare-table .head.featured {
-  font-size: 35px;
-}
-.compare-table b {
-  font-size: 36px;
-}
 .point-box {
   top: 1600px;
-  height: 270px;
-}
-.point-box b {
-  font-size: 36px;
-}
-.point-box p {
-  font-size: 34px;
-  line-height: 1.6;
 }
 
 .cases.page {
@@ -1452,42 +1256,13 @@ body {
   line-height: 1.65;
 }
 .case-list article {
-  height: 760px;
   margin-bottom: 28px;
-}
-.case-body {
-  padding: 24px 22px 16px 20px;
-}
-.case-body h3 {
-  font-size: 42px;
-  line-height: 1.35;
-}
-.case-body dl {
-  grid-template-columns: 175px 1fr;
-}
-.case-body dt,
-.case-body dd {
-  padding: 15px 0;
-  font-size: 32px;
-  line-height: 1.42;
-}
-.case-body .amount {
-  font-size: 38px;
-}
-.case-body .amount small {
-  font-size: 24px;
 }
 .case-note {
   top: 2690px;
-  height: 78px;
-  padding: 10px 24px;
-  font-size: 26px;
-  line-height: 1.45;
 }
 .fineprint {
   top: 2790px;
-  font-size: 24px;
-  line-height: 1.5;
 }
 
 .flow.page {
@@ -1691,15 +1466,6 @@ body {
 .cases > .intro {
   font-size: 34px;
 }
-.case-photo span {
-  font-size: 30px;
-}
-.case-note {
-  font-size: 30px;
-}
-.fineprint {
-  font-size: 28px;
-}
 .timeline p {
   font-size: 34px;
 }
@@ -1752,9 +1518,6 @@ body {
 
 .cases.page {
   height: 3120px;
-}
-.case-list article {
-  height: 800px;
 }
 .case-note {
   top: 2820px;
@@ -1961,11 +1724,6 @@ body {
 
 /* ===== Source: assets/variant-b/sections/legacy-middle.css ===== */
 /* Section-specific rhythm: support, comparison and customer cases. */
-.support > h2,
-.comparison > h2,
-.cases > h2 {
-  text-wrap: balance;
-}
 
 .support > .intro,
 .comparison > .intro {
@@ -1982,10 +1740,6 @@ body {
   text-wrap: pretty;
 }
 
-.point-box p br {
-  display: initial;
-}
-
 /* Keep the section lead-in and trust strip from crowding adjacent content. */
 .support.page {
   height: 2340px;
@@ -1997,17 +1751,6 @@ body {
 
 .reason-list {
   top: 500px;
-}
-
-.reason-list h3 {
-  text-wrap: balance;
-}
-
-.reason-list p {
-  max-width: 520px;
-  font-size: 31px;
-  line-height: 1.62;
-  text-wrap: pretty;
 }
 
 .support-trust {
@@ -2029,16 +1772,12 @@ body {
 
 .point-box {
   top: 1665px;
-  height: 320px;
   padding-top: 36px;
   padding-bottom: 36px;
 }
 
 .point-box p {
   margin-top: 18px;
-  font-size: 32px;
-  line-height: 1.55;
-  text-wrap: pretty;
 }
 
 /* The lead previously collided with the first case; reserve a clear handoff. */
@@ -2054,40 +1793,19 @@ body {
   top: 425px;
 }
 
-.case-body h3 {
-  text-wrap: balance;
-}
-
 .case-body dd {
   font-size: 28px;
   line-height: 1.5;
   text-wrap: pretty;
 }
 
-.case-body dd br {
-  display: initial;
-}
-
-.case-body .amount {
-  font-size: 38px;
-}
-
 .case-note {
   top: 2920px;
-  height: 120px;
-  padding: 14px 28px;
-  font-size: 27px;
-  line-height: 1.5;
-  text-align: left;
-  text-wrap: pretty;
 }
 
 .fineprint {
   top: 3070px;
   right: 39px;
-  font-size: 24px;
-  line-height: 1.6;
-  text-wrap: pretty;
 }
 
 /* ===== Source: assets/variant-b/sections/legacy-back.css ===== */
