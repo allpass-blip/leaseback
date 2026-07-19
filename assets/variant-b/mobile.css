@@ -63,32 +63,6 @@ html::-webkit-scrollbar {
 body {
   overflow-x: hidden;
 }
-.section-badge {
-  position: absolute;
-  top: 29px;
-  left: 43px;
-  width: 77px;
-  height: 57px;
-  align-items: center;
-  justify-content: center;
-  border-radius: 0 0 20px 0;
-  color: #fff;
-  font:
-    38px/1 "Noto Serif JP",
-    serif;
-  letter-spacing: 0.05em;
-}
-.section-badge.gold {
-  background: linear-gradient(135deg, #b88b2d, #dfbd68);
-}
-.section-badge.navy {
-  background: linear-gradient(135deg, #052756, #0a477d);
-}
-.section-badge.center {
-  left: 50%;
-  transform: translateX(-50%);
-  border-radius: 0 0 24px 24px;
-}
 .gold-rule {
   display: block;
   width: 85px;
@@ -207,11 +181,6 @@ body {
     sans-serif;
   color: #555;
 }
-.privacy-note {
-  margin: 16px 0 0;
-  font-size: 17px;
-  text-align: center;
-}
 /* worries */
 .worries .eyebrow {
   padding-top: 54px;
@@ -279,13 +248,6 @@ body {
 .number-strap {
   top: 40px;
   left: 236px;
-}
-.number-strap b {
-  position: absolute;
-  left: 0;
-  width: 60px;
-  background: rgba(0, 26, 66, 0.33);
-  font-size: 39px;
 }
 .mechanism > h2 {
   padding-top: 125px;
@@ -550,19 +512,6 @@ body {
   font:
     34px "Noto Serif JP",
     serif;
-}
-.timeline-icon {
-  width: 165px;
-  height: 165px;
-  align-items: center;
-  justify-content: center;
-  margin-left: 53px;
-  border: 1px solid #d9dde1;
-  border-radius: 50%;
-  background: #fff;
-  box-shadow: 0 5px 13px rgba(5, 39, 77, 0.07);
-  color: var(--gold);
-  font-size: 67px;
 }
 .staff-banner h3 {
   padding-bottom: 17px;
@@ -841,10 +790,6 @@ body {
   font-size: 34px;
   color: #25313d;
 }
-.privacy-note {
-  margin-top: 12px;
-  font-size: 28px;
-}
 .main-cta:focus-visible,
 .phone-box:focus-visible,
 .quick-form select:focus-visible {
@@ -1003,36 +948,6 @@ body {
 .fineprint {
   top: 2790px;
 }
-.timeline-icon {
-  width: 175px;
-  height: 175px;
-}
-.timeline article:nth-child(1) .timeline-icon {
-  background-image: url(images/trust-icons-v2.webp);
-  background-repeat: no-repeat;
-  background-position: -175px -175px;
-  background-size: 350px 350px;
-  color: transparent;
-  font-size: 0;
-}
-.timeline article:nth-child(3) .timeline-icon,
-.timeline article:nth-child(4) .timeline-icon,
-.timeline article:nth-child(5) .timeline-icon {
-  background-image: url(images/process-sprite.webp);
-  background-repeat: no-repeat;
-  background-size: 525px 525px;
-  color: transparent;
-  font-size: 0;
-}
-.timeline article:nth-child(3) .timeline-icon {
-  background-position: 0 0;
-}
-.timeline article:nth-child(4) .timeline-icon {
-  background-position: -350px 0;
-}
-.timeline article:nth-child(5) .timeline-icon {
-  background-position: -175px 0;
-}
 .faq summary {
   font-size: 39px;
 }
@@ -1070,9 +985,6 @@ body {
   flex: 0 0 95px;
 }
 /* Final minimum-size pass for supporting copy */
-.privacy-note {
-  font-size: 34px;
-}
 .cases > .intro {
   font-size: 34px;
 }
@@ -1151,12 +1063,6 @@ body {
 .quick-form h2 {
   margin-bottom: 14px;
   line-height: 1.45;
-}
-
-.privacy-note {
-  max-width: 790px;
-  margin: 14px auto 0;
-  line-height: 1.55;
 }
 
 /* Worries: let body copy wrap from its measure instead of from editorial <br>s. */
@@ -1659,10 +1565,6 @@ body {
   text-wrap: pretty;
 }
 
-.section-badge {
-  display: none !important;
-}
-
 img {
   max-width: 100%;
 }
@@ -2045,10 +1947,6 @@ summary {
   padding: 62px 20px 68px;
 }
 
-.worries .section-badge {
-  display: none;
-}
-
 .worries .eyebrow {
   margin: 0;
   padding: 0;
@@ -2236,10 +2134,6 @@ summary {
     serif;
   letter-spacing: 0.04em;
   text-align: center;
-}
-
-.number-strap b {
-  display: none;
 }
 
 .mechanism > .intro {
@@ -2537,17 +2431,6 @@ summary {
 .comparison.page {
   padding-top: 38px;
   background: #fff;
-}
-
-.comparison > .section-badge,
-.cases > .section-badge {
-  position: static;
-  width: 58px;
-  height: 42px;
-  margin: 0 auto 17px;
-  border-radius: 0 0 14px 14px;
-  font-size: 23px;
-  transform: none;
 }
 
 .compare-table {
@@ -2854,10 +2737,6 @@ summary {
   background: #fff;
 }
 
-.flow > .section-badge {
-  top: 24px;
-}
-
 .flow > h2 {
   max-width: 350px;
   margin: 0 auto;
@@ -2928,10 +2807,6 @@ summary {
   box-shadow: 0 0 0 1px #06376c;
   font-size: 23px;
   line-height: 1;
-}
-
-.timeline-icon {
-  display: none;
 }
 
 .timeline h3 {
