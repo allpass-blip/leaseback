@@ -14,10 +14,10 @@
   <link rel="stylesheet" href="/assets/variant-b/sections/back.css?v=2">
   <link rel="stylesheet" href="/assets/variant-b/sections/forms.css?v=2">
   <link rel="stylesheet" href="/assets/variant-b/sections/mobile-core.css?v=3">
-  <link rel="stylesheet" href="/assets/variant-b/sections/mobile-front.css?v=3">
+  <link rel="stylesheet" href="/assets/variant-b/sections/mobile-front.css?v=6">
   <link rel="stylesheet" href="/assets/variant-b/sections/mobile-middle.css?v=3">
   <link rel="stylesheet" href="/assets/variant-b/sections/mobile-back.css?v=3">
-  <link rel="stylesheet" href="/assets/variant-b/sections/mobile-forms.css?v=3">
+  <link rel="stylesheet" href="/assets/variant-b/sections/mobile-forms.css?v=4">
 </head>
 <body>
 <main class="lp">
@@ -29,8 +29,8 @@
     <div class="hero-visual">
       <div class="hero-copy">
         <p class="hero-kicker">大切な住まいを、これからも。</p>
-        <h1>ご自宅に住み続けながら、<br>まとまった資金を。</h1>
-        <p class="hero-lead">住宅ローン・老後資金・相続の<br>お悩みに。<strong>リースバック</strong>という選択肢。</p>
+        <h1>ご自宅に<br>住み続けながら、<br>まとまった資金を。</h1>
+        <p class="hero-lead">住宅ローン・老後資金・<br>相続のお悩みに。<br><strong>リースバック</strong>という選択肢。</p>
       </div>
     </div>
     <div class="trust-row">
@@ -40,17 +40,20 @@
     </div>
     <a class="main-cta" href="#quick-form"><span class="cta-medal">完全<br>無料</span><strong>無料査定はこちら</strong><i>›</i></a>
     <a class="phone-box" href="tel:0120123456"><span class="phone-symbol icon-phone" aria-hidden="true"></span><span><b>お電話でのご相談も受付中</b><strong>0120-123-456</strong><small>受付時間 9:00〜18:00（年中無休）</small></span><em>通話無料</em></a>
-    <form class="quick-form" id="quick-form" name="leaseback-contact" method="POST" action="/thanks.html" data-netlify="true" data-contact-form>
+    <form class="quick-form" id="quick-form" name="leaseback-contact" method="POST" action="/thanks.html" accept-charset="UTF-8" data-netlify="true" netlify-honeypot="bot-field" data-contact-form>
       <input type="hidden" name="form-name" value="leaseback-contact">
+      <input type="hidden" name="通知内容" value="リースバック無料条件確認フォームより、新しいお問い合わせがありました。下記内容をご確認のうえ、ご対応をお願いいたします。">
+      <input type="hidden" name="送信元" value="variant-b-quick-form">
+      <input type="hidden" name="送信ページ" value="/variant-b/">
+      <p hidden><label>この項目は入力しないでください <input type="text" name="bot-field" autocomplete="off" tabindex="-1"></label></p>
       <h2>＼　まずは無料で査定価格をチェック　／</h2>
-      <label><b><span>物件の種類</span><small>必須</small></b><select name="property_type" required><option value="">選択してください</option><option>戸建て</option><option>マンション</option><option>その他</option></select></label>
-      <label><b><span>都道府県</span><small>必須</small></b><select name="prefecture" required><option value="">選択してください</option><option>東京都</option><option>神奈川県</option><option>千葉県</option><option>埼玉県</option><option>大阪府</option><option>奈良県</option><option>福岡県</option><option>長野県</option><option>山梨県</option><option>熊本県</option><option>長崎県</option><option>高知県</option><option>その他</option></select></label>
-      <label><b><span>ご希望の売却時期</span><small>必須</small></b><select name="sale_timing" required><option value="">選択してください</option><option>1ヶ月以内</option><option>3ヶ月以内</option><option>半年以内</option><option>1年以内</option><option>未定</option></select></label>
-      <label><b><span>お名前<em>（ニックネームも可）</em></span><small>必須</small></b><input name="name" autocomplete="name" required placeholder="例）山田 太郎"></label>
-      <label><b><span>電話番号</span><small>いずれか必須</small></b><input type="tel" name="phone" autocomplete="tel" inputmode="tel" placeholder="例）09012345678"></label>
-      <label><b><span>メールアドレス</span><small>いずれか必須</small></b><input type="email" name="email" autocomplete="email" inputmode="email" placeholder="例）sample@example.com"></label>
-      <p class="contact-hint" data-contact-error>電話番号またはメールアドレスのどちらかをご入力ください。</p>
-      <label class="consent-row"><input type="checkbox" name="privacy_consent" value="同意する" checked required><span><a href="/privacy-policy.html" target="_blank" rel="noopener">プライバシーポリシー</a> に同意のうえ送信します</span></label>
+      <label><b><span>物件の種類</span><small>必須</small></b><select name="物件種別" required><option value="">選択してください</option><option>戸建て</option><option>マンション</option><option>その他</option></select></label>
+      <label><b><span>都道府県</span><small>必須</small></b><select name="都道府県" required><option value="">選択してください</option><option>東京都</option><option>神奈川県</option><option>千葉県</option><option>埼玉県</option><option>大阪府</option><option>奈良県</option><option>福岡県</option><option>長野県</option><option>山梨県</option><option>熊本県</option><option>長崎県</option><option>高知県</option><option>その他</option></select></label>
+      <label><b><span>ご希望の売却時期</span><small>必須</small></b><select name="売却希望時期" required><option value="">選択してください</option><option>1ヶ月以内</option><option>3ヶ月以内</option><option>半年以内</option><option>1年以内</option><option>未定</option></select></label>
+      <label><b><span>お名前<em>（ニックネームも可）</em></span><small>必須</small></b><input name="お名前" autocomplete="name" maxlength="80" required placeholder="例）山田 太郎"></label>
+      <label><b><span>電話番号</span><small>必須</small></b><input type="tel" name="電話番号" autocomplete="tel" inputmode="tel" maxlength="20" pattern="[0-9+()\s-]{8,20}" required placeholder="例）09012345678"></label>
+      <label><b><span>メールアドレス</span><small>必須</small></b><input type="email" name="メールアドレス" autocomplete="email" inputmode="email" maxlength="254" required placeholder="例）sample@example.com"></label>
+      <label class="consent-row"><input type="checkbox" name="同意状況" value="同意済み" checked required><span><a href="/privacy-policy.html" target="_blank" rel="noopener">プライバシーポリシー</a> に同意のうえ送信します</span></label>
       <button class="quick-submit" type="submit">無料査定を申し込む <i>›</i></button>
     </form>
   </section>
@@ -148,8 +151,12 @@
   </section>
 
   <section class="closing page" id="final-guide">
-    <form class="closing-form" name="leaseback-contact-final" method="POST" action="/thanks.html" data-netlify="true" data-contact-form>
-      <input type="hidden" name="form-name" value="leaseback-contact-final">
+    <form class="closing-form" name="leaseback-contact" method="POST" action="/thanks.html" accept-charset="UTF-8" data-netlify="true" netlify-honeypot="bot-field" data-contact-form>
+      <input type="hidden" name="form-name" value="leaseback-contact">
+      <input type="hidden" name="通知内容" value="リースバック無料条件確認フォームより、新しいお問い合わせがありました。下記内容をご確認のうえ、ご対応をお願いいたします。">
+      <input type="hidden" name="送信元" value="variant-b-closing-form">
+      <input type="hidden" name="送信ページ" value="/variant-b/">
+      <p hidden><label>この項目は入力しないでください <input type="text" name="bot-field" autocomplete="off" tabindex="-1"></label></p>
       <div class="closing-hero">
         <p class="closing-ribbon">最後のご案内</p>
         <h2>まずは、ご自宅の価値を<br><strong>無料</strong>で確認<br>してみませんか？</h2>
@@ -164,14 +171,13 @@
 
       <div class="closing-inputs" id="final-inputs">
         <h3>カンタン入力｜無料査定フォーム</h3>
-        <label><b><span>物件の種類</span><small>必須</small></b><select name="property_type" required><option value="">選択してください</option><option>戸建て</option><option>マンション</option><option>その他</option></select></label>
-        <label><b><span>都道府県</span><small>必須</small></b><select name="prefecture" required><option value="">選択してください</option><option>東京都</option><option>神奈川県</option><option>千葉県</option><option>埼玉県</option><option>大阪府</option><option>奈良県</option><option>福岡県</option><option>長野県</option><option>山梨県</option><option>熊本県</option><option>長崎県</option><option>高知県</option><option>その他</option></select></label>
-        <label><b><span>ご希望の売却時期</span><small>必須</small></b><select name="sale_timing" required><option value="">選択してください</option><option>1ヶ月以内</option><option>3ヶ月以内</option><option>半年以内</option><option>1年以内</option><option>未定</option></select></label>
-        <label><b><span>お名前<em>（ニックネームも可）</em></span><small>必須</small></b><input name="name" autocomplete="name" required placeholder="例）山田 太郎"></label>
-        <label><b><span>電話番号</span><small>いずれか必須</small></b><input type="tel" name="phone" autocomplete="tel" inputmode="tel" placeholder="例）09012345678"></label>
-        <label><b><span>メールアドレス</span><small>いずれか必須</small></b><input type="email" name="email" autocomplete="email" inputmode="email" placeholder="例）sample@example.com"></label>
-        <p class="contact-hint" data-contact-error>電話番号またはメールアドレスのどちらかをご入力ください。</p>
-        <label class="consent-row"><input type="checkbox" name="privacy_consent" value="同意する" checked required><span><a href="/privacy-policy.html" target="_blank" rel="noopener">プライバシーポリシー</a> に同意のうえ送信します</span></label>
+        <label><b><span>物件の種類</span><small>必須</small></b><select name="物件種別" required><option value="">選択してください</option><option>戸建て</option><option>マンション</option><option>その他</option></select></label>
+        <label><b><span>都道府県</span><small>必須</small></b><select name="都道府県" required><option value="">選択してください</option><option>東京都</option><option>神奈川県</option><option>千葉県</option><option>埼玉県</option><option>大阪府</option><option>奈良県</option><option>福岡県</option><option>長野県</option><option>山梨県</option><option>熊本県</option><option>長崎県</option><option>高知県</option><option>その他</option></select></label>
+        <label><b><span>ご希望の売却時期</span><small>必須</small></b><select name="売却希望時期" required><option value="">選択してください</option><option>1ヶ月以内</option><option>3ヶ月以内</option><option>半年以内</option><option>1年以内</option><option>未定</option></select></label>
+        <label><b><span>お名前<em>（ニックネームも可）</em></span><small>必須</small></b><input name="お名前" autocomplete="name" maxlength="80" required placeholder="例）山田 太郎"></label>
+        <label><b><span>電話番号</span><small>必須</small></b><input type="tel" name="電話番号" autocomplete="tel" inputmode="tel" maxlength="20" pattern="[0-9+()\s-]{8,20}" required placeholder="例）09012345678"></label>
+        <label><b><span>メールアドレス</span><small>必須</small></b><input type="email" name="メールアドレス" autocomplete="email" inputmode="email" maxlength="254" required placeholder="例）sample@example.com"></label>
+        <label class="consent-row"><input type="checkbox" name="同意状況" value="同意済み" checked required><span><a href="/privacy-policy.html" target="_blank" rel="noopener">プライバシーポリシー</a> に同意のうえ送信します</span></label>
         <button class="quick-submit closing-submit" type="submit">入力内容を送信する <i>›</i></button>
       </div>
     </form>
@@ -191,6 +197,6 @@
     <p class="copyright">© 2024 SAMPLE REAL ESTATE Co., Ltd. All Rights Reserved.</p>
   </section>
 </main>
-<script src="/assets/variant-b/app.js?v=3"></script>
+<script src="/assets/variant-b/app.js?v=4"></script>
 </body>
 </html>

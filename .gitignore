@@ -3,3 +3,6 @@ submissions/
 server.out.log
 server.err.log
 *.zip
+
+# Local Netlify folder
+.netlify

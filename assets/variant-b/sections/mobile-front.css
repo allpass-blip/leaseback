@@ -40,25 +40,34 @@
   letter-spacing: .01em;
 }
 
-/* First view: make the photograph a calm opening beat, then give the copy
-   its own high-contrast field instead of laying it across faces and walls. */
+/* First view: keep the couple and their home as one continuous visual,
+   matching the supplied reference while preserving mobile readability. */
 .hero-visual {
+  position: relative;
   width: 100%;
-  height: auto;
-  min-height: 508px;
+  height: 580px;
+  min-height: 0;
   background:
+    linear-gradient(90deg,
+      rgba(255, 255, 255, .99) 0%,
+      rgba(255, 255, 255, .95) 42%,
+      rgba(255, 255, 255, .72) 60%,
+      rgba(255, 255, 255, .16) 82%,
+      rgba(255, 255, 255, .04) 100%),
     linear-gradient(180deg,
-      rgba(255, 255, 255, 0) 0,
-      rgba(255, 255, 255, 0) 185px,
-      rgba(255, 255, 255, .78) 256px,
-      #fff 326px),
-    url(../images/hero-couple-house.png) center top / 100% auto no-repeat;
+      rgba(255, 255, 255, 0) 62%,
+      rgba(255, 255, 255, .15) 76%,
+      rgba(255, 255, 255, .88) 96%,
+      #fff 100%),
+    url(../images/hero-couple-house.png) left center / auto 100% no-repeat;
 }
 
 .hero-copy {
-  width: auto;
-  max-width: none;
-  padding: 248px 20px 30px;
+  position: relative;
+  z-index: 1;
+  width: 270px;
+  max-width: 270px;
+  padding: 52px 0 0 18px;
 }
 
 .hero-kicker {
@@ -71,22 +80,24 @@
 }
 
 .hero h1 {
-  max-width: 350px;
+  max-width: 250px;
   margin: 0;
   font-size: 27px;
-  line-height: 1.55;
+  line-height: 1.58;
   letter-spacing: .01em;
   text-wrap: balance;
+  text-shadow: 0 1px 0 rgba(255, 255, 255, .85);
 }
 
 .hero-lead {
-  max-width: 345px;
-  margin: 18px 0 0;
+  max-width: 240px;
+  margin: 20px 0 0;
   color: #172437;
   font-size: 17px;
   line-height: 1.78;
   letter-spacing: 0;
   text-wrap: pretty;
+  text-shadow: 0 1px 0 rgba(255, 255, 255, .9);
 }
 
 .hero-lead br {
@@ -95,12 +106,16 @@
 
 /* Reassurance stays compact and scannable without becoming tiny. */
 .trust-row {
-  position: static;
+  position: relative;
+  z-index: 2;
   display: grid;
   width: calc(100% - 32px);
   height: 126px;
   grid-template-columns: repeat(3, minmax(0, 1fr));
-  margin: -6px auto 0;
+  top: auto;
+  left: auto;
+  transform: none;
+  margin: -152px auto 0;
   border-radius: 14px;
   background: #fff;
   box-shadow: 0 4px 8px rgba(6, 43, 90, .10);

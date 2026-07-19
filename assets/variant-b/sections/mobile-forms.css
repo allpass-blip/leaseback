@@ -113,25 +113,6 @@
   border-color: #0a4f91;
 }
 
-.quick-form .contact-hint,
-.closing-inputs .contact-hint {
-  margin: -2px 0 16px;
-  color: #4d5b68;
-  font-size: 14px;
-  line-height: 1.6;
-}
-
-form.is-contact-invalid .contact-hint {
-  color: #a51d24;
-  font-weight: 700;
-}
-
-form.is-contact-invalid input[name="phone"],
-form.is-contact-invalid input[name="email"] {
-  border-color: #b52222;
-  box-shadow: 0 0 0 2px rgba(181, 34, 34, .12);
-}
-
 .quick-form .consent-row,
 .closing-inputs .consent-row {
   display: grid;

@@ -17,7 +17,7 @@ const closePrefecturePickers = (except) => {
   });
 };
 
-document.querySelectorAll('select[name="prefecture"]').forEach((select, index) => {
+document.querySelectorAll('select[name="都道府県"]').forEach((select, index) => {
   if (select.dataset.enhanced === 'true') return;
   select.dataset.enhanced = 'true';
   select.classList.add('prefecture-native');
@@ -129,31 +129,9 @@ document.addEventListener('click', (event) => {
 });
 
 document.querySelectorAll('[data-contact-form]').forEach((form) => {
-  const phone = form.querySelector('input[name="phone"]');
-  const email = form.querySelector('input[name="email"]');
   const submit = form.querySelector('button[type="submit"]');
 
-  const validateContact = () => {
-    const hasContact = Boolean(phone.value.trim() || email.value.trim());
-    form.classList.toggle('is-contact-invalid', !hasContact);
-    phone.setCustomValidity(hasContact ? '' : '電話番号またはメールアドレスのどちらかをご入力ください。');
-    return hasContact;
-  };
-
-  [phone, email].forEach((input) => {
-    input.addEventListener('input', () => {
-      if (phone.value.trim() || email.value.trim()) validateContact();
-    });
-  });
-
-  form.addEventListener('submit', (event) => {
-    if (!validateContact()) {
-      event.preventDefault();
-      phone.reportValidity();
-      phone.focus();
-      return;
-    }
-
+  form.addEventListener('submit', () => {
     if (submit) {
       submit.disabled = true;
       submit.setAttribute('aria-busy', 'true');
