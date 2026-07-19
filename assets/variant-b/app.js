@@ -1,141 +1,178 @@
-document.querySelectorAll('.faq details').forEach((item) => {
-  item.addEventListener('toggle', () => {
-    if (item.open) {
-      document.querySelectorAll('.faq details').forEach((other) => {
-        if (other !== item) other.open = false;
+(() => {
+  'use strict';
+
+  const SELECTORS = {
+    contactForm: '[data-contact-form]',
+    faqItem: '.faq details',
+    prefectureMenu: '.prefecture-menu',
+    prefectureOption: '.prefecture-option',
+    prefecturePicker: '.prefecture-picker',
+    prefectureSelect: 'select[name="都道府県"]',
+    prefectureTrigger: '.prefecture-trigger',
+  };
+
+  const setPickerOpen = (picker, isOpen) => {
+    const trigger = picker.querySelector(SELECTORS.prefectureTrigger);
+    const menu = picker.querySelector(SELECTORS.prefectureMenu);
+
+    picker.classList.toggle('is-open', isOpen);
+    trigger?.setAttribute('aria-expanded', String(isOpen));
+    if (menu) menu.hidden = !isOpen;
+  };
+
+  const closePrefecturePickers = (except = null) => {
+    document.querySelectorAll(`${SELECTORS.prefecturePicker}.is-open`).forEach((picker) => {
+      if (picker !== except) setPickerOpen(picker, false);
+    });
+  };
+
+  const initFaqAccordion = () => {
+    const items = Array.from(document.querySelectorAll(SELECTORS.faqItem));
+
+    items.forEach((item) => {
+      item.addEventListener('toggle', () => {
+        if (!item.open) return;
+        items.forEach((other) => {
+          if (other !== item) other.open = false;
+        });
       });
-    }
-  });
-});
+    });
+  };
 
-const closePrefecturePickers = (except) => {
-  document.querySelectorAll('.prefecture-picker.is-open').forEach((picker) => {
-    if (picker === except) return;
-    picker.classList.remove('is-open');
-    picker.querySelector('.prefecture-trigger').setAttribute('aria-expanded', 'false');
-    picker.querySelector('.prefecture-menu').hidden = true;
-  });
-};
+  const initPrefecturePicker = (select, index) => {
+    if (select.dataset.enhanced === 'true') return;
 
-document.querySelectorAll('select[name="都道府県"]').forEach((select, index) => {
-  if (select.dataset.enhanced === 'true') return;
-  select.dataset.enhanced = 'true';
-  select.classList.add('prefecture-native');
+    select.dataset.enhanced = 'true';
+    select.classList.add('prefecture-native');
 
-  const picker = document.createElement('div');
-  picker.className = 'prefecture-picker';
+    const picker = document.createElement('div');
+    picker.className = 'prefecture-picker';
 
-  const trigger = document.createElement('button');
-  trigger.type = 'button';
-  trigger.className = 'prefecture-trigger';
-  trigger.setAttribute('aria-haspopup', 'listbox');
-  trigger.setAttribute('aria-expanded', 'false');
-  trigger.setAttribute('aria-controls', `prefecture-menu-${index}`);
-  trigger.textContent = select.options[select.selectedIndex].text;
+    const trigger = document.createElement('button');
+    trigger.type = 'button';
+    trigger.className = 'prefecture-trigger';
+    trigger.setAttribute('aria-haspopup', 'listbox');
+    trigger.setAttribute('aria-expanded', 'false');
+    trigger.setAttribute('aria-controls', `prefecture-menu-${index}`);
+    trigger.textContent = select.options[select.selectedIndex].text;
 
-  const menu = document.createElement('div');
-  menu.id = `prefecture-menu-${index}`;
-  menu.className = 'prefecture-menu';
-  menu.setAttribute('role', 'listbox');
-  menu.hidden = true;
+    const menu = document.createElement('div');
+    menu.id = `prefecture-menu-${index}`;
+    menu.className = 'prefecture-menu';
+    menu.setAttribute('role', 'listbox');
+    menu.hidden = true;
 
-  Array.from(select.options).slice(1).forEach((option) => {
-    const item = document.createElement('button');
-    item.type = 'button';
-    item.className = 'prefecture-option';
-    item.setAttribute('role', 'option');
-    item.setAttribute('aria-selected', String(option.selected));
-    item.textContent = option.text;
-    item.addEventListener('click', () => {
-      select.value = option.value;
-      select.dispatchEvent(new Event('change', { bubbles: true }));
-      trigger.textContent = option.text;
-      menu.querySelectorAll('.prefecture-option').forEach((other) => {
-        other.setAttribute('aria-selected', String(other === item));
+    const getOptions = () => Array.from(menu.querySelectorAll(SELECTORS.prefectureOption));
+
+    const focusOption = (targetIndex) => {
+      const options = getOptions();
+      if (!options.length) return;
+
+      const normalizedIndex = (targetIndex + options.length) % options.length;
+      options[normalizedIndex].focus();
+    };
+
+    const toggleMenu = (forceOpen) => {
+      const isOpen = forceOpen ?? !picker.classList.contains('is-open');
+      closePrefecturePickers(isOpen ? picker : null);
+      setPickerOpen(picker, isOpen);
+    };
+
+    Array.from(select.options).slice(1).forEach((option) => {
+      const item = document.createElement('button');
+      item.type = 'button';
+      item.className = 'prefecture-option';
+      item.dataset.value = option.value;
+      item.setAttribute('role', 'option');
+      item.setAttribute('aria-selected', String(option.selected));
+      item.textContent = option.text;
+
+      item.addEventListener('click', () => {
+        select.value = option.value;
+        select.dispatchEvent(new Event('change', { bubbles: true }));
+        picker.classList.remove('is-invalid');
+        setPickerOpen(picker, false);
+        trigger.focus();
       });
-      picker.classList.remove('is-open', 'is-invalid');
-      trigger.setAttribute('aria-expanded', 'false');
-      menu.hidden = true;
+
+      menu.appendChild(item);
+    });
+
+    select.addEventListener('change', () => {
+      const selectedOption = select.options[select.selectedIndex];
+      trigger.textContent = selectedOption.text;
+
+      getOptions().forEach((item) => {
+        item.setAttribute('aria-selected', String(item.dataset.value === select.value));
+      });
+    });
+
+    trigger.addEventListener('click', () => toggleMenu());
+    trigger.addEventListener('keydown', (event) => {
+      if (event.key === 'ArrowDown' || event.key === 'ArrowUp') {
+        event.preventDefault();
+        if (!picker.classList.contains('is-open')) toggleMenu(true);
+        requestAnimationFrame(() => focusOption(event.key === 'ArrowDown' ? 0 : -1));
+      } else if (event.key === 'Escape' && picker.classList.contains('is-open')) {
+        event.preventDefault();
+        toggleMenu(false);
+      }
+    });
+
+    menu.addEventListener('keydown', (event) => {
+      const options = getOptions();
+      const currentIndex = options.indexOf(document.activeElement);
+      const keyActions = {
+        ArrowDown: () => focusOption(currentIndex + 1),
+        ArrowUp: () => focusOption(currentIndex - 1),
+        End: () => focusOption(-1),
+        Home: () => focusOption(0),
+      };
+
+      if (keyActions[event.key]) {
+        event.preventDefault();
+        keyActions[event.key]();
+      } else if (event.key === 'Escape') {
+        event.preventDefault();
+        toggleMenu(false);
+        trigger.focus();
+      }
+    });
+
+    select.addEventListener('invalid', (event) => {
+      event.preventDefault();
+      closePrefecturePickers(picker);
+      picker.classList.add('is-invalid');
+      setPickerOpen(picker, true);
       trigger.focus();
     });
-    menu.appendChild(item);
-  });
 
-  const toggleMenu = () => {
-    const opening = !picker.classList.contains('is-open');
-    closePrefecturePickers(opening ? picker : null);
-    picker.classList.toggle('is-open', opening);
-    trigger.setAttribute('aria-expanded', String(opening));
-    menu.hidden = !opening;
+    picker.append(trigger, menu);
+    select.insertAdjacentElement('afterend', picker);
   };
 
-  const focusOption = (targetIndex) => {
-    const options = Array.from(menu.querySelectorAll('.prefecture-option'));
-    if (!options.length) return;
-    const normalizedIndex = (targetIndex + options.length) % options.length;
-    options[normalizedIndex].focus();
+  const initPrefecturePickers = () => {
+    document.querySelectorAll(SELECTORS.prefectureSelect).forEach(initPrefecturePicker);
+
+    document.addEventListener('click', (event) => {
+      if (!event.target.closest(SELECTORS.prefecturePicker)) closePrefecturePickers();
+    });
   };
 
-  trigger.addEventListener('click', toggleMenu);
-  trigger.addEventListener('keydown', (event) => {
-    if (event.key === 'ArrowDown' || event.key === 'ArrowUp') {
-      event.preventDefault();
-      if (!picker.classList.contains('is-open')) toggleMenu();
-      requestAnimationFrame(() => focusOption(event.key === 'ArrowDown' ? 0 : -1));
-    }
-    if (event.key === 'Escape' && picker.classList.contains('is-open')) {
-      event.preventDefault();
-      toggleMenu();
-    }
-  });
+  const initContactForms = () => {
+    document.querySelectorAll(SELECTORS.contactForm).forEach((form) => {
+      const submit = form.querySelector('button[type="submit"]');
+      if (!submit) return;
 
-  menu.addEventListener('keydown', (event) => {
-    const options = Array.from(menu.querySelectorAll('.prefecture-option'));
-    const currentIndex = options.indexOf(document.activeElement);
-    if (event.key === 'ArrowDown') {
-      event.preventDefault();
-      focusOption(currentIndex + 1);
-    } else if (event.key === 'ArrowUp') {
-      event.preventDefault();
-      focusOption(currentIndex - 1);
-    } else if (event.key === 'Home') {
-      event.preventDefault();
-      focusOption(0);
-    } else if (event.key === 'End') {
-      event.preventDefault();
-      focusOption(-1);
-    } else if (event.key === 'Escape') {
-      event.preventDefault();
-      toggleMenu();
-      trigger.focus();
-    }
-  });
+      form.addEventListener('submit', () => {
+        submit.disabled = true;
+        submit.setAttribute('aria-busy', 'true');
+        submit.textContent = '送信中…';
+      });
+    });
+  };
 
-  select.addEventListener('invalid', (event) => {
-    event.preventDefault();
-    closePrefecturePickers(picker);
-    picker.classList.add('is-open', 'is-invalid');
-    trigger.setAttribute('aria-expanded', 'true');
-    menu.hidden = false;
-    trigger.focus();
-  });
-
-  picker.append(trigger, menu);
-  select.insertAdjacentElement('afterend', picker);
-});
-
-document.addEventListener('click', (event) => {
-  if (!event.target.closest('.prefecture-picker')) closePrefecturePickers();
-});
-
-document.querySelectorAll('[data-contact-form]').forEach((form) => {
-  const submit = form.querySelector('button[type="submit"]');
-
-  form.addEventListener('submit', () => {
-    if (submit) {
-      submit.disabled = true;
-      submit.setAttribute('aria-busy', 'true');
-      submit.innerHTML = '送信中…';
-    }
-  });
-});
+  initFaqAccordion();
+  initPrefecturePickers();
+  initContactForms();
+})();
