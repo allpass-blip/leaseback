@@ -204,7 +204,7 @@ body {
   background-repeat: no-repeat;
 }
 .worry-sprite {
-  background-image: url(images/worry-sprite.webp);
+  background-image: url(images/worry-sprite-mobile.webp);
 }
 .worry-grid h3 {
   font:
@@ -284,7 +284,7 @@ body {
 .process-sprite {
   margin-left: 152px;
   border-radius: 50%;
-  background-image: url(images/process-sprite.webp);
+  background-image: url(images/process-sprite-mobile.webp);
 }
 .step-cards h3 {
   font:
@@ -367,38 +367,6 @@ body {
 }
 .reason-list h3 span {
   color: var(--gold);
-}
-.support-trust {
-  position: absolute;
-  top: 1453px;
-  left: 50px;
-  width: 841px;
-  height: 210px;
-  grid-template-columns: repeat(3, 1fr);
-  border-radius: 23px;
-  background: #fff;
-  box-shadow: var(--shadow);
-}
-.support-trust div {
-  display: flex;
-  align-items: center;
-  flex-direction: column;
-  justify-content: center;
-}
-.support-trust div + div {
-  border-left: 1px solid #d9dee3;
-}
-.support-trust b {
-  color: var(--gold);
-  font-size: 55px;
-}
-.support-trust strong {
-  color: var(--navy);
-  font-size: 25px;
-}
-.support-trust small {
-  margin-top: 6px;
-  font-size: 18px;
 }
 /* comparison */
 .comparison > h2 {
@@ -870,36 +838,8 @@ body {
 .reason-list p {
   margin-top: 12px;
 }
-.support-trust {
-  top: 2010px;
-  height: 235px;
-}
-.support-trust strong {
-  font-size: 34px;
-}
-.support-trust small {
-  font-size: 28px;
-}
-.support-trust b {
-  width: 100px;
-  height: 82px;
-  background-image: url(images/trust-icons-v2.webp);
-  background-repeat: no-repeat;
-  background-size: 200px 164px;
-  color: transparent;
-  font-size: 0;
-}
-.support-trust div:nth-child(1) b {
-  background-position: 0 -82px;
-}
-.support-trust div:nth-child(2) b {
-  background-position: -100px 0;
-}
-.support-trust div:nth-child(3) b {
-  background-position: 0 0;
-}
 .reason-list article:nth-child(3) .reason-art {
-  background-image: url(images/trust-icons-v2.webp);
+  background-image: url(images/trust-icons-v2-mobile.webp);
   background-repeat: no-repeat;
   color: transparent;
   font-size: 0;
@@ -1177,10 +1117,6 @@ body {
 
 .reason-list {
   top: 500px;
-}
-
-.support-trust {
-  top: 2070px;
 }
 
 /* Give the comparison conclusion its own beat below the dense table. */
@@ -1693,7 +1629,7 @@ summary {
       rgba(255, 255, 255, 0.88) 96%,
       #fff 100%
     ),
-    url(images/hero-couple-house.webp) left center / auto 100% no-repeat;
+    url(images/hero-couple-house-mobile.webp) left center / auto 100% no-repeat;
 }
 
 .hero-copy {
@@ -1796,7 +1732,7 @@ summary {
   width: 48px;
   height: 48px;
   margin: 0;
-  background-image: url(images/trust-icons-v2.webp);
+  background-image: url(images/trust-icons-v2-mobile.webp);
   background-repeat: no-repeat;
   background-size: 96px 96px;
   color: transparent;
@@ -1894,7 +1830,7 @@ summary {
   width: 48px;
   height: 48px;
   margin: 0;
-  background-image: url(images/trust-icons-v2.webp);
+  background-image: url(images/trust-icons-v2-mobile.webp);
   background-repeat: no-repeat;
   background-position: -48px -48px;
   background-size: 96px 96px;
@@ -2419,11 +2355,6 @@ summary {
   font-size: 16px;
   line-height: 1.75;
   text-wrap: pretty;
-}
-
-/* The same three trust claims already appear in the first view. */
-.support-trust {
-  display: none;
 }
 
 /* Comparison ------------------------------------------------------------ */
@@ -3060,7 +2991,7 @@ summary {
       rgba(255, 255, 255, 0.26) 82%,
       rgba(255, 255, 255, 0.08) 100%
     ),
-    url(images/hero-couple-house.webp) 64% center / cover no-repeat;
+    url(images/hero-couple-house-mobile.webp) 64% center / cover no-repeat;
 }
 
 .closing-ribbon {
@@ -3189,7 +3120,7 @@ summary {
   width: 54px;
   height: 54px;
   margin: 0;
-  background-image: url(images/trust-icons-v2.webp);
+  background-image: url(images/trust-icons-v2-mobile.webp);
   background-repeat: no-repeat;
   background-position: -54px -54px;
   background-size: 108px 108px;
