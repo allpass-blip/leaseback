@@ -21,10 +21,8 @@ body {
   background: #eef2f5;
 }
 body {
-  display: flex;
   justify-content: center;
   font-family: "Noto Sans JP", "Yu Gothic", Meiryo, sans-serif;
-  color: var(--ink);
 }
 a {
   color: inherit;
@@ -32,16 +30,8 @@ a {
 }
 .lp {
   flex: 0 0 auto;
-  width: 941px;
-  margin: 0;
-  background: #fff;
-  overflow: hidden;
-  zoom: var(--design-scale);
 }
 .page {
-  position: relative;
-  width: 941px;
-  height: 1672px;
   background: #fff;
 }
 .page h2,
@@ -77,7 +67,6 @@ body {
   position: absolute;
   top: 29px;
   left: 43px;
-  display: flex;
   width: 77px;
   height: 57px;
   align-items: center;
@@ -108,137 +97,41 @@ body {
   background: var(--gold);
 }
 /* hero */
-.site-header {
-  height: 121px;
-  display: flex;
-  align-items: center;
-  padding: 18px 40px;
-  background: #fff;
-}
-.brand-logo {
-  width: 244px;
-  height: 78px;
-  object-fit: contain;
-}
-.tagline {
-  margin-left: 31px;
-  padding-left: 26px;
-  border-left: 1px solid #69809a;
-  color: #111;
-  font-size: 21px;
-  line-height: 1.55;
-  letter-spacing: 0.04em;
-}
-.hero-visual {
-  height: 682px;
-  background:
-    linear-gradient(
-      90deg,
-      rgba(250, 253, 255, 0.96) 0%,
-      rgba(250, 253, 255, 0.82) 35%,
-      rgba(250, 253, 255, 0) 64%
-    ),
-    url(images/hero-couple-house.webp) center/cover no-repeat;
-}
-.hero-copy {
-  padding: 58px 0 0 40px;
-}
-.hero-kicker {
-  display: inline-block;
-  margin: 0 0 26px;
-  padding: 9px 19px 10px;
-  border-radius: 18px;
-  background: linear-gradient(100deg, #073d78, #08295b);
-  color: #fff;
-  font-size: 24px;
-  letter-spacing: 0.03em;
-}
 .hero h1 {
-  margin: 0;
   color: var(--navy);
   font:
     600 54px/1.55 "Noto Serif JP",
     serif;
-  letter-spacing: 0.035em;
-}
-.hero-lead {
-  margin: 28px 0 0;
-  font-size: 25px;
-  line-height: 1.75;
 }
 .hero-lead strong {
   color: #064281;
 }
-.trust-row {
-  position: absolute;
-  z-index: 2;
-  top: 583px;
-  left: 33px;
-  display: grid;
-  width: 654px;
-  height: 204px;
-  grid-template-columns: repeat(3, 1fr);
-  border-radius: 17px;
-  background: rgba(255, 255, 255, 0.95);
-  box-shadow: var(--shadow);
-  overflow: hidden;
-}
 .trust-row > div {
   position: relative;
   display: flex;
-  align-items: center;
   flex-direction: column;
   justify-content: center;
 }
-.trust-row > div + div {
-  border-left: 1px solid #e0e2e4;
-}
 .trust-icon {
-  color: var(--gold);
-  font-size: 59px;
   line-height: 1;
 }
-.trust-row b {
-  margin-top: 8px;
-  color: var(--navy);
-  font-size: 24px;
-}
-.trust-row small {
-  margin-top: 7px;
-  font-size: 18px;
-}
 .main-cta {
-  position: absolute;
-  top: 817px;
-  left: 33px;
-  display: flex;
-  width: 875px;
-  height: 167px;
-  align-items: center;
-  border-radius: 20px;
   background: linear-gradient(100deg, #075194, #052b5c);
-  box-shadow: 0 8px 16px rgba(4, 31, 67, 0.22);
   color: #fff;
 }
 .cta-medal {
   display: flex;
-  width: 130px;
-  height: 130px;
   align-items: center;
   justify-content: center;
   margin-left: 73px;
   border-radius: 50%;
   background: linear-gradient(145deg, #f1d47d, #c99b32);
   color: var(--navy);
-  font-size: 31px;
   font-weight: 700;
-  line-height: 1.2;
   text-align: center;
 }
 .main-cta strong {
   margin-left: 45px;
-  font-size: 48px;
-  letter-spacing: 0.05em;
 }
 .main-cta i {
   margin-left: auto;
@@ -246,15 +139,6 @@ body {
   font: 300 75px/1 serif;
 }
 .phone-box {
-  position: absolute;
-  top: 1011px;
-  left: 33px;
-  display: flex;
-  width: 875px;
-  height: 163px;
-  align-items: center;
-  border: 2px solid #0a56a2;
-  border-radius: 20px;
   color: var(--navy);
 }
 .phone-symbol {
@@ -266,25 +150,9 @@ body {
   display: flex;
   flex-direction: column;
 }
-.phone-box b {
-  font-size: 21px;
-}
-.phone-box strong {
-  font-size: 50px;
-  line-height: 1.13;
-  letter-spacing: 0.05em;
-}
-.phone-box small {
-  font-size: 18px;
-  color: #27313d;
-}
 .phone-box em {
   margin-left: auto;
   margin-right: 72px;
-  padding: 13px 26px;
-  border: 2px solid #0a56a2;
-  border-radius: 7px;
-  font-size: 20px;
   font-style: normal;
   font-weight: 700;
 }
@@ -347,140 +215,70 @@ body {
 /* worries */
 .worries .eyebrow {
   padding-top: 54px;
-  margin: 0;
   text-align: center;
-  color: var(--navy);
-  font-size: 36px;
   font-weight: 600;
 }
 .worries h2 {
-  margin-top: 8px;
   text-align: center;
   font-size: 52px;
   letter-spacing: 0.06em;
-}
-.worries > .gold-rule {
-  margin: 24px auto 27px;
 }
 .worries > .intro {
   font-size: 27px;
 }
 .worry-grid {
-  position: absolute;
   top: 437px;
   left: 45px;
-  display: grid;
-  width: 851px;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 28px 31px;
-}
-.worry-grid article {
-  height: 478px;
-  padding: 34px 22px 20px;
-  border: 1px solid #e3e7ea;
-  border-radius: 18px;
-  background: #fff;
-  box-shadow: var(--shadow);
-  text-align: center;
 }
 .sprite {
   display: block;
   background-repeat: no-repeat;
 }
 .worry-sprite {
-  width: 260px;
-  height: 205px;
-  margin: 0 auto;
   background-image: url(images/worry-sprite.webp);
-  background-size: 520px 410px;
-}
-.worry-sprite.s2 {
-  background-position: -260px 0;
-}
-.worry-sprite.s3 {
-  background-position: 0 -205px;
-}
-.worry-sprite.s4 {
-  background-position: -260px -205px;
 }
 .worry-grid h3 {
-  min-height: 70px;
   font:
     700 27px/1.5 "Noto Sans JP",
     sans-serif;
 }
 .worry-grid i {
   display: block;
-  width: 52px;
-  height: 4px;
-  margin: 9px auto 15px;
   border-radius: 5px;
   background: var(--gold);
 }
-.worry-grid p {
-  margin: 0;
-  font-size: 22px;
-  line-height: 1.7;
-}
 .section-cta {
-  position: absolute;
   top: 1467px;
   left: 43px;
-  width: 855px;
   text-align: center;
 }
 .section-cta p {
-  margin: 0 0 13px;
   color: var(--navy);
-  font-size: 27px;
 }
 .section-cta a {
-  display: flex;
-  width: 798px;
-  height: 112px;
-  align-items: center;
   margin: auto;
-  border-radius: 16px;
   background: linear-gradient(100deg, #075194, #052b5c);
   box-shadow: 0 7px 15px rgba(5, 42, 86, 0.21);
   color: #fff;
-  font-size: 32px;
   font-weight: 600;
 }
 .section-cta a span {
   display: flex;
-  width: 82px;
-  height: 82px;
   align-items: center;
   justify-content: center;
-  margin: 0 27px 0 32px;
   border-radius: 50%;
   background: linear-gradient(145deg, #efd17a, #c69630);
   color: var(--navy);
-  font-size: 21px;
 }
 .section-cta a i {
   margin-left: auto;
   margin-right: 35px;
-  font-size: 54px;
   font-style: normal;
 }
 /* mechanism */
 .number-strap {
-  position: absolute;
   top: 40px;
   left: 236px;
-  width: 469px;
-  height: 62px;
-  margin: 0;
-  border-radius: 10px;
-  background: linear-gradient(100deg, #07376d, #0a477e);
-  color: #fff;
-  font:
-    600 34px/62px "Noto Serif JP",
-    serif;
-  letter-spacing: 0.07em;
-  text-align: center;
 }
 .number-strap b {
   position: absolute;
@@ -496,38 +294,16 @@ body {
   line-height: 1.45;
   letter-spacing: 0.07em;
 }
-.mechanism > .intro {
-  margin-top: 24px;
-}
 .step-cards {
-  position: absolute;
   top: 440px;
   left: 51px;
-  width: 837px;
 }
 .step-cards article {
-  position: relative;
-  display: grid;
-  height: 239px;
-  grid-template-columns: 340px 1fr;
-  align-items: center;
   margin-bottom: 14px;
-  border: 1px solid #d7e0e8;
-  border-radius: 20px;
-  background: #fff;
-  box-shadow: 0 5px 12px rgba(7, 43, 83, 0.06);
 }
 .step-no {
-  position: absolute;
-  z-index: 2;
   left: 23px;
   top: 46px;
-  display: flex;
-  width: 76px;
-  height: 76px;
-  align-items: center;
-  justify-content: center;
-  border-radius: 50%;
   background: linear-gradient(145deg, #efd17b, #c7942d);
   color: #fff;
   font:
@@ -544,56 +320,28 @@ body {
   border-left: 4px dotted #daa928;
 }
 .process-sprite {
-  width: 190px;
-  height: 190px;
   margin-left: 152px;
   border-radius: 50%;
   background-image: url(images/process-sprite.webp);
-  background-size: 570px 570px;
-}
-.process-sprite.p2 {
-  background-position: -190px 0;
-}
-.process-sprite.p3 {
-  background-position: -380px 0;
-}
-.process-sprite.p4 {
-  background-position: 0 -190px;
 }
 .step-cards h3 {
   font:
     600 38px "Noto Serif JP",
     serif;
-  letter-spacing: 0.05em;
-}
-.step-cards p {
-  font-size: 24px;
-  line-height: 1.7;
 }
 .mechanism-summary {
-  position: absolute;
   top: 1453px;
   left: 50px;
-  display: flex;
-  width: 839px;
-  height: 200px;
-  align-items: center;
-  justify-content: center;
-  border: 1px solid #eedcaa;
-  border-radius: 20px;
-  background: linear-gradient(90deg, #fffaf0, #fffdf8);
   color: var(--navy);
 }
 .mechanism-summary span {
   margin-right: 45px;
   color: var(--gold);
-  font-size: 75px;
 }
 .mechanism-summary p {
   font:
     600 31px/1.65 "Noto Serif JP",
     serif;
-  text-align: center;
 }
 /* support */
 .navy-pill {
@@ -1465,81 +1213,16 @@ body {
   height: 1770px;
 }
 .brand-logo {
-  transform: scale(1.18);
-  transform-origin: left center;
   margin-right: -44px;
-}
-.tagline {
-  font-size: 29px;
-  line-height: 1.42;
-}
-.hero-kicker {
-  font-size: 31px;
-}
-.hero h1 {
-  font-size: 60px;
-  line-height: 1.45;
 }
 .hero-lead {
   margin-top: 18px;
-  font-size: 34px;
-  line-height: 1.72;
-}
-.trust-row {
-  height: 220px;
-}
-.trust-icon {
-  width: 96px;
-  height: 96px;
-  margin: 0;
-  background-image: url(images/trust-icons-v2.webp);
-  background-repeat: no-repeat;
-  background-size: 192px 192px;
-  color: transparent;
-  font-size: 0;
-}
-.trust-icon.icon-clock {
-  background-position: 0 0;
-}
-.trust-icon.icon-lock {
-  background-position: -96px 0;
-}
-.trust-icon.icon-japan {
-  background-position: 0 -96px;
-}
-.trust-row b {
-  margin-top: 1px;
-  font-size: 34px;
-}
-.trust-row small {
-  margin-top: 2px;
-  font-size: 27px;
 }
 .phone-symbol.icon-phone {
   flex: 0 0 95px;
-  width: 95px;
-  height: 95px;
-  margin: 0 22px 0 39px;
-  background-image: url(images/trust-icons-v2.webp);
-  background-repeat: no-repeat;
-  background-position: -95px -95px;
-  background-size: 190px 190px;
-  font-size: 0;
-  transform: none;
-}
-.phone-box b {
-  font-size: 29px;
-}
-.phone-box strong {
-  font-size: 55px;
-}
-.phone-box small {
-  font-size: 27px;
 }
 .phone-box em {
   margin-right: 35px;
-  padding: 15px 20px;
-  font-size: 28px;
 }
 .quick-form {
   height: 535px;
@@ -1574,17 +1257,6 @@ body {
   outline: 5px solid #f2c34c;
   outline-offset: 5px;
 }
-.trust-icon {
-  width: 110px;
-  height: 90px;
-  background-size: 220px 180px;
-}
-.trust-icon.icon-lock {
-  background-position: -110px 0;
-}
-.trust-icon.icon-japan {
-  background-position: 0 -90px;
-}
 .quick-form label {
   grid-template-columns: 270px 1fr;
 }
@@ -1592,45 +1264,14 @@ body {
   height: 108px;
 }
 /* FV readability and visual rhythm */
-.tagline {
-  font-size: 27px;
-  line-height: 1.48;
-}
 .hero.page {
   height: 1820px;
 }
-.hero-visual {
-  background:
-    linear-gradient(
-      90deg,
-      rgba(250, 253, 255, 0.98) 0%,
-      rgba(250, 253, 255, 0.92) 38%,
-      rgba(250, 253, 255, 0.58) 54%,
-      rgba(250, 253, 255, 0.12) 68%,
-      rgba(250, 253, 255, 0) 76%
-    ),
-    url(images/hero-couple-house.webp) left center/cover no-repeat;
-}
 .hero-copy {
-  width: 790px;
   padding-top: 62px;
-}
-.hero h1 {
-  font-size: 58px;
-  line-height: 1.5;
-  letter-spacing: 0.025em;
-  text-wrap: balance;
 }
 .hero-lead {
   margin-top: 22px;
-  font-size: 32px;
-  line-height: 1.72;
-}
-.main-cta {
-  top: 842px;
-}
-.phone-box {
-  top: 1046px;
 }
 .quick-form {
   top: 1243px;
@@ -1645,31 +1286,8 @@ body {
 .worries.page {
   height: 2010px;
 }
-.worry-grid {
-  gap: 32px;
-}
-.worry-grid article {
-  height: 660px;
-  padding: 34px 24px;
-}
-.worry-grid h3 {
-  min-height: 90px;
-  font-size: 36px;
-  line-height: 1.4;
-}
-.worry-grid p {
-  font-size: 34px;
-  line-height: 1.65;
-}
 .section-cta {
   top: 1825px;
-}
-.section-cta p {
-  font-size: 34px;
-}
-.section-cta a {
-  height: 124px;
-  font-size: 38px;
 }
 
 .mechanism > .intro {
@@ -1680,16 +1298,7 @@ body {
   height: 1940px;
 }
 .step-cards article {
-  height: 290px;
-  grid-template-columns: 315px 1fr;
   margin-bottom: 22px;
-}
-.step-cards h3 {
-  font-size: 42px;
-}
-.step-cards p {
-  font-size: 34px;
-  line-height: 1.65;
 }
 .process-sprite {
   margin-left: 130px;
@@ -1699,11 +1308,6 @@ body {
 }
 .mechanism-summary {
   top: 1685px;
-  height: 220px;
-}
-.mechanism-summary p {
-  font-size: 36px;
-  line-height: 1.55;
 }
 
 .support.page {
@@ -2081,12 +1685,6 @@ body {
   font-size: 22px;
 }
 /* Final minimum-size pass for supporting copy */
-.phone-box b {
-  font-size: 34px;
-}
-.phone-box small {
-  font-size: 34px;
-}
 .privacy-note {
   font-size: 34px;
 }
@@ -2136,38 +1734,8 @@ body {
   font-size: 26px;
 }
 /* Layout reconciliation after the readability pass */
-.phone-box {
-  display: grid;
-  height: 180px;
-  grid-template-columns: 120px minmax(0, 1fr) 160px;
-  align-items: center;
-}
-.phone-symbol.icon-phone {
-  grid-column: 1;
-  margin: 0 auto;
-}
-.phone-box > span:nth-child(2) {
-  grid-column: 2;
-  min-width: 0;
-}
-.phone-box b {
-  font-size: 30px;
-  white-space: nowrap;
-}
-.phone-box strong {
-  font-size: 52px;
-  white-space: nowrap;
-}
-.phone-box small {
-  font-size: 26px;
-  white-space: nowrap;
-}
 .phone-box em {
   grid-column: 3;
-  margin: 0 auto;
-  padding: 13px 18px;
-  font-size: 26px;
-  white-space: nowrap;
 }
 
 .mechanism.page {
@@ -2280,22 +1848,8 @@ body {
 /* Front-section typesetting and spacing reconciliation (390px fixed viewport). */
 
 /* Hero: keep the copy readable over the photograph and preserve a calm vertical rhythm. */
-.hero-visual {
-  background:
-    linear-gradient(
-      90deg,
-      rgba(250, 253, 255, 0.99) 0%,
-      rgba(250, 253, 255, 0.96) 37%,
-      rgba(250, 253, 255, 0.9) 53%,
-      rgba(250, 253, 255, 0.72) 65%,
-      rgba(250, 253, 255, 0.26) 77%,
-      rgba(250, 253, 255, 0) 86%
-    ),
-    url(images/hero-couple-house.webp) left center / cover no-repeat;
-}
 
 .hero-copy {
-  width: 790px;
   padding-top: 56px;
 }
 
@@ -2303,30 +1857,8 @@ body {
   margin-bottom: 22px;
 }
 
-.hero h1 {
-  max-width: 790px;
-  font-size: 54px;
-  line-height: 1.47;
-  letter-spacing: 0.018em;
-}
-
 .hero-lead {
-  max-width: 650px;
   margin-top: 24px;
-  line-height: 1.68;
-  letter-spacing: 0.01em;
-}
-
-.trust-row {
-  top: 590px;
-}
-
-.main-cta {
-  top: 844px;
-}
-
-.phone-box {
-  top: 1048px;
 }
 
 .quick-form {
@@ -2351,11 +1883,9 @@ body {
 
 .worries .eyebrow {
   padding-top: 62px;
-  line-height: 1.45;
 }
 
 .worries h2 {
-  margin-top: 10px;
   line-height: 1.38;
   letter-spacing: 0.035em;
 }
@@ -2374,40 +1904,17 @@ body {
 
 .worry-grid {
   top: 452px;
-  gap: 32px;
-}
-
-.worry-grid article {
-  height: 650px;
-  padding: 30px 20px 32px;
 }
 
 .worry-grid h3 {
   display: flex;
-  min-height: 102px;
   align-items: center;
   justify-content: center;
-  margin: 4px 0 0;
-  font-size: 30px;
-  line-height: 1.42;
-  letter-spacing: 0.01em;
 }
 
 .worry-grid i {
   margin-top: 9px;
   margin-bottom: 18px;
-}
-
-.worry-grid p {
-  margin: 0 auto;
-  max-width: 370px;
-  font-size: 28px;
-  line-height: 1.68;
-  letter-spacing: 0;
-}
-
-.worry-grid p br {
-  display: initial;
 }
 
 .section-cta {
@@ -2416,12 +1923,6 @@ body {
 
 .section-cta p {
   margin-bottom: 18px;
-  line-height: 1.45;
-}
-
-.section-cta a {
-  height: 126px;
-  line-height: 1.35;
 }
 
 /* Mechanism: keep the four cards optically even and remove brittle body breaks. */
@@ -2443,30 +1944,7 @@ body {
 }
 
 .step-cards article {
-  height: 288px;
   margin-bottom: 24px;
-}
-
-.step-cards article > div {
-  min-width: 0;
-  padding: 0 34px 0 14px;
-}
-
-.step-cards h3 {
-  margin: 0;
-  line-height: 1.4;
-  letter-spacing: 0.035em;
-}
-
-.step-cards p {
-  margin: 14px 0 0;
-  font-size: 30px;
-  line-height: 1.68;
-  letter-spacing: 0;
-}
-
-.step-cards p br {
-  display: initial;
 }
 
 .step-cards article:not(:last-child)::after {
@@ -2475,19 +1953,10 @@ body {
 
 .mechanism-summary {
   top: 1720px;
-  height: 220px;
-  padding: 22px 42px;
 }
 
 .mechanism-summary span {
-  flex: 0 0 auto;
   margin-right: 36px;
-}
-
-.mechanism-summary p {
-  margin: 0;
-  line-height: 1.52;
-  letter-spacing: 0.025em;
 }
 
 /* ===== Source: assets/variant-b/sections/legacy-middle.css ===== */
