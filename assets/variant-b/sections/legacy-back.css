@@ -140,13 +140,15 @@
 
 .closing-hero {
   background:
-    linear-gradient(90deg,
-      rgba(255, 255, 255, .99) 0%,
-      rgba(255, 255, 255, .97) 47%,
-      rgba(255, 255, 255, .72) 61%,
-      rgba(255, 255, 255, .22) 76%,
-      rgba(255, 255, 255, 0) 84%),
-    url(../images/hero-couple-house.png) center 45% / cover no-repeat;
+    linear-gradient(
+      90deg,
+      rgba(255, 255, 255, 0.99) 0%,
+      rgba(255, 255, 255, 0.97) 47%,
+      rgba(255, 255, 255, 0.72) 61%,
+      rgba(255, 255, 255, 0.22) 76%,
+      rgba(255, 255, 255, 0) 84%
+    ),
+    url(../images/hero-couple-house.webp) center 45% / cover no-repeat;
 }
 
 .closing-hero h2 {

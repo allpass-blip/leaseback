@@ -3,14 +3,16 @@
 /* Hero: keep the copy readable over the photograph and preserve a calm vertical rhythm. */
 .hero-visual {
   background:
-    linear-gradient(90deg,
-      rgba(250, 253, 255, .99) 0%,
-      rgba(250, 253, 255, .96) 37%,
-      rgba(250, 253, 255, .90) 53%,
-      rgba(250, 253, 255, .72) 65%,
-      rgba(250, 253, 255, .26) 77%,
-      rgba(250, 253, 255, 0) 86%),
-    url(../images/hero-couple-house.png) left center / cover no-repeat;
+    linear-gradient(
+      90deg,
+      rgba(250, 253, 255, 0.99) 0%,
+      rgba(250, 253, 255, 0.96) 37%,
+      rgba(250, 253, 255, 0.9) 53%,
+      rgba(250, 253, 255, 0.72) 65%,
+      rgba(250, 253, 255, 0.26) 77%,
+      rgba(250, 253, 255, 0) 86%
+    ),
+    url(../images/hero-couple-house.webp) left center / cover no-repeat;
 }
 
 .hero-copy {
@@ -26,14 +28,14 @@
   max-width: 790px;
   font-size: 54px;
   line-height: 1.47;
-  letter-spacing: .018em;
+  letter-spacing: 0.018em;
 }
 
 .hero-lead {
   max-width: 650px;
   margin-top: 24px;
   line-height: 1.68;
-  letter-spacing: .01em;
+  letter-spacing: 0.01em;
 }
 
 .trust-row {
@@ -76,7 +78,7 @@
 .worries h2 {
   margin-top: 10px;
   line-height: 1.38;
-  letter-spacing: .035em;
+  letter-spacing: 0.035em;
 }
 
 .worries > .gold-rule {
@@ -109,7 +111,7 @@
   margin: 4px 0 0;
   font-size: 30px;
   line-height: 1.42;
-  letter-spacing: .01em;
+  letter-spacing: 0.01em;
 }
 
 .worry-grid i {
@@ -147,7 +149,7 @@
 .mechanism > h2 {
   padding-top: 132px;
   line-height: 1.42;
-  letter-spacing: .045em;
+  letter-spacing: 0.045em;
 }
 
 .mechanism > .intro {
@@ -174,7 +176,7 @@
 .step-cards h3 {
   margin: 0;
   line-height: 1.4;
-  letter-spacing: .035em;
+  letter-spacing: 0.035em;
 }
 
 .step-cards p {
@@ -206,5 +208,5 @@
 .mechanism-summary p {
   margin: 0;
   line-height: 1.52;
-  letter-spacing: .025em;
+  letter-spacing: 0.025em;
 }

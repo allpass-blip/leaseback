@@ -20,7 +20,7 @@
   padding: 0;
   font-size: 30px;
   line-height: 1.48;
-  letter-spacing: .02em;
+  letter-spacing: 0.02em;
   text-align: center;
   text-wrap: balance;
 }
@@ -39,7 +39,7 @@
   margin: 18px auto 0;
   font-size: 16px;
   line-height: 1.85;
-  letter-spacing: .01em;
+  letter-spacing: 0.01em;
   text-align: left;
   text-wrap: pretty;
 }
@@ -95,7 +95,7 @@
   padding-top: 2px;
   font-size: 23px;
   line-height: 1.45;
-  letter-spacing: .02em;
+  letter-spacing: 0.02em;
 }
 
 .timeline p {
@@ -104,7 +104,7 @@
   color: #202b38;
   font-size: 16px;
   line-height: 1.78;
-  letter-spacing: .005em;
+  letter-spacing: 0.005em;
   text-wrap: pretty;
 }
 
@@ -174,7 +174,7 @@
   padding: 0;
   font-size: 34px;
   line-height: 1.4;
-  letter-spacing: .06em;
+  letter-spacing: 0.06em;
   text-align: center;
 }
 
@@ -211,8 +211,11 @@
   gap: 8px;
   align-items: center;
   padding: 12px 10px;
-  font: 600 17px/1.55 "Noto Serif JP", "Yu Mincho", serif;
-  letter-spacing: .01em;
+  font:
+    600 17px/1.55 "Noto Serif JP",
+    "Yu Mincho",
+    serif;
+  letter-spacing: 0.01em;
   cursor: pointer;
   text-wrap: balance;
 }
@@ -265,7 +268,7 @@
   color: #202b38;
   font-size: 16px;
   line-height: 1.85;
-  letter-spacing: .005em;
+  letter-spacing: 0.005em;
   text-wrap: pretty;
 }
 
@@ -330,13 +333,15 @@
   min-height: 392px;
   padding: 28px 18px 24px;
   background:
-    linear-gradient(90deg,
-      rgba(255,255,255,.99) 0%,
-      rgba(255,255,255,.97) 42%,
-      rgba(255,255,255,.82) 60%,
-      rgba(255,255,255,.26) 82%,
-      rgba(255,255,255,.08) 100%),
-    url(../images/hero-couple-house.png) 64% center / cover no-repeat;
+    linear-gradient(
+      90deg,
+      rgba(255, 255, 255, 0.99) 0%,
+      rgba(255, 255, 255, 0.97) 42%,
+      rgba(255, 255, 255, 0.82) 60%,
+      rgba(255, 255, 255, 0.26) 82%,
+      rgba(255, 255, 255, 0.08) 100%
+    ),
+    url(../images/hero-couple-house.webp) 64% center / cover no-repeat;
 }
 
 .closing-ribbon {
@@ -360,7 +365,7 @@
   max-width: 90%;
   font-size: 27px;
   line-height: 1.55;
-  letter-spacing: .015em;
+  letter-spacing: 0.015em;
   text-wrap: pretty;
 }
 
@@ -405,7 +410,7 @@
   padding: 16px 18px;
   border-radius: 14px;
   background: linear-gradient(105deg, #075092, #062c5e);
-  box-shadow: 0 5px 8px rgba(4,32,69,.2);
+  box-shadow: 0 5px 8px rgba(4, 32, 69, 0.2);
 }
 
 .closing-medal {
@@ -432,7 +437,7 @@
   margin-top: 5px;
   font-size: 24px;
   line-height: 1.35;
-  letter-spacing: .02em;
+  letter-spacing: 0.02em;
   white-space: normal;
 }
 
@@ -465,7 +470,7 @@
   width: 54px;
   height: 54px;
   margin: 0;
-  background-image: url(../images/trust-icons-v2.png);
+  background-image: url(../images/trust-icons-v2.webp);
   background-repeat: no-repeat;
   background-position: -54px -54px;
   background-size: 108px 108px;
@@ -493,7 +498,7 @@
   margin-top: 2px;
   font-size: 31px;
   line-height: 1.2;
-  letter-spacing: .015em;
+  letter-spacing: 0.015em;
   white-space: nowrap;
 }
 
@@ -621,7 +626,7 @@
   color: #fff;
   font-size: 14px;
   line-height: 1.7;
-  letter-spacing: .01em;
+  letter-spacing: 0.01em;
   text-align: center;
 }
 

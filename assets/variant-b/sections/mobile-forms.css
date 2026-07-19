@@ -20,8 +20,10 @@
 .closing-inputs h3 {
   margin: 0 0 20px;
   color: var(--navy);
-  font: 700 22px/1.55 "Noto Sans JP", sans-serif;
-  letter-spacing: .01em;
+  font:
+    700 22px/1.55 "Noto Sans JP",
+    sans-serif;
+  letter-spacing: 0.01em;
   text-align: center;
   text-wrap: balance;
 }
@@ -96,7 +98,9 @@
   border-radius: 7px;
   background: #fff;
   color: #172437;
-  font: 500 16px/1 "Noto Sans JP", sans-serif;
+  font:
+    500 16px/1 "Noto Sans JP",
+    sans-serif;
 }
 
 .quick-form input::placeholder,
@@ -152,8 +156,10 @@
   border-radius: 12px;
   background: linear-gradient(105deg, #075092, #062c5e);
   color: #fff;
-  font: 700 19px/1.4 "Noto Sans JP", sans-serif;
-  letter-spacing: .02em;
+  font:
+    700 19px/1.4 "Noto Sans JP",
+    sans-serif;
+  letter-spacing: 0.02em;
   cursor: pointer;
 }
 
@@ -165,8 +171,8 @@
 
 .quick-submit:disabled {
   cursor: wait;
-  filter: saturate(.65);
-  opacity: .78;
+  filter: saturate(0.65);
+  opacity: 0.78;
 }
 
 .prefecture-native {
@@ -205,7 +211,7 @@
   max-height: 280px;
   border: 1px solid #0a4f91;
   border-radius: 8px;
-  box-shadow: 0 6px 8px rgba(6, 43, 90, .18);
+  box-shadow: 0 6px 8px rgba(6, 43, 90, 0.18);
 }
 
 .prefecture-option {

@@ -37,7 +37,7 @@
   color: #172437;
   font-size: 14px;
   line-height: 1.55;
-  letter-spacing: .01em;
+  letter-spacing: 0.01em;
 }
 
 /* First view: keep the couple and their home as one continuous visual,
@@ -48,18 +48,22 @@
   height: 540px;
   min-height: 0;
   background:
-    linear-gradient(90deg,
-      rgba(255, 255, 255, .99) 0%,
-      rgba(255, 255, 255, .95) 42%,
-      rgba(255, 255, 255, .72) 60%,
-      rgba(255, 255, 255, .16) 82%,
-      rgba(255, 255, 255, .04) 100%),
-    linear-gradient(180deg,
+    linear-gradient(
+      90deg,
+      rgba(255, 255, 255, 0.99) 0%,
+      rgba(255, 255, 255, 0.95) 42%,
+      rgba(255, 255, 255, 0.72) 60%,
+      rgba(255, 255, 255, 0.16) 82%,
+      rgba(255, 255, 255, 0.04) 100%
+    ),
+    linear-gradient(
+      180deg,
       rgba(255, 255, 255, 0) 62%,
-      rgba(255, 255, 255, .15) 76%,
-      rgba(255, 255, 255, .88) 96%,
-      #fff 100%),
-    url(../images/hero-couple-house.png) left center / auto 100% no-repeat;
+      rgba(255, 255, 255, 0.15) 76%,
+      rgba(255, 255, 255, 0.88) 96%,
+      #fff 100%
+    ),
+    url(../images/hero-couple-house.webp) left center / auto 100% no-repeat;
 }
 
 .hero-copy {
@@ -83,7 +87,7 @@
   font-size: 14px;
   font-weight: 600;
   line-height: 1.4;
-  letter-spacing: .05em;
+  letter-spacing: 0.05em;
   position: relative;
 }
 
@@ -109,9 +113,9 @@
   margin: 0;
   font-size: 27px;
   line-height: 1.58;
-  letter-spacing: .01em;
+  letter-spacing: 0.01em;
   text-wrap: balance;
-  text-shadow: 0 1px 0 rgba(255, 255, 255, .85);
+  text-shadow: 0 1px 0 rgba(255, 255, 255, 0.85);
 }
 
 .hero-lead {
@@ -122,7 +126,7 @@
   line-height: 1.78;
   letter-spacing: 0;
   text-wrap: pretty;
-  text-shadow: 0 1px 0 rgba(255, 255, 255, .9);
+  text-shadow: 0 1px 0 rgba(255, 255, 255, 0.9);
 }
 
 .hero-lead br {
@@ -143,7 +147,7 @@
   margin: -174px 0 0;
   border-radius: 0;
   background: #fff;
-  box-shadow: 0 4px 8px rgba(6, 43, 90, .10);
+  box-shadow: 0 4px 8px rgba(6, 43, 90, 0.1);
   overflow: hidden;
 }
 
@@ -162,7 +166,7 @@
   width: 48px;
   height: 48px;
   margin: 0;
-  background-image: url(../images/trust-icons-v2.png);
+  background-image: url(../images/trust-icons-v2.webp);
   background-repeat: no-repeat;
   background-size: 96px 96px;
   color: transparent;
@@ -212,7 +216,7 @@
   margin: 20px auto 0;
   padding: 10px 16px 10px 12px;
   border-radius: 14px;
-  box-shadow: 0 5px 8px rgba(4, 31, 67, .20);
+  box-shadow: 0 5px 8px rgba(4, 31, 67, 0.2);
 }
 
 .cta-medal {
@@ -227,7 +231,7 @@
   margin: 0;
   font-size: 21px;
   line-height: 1.4;
-  letter-spacing: .02em;
+  letter-spacing: 0.02em;
   text-align: center;
 }
 
@@ -260,7 +264,7 @@
   width: 48px;
   height: 48px;
   margin: 0;
-  background-image: url(../images/trust-icons-v2.png);
+  background-image: url(../images/trust-icons-v2.webp);
   background-repeat: no-repeat;
   background-position: -48px -48px;
   background-size: 96px 96px;
@@ -283,7 +287,7 @@
 .phone-box strong {
   font-size: 28px;
   line-height: 1.25;
-  letter-spacing: .02em;
+  letter-spacing: 0.02em;
   white-space: nowrap;
 }
 
@@ -323,7 +327,7 @@
   color: var(--navy);
   font-size: 18px;
   line-height: 1.5;
-  letter-spacing: .02em;
+  letter-spacing: 0.02em;
 }
 
 .worries h2,
@@ -331,7 +335,7 @@
   padding: 0;
   font-size: 30px;
   line-height: 1.5;
-  letter-spacing: .02em;
+  letter-spacing: 0.02em;
   text-align: center;
   text-wrap: balance;
 }
@@ -387,7 +391,7 @@
   border: 0;
   border-radius: 14px;
   background: #fff;
-  box-shadow: 0 3px 8px rgba(6, 43, 90, .10);
+  box-shadow: 0 3px 8px rgba(6, 43, 90, 0.1);
   text-align: left;
 }
 
@@ -499,8 +503,10 @@
   border-radius: 0;
   background: transparent;
   color: var(--navy);
-  font: 600 17px/1.5 "Noto Serif JP", serif;
-  letter-spacing: .04em;
+  font:
+    600 17px/1.5 "Noto Serif JP",
+    serif;
+  letter-spacing: 0.04em;
   text-align: center;
 }
 
@@ -582,7 +588,7 @@
   margin: 0;
   font-size: 22px;
   line-height: 1.45;
-  letter-spacing: .02em;
+  letter-spacing: 0.02em;
   text-wrap: balance;
 }
 
@@ -626,7 +632,7 @@
   margin: 0;
   font-size: 19px;
   line-height: 1.65;
-  letter-spacing: .01em;
+  letter-spacing: 0.01em;
   text-align: left;
   text-wrap: pretty;
 }

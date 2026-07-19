@@ -74,7 +74,9 @@ summary {
 .closing-cta,
 .faq-contact,
 .quick-submit {
-  transition: filter .18s cubic-bezier(.25, 1, .5, 1), transform .18s cubic-bezier(.25, 1, .5, 1);
+  transition:
+    filter 0.18s cubic-bezier(0.25, 1, 0.5, 1),
+    transform 0.18s cubic-bezier(0.25, 1, 0.5, 1);
 }
 
 .main-cta:hover,
@@ -107,6 +109,6 @@ summary {
   *::before,
   *::after {
     scroll-behavior: auto !important;
-    transition-duration: .01ms !important;
+    transition-duration: 0.01ms !important;
   }
 }

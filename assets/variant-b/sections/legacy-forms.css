@@ -56,7 +56,9 @@
   border-radius: 6px;
   background: #fff;
   color: #25313d;
-  font: 30px "Noto Sans JP", sans-serif;
+  font:
+    30px "Noto Sans JP",
+    sans-serif;
 }
 
 .quick-form input::placeholder,
@@ -104,8 +106,10 @@
   border-radius: 14px;
   background: linear-gradient(105deg, #075092, #062c5e);
   color: #fff;
-  font: 700 36px "Noto Sans JP", sans-serif;
-  letter-spacing: .03em;
+  font:
+    700 36px "Noto Sans JP",
+    sans-serif;
+  letter-spacing: 0.03em;
   cursor: pointer;
 }
 
@@ -176,7 +180,9 @@
   border-radius: 6px;
   background: #fff;
   color: #25313d;
-  font: 30px "Noto Sans JP", sans-serif;
+  font:
+    30px "Noto Sans JP",
+    sans-serif;
   text-align: left;
   cursor: pointer;
 }
@@ -191,7 +197,7 @@
   border-right: 4px solid #1d2935;
   border-bottom: 4px solid #1d2935;
   transform: rotate(45deg);
-  transition: transform .18s ease-out;
+  transition: transform 0.18s ease-out;
 }
 
 .prefecture-picker.is-open {
@@ -214,7 +220,7 @@
   border: 2px solid #0a4f91;
   border-radius: 8px;
   background: #fff;
-  box-shadow: 0 8px 8px rgba(6, 43, 90, .16);
+  box-shadow: 0 8px 8px rgba(6, 43, 90, 0.16);
   overscroll-behavior: contain;
 }
 
@@ -232,7 +238,9 @@
   border-bottom: 1px solid #dce3e9;
   background: #fff;
   color: #172437;
-  font: 27px "Noto Sans JP", sans-serif;
+  font:
+    27px "Noto Sans JP",
+    sans-serif;
   text-align: left;
   cursor: pointer;
 }
@@ -250,7 +258,7 @@
 
 .prefecture-picker.is-invalid .prefecture-trigger {
   border-color: #b52222;
-  box-shadow: 0 0 0 3px rgba(181, 34, 34, .12);
+  box-shadow: 0 0 0 3px rgba(181, 34, 34, 0.12);
 }
 
 @media (prefers-reduced-motion: reduce) {
