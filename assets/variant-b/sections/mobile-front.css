@@ -140,8 +140,8 @@
   top: auto;
   left: auto;
   transform: none;
-  margin: -146px auto 0;
-  border-radius: 14px;
+  margin: -126px 0 0;
+  border-radius: 0;
   background: #fff;
   box-shadow: 0 4px 8px rgba(6, 43, 90, .10);
   overflow: hidden;
