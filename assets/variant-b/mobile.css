@@ -3,6 +3,9 @@
   --navy: #062d60;
   --navy2: #08396e;
   --gold: #c99e39;
+  --cta-orange: oklch(58.2% 0.1705 43.6);
+  --cta-orange-deep: oklch(52.37% 0.1608 41.11);
+  --cta-orange-soft: oklch(97.25% 0.0198 70);
   --ink: #101822;
   --line: #d9e1e8;
   --pale: #f5f9fd;
@@ -2555,7 +2558,15 @@ summary {
 .case-photo img {
   width: 100%;
   height: 100%;
-  object-position: center 35%;
+  object-position: center 14%;
+}
+
+.case-list article:nth-child(2) .case-photo img {
+  object-position: center 16%;
+}
+
+.case-list article:nth-child(3) .case-photo img {
+  object-position: center 16%;
 }
 
 .case-body {
@@ -2786,7 +2797,7 @@ summary {
   width: auto;
   height: auto;
   min-height: 258px;
-  grid-template-columns: minmax(0, 64%) minmax(0, 36%);
+  grid-template-columns: minmax(0, 62%) minmax(0, 38%);
   margin: 38px 0 0;
   overflow: hidden;
   border: 1px solid #8faec9;
@@ -2826,7 +2837,7 @@ summary {
   height: 100%;
   min-height: 258px;
   object-fit: cover;
-  object-position: 51% center;
+  object-position: 77% center;
 }
 
 /* FAQ: answers size to their content, with large touch targets and no dead space. */
@@ -3502,6 +3513,49 @@ summary {
   position: absolute;
   width: 1px !important;
   height: 1px !important;
+}
+
+/* Conversion actions: orange is reserved for primary next steps. */
+.main-cta,
+.section-cta a,
+.faq-contact,
+.closing-cta,
+.quick-submit {
+  border-color: transparent;
+  background: linear-gradient(
+    105deg,
+    var(--cta-orange),
+    var(--cta-orange-deep)
+  );
+  box-shadow: 0 5px 8px rgba(128, 48, 0, 0.2);
+  color: #fff;
+}
+
+.cta-medal,
+.section-cta a span,
+.faq-contact span,
+.closing-medal {
+  background: var(--cta-orange-soft);
+  color: #9f3800;
+}
+
+.faq-contact b,
+.faq-contact i {
+  color: #fff;
+}
+
+.main-cta:hover,
+.section-cta a:hover,
+.faq-contact:hover,
+.closing-cta:hover,
+.quick-submit:hover {
+  filter: saturate(1.08);
+}
+
+.quick-submit:disabled,
+.quick-submit:disabled:hover {
+  filter: saturate(0.65);
+  opacity: 0.78;
 }
 
 .prefecture-picker {
