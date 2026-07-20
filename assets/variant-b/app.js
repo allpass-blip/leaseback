@@ -42,6 +42,7 @@
   };
 
   const initPrefecturePicker = (select, index) => {
+    if (select.hasAttribute("data-native-prefecture")) return;
     if (select.dataset.enhanced === "true") return;
 
     select.dataset.enhanced = "true";

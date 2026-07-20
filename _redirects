@@ -11,3 +11,5 @@
 # Variant B public landing-page route
 /lp/1 /variant-b/ 200
 /lp/1/ /variant-b/ 200
+/lp/2 /variant-b-desktop/ 200
+/lp/2/ /variant-b-desktop/ 200
