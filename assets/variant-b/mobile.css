@@ -169,9 +169,6 @@ body {
   font-size: 14px;
   font-weight: 500;
 }
-.quick-form label small:not(.optional) {
-  background: #f3f5f8;
-}
 .quick-form select {
   width: 100%;
   height: 74px;
@@ -3442,15 +3439,16 @@ summary {
 .closing-inputs label > b > small {
   flex: 0 0 auto;
   margin: 0;
-  padding: 3px 8px;
-  border: 0;
+  padding: 3px 9px;
+  border: 1px solid #963400;
   border-radius: 999px;
-  background: var(--cta-orange-deep);
+  background: #b84000;
   color: #fff;
-  font-size: 11px;
+  font-size: 12px;
   font-weight: 700;
   letter-spacing: 0.08em;
   line-height: 1.3;
+  opacity: 1;
 }
 
 .quick-form select,
