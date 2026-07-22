@@ -3,6 +3,9 @@
 
   const SELECTORS = {
     contactForm: "[data-contact-form]",
+    caseAutoplayToggle: ".case-autoplay-toggle",
+    caseCarousel: "#case-carousel",
+    caseDots: ".case-carousel-dots button",
     faqItem: ".faq details",
     prefectureMenu: ".prefecture-menu",
     prefectureOption: ".prefecture-option",
@@ -189,7 +192,168 @@
     });
   };
 
+  const initCaseCarousel = () => {
+    const carousel = document.querySelector(SELECTORS.caseCarousel);
+    const toggle = document.querySelector(SELECTORS.caseAutoplayToggle);
+    if (!carousel || !toggle) return;
+
+    const cards = Array.from(carousel.querySelectorAll("article"));
+    const dots = Array.from(document.querySelectorAll(SELECTORS.caseDots));
+    const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)");
+    const AUTOPLAY_DELAY = 4500;
+    const INTERACTION_PAUSE = 8000;
+    let activeIndex = 0;
+    let autoplayTimer = null;
+    let interactionTimer = null;
+    let isInView = false;
+    let isPointerOver = false;
+    let isFocusWithin = false;
+    let isUserPaused = false;
+    let scrollFrame = null;
+
+    const setActiveIndex = (index) => {
+      activeIndex = index;
+      dots.forEach((dot, dotIndex) => {
+        if (dotIndex === index) dot.setAttribute("aria-current", "true");
+        else dot.removeAttribute("aria-current");
+      });
+    };
+
+    const getCardScrollLeft = (card) =>
+      Math.min(
+        card.offsetLeft - carousel.offsetLeft,
+        carousel.scrollWidth - carousel.clientWidth,
+      );
+
+    const goToCard = (index, behavior = "smooth") => {
+      const normalizedIndex = (index + cards.length) % cards.length;
+      setActiveIndex(normalizedIndex);
+      carousel.scrollTo({
+        left: getCardScrollLeft(cards[normalizedIndex]),
+        behavior,
+      });
+    };
+
+    const stopAutoplay = () => {
+      window.clearInterval(autoplayTimer);
+      autoplayTimer = null;
+    };
+
+    const canAutoplay = () =>
+      isInView &&
+      !document.hidden &&
+      !reducedMotion.matches &&
+      !isPointerOver &&
+      !isFocusWithin &&
+      !isUserPaused;
+
+    const startAutoplay = () => {
+      stopAutoplay();
+      if (!canAutoplay()) return;
+      autoplayTimer = window.setInterval(
+        () => goToCard(activeIndex + 1),
+        AUTOPLAY_DELAY,
+      );
+    };
+
+    const updateToggle = () => {
+      toggle.hidden = reducedMotion.matches;
+      toggle.setAttribute("aria-pressed", String(isUserPaused));
+      toggle.setAttribute(
+        "aria-label",
+        isUserPaused ? "事例の自動再生を再開" : "事例の自動再生を停止",
+      );
+    };
+
+    const pauseAfterInteraction = () => {
+      stopAutoplay();
+      window.clearTimeout(interactionTimer);
+      interactionTimer = window.setTimeout(startAutoplay, INTERACTION_PAUSE);
+    };
+
+    dots.forEach((dot, index) => {
+      dot.addEventListener("click", () => {
+        goToCard(index);
+        pauseAfterInteraction();
+      });
+    });
+
+    toggle.addEventListener("click", () => {
+      isUserPaused = !isUserPaused;
+      updateToggle();
+      if (isUserPaused) stopAutoplay();
+      else startAutoplay();
+    });
+
+    carousel.addEventListener("pointerenter", (event) => {
+      if (event.pointerType !== "mouse") return;
+      isPointerOver = true;
+      stopAutoplay();
+    });
+    carousel.addEventListener("pointerleave", (event) => {
+      if (event.pointerType !== "mouse") return;
+      isPointerOver = false;
+      startAutoplay();
+    });
+    carousel.addEventListener("focusin", () => {
+      isFocusWithin = true;
+      stopAutoplay();
+    });
+    carousel.addEventListener("focusout", (event) => {
+      if (carousel.contains(event.relatedTarget)) return;
+      isFocusWithin = false;
+      startAutoplay();
+    });
+    carousel.addEventListener(
+      "touchstart",
+      () => pauseAfterInteraction(),
+      { passive: true },
+    );
+    carousel.addEventListener(
+      "scroll",
+      () => {
+        window.cancelAnimationFrame(scrollFrame);
+        scrollFrame = window.requestAnimationFrame(() => {
+          const closestIndex = cards.reduce((closest, card, index) => {
+            const currentDistance = Math.abs(
+              carousel.scrollLeft - getCardScrollLeft(card),
+            );
+            const closestDistance = Math.abs(
+              carousel.scrollLeft - getCardScrollLeft(cards[closest]),
+            );
+            return currentDistance < closestDistance ? index : closest;
+          }, 0);
+          setActiveIndex(closestIndex);
+        });
+      },
+      { passive: true },
+    );
+
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        isInView = entry.isIntersecting;
+        if (isInView) startAutoplay();
+        else stopAutoplay();
+      },
+      { threshold: 0.55 },
+    );
+    observer.observe(carousel);
+
+    document.addEventListener("visibilitychange", () => {
+      if (document.hidden) stopAutoplay();
+      else startAutoplay();
+    });
+    reducedMotion.addEventListener("change", () => {
+      updateToggle();
+      if (reducedMotion.matches) stopAutoplay();
+      else startAutoplay();
+    });
+
+    updateToggle();
+  };
+
   initFaqAccordion();
   initPrefecturePickers();
   initContactForms();
+  initCaseCarousel();
 })();

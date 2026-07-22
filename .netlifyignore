@@ -1,6 +1,11 @@
 .git/
+.netlify/
+.claude/
+.impeccable/
+netlify/
 .gitignore
 .env
 .env.*
 README.md
 FORM_SETUP.md
+PRODUCT.md

@@ -1,12 +1,12 @@
 /affilicode-track https://all-pass.net/track.php?p=pid373z5nmix 302!
 /.gitignore / 404!
-/.netlifyignore / 404!
 /.env* / 404!
 /_headers / 404!
 /_redirects / 404!
 /README.md / 404!
 /FORM_SETUP.md / 404!
 /netlify.toml / 404!
+/netlify/* / 404!
 
 # Variant B public landing-page route
 /lp/1 /variant-b/ 200
