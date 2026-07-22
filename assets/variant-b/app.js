@@ -2,7 +2,6 @@
   "use strict";
 
   const SELECTORS = {
-    contactForm: "[data-contact-form]",
     caseAutoplayToggle: ".case-autoplay-toggle",
     caseCarousel: "#case-carousel",
     caseDots: ".case-carousel-dots button",
@@ -179,19 +178,6 @@
     });
   };
 
-  const initContactForms = () => {
-    document.querySelectorAll(SELECTORS.contactForm).forEach((form) => {
-      const submit = form.querySelector('button[type="submit"]');
-      if (!submit) return;
-
-      form.addEventListener("submit", () => {
-        submit.disabled = true;
-        submit.setAttribute("aria-busy", "true");
-        submit.textContent = "送信中…";
-      });
-    });
-  };
-
   const initCaseCarousel = () => {
     const carousel = document.querySelector(SELECTORS.caseCarousel);
     const toggle = document.querySelector(SELECTORS.caseAutoplayToggle);
@@ -354,6 +340,5 @@
 
   initFaqAccordion();
   initPrefecturePickers();
-  initContactForms();
   initCaseCarousel();
 })();

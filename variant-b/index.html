@@ -1,6 +1,20 @@
 <!doctype html>
 <html lang="ja">
   <head>
+    <!-- Google Tag Manager -->
+    <script>
+      (function (w, d, s, l, i) {
+        w[l] = w[l] || [];
+        w[l].push({ "gtm.start": new Date().getTime(), event: "gtm.js" });
+        var f = d.getElementsByTagName(s)[0],
+          j = d.createElement(s),
+          dl = l != "dataLayer" ? "&l=" + l : "";
+        j.async = true;
+        j.src = "https://www.googletagmanager.com/gtm.js?id=" + i + dl;
+        f.parentNode.insertBefore(j, f);
+      })(window, document, "script", "dataLayer", "GTM-KNK5T8S4");
+    </script>
+    <!-- End Google Tag Manager -->
     <meta charset="utf-8" />
     <meta
       name="viewport"
@@ -26,6 +40,16 @@
     />
   </head>
   <body>
+    <!-- Google Tag Manager (noscript) -->
+    <noscript
+      ><iframe
+        src="https://www.googletagmanager.com/ns.html?id=GTM-KNK5T8S4"
+        height="0"
+        width="0"
+        style="display: none; visibility: hidden"
+      ></iframe
+    ></noscript>
+    <!-- End Google Tag Manager (noscript) -->
     <main class="lp">
       <section class="hero page" id="top">
         <header class="site-header">
@@ -521,6 +545,7 @@
           name="leaseback-contact"
           method="POST"
           action="/thanks.html"
+          data-success-url="/thanks.html"
           accept-charset="UTF-8"
           data-netlify="true"
           netlify-honeypot="bot-field"
@@ -532,8 +557,8 @@
             name="通知内容"
             value="リースバック無料条件確認フォームより、新しいお問い合わせがありました。下記内容をご確認のうえ、ご対応をお願いいたします。"
           />
-          <input type="hidden" name="送信元" value="variant-b-closing-form" />
-          <input type="hidden" name="送信ページ" value="/variant-b/" />
+          <input type="hidden" name="送信元" value="main-variant-b-form" />
+          <input type="hidden" name="送信ページ" value="/" />
           <p hidden>
             <label
               >この項目は入力しないでください
@@ -660,6 +685,7 @@
             <button class="quick-submit closing-submit" type="submit">
               無料査定を申し込む <i>›</i>
             </button>
+            <p class="form-status" aria-live="polite" data-form-status></p>
           </div>
         </form>
 
@@ -723,6 +749,8 @@
         </p>
       </section>
     </main>
-    <script src="/assets/variant-b/app.js?v=20260722b"></script>
+    <script src="/assets/form-submit.js?v=20260722"></script>
+    <script src="/assets/affilicode-tracking.js?v=20260722"></script>
+    <script src="/assets/variant-b/app.js?v=20260722c"></script>
   </body>
 </html>

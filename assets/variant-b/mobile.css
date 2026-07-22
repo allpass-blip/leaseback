@@ -3521,6 +3521,24 @@ summary {
   margin-top: 2px;
 }
 
+.form-status {
+  min-height: 1.6em;
+  margin: 12px 0 0;
+  color: #344454;
+  font-size: 14px;
+  font-weight: 700;
+  line-height: 1.6;
+  text-align: center;
+}
+
+.form-status[data-status="success"] {
+  color: #147a39;
+}
+
+.form-status[data-status="error"] {
+  color: #b42318;
+}
+
 /* ===== Client review corrections: 2026-07-22 ===== */
 /* Brand header and first-view hierarchy -------------------------------- */
 .site-header {

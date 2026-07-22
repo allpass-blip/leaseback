@@ -8,6 +8,9 @@
 /netlify.toml / 404!
 /netlify/* / 404!
 
+# Variant B is the primary landing page. The previous LP remains at /index.html.
+/ /variant-b/ 200!
+
 # Variant B public landing-page route
 /lp/1 /variant-b/ 200
 /lp/1/ /variant-b/ 200
