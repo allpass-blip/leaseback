@@ -4234,3 +4234,59 @@ summary {
   color: var(--navy);
   text-underline-offset: 3px;
 }
+
+/* 2026-07-23 client review: replace dense lead copy with supplied visuals. */
+.review-visual {
+  margin: 20px auto 0;
+}
+
+.review-visual img,
+.price-proof img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+.worries-review-visual {
+  width: 154px;
+}
+
+.worries-review-visual img {
+  border-radius: 10px;
+}
+
+.support-review-visual {
+  width: 196px;
+}
+
+.support-review-visual img {
+  border-radius: 10px;
+}
+
+.support .reason-list {
+  margin-top: 24px;
+}
+
+.point-box.price-proof {
+  overflow: hidden;
+  padding: 0;
+  border-color: #d8bd78;
+  background: #fff;
+}
+
+.closing-price-proof {
+  width: calc(100% - 32px);
+  margin: 16px auto 0;
+  overflow: hidden;
+  border: 1px solid #d8bd78;
+  border-radius: 10px;
+  background: #fff;
+}
+
+.closing-cta-block.cta-block {
+  margin-top: 14px;
+}
+
+.case-photo img {
+  object-position: center;
+}
