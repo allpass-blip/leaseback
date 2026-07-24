@@ -3542,7 +3542,9 @@ summary {
 /* ===== Client review corrections: 2026-07-22 ===== */
 /* Brand header and first-view hierarchy -------------------------------- */
 .site-header {
-  display: none;
+  display: flex;
+  gap: 10px;
+  padding: 10px 14px;
 }
 
 .brand-logo {
@@ -3712,7 +3714,7 @@ summary {
 /* Reusable conversion module ------------------------------------------ */
 .cta-block,
 .section-cta.cta-block,
-.faq-cta.cta-block,
+.comparison-cta.cta-block,
 .closing-cta-block.cta-block {
   position: relative;
   width: calc(100% - 32px);
@@ -3736,7 +3738,7 @@ summary {
 
 .cta-block .unified-cta,
 .section-cta.cta-block .unified-cta,
-.faq-cta .faq-contact.unified-cta,
+.comparison-cta .faq-contact.unified-cta,
 .closing-cta-block .closing-cta.unified-cta {
   position: relative;
   inset: auto;
@@ -3841,9 +3843,10 @@ summary {
   margin-top: 24px;
 }
 
-.faq-cta.cta-block {
+.comparison-cta.cta-block {
   inset: auto;
   width: 100%;
+  margin-top: 24px;
 }
 
 /* Comparison: stable three-column typography and explicit icon tokens. */
