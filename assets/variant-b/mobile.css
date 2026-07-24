@@ -3542,8 +3542,7 @@ summary {
 /* ===== Client review corrections: 2026-07-22 ===== */
 /* Brand header and first-view hierarchy -------------------------------- */
 .site-header {
-  gap: 10px;
-  padding: 10px 14px;
+  display: none;
 }
 
 .brand-logo {
@@ -3563,69 +3562,106 @@ summary {
 }
 
 .hero-visual {
-  height: 520px;
+  height: 501px;
   background:
     linear-gradient(
-      90deg,
-      rgba(255, 255, 255, 1) 0%,
-      rgba(255, 255, 255, 0.97) 38%,
-      rgba(255, 255, 255, 0.84) 55%,
-      rgba(255, 255, 255, 0.22) 76%,
-      rgba(255, 255, 255, 0.04) 100%
+      180deg,
+      rgba(234, 245, 251, 0.72) 0,
+      rgba(234, 245, 251, 0.34) 24px,
+      rgba(234, 245, 251, 0) 58px
     ),
     linear-gradient(
       180deg,
-      rgba(255, 255, 255, 0) 64%,
-      rgba(255, 255, 255, 0.2) 78%,
-      rgba(255, 255, 255, 0.9) 98%,
-      #fff 100%
+      rgba(255, 255, 255, 0.28) 0%,
+      rgba(255, 255, 255, 0.12) 27%,
+      rgba(255, 255, 255, 0) 55%
     ),
-    url(images/hero-couple-house-mobile.webp) left center / auto 104% no-repeat;
+    linear-gradient(
+      90deg,
+      rgba(255, 255, 255, 0.52) 0%,
+      rgba(255, 255, 255, 0.4) 40%,
+      rgba(255, 255, 255, 0.12) 61%,
+      rgba(255, 255, 255, 0) 82%,
+      rgba(255, 255, 255, 0) 100%
+    ),
+    linear-gradient(
+      180deg,
+      rgba(255, 255, 255, 0.08) 0%,
+      rgba(255, 255, 255, 0) 68%,
+      rgba(255, 255, 255, 0.16) 100%
+    ),
+    url(images/hero-couple-house-mobile.webp) right 9px / 112.5% auto no-repeat;
+  background-color: #eaf5fb;
 }
 
 .hero-copy {
-  width: 306px;
-  max-width: 306px;
-  padding: 46px 0 0 18px;
+  width: 100%;
+  max-width: none;
+  padding: 13px 20px 0;
 }
 
 .hero-kicker {
-  display: inline-block;
-  margin-bottom: 17px;
-  padding: 0 0 7px 9px;
-  font-size: 14px;
-  font-weight: 700;
-  letter-spacing: 0.035em;
+  display: flex;
+  gap: 4px;
+  margin: 0 0 10px 4px;
+  padding: 0;
+  border: 0;
+  color: #001f46;
+  font-size: 25px;
+  font-weight: 900;
+  line-height: 1.35;
+  letter-spacing: -0.035em;
+  white-space: nowrap;
+}
+
+.hero-kicker::before {
+  display: none;
+}
+
+.hero-kicker strong {
+  color: #b98c2c;
+  font-size: inherit;
+  font-weight: 900;
 }
 
 .hero h1 {
-  width: 300px;
-  max-width: 300px;
-  color: var(--navy);
-  font-size: 25px;
-  line-height: 1.55;
-  letter-spacing: 0;
+  width: 354px;
+  max-width: 100%;
+  color: #001f46;
+  font-family: "Noto Sans JP", "Yu Gothic", Meiryo, sans-serif;
+  font-size: 37px;
+  font-weight: 900;
+  line-height: 1.28;
+  letter-spacing: -0.045em;
   text-wrap: nowrap;
+  text-shadow: 0 1px 2px rgba(255, 255, 255, 0.72);
 }
 
 .hero-lead {
-  width: 214px;
-  max-width: 214px;
-  margin-top: 18px;
-  font-size: 16px;
-  line-height: 1.72;
+  width: 230px;
+  max-width: 230px;
+  margin-top: 14px;
+  color: #111;
+  font-size: 15.5px;
+  font-weight: 600;
+  line-height: 1.62;
+  text-shadow: 0 1px 2px rgba(255, 255, 255, 0.88);
 }
 
 .trust-row {
-  width: calc(100% - 32px);
-  margin: -156px auto 0;
+  width: calc(100% - 34px);
+  height: 108px;
+  margin: -121px auto 0;
+  border-radius: 0;
+  box-shadow: 0 5px 14px rgba(6, 43, 90, 0.16);
 }
 
 .trust-row > div {
   align-items: center;
-  justify-content: flex-start;
-  padding: 4px 3px 7px;
+  justify-content: center;
+  padding: 7px 3px 8px;
   text-align: center;
+  transform: translateY(-2px);
 }
 
 .trust-row b,
@@ -3635,12 +3671,30 @@ summary {
 }
 
 .trust-row small {
-  font-size: 11.5px;
+  font-size: 13px;
   white-space: normal;
+}
+
+.trust-row b {
+  margin-top: 1px;
+  color: #001f46;
+  font-size: 17px;
+}
+
+.trust-icon {
+  width: 50px;
+  height: 50px;
+  background-size: 100px 100px;
+}
+
+.trust-icon.icon-lock {
+  background-position: -50px 0;
 }
 
 .trust-icon.icon-japan {
   display: grid;
+  width: 48px;
+  height: 48px;
   place-items: center;
   border: 1.5px solid var(--gold);
   border-radius: 50%;
@@ -4125,6 +4179,7 @@ summary {
 /* Closing photo and company trust information ------------------------- */
 .closing-hero {
   min-height: 370px;
+  padding: 24px 18px 24px 34px;
   background:
     linear-gradient(
       90deg,
@@ -4138,19 +4193,26 @@ summary {
 }
 
 .closing-hero h2 {
-  width: 230px;
-  max-width: 230px;
+  width: 250px;
+  max-width: 250px;
   font-size: 24px;
-  line-height: 1.5;
+  line-height: 1.42;
 }
 
 .closing-heading-offer {
-  display: block !important;
-  margin-top: 4px;
+  display: flex !important;
+  align-items: baseline;
+  gap: 3px;
+  margin: 4px 0 0;
 }
 
 .closing-hero h2 strong {
   font-size: 38px;
+}
+
+.closing-hero h2 > span {
+  display: block;
+  white-space: nowrap;
 }
 
 .closing-hero > p:last-child {
