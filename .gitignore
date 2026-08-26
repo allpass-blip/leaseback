@@ -6,3 +6,4 @@ server.err.log
 
 # Local Netlify folder
 .netlify
+sites-test-backup/

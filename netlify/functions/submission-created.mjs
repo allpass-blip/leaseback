@@ -38,15 +38,41 @@ function toMentions(rawAccountIds) {
     .map((id) => `[To:${id}]`);
 }
 
-export function buildChatworkMessage(data, toAccountIds = "") {
+function formatSubmittedAt(value) {
+  const date = new Date(value);
+  if (Number.isNaN(date.getTime())) return "取得できませんでした";
+
+  const parts = new Intl.DateTimeFormat("ja-JP", {
+    timeZone: "Asia/Tokyo",
+    year: "numeric",
+    month: "2-digit",
+    day: "2-digit",
+    hour: "2-digit",
+    minute: "2-digit",
+    second: "2-digit",
+    hourCycle: "h23",
+  }).formatToParts(date);
+  const part = (type) => parts.find((item) => item.type === type)?.value;
+
+  return `${part("year")}/${part("month")}/${part("day")} ${part("hour")}:${part("minute")}:${part("second")}`;
+}
+
+export function buildChatworkMessage(
+  data,
+  toAccountIds = "",
+  submittedAt = new Date(),
+) {
   const mentions = toMentions(toAccountIds);
   const heading = mentions.length
     ? `${mentions.join(" ")}\nフォームから新しいお問い合わせがありました。`
     : "フォームから新しいお問い合わせがありました。";
 
-  const details = NOTIFICATION_FIELDS.map((key) => {
-    return `${key}：${sanitize(fieldValue(data, key))}`;
-  });
+  const details = [
+    `問い合わせ日時：${formatSubmittedAt(submittedAt)}`,
+    ...NOTIFICATION_FIELDS.map((key) => {
+      return `${key}：${sanitize(fieldValue(data, key))}`;
+    }),
+  ];
 
   return [
     heading,
@@ -81,27 +107,27 @@ async function postToChatwork({ token, roomId, message }) {
   }
 }
 
-export default {
-  async formSubmitted(event) {
-    const data = event?.data || {};
-    const formName = data["form-name"];
+export default async function submissionCreated(request) {
+  const { payload = {} } = await request.json();
 
-    if (formName !== TARGET_FORM) return;
+  if (payload.form_name !== TARGET_FORM) return;
 
-    const token = process.env.CHATWORK_API_TOKEN?.trim();
-    const roomId = process.env.CHATWORK_ROOM_ID?.trim();
+  const data = payload.data || {};
 
-    if (!token || !roomId) {
-      throw new Error(
-        "CHATWORK_API_TOKEN and CHATWORK_ROOM_ID must be configured in Netlify",
-      );
-    }
+  const token = process.env.CHATWORK_API_TOKEN?.trim();
+  const roomId = process.env.CHATWORK_ROOM_ID?.trim();
 
-    const message = buildChatworkMessage(
-      data,
-      process.env.CHATWORK_TO_ACCOUNT_IDS,
+  if (!token || !roomId) {
+    throw new Error(
+      "CHATWORK_API_TOKEN and CHATWORK_ROOM_ID must be configured in Netlify",
     );
+  }
 
-    await postToChatwork({ token, roomId, message });
-  },
-};
+  const message = buildChatworkMessage(
+    data,
+    process.env.CHATWORK_TO_ACCOUNT_IDS,
+    payload.created_at || new Date(),
+  );
+
+  await postToChatwork({ token, roomId, message });
+}
