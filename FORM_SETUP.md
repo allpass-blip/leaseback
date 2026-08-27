@@ -25,7 +25,7 @@ Netlifyが検出しやすいように、`index.html` の `<body>` 直下に静�
 
 ## Chatwork通知
 
-フォームがNetlify Formsに保存・検証された後、`netlify/functions/submission-created.mjs` がChatworkへ通知します。
+フォームがNetlify Formsに保存・検証された後、`netlify/functions/chatwork-notify.mjs` がChatworkへ通知します。
 ブラウザにはAPIトークンを置かないため、トークンがサイト閲覧者に公開されることはありません。
 
 ### 1. Chatworkで用意するもの
