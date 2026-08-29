@@ -22,6 +22,11 @@
 }
 
 /* Text wrapping adjustments -------------------------------------------- */
+.hero-kicker {
+  font-size: 21px;
+  white-space: nowrap;
+}
+
 .reason-list .reason-copy-lines {
   font-size: 14px;
 }
