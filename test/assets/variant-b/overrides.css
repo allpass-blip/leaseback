@@ -21,6 +21,37 @@
   object-position: center 25%;
 }
 
+/* Text wrapping adjustments -------------------------------------------- */
+.reason-list .reason-copy-lines {
+  font-size: 14px;
+}
+
+.reason-copy-lines > span {
+  display: block;
+  white-space: nowrap;
+}
+
+.comparison-age-note {
+  font-size: 12px;
+  letter-spacing: -0.02em;
+  white-space: nowrap;
+}
+
+.faq-question-text {
+  min-width: 0;
+  font: inherit;
+  font-weight: inherit;
+}
+
+.faq summary .controlled-break,
+.closing-hero .controlled-break {
+  display: initial;
+}
+
+.closing-hero > p:last-child b {
+  white-space: nowrap;
+}
+
 /* Lawyer supervision ---------------------------------------------------- */
 .lawyer-supervision.page {
   width: 390px;
