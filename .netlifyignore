@@ -9,6 +9,7 @@
 *.log
 *.zip
 submissions/
+tests/
 README.md
 FORM_SETUP.md
 PRODUCT.md

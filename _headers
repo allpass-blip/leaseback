@@ -1,15 +1,15 @@
 /*
-  Content-Security-Policy: default-src 'self'; script-src 'self' 'sha256-uEpPlvYOjrEvmIlXJ9pkI9TcoTVVAW02CoC/Xeih0G0=' https://www.googletagmanager.com https://www.googleadservices.com https://googleads.g.doubleclick.net https://pagead2.googlesyndication.com https://www.google.com https://www.clarity.ms https://*.clarity.ms; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data: https://www.googletagmanager.com https://all-pass.net https://www.google.com https://www.google.co.jp https://www.googleadservices.com https://googleads.g.doubleclick.net https://ad.doubleclick.net https://pagead2.googlesyndication.com https://www.clarity.ms https://*.clarity.ms https://c.bing.com; connect-src 'self' https://www.googletagmanager.com https://all-pass.net https://www.google.com https://www.google.co.jp https://www.googleadservices.com https://googleads.g.doubleclick.net https://ad.doubleclick.net https://stats.g.doubleclick.net https://pagead2.googlesyndication.com https://www.clarity.ms https://*.clarity.ms https://c.bing.com; frame-src https://www.googletagmanager.com https://td.doubleclick.net; form-action 'self'; base-uri 'self'; object-src 'none'; frame-ancestors 'none'; upgrade-insecure-requests
+  Content-Security-Policy: default-src 'self'; script-src 'self' 'sha256-kUxL9hD1lbAlXCEBImk5z2TXb0h4gzWqRNDwOoY8b/U=' https://www.googletagmanager.com https://www.googleadservices.com https://googleads.g.doubleclick.net https://pagead2.googlesyndication.com https://www.google.com https://www.clarity.ms https://*.clarity.ms https://s.yimg.jp; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data: https://www.googletagmanager.com https://all-pass.net https://www.google.com https://www.google.co.jp https://www.googleadservices.com https://googleads.g.doubleclick.net https://ad.doubleclick.net https://pagead2.googlesyndication.com https://www.clarity.ms https://*.clarity.ms https://c.bing.com; connect-src 'self' https://www.googletagmanager.com https://all-pass.net https://www.google.com https://www.google.co.jp https://www.googleadservices.com https://googleads.g.doubleclick.net https://ad.doubleclick.net https://stats.g.doubleclick.net https://pagead2.googlesyndication.com https://www.clarity.ms https://*.clarity.ms https://c.bing.com; frame-src https://www.googletagmanager.com https://td.doubleclick.net; form-action 'self'; base-uri 'self'; object-src 'none'; frame-ancestors 'none'; upgrade-insecure-requests
   Strict-Transport-Security: max-age=31536000; includeSubDomains; preload
   X-Content-Type-Options: nosniff
   X-Frame-Options: DENY
   Referrer-Policy: strict-origin-when-cross-origin
   Permissions-Policy: camera=(), microphone=(), geolocation=(), payment=(), usb=(), magnetometer=(), gyroscope=(), accelerometer=(), interest-cohort=()
   Cross-Origin-Opener-Policy: same-origin
-  X-Robots-Tag: noarchive
+  X-Robots-Tag: noindex, nofollow, noarchive
 
 /thanks.html
   X-Robots-Tag: noindex, nofollow, noarchive
 
 /assets/*
-  Cache-Control: public, max-age=31536000, immutable
+  Cache-Control: public, max-age=3600, must-revalidate

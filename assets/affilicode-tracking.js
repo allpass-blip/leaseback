@@ -139,7 +139,10 @@
 
   keepClickIds();
 
-  if (location.pathname === "/thanks.html" || location.pathname === "/thanks") {
+  if (
+    window.__leasebackConversionReady === true &&
+    (location.pathname === "/thanks.html" || location.pathname === "/thanks")
+  ) {
     trackConversion();
   }
 })();

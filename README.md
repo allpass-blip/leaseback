@@ -1,23 +1,47 @@
-# リースバック LP
+# リースバックLP
 
-Netlifyで公開する静的LPです。フォーム送信はNetlify Formsで受け取ります。
+Netlifyで公開する静的LPです。1つのNetlifyサイトで本番とクライアント確認用ページを運用します。
+
+## 公開範囲
+
+- 本番: `/`。広告計測と `leaseback-contact` のNetlify Forms送信を有効にします。
+- クライアント確認: `/test/`。パスワード保護し、広告計測・フォーム保存・営業通知を行いません。
+- `/thanks.html` は本番フォームの送信成功直後だけコンバージョンを送ります。直接表示や再読み込みでは送りません。
+- サイト全体に `noindex, nofollow, noarchive` を付け、検索結果への掲載を抑止します。
+
+`TEST_SITE_PASSWORD` はNetlifyのSecret環境変数に設定します。値をリポジトリへ保存しないでください。
+
+## ディレクトリ
+
+```text
+index.html                 本番LP
+assets/                    本番とテストで共有する素材・処理
+test/                      クライアント確認用ページと専用素材
+tests/                     デプロイ前の自動テスト
+netlify/edge-functions/    /test のパスワード保護
+netlify/functions/         本番フォームのChatwork通知
+```
+
+`test/` は確認サイト、`tests/` は自動テストです。共有CSSや共有JavaScriptの変更は両方に反映されるため、本番とテストの表示を確認してください。テストだけの変更は `test/` 内に置きます。
+
+## 変更と公開
+
+1. 作業ブランチで変更します。
+2. `node --test "tests/*.test.mjs"` を実行します。Netlifyでもデプロイ前に同じテストが走ります。
+3. NetlifyのDraft Deployで本番LPと `/test/` を確認します。
+4. 承認後、`allpass-blip/leaseback` の `main` へfast-forwardでpushします。
+5. 同じコミットを `yuma2004/--lp` の `main` にpushし、2つのリポジトリを一致させます。
+6. NetlifyのProduction Deployが対象コミットで完了したことを確認します。
+
+履歴の書き換えやforce pushは行いません。公開後に問題が出た場合は、Netlifyで直前の成功デプロイを再公開してから、問題のコミットを `git revert` し、両方の `main` へpushします。
 
 ## Netlify設定
 
-1. GitHubリポジトリをNetlifyに接続します。
-2. Build commandは空欄で問題ありません。
-3. Publish directoryはリポジトリのルートを指定します。
-4. デプロイ後、NetlifyのForms画面で `leaseback-contact` が検出されるか確認します。
-5. メール通知はNetlify管理画面の `Form submission notifications` で設定します。
-6. Chatwork通知を利用する場合は、`FORM_SETUP.md` の手順でAPIトークンとルームIDを設定します。
+- Base directory: 未指定
+- Build command: `node --test "tests/*.test.mjs"`（`netlify.toml` で設定済み）
+- Publish directory: `.`
+- Secret: `TEST_SITE_PASSWORD`
+- フォーム通知: Netlify管理画面の `Form submission notifications`
+- Chatwork通知: [FORM_SETUP.md](FORM_SETUP.md) の手順に従います。
 
-## 環境
-
-- 本番環境は `/` で公開し、`leaseback-contact` フォームだけをChatwork通知の対象にします。
-- クライアント確認用のテスト環境は `/test/` に置き、Edge Functionでパスワード保護します。
-- テスト環境は広告計測を読み込まず、フォーム入力も保存・通知しません。
-- Netlifyの環境変数 `TEST_SITE_PASSWORD` はSecretとして設定し、リポジトリには保存しません。
-
-## フォーム
-
-`index.html` にNetlify検出用の静的フォーム定義を置き、実際の入力フォームは同じ `leaseback-contact` 名で送信します。
+GitHubリポジトリの非公開化は別作業です。現状では秘密情報をコミットしないでください。

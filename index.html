@@ -1,1305 +1,776 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="ja">
-<head>
-  <!-- Google Tag Manager -->
-  <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
-  new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
-  j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
-  'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-  })(window,document,'script','dataLayer','GTM-KNK5T8S4');</script>
-  <!-- End Google Tag Manager -->
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>おすすめ不動産会社 相談窓口</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700;900&family=Noto+Serif+JP:wght@500;600;700;900&family=Inter:wght@600;700;800&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="assets/common/shared.css?v=20260521" media="(max-width: 767px)">
-  <link rel="stylesheet" href="assets/mobile/styles.css?v=20260521" media="(max-width: 767px)">
-  <link rel="stylesheet" href="assets/responsive/styles.css?v=20260521" media="(min-width: 768px)">
-  <style>
-html, body { margin: 0; padding: 0; }
-.mobile-lp { display: block; }
-.responsive-lp { display: none; }
-@media (min-width: 768px) {
-  .mobile-lp { display: none !important; }
-  .responsive-lp { display: block; }
-}
-.deadline-bar {
-  position: fixed;
-  z-index: 9999;
-  right: max(14px, env(safe-area-inset-right));
-  bottom: max(14px, env(safe-area-inset-bottom));
-  left: max(14px, env(safe-area-inset-left));
-  display: grid;
-  grid-template-columns: auto 1fr auto;
-  gap: 14px;
-  align-items: center;
-  max-width: 980px;
-  margin: 0 auto;
-  border: 2px solid #ff2f1f;
-  border-radius: 12px;
-  background: linear-gradient(90deg, #b90012 0%, #e42b1e 45%, #ff7a1a 100%);
-  box-shadow: 0 18px 42px rgba(85, 14, 10, 0.35);
-  padding: 12px 16px 14px;
-  color: #fff;
-  font-family: "Noto Sans JP", "Hiragino Kaku Gothic ProN", "Yu Gothic", Meiryo, sans-serif;
-  transition: opacity 0.22s ease, transform 0.22s ease, visibility 0.22s ease;
-}
-.deadline-bar.is-hidden-at-footer {
-  visibility: hidden;
-  opacity: 0;
-  pointer-events: none;
-  transform: translateY(calc(100% + 24px));
-}
-.deadline-bar::after {
-  content: "";
-  position: absolute;
-  right: 12px;
-  bottom: 7px;
-  left: 12px;
-  height: 4px;
-  border-radius: 999px;
-  background: rgba(255, 255, 255, 0.28);
-}
-.deadline-bar__progress {
-  position: absolute;
-  right: 12px;
-  bottom: 7px;
-  left: 12px;
-  z-index: 1;
-  height: 4px;
-  transform-origin: left center;
-  transform: scaleX(var(--deadline-progress, 1));
-  border-radius: 999px;
-  background: #ffe45c;
-  box-shadow: 0 0 14px rgba(255, 228, 92, 0.8);
-}
-.deadline-bar__alert {
-  display: inline-flex;
-  align-items: center;
-  gap: 7px;
-  border-radius: 999px;
-  background: rgba(0, 0, 0, 0.24);
-  padding: 8px 12px;
-  font-size: 0.82rem;
-  font-weight: 900;
-  letter-spacing: 0.08em;
-  white-space: nowrap;
-}
-.deadline-bar__alert::before {
-  content: "";
-  width: 9px;
-  height: 9px;
-  border-radius: 50%;
-  background: #ffe45c;
-  box-shadow: 0 0 0 0 rgba(255, 228, 92, 0.8);
-  animation: deadline-pulse 1s infinite;
-}
-.deadline-bar__copy {
-  display: grid;
-  gap: 2px;
-  min-width: 0;
-}
-.deadline-bar__copy strong {
-  font-size: clamp(0.98rem, 1.6vw, 1.18rem);
-  font-weight: 900;
-  line-height: 1.25;
-}
-.deadline-bar__copy span {
-  color: rgba(255, 255, 255, 0.88);
-  font-size: 0.82rem;
-  font-weight: 700;
-}
-.deadline-bar__time {
-  display: flex;
-  align-items: baseline;
-  gap: 5px;
-  font-family: Inter, "Noto Sans JP", sans-serif;
-  line-height: 1;
-  white-space: nowrap;
-}
-.deadline-bar__time span {
-  min-width: 38px;
-  border-radius: 7px;
-  background: #1b0c12;
-  padding: 7px 6px;
-  color: #ffe45c;
-  font-size: clamp(1.25rem, 2.4vw, 1.75rem);
-  font-weight: 900;
-  text-align: center;
-}
-.deadline-bar__time em {
-  color: #fff7cf;
-  font-family: "Noto Sans JP", sans-serif;
-  font-size: 0.78rem;
-  font-style: normal;
-  font-weight: 900;
-}
-@keyframes deadline-pulse {
-  0% { box-shadow: 0 0 0 0 rgba(255, 228, 92, 0.78); }
-  70% { box-shadow: 0 0 0 9px rgba(255, 228, 92, 0); }
-  100% { box-shadow: 0 0 0 0 rgba(255, 228, 92, 0); }
-}
-@media (max-width: 767px) {
-  .deadline-bar {
-    grid-template-columns: 1fr;
-    gap: 8px;
-    padding: 12px 12px 14px;
-    text-align: center;
-  }
-  .deadline-bar__alert {
-    justify-content: center;
-    justify-self: center;
-    padding: 6px 12px;
-  }
-  .deadline-bar__copy strong {
-    font-size: 0.96rem;
-  }
-  .deadline-bar__copy span {
-    display: none;
-  }
-  .deadline-bar__time {
-    justify-content: center;
-  }
-  .deadline-bar__time span {
-    min-width: 40px;
-    font-size: 1.48rem;
-  }
-}
-.deadline-bar {
-  grid-template-columns: auto minmax(0, 1fr) auto auto;
-  border: 1px solid #ffd3a3;
-  border-radius: 16px;
-  background:
-    linear-gradient(90deg, rgba(255, 242, 232, 0.96), rgba(255, 255, 255, 0.96) 38%),
-    #fff;
-  box-shadow: 0 16px 34px rgba(20, 59, 138, 0.14);
-  color: #143b8a;
-  padding: 11px 12px 14px;
-}
-.deadline-bar::after {
-  right: 14px;
-  bottom: 6px;
-  left: 14px;
-  height: 3px;
-  background: #f2dfcb;
-}
-.deadline-bar__progress {
-  right: 14px;
-  bottom: 6px;
-  left: 14px;
-  height: 3px;
-  background: linear-gradient(90deg, #ffb35c, #ff7a1a);
-  box-shadow: none;
-}
-.deadline-bar__alert {
-  background: #fff2e8;
-  color: #d85d0f;
-  padding: 7px 11px;
-  font-size: 0.8rem;
-}
-.deadline-bar__alert::before {
-  background: #ff7a1a;
-  box-shadow: 0 0 0 0 rgba(255, 122, 26, 0.38);
-  animation-duration: 1.45s;
-}
-.deadline-bar__copy strong {
-  color: #143b8a;
-  font-size: clamp(0.95rem, 1.35vw, 1.08rem);
-}
-.deadline-bar__copy span {
-  color: #5d6470;
-  font-size: 0.8rem;
-}
-.deadline-bar__time span {
-  min-width: 34px;
-  border: 1px solid #cfdff7;
-  background: #edf5ff;
-  color: #143b8a;
-  font-size: clamp(1.12rem, 1.8vw, 1.42rem);
-}
-.deadline-bar__time em {
-  color: #d85d0f;
-}
-.deadline-bar__action {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  min-height: 42px;
-  border-radius: 999px;
-  background: linear-gradient(180deg, #ff942c 0%, #ff7411 100%);
-  box-shadow: 0 3px 0 rgba(193, 77, 4, 0.26);
-  padding: 9px 15px;
-  color: #fff;
-  font-size: 0.9rem;
-  font-weight: 900;
-  text-decoration: none;
-  white-space: nowrap;
-}
-.deadline-bar__action--mobile {
-  display: none;
-}
-@media (max-width: 767px) {
-  .deadline-bar {
-    grid-template-columns: auto 1fr auto;
-    gap: 8px;
-    padding: 10px 10px 13px;
-    text-align: left;
-  }
-  .deadline-bar__alert {
-    align-self: start;
-    justify-self: start;
-    padding: 6px 9px;
-    font-size: 0.72rem;
-  }
-  .deadline-bar__copy strong {
-    display: block;
-    font-size: 0.88rem;
-    line-height: 1.35;
-  }
-  .deadline-bar__time {
-    grid-column: 2 / 3;
-    justify-content: flex-start;
-    gap: 4px;
-  }
-  .deadline-bar__time span {
-    min-width: 31px;
-    padding: 6px 5px;
-    font-size: 1.08rem;
-  }
-  .deadline-bar__time em {
-    font-size: 0.66rem;
-  }
-  .deadline-bar__action {
-    grid-column: 3 / 4;
-    grid-row: 1 / 3;
-    align-self: center;
-    min-height: 44px;
-    padding: 8px 12px;
-    font-size: 0.82rem;
-  }
-  .deadline-bar__action--desktop {
-    display: none;
-  }
-  .deadline-bar__action--mobile {
-    display: inline-flex;
-  }
-}
-@media (max-width: 767px) {
-  .deadline-bar {
-    grid-template-columns: minmax(0, 1fr) auto;
-    grid-template-areas:
-      "alert action"
-      "copy action"
-      "time time";
-    gap: 6px 10px;
-    padding: 10px 12px 14px;
-    text-align: left;
-  }
-  .deadline-bar__alert {
-    grid-area: alert;
-    align-self: center;
-    justify-self: start;
-    padding: 6px 9px;
-    font-size: 0.72rem;
-    white-space: nowrap;
-  }
-  .deadline-bar__copy {
-    grid-area: copy;
-    min-width: 0;
-  }
-  .deadline-bar__copy strong {
-    display: block;
-    font-size: 0.82rem;
-    line-height: 1.35;
-  }
-  .deadline-bar__copy span {
-    display: none;
-  }
-  .deadline-bar__time {
-    grid-area: time;
-    justify-content: center;
-    gap: 4px;
-  }
-  .deadline-bar__time span {
-    min-width: 35px;
-    padding: 6px 5px;
-    font-size: 1.04rem;
-  }
-  .deadline-bar__time em {
-    font-size: 0.62rem;
-  }
-  .deadline-bar__action {
-    grid-area: action;
-    align-self: center;
-    min-height: 42px;
-    padding: 8px 11px;
-    font-size: 0.78rem;
-  }
-  .deadline-bar__action--desktop {
-    display: none;
-  }
-  .deadline-bar__action--mobile {
-    display: inline-flex;
-  }
-}
-</style>
-  <script src="assets/mobile/app.js?v=20260521" defer></script>
-  <script src="assets/responsive/app.js?v=20260521" defer></script>
-  <script src="assets/form-submit.js?v=20260521" defer></script>
-  <script src="assets/affilicode-tracking.js?v=20260521" defer></script>
-</head>
-<body>
-<!-- Google Tag Manager (noscript) -->
-<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-KNK5T8S4" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
-<!-- End Google Tag Manager (noscript) -->
-<form name="leaseback-contact" method="post" data-netlify="true" netlify-honeypot="bot-field" hidden>
-<input type="hidden" name="form-name" value="leaseback-contact"/>
-<input type="text" name="bot-field"/>
-<input type="text" name="通知内容"/>
-<input type="text" name="送信元"/>
-<input type="text" name="物件種別"/>
-<input type="text" name="都道府県"/>
-<input type="text" name="売却希望時期"/>
-<input type="text" name="お名前"/>
-<input type="tel" name="電話番号"/>
-<input type="email" name="メールアドレス" required/>
-<input type="text" name="同意状況"/>
-<input type="text" name="送信ページ"/>
-</form>
-<div class="mobile-lp">
-<main class="lp-shell">
-<section aria-label="ファーストビュー" class="hero hero-editorial-mobile">
-<div class="hero-mobile-proof" aria-label="無料相談受付中" hidden>
-<span>売却後も</span>
-<strong>住める</strong>
-<em>無料相談</em>
-</div>
-<p class="hero-eyebrow" hidden>リースバック<span>無料相談窓口</span></p>
-<h1 class="hero-headline">
-<span>家を手放す<span class="accent">不安</span>に、</span>
-<span>住み続ける<span class="accent">安心</span>を。</span>
-</h1>
-<p class="hero-lead"><strong class="hero-lead-keyword">リースバック</strong>なら、売却しても<br/>そのまま住み続けられます。<br/>まとまった資金を手にしながら、<br/>今の暮らしをそのままに。</p>
-<div class="hero-photo">
-<img loading="eager" width="1122" height="1402" alt="リースバック相談の対象となる日本の戸建て住宅" class="hero-house-img" decoding="async" fetchpriority="high" src="assets/img/hero-editorial-house.webp"/>
-<img loading="eager" width="720" height="720" alt="住み慣れた家で安心して暮らすシニア夫婦" class="hero-couple-img" decoding="async" src="assets/img/hero-editorial-couple.webp"/>
-</div>
-<p class="hero-support">あなたに合う不動産会社をご紹介します。</p>
-<div class="hero-points" aria-label="ご紹介前に確認する4つのこと">
-<div class="hero-point"><img loading="lazy" decoding="async" width="128" height="128" alt="" src="assets/img/generated-icons/cash.webp"/><div><strong>資金計画</strong><span>必要な資金や<br/>残債を確認</span></div></div>
-<div class="hero-point"><img loading="lazy" decoding="async" width="128" height="128" alt="" src="assets/img/generated-icons/house.webp"/><div><strong>ご自宅状況</strong><span>物件情報を<br/>丁寧に確認</span></div></div>
-<div class="hero-point"><img loading="lazy" decoding="async" width="128" height="128" alt="" src="assets/img/generated-icons/contract.webp"/><div><strong>暮らし方</strong><span>住み続ける希望を<br/>お伺い</span></div></div>
-<div class="hero-point"><img loading="lazy" decoding="async" width="128" height="128" alt="" src="assets/img/generated-icons/buyback.webp"/><div><strong>会社紹介</strong><span>相性のよい会社へ<br/>おつなぎ</span></div></div>
-</div>
-<a class="hero-cta" href="#form">
-<span class="free">無料</span><span>まずは無料相談してみる</span><span class="arrow">›</span>
-</a>
-</section>
-<section aria-label="こんなお悩み、一人で抱えていませんか？" class="lease-block lease-worries">
-<h2 class="lease-title">
-            こんなお悩み、<br class="mobile-title-break"/>一人で抱えていませんか？
-          </h2>
-<p class="lease-lead">
-            人生100年時代と言われる今、<br/>
-            お金の不安は誰にでもあるものです。<br/>
-            けれど、長年住み慣れた家を離れるのは寂しい…
-          </p>
-<div class="lease-worries-card">
-<ul class="lease-worry-list">
-<li>
-<span class="lease-check"><svg fill="none" viewbox="0 0 24 24"><path d="M4 12l5 5L20 6" stroke="#1d4fd6" stroke-linecap="round" stroke-linejoin="round" stroke-width="3"></path></svg></span>
-<span>年金だけでは老後の生活が不安…</span>
-</li>
-<li>
-<span class="lease-check"><svg fill="none" viewbox="0 0 24 24"><path d="M4 12l5 5L20 6" stroke="#1d4fd6" stroke-linecap="round" stroke-linejoin="round" stroke-width="3"></path></svg></span>
-<span>退職後も住宅ローンの返済が続いてつらい</span>
-</li>
-<li>
-<span class="lease-check"><svg fill="none" viewbox="0 0 24 24"><path d="M4 12l5 5L20 6" stroke="#1d4fd6" stroke-linecap="round" stroke-linejoin="round" stroke-width="3"></path></svg></span>
-<span>急に大きな資金が必要になった</span>
-</li>
-<li>
-<span class="lease-check"><svg fill="none" viewbox="0 0 24 24"><path d="M4 12l5 5L20 6" stroke="#1d4fd6" stroke-linecap="round" stroke-linejoin="round" stroke-width="3"></path></svg></span>
-<span>子どもに家のことで迷惑を<br/>かけたくない</span>
-</li>
-<li>
-<span class="lease-check"><svg fill="none" viewbox="0 0 24 24"><path d="M4 12l5 5L20 6" stroke="#1d4fd6" stroke-linecap="round" stroke-linejoin="round" stroke-width="3"></path></svg></span>
-<span>でも、住み慣れたこの家を<br/>離れたくない</span>
-</li>
-<li>
-<span class="lease-check"><svg fill="none" viewbox="0 0 24 24"><path d="M4 12l5 5L20 6" stroke="#1d4fd6" stroke-linecap="round" stroke-linejoin="round" stroke-width="3"></path></svg></span>
-<span>近所や親戚に知られずに解決したい</span>
-</li>
-</ul>
-</div>
-<div aria-hidden="true" class="lease-arrow">
-<svg fill="none" viewbox="0 0 40 40">
-<path d="M8 14 L20 30 L32 14 Z" fill="#ff7a1a"></path>
-</svg>
-</div>
-<div class="lease-worries-cta">
-            一つでも当てはまるなら<br/>
-<span class="hl">リースバック</span>という選択肢があります
+  <head>
+    <script src="/assets/gtm.js?v=20260829"></script>
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, viewport-fit=cover"
+    />
+    <title>イエトク！リースバック一括査定｜自宅を売っても住み続けられる</title>
+    <link rel="icon" href="/assets/variant-b/images/logo-ietoku-mobile.webp" type="image/webp" />
+    <meta
+      name="description"
+      content="イエトク！のリースバック一括査定。自宅を売っても住み続けながら、複数社の査定条件を無料で比較できます。"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;600;700&family=Noto+Serif+JP:wght@500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="/assets/variant-b/mobile.css?v=20260829" />
+    <link
+      rel="preload"
+      as="image"
+      href="/assets/variant-b/images/hero-couple-house-mobile.webp"
+      fetchpriority="high"
+    />
+  </head>
+  <body>
+    <!-- Google Tag Manager (noscript) -->
+    <noscript
+      ><iframe
+        src="https://www.googletagmanager.com/ns.html?id=GTM-KNK5T8S4"
+        height="0"
+        width="0"
+        style="display: none; visibility: hidden"
+      ></iframe
+    ></noscript>
+    <!-- End Google Tag Manager (noscript) -->
+    <main class="lp">
+      <section class="hero page" id="top">
+        <header class="site-header">
+          <img
+            class="brand-logo"
+            src="/assets/variant-b/images/logo-ietoku-mobile.webp"
+            alt="イエトク！ リースバック一括査定"
+            width="774"
+            height="235"
+            decoding="async"
+          />
+          <div class="tagline">
+            住まいと資産の未来をつなぐ<br />リースバック相談窓口
           </div>
-</section>
-<section aria-label="家に住んだまま、まとまった資金が手に入る" class="lease-block lease-steps">
-<h2 class="lease-title">
-            家に住んだまま、<br class="mobile-title-break"/><span class="orange">まとまった資金</span>が手に入る
-          </h2>
-<p class="lease-lead">
-            リースバックとは、ご自宅を不動産会社に売却したあとも、家賃を払いながら同じ家に住み続けられる仕組みです。
-          </p>
-<div class="lease-step-card">
-<span class="lease-step-badge">STEP 01</span>
-<div class="lease-step-illust">
-<img loading="lazy" decoding="async" width="128" height="128" alt="" src="assets/img/generated-icons/contract.webp"/>
-</div>
-<p class="lease-step-caption">あなたに合う会社をお探しします</p>
-</div>
-<div aria-hidden="true" class="lease-step-sep">
-<svg fill="#2f72e0" viewbox="0 0 24 24"><path d="M12 17 L4 8 H20 Z"></path></svg>
-</div>
-<div class="lease-step-card">
-<span class="lease-step-badge">STEP 02</span>
-<div class="lease-step-illust">
-<img loading="lazy" decoding="async" width="128" height="128" alt="" src="assets/img/generated-icons/cash.webp"/>
-</div>
-<p class="lease-step-caption">売却のお金をまとめてお受け取り</p>
-</div>
-<div aria-hidden="true" class="lease-step-sep">
-<svg fill="#2f72e0" viewbox="0 0 24 24"><path d="M12 17 L4 8 H20 Z"></path></svg>
-</div>
-<div class="lease-step-card">
-<span class="lease-step-badge">STEP 03</span>
-<div class="lease-step-illust">
-<img loading="lazy" decoding="async" width="128" height="128" alt="" src="assets/img/generated-icons/family-home.webp"/>
-</div>
-<p class="lease-step-caption">そのまま住み続ける条件を確認</p>
-</div>
-</section>
-<section aria-label="選ばれる、3つの理由" class="lease-block lease-reasons">
-<h2 class="lease-title">
-<span class="navy">選ばれる、</span><br/>
-<span class="orange">3つの理由</span>
-</h2>
-<div class="lease-reason-card">
-<span class="lease-reason-num">01</span>
-<div class="lease-reason-visual">
-<div class="lease-photo-circle">
-<img loading="lazy" decoding="async" width="128" height="128" alt="" src="assets/img/generated-icons/family-home.webp"/>
-</div>
-</div>
-<h3 class="lease-reason-title">住み慣れた我が家に<br/>住み続ける選択肢</h3>
-<p class="lease-reason-body">
-              引っ越しをせずに、住み慣れたご自宅で暮らし続けることができます。ご近所付き合いや通い慣れた病院など、今の暮らしを変えたくない方に向いた仕組みです。
+        </header>
+        <div class="hero-visual">
+          <div class="hero-copy">
+            <p class="hero-kicker">
+              <span>自宅を売っても</span><strong>住み続けれる！</strong>
             </p>
-</div>
-<div class="lease-reason-card">
-<span class="lease-reason-num">02</span>
-<div class="lease-reason-visual">
-<div class="lease-reason-circle">
-<img loading="lazy" decoding="async" width="128" height="128" alt="" src="assets/img/generated-icons/chart.webp"/>
-</div>
-</div>
-<h3 class="lease-reason-title">ご状況に合わせた<br/>会社紹介</h3>
-<p class="lease-reason-body">
-              ご自宅の状況やご事情を確認し、あなたに合う不動産会社をお探しします。無理にすすめることはありませんので、ご安心ください。
+            <h1>リースバック一括査定<br />最高額で自宅が売れる</h1>
+            <p class="hero-lead">
+              住宅ローン・老後資金・<br />相続のお悩みに。<br /><strong
+                >リースバック</strong
+              >という選択肢。
             </p>
-</div>
-<div class="lease-reason-card">
-<span class="lease-reason-num">03</span>
-<div class="lease-reason-visual">
-<div class="lease-reason-circle">
-<img loading="lazy" decoding="async" width="128" height="128" alt="" src="assets/img/generated-icons/buyback.webp"/>
-</div>
-</div>
-<h3 class="lease-reason-title">買戻しも<br/>相談できる安心</h3>
-<p class="lease-reason-body">
-              「いつかは買い戻したい」というご希望にも対応できる会社をお探しします。大切な家族の思い出が詰まった家を、将来また自分のものにできる可能性があります。
-            </p>
-</div>
-</section>
-<section aria-label="リースバックで得られる6つのメリット" class="lease-block lease-merits">
-<h2 class="lease-title">
-<span class="navy">リースバックで得られる</span><br/>
-<span class="orange">6つのメリット</span>
-</h2>
-<div class="lease-merit-grid">
-<div class="lease-merit-card">
-<span class="lease-merit-num">01</span>
-<div class="lease-merit-icon">
-<img loading="lazy" decoding="async" width="128" height="128" alt="" src="assets/img/generated-icons/cash.webp"/>
-</div>
-<h3 class="lease-merit-title">まとまった資金が<br/>一括で手に入る</h3>
-<p class="lease-merit-desc">老後資金・ローン返済・事業資金など、用途を問わず自由に使えます。</p>
-</div>
-<div class="lease-merit-card">
-<span class="lease-merit-num">02</span>
-<div class="lease-merit-icon">
-<img loading="lazy" decoding="async" width="128" height="128" alt="" src="assets/img/generated-icons/no-moving.webp"/>
-</div>
-<h3 class="lease-merit-title">引越費用も<br/>仮住まいも不要</h3>
-<p class="lease-merit-desc">住み慣れた家にそのまま。体力的負担もありません。</p>
-</div>
-<div class="lease-merit-card">
-<span class="lease-merit-num">03</span>
-<div class="lease-merit-icon">
-<img loading="lazy" decoding="async" width="128" height="128" alt="" src="assets/img/generated-icons/money-bag.webp"/>
-</div>
-<h3 class="lease-merit-title">固定資産税・修繕費<br/>の負担がなくなる</h3>
-<p class="lease-merit-desc">所有者が買主となる会社に移り、維持コストから解放されます。</p>
-</div>
-<div class="lease-merit-card">
-<span class="lease-merit-num">04</span>
-<div class="lease-merit-icon">
-<img loading="lazy" decoding="async" width="128" height="128" alt="" src="assets/img/generated-icons/family.webp"/>
-</div>
-<h3 class="lease-merit-title">相続対策にも<br/>活用できる</h3>
-<p class="lease-merit-desc">現金化で分割がスムーズ。家族間のトラブル防止に。</p>
-</div>
-<div class="lease-merit-card">
-<span class="lease-merit-num">05</span>
-<div class="lease-merit-icon">
-<img loading="lazy" decoding="async" width="128" height="128" alt="" src="assets/img/generated-icons/lock.webp"/>
-</div>
-<h3 class="lease-merit-title">ご近所・親戚に<br/>知られない</h3>
-<p class="lease-merit-desc">看板・内覧・引越しなし。ひっそりと手続きが完結します。</p>
-</div>
-<div class="lease-merit-card">
-<span class="lease-merit-num">06</span>
-<div class="lease-merit-icon">
-<img loading="lazy" decoding="async" width="128" height="128" alt="" src="assets/img/generated-icons/buyback.webp"/>
-</div>
-<h3 class="lease-merit-title">将来の買戻しも<br/>相談できる</h3>
-<p class="lease-merit-desc">買戻し希望がある場合は、対応可能な条件を確認しながら進められます。</p>
-</div>
-</div>
-</section>
-<section aria-label="05 contents 5ステップ" class="steps">
-<h2 class="sec-title">
-<span class="blue">ご利用までの、</span>
-<span class="orange">5ステップ</span>
-</h2>
-<p class="steps-lead">
-            ご相談から会社選び・お手続きまで、<br/>
-            流れをわかりやすくご案内します。
-          </p>
-<div class="step-card">
-<div class="step-num"><span class="n">01</span><span class="t">受付</span></div>
-<div class="step-head">
-<h3>お問い合わせ</h3>
-<span class="step-badge">ご相談受付</span>
-</div>
-<p class="step-desc">このページの下のフォームからお気軽にご相談ください。スタッフが丁寧にご対応します。</p>
-</div>
-<div class="step-arrow"></div>
-<div class="step-card">
-<div class="step-num"><span class="n">02</span><span class="t">ご案内</span></div>
-<div class="step-head">
-<h3>ヒアリング・<br/>ご説明</h3>
-<span class="step-badge">内容確認</span>
-</div>
-<p class="step-desc">お困りごとやご希望をお聞きし、リースバックの仕組みをわかりやすくご説明します。</p>
-</div>
-<div class="step-arrow"></div>
-<div class="step-card">
-<div class="step-num"><span class="n">03</span><span class="t">査定</span></div>
-<div class="step-head">
-<h3>査定・条件整理</h3>
-<span class="step-badge">条件ご提示</span>
-</div>
-<p class="step-desc">お聞きした内容をもとに、あなたに合う会社を選んでご案内します。</p>
-</div>
-<div class="step-arrow"></div>
-<div class="step-card">
-<div class="step-num"><span class="n">04</span><span class="t">契約</span></div>
-<div class="step-head">
-<h3>売買契約・賃貸契約</h3>
-<span class="step-badge">お手続き</span>
-</div>
-<p class="step-desc">条件にご納得いただけたら、ご紹介先の会社と契約のお手続きに進みます。</p>
-</div>
-<div class="step-arrow"></div>
-<div class="step-card">
-<div class="step-num"><span class="n">05</span><span class="t">開始</span></div>
-<div class="step-head">
-<h3>お振込み・<br/>新生活スタート</h3>
-<span class="step-badge">ご契約後</span>
-</div>
-<p class="step-desc">売却のお金が振り込まれ、お住まいはそのまま。安心の新生活が始まります。</p>
-</div>
-</section>
-<section aria-label="05 contents よくあるご質問" class="faq">
-<h2 class="sec-title">
-<span class="faq-title-intro">よくある、</span>
-<span class="orange">ご質問</span>
-</h2>
-<div class="faq-list">
-<div class="faq-item open">
-<button class="faq-q" type="button">
-<span class="q-icon">Q</span>
-<span class="q-text">査定や相談に費用はかかりますか？</span>
-<span class="q-toggle"></span>
-</button>
-<div class="faq-a"><div class="faq-a-inner">査定やご相談に費用はかかりません。契約しなかった場合もお金は一切いただきませんので、ご安心ください。</div></div>
-</div>
-<div class="faq-item">
-<button class="faq-q" type="button">
-<span class="q-icon">Q</span>
-<span class="q-text">住宅ローンが残っていても利用できますか？</span>
-<span class="q-toggle"></span>
-</button>
-<div class="faq-a"><div class="faq-a-inner">住宅ローンが残っていても利用できる場合があります。残りのローンや家の値段によって進め方が変わりますので、まずはお気軽にご相談ください。</div></div>
-</div>
-<div class="faq-item">
-<button class="faq-q" type="button">
-<span class="q-icon">Q</span>
-<span class="q-text">家族や近所に知られずに進められますか？</span>
-<span class="q-toggle"></span>
-</button>
-<div class="faq-a"><div class="faq-a-inner">看板を出したりチラシを配ったりせずに進められるので、ご近所や親戚に知られる心配はほとんどありません。</div></div>
-</div>
-<div class="faq-item">
-<button class="faq-q" type="button">
-<span class="q-icon">Q</span>
-<span class="q-text">賃料はどれくらいになりますか？</span>
-<span class="q-toggle"></span>
-</button>
-<div class="faq-a"><div class="faq-a-inner">毎月の家賃は、家の値段や周りの相場をもとに決まります。具体的な金額は、ご紹介先の会社からご説明します。</div></div>
-</div>
-<div class="faq-item">
-<button class="faq-q" type="button">
-<span class="q-icon">Q</span>
-<span class="q-text">賃貸契約に期限はありますか？</span>
-<span class="q-toggle"></span>
-</button>
-<div class="faq-a"><div class="faq-a-inner">住み続けたい期間のご希望をお聞きし、長く住めるプランがあるか確認してご案内します。</div></div>
-</div>
-<div class="faq-item">
-<button class="faq-q" type="button">
-<span class="q-icon">Q</span>
-<span class="q-text">将来、本当に買い戻せますか？</span>
-<span class="q-toggle"></span>
-</button>
-<div class="faq-a"><div class="faq-a-inner">買い戻しをご希望の場合は、それができる会社や条件を事前に確認してご案内します。将来の見通しを立ててから契約できるので安心です。</div></div>
-</div>
-<div class="faq-item">
-<button class="faq-q" type="button">
-<span class="q-icon">Q</span>
-<span class="q-text">古い家やマンションでも対応できますか？</span>
-<span class="q-toggle"></span>
-</button>
-<div class="faq-a"><div class="faq-a-inner">古い家やマンションでも対応できる場合があります。場所や建物の状態を確認し、対応できる会社をお探しします。</div></div>
-</div>
-<div class="faq-item">
-<button class="faq-q" type="button">
-<span class="q-icon">Q</span>
-<span class="q-text">申込みから入金までどのくらいかかりますか？</span>
-<span class="q-toggle"></span>
-</button>
-<div class="faq-a"><div class="faq-a-inner">お手続きにかかる期間はお家の状況によって変わります。まずはご相談いただければ、おおよその目安をお伝えします。</div></div>
-</div>
-</div>
-</section>
-<section aria-label="05 contents 相談フォーム" class="form-sec" id="form">
-<div class="form-badge-wrap">
-<span class="form-badge">かんたん入力</span>
-</div>
-<h2 class="form-title">
-            あなたに合う<span class="orange">不動産会社</span>を<br/>
-            ご紹介
-</h2>
-<form class="form-box" accept-charset="UTF-8" action="/thanks.html" data-contact-form data-netlify="true" data-success-url="thanks.html" method="post" name="leaseback-contact" netlify-honeypot="bot-field">
-<input name="form-name" type="hidden" value="leaseback-contact"/>
-<input name="通知内容" type="hidden" value="リースバック無料条件確認フォームより、新しいお問い合わせがありました。下記内容をご確認のうえ、ご対応をお願いいたします。"/>
-<input name="送信元" type="hidden" value="mobile-form"/>
-<p hidden><label>この項目は入力しないでください <input autocomplete="off" name="bot-field" tabindex="-1" type="text"/></label></p>
-<div class="fld">
-<div class="fld-label">物件の種類 <span class="req">必須</span></div>
-<div class="radios">
-<label class="radio-opt"><input name="物件種別" required="" type="radio" value="戸建て"/> 戸建て</label>
-<label class="radio-opt"><input name="物件種別" type="radio" value="マンション"/> マンション</label>
-<label class="radio-opt"><input name="物件種別" type="radio" value="その他"/> その他</label>
-</div>
-</div>
-<div class="fld">
-<div class="fld-label">都道府県 <span class="req">必須</span></div>
-<select class="sel" name="都道府県" required="">
-<option value="">選択してください</option>
-<option>東京都</option><option>神奈川県</option><option>千葉県</option><option>埼玉県</option><option>大阪府</option><option>奈良県</option><option>福岡県</option><option>長野県</option><option>山梨県</option><option>熊本県</option><option>長崎県</option><option>高知県</option><option>その他</option>
-</select>
-</div>
-<div class="fld">
-<div class="fld-label">ご希望の売却時期 <span class="req">必須</span></div>
-<select class="sel" name="売却希望時期" required="">
-<option value="">選択してください</option>
-<option>1ヶ月以内</option>
-<option>3ヶ月以内</option>
-<option>半年以内</option>
-<option>1年以内</option>
-<option>未定</option>
-</select>
-</div>
-<div class="fld">
-<div class="fld-label">お名前（ニックネームも可） <span class="req">必須</span></div>
-<input autocomplete="name" class="inp" maxlength="80" name="お名前" placeholder="山田 太郎" required="" type="text"/>
-</div>
-<div class="fld">
-<div class="fld-label">電話番号 <span class="req">必須</span></div>
-<input autocomplete="tel" class="inp" inputmode="tel" maxlength="20" name="電話番号" pattern="[0-9+()\s-]{8,20}" placeholder="09012345678" required="" type="tel"/>
-</div>
-<div class="fld">
-<div class="fld-label">メールアドレス <span class="req">必須</span></div>
-<input autocomplete="email" class="inp" maxlength="254" name="メールアドレス" placeholder="example@mail.com" required="" type="email"/>
-</div>
-<div class="privacy">
-<input aria-label="プライバシーポリシーに同意する" checked="" name="同意状況" required="" type="checkbox" value="同意済み"/>
-<span><a href="privacy-policy.html">プライバシーポリシー</a> に同意のうえ送信します</span>
-</div>
-<button class="submit" type="submit">上記内容で送信する</button>
-<p aria-live="polite" class="form-status" data-form-status></p>
-</form>
-</section>
-</main>
-<footer class="mobile-footer">
-<p>運営会社 asp management</p>
-<p><a href="privacy-policy.html">プライバシーポリシー</a></p>
-</footer>
-<div class="sticky-cta-bar" aria-label="無料確認フォームへの固定ボタン">
-<a class="sticky-cta-bar__button" href="#form">
-<span class="sticky-cta-bar__free">無料</span>
-<span class="sticky-cta-bar__text">まずは無料相談してみる</span>
-<span class="sticky-cta-bar__arrow">›</span>
-</a>
-</div>
-</div>
+          </div>
+        </div>
+        <div class="trust-row">
+          <div>
+            <span class="trust-icon icon-clock" aria-hidden="true"></span
+            ><b>最短即日査定</b><small>スピード対応</small>
+          </div>
+          <div>
+            <span class="trust-icon icon-lock" aria-hidden="true"></span
+            ><b>秘密厳守</b><small>プライバシー保護</small>
+          </div>
+          <div>
+            <span class="trust-icon icon-japan" aria-hidden="true"></span
+            ><b>24時間受付</b><small>WEBでいつでも</small>
+          </div>
+        </div>
+        <div class="cta-block hero-cta-block">
+          <p>＼ 弁護士監修あり！最短即日回答！ ／</p>
+          <a class="main-cta unified-cta" href="#final-inputs"
+            ><span class="cta-medal">簡単<br />30秒</span
+            ><strong>無料査定はこちら</strong><i>›</i></a
+          >
+        </div>
+        <a class="phone-box" href="tel:05018094557"
+          ><span class="phone-symbol icon-phone" aria-hidden="true"></span
+          ><span
+            ><b>お電話でのご相談も受付中</b><strong>050-1809-4557</strong
+            ><small>受付時間 9:00〜18:00（年中無休）</small></span
+          ><em>相談無料</em></a
+        >
+      </section>
 
-<div class="responsive-lp">
-<svg aria-hidden="true" style="position:absolute;width:0;height:0;overflow:hidden">
-<symbol id="i-stat-people" viewbox="0 0 64 64">
-<g fill="none" stroke="#165cc9" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.8">
-<circle cx="22" cy="20" r="5"></circle>
-<circle cx="42" cy="20" r="5"></circle>
-<circle cx="32" cy="16" r="6"></circle>
-<path d="M14 40c0-6 5-11 11-11s11 5 11 11"></path>
-<path d="M32 42c0-7 6-13 13-13s13 6 13 13"></path>
-<path d="M6 42c0-7 6-13 13-13 5.2 0 9.5 2.5 11.5 6.3"></path>
-</g>
-</symbol>
-<symbol id="i-stat-heart" viewbox="0 0 64 64">
-<path d="M32 52 13 33c-5-5-5-14 .6-19 5.4-4.8 13.6-4 18.4 1.4L32 16l0 0 0 0 .2-.2c4.8-5.4 13-6.2 18.4-1.4 5.6 5 5.6 14 .6 19L32 52Z" fill="none" stroke="#165cc9" stroke-linejoin="round" stroke-width="3"></path>
-</symbol>
-<symbol id="i-stat-map" viewbox="0 0 64 64">
-<path d="M40 6l6 4-2 7 4 6-3 5 2 8-5 5 1 8-8 6-7-3-5 4-6-4 2-7-4-6 4-4-1-7 7-5 2-8 7-5 6 1Z" fill="none" stroke="#165cc9" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.8"></path>
-</symbol>
-<symbol id="i-building" viewbox="0 0 64 64">
-<g fill="none" stroke-linecap="round" stroke-linejoin="round">
-<path d="M10 55V20h18v35M28 55V12h26v43" stroke="#165cc9" stroke-width="2.8"></path>
-<path d="M18 26v4M18 35v4M18 44v4M36 20v4M36 29v4M36 38v4M46 20v4M46 29v4M46 38v4" stroke="#165cc9" stroke-width="2.2"></path>
-<path d="M6 55h52" stroke="#165cc9" stroke-width="2.8"></path>
-<path d="M9 12c-5 6-5 17 1 23M55 12c5 6 5 17-1 23" stroke="#f59b24" stroke-width="2.6"></path>
-</g>
-</symbol>
-<symbol id="i-group" viewbox="0 0 64 64">
-<g fill="none" stroke="#165cc9" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.8">
-<circle cx="22" cy="22" r="7"></circle>
-<circle cx="42" cy="22" r="7"></circle>
-<path d="M10 48c0-7 5.5-13 12-13s12 6 12 13"></path>
-<path d="M30 48c0-7 5.5-13 12-13s12 6 12 13"></path>
-</g>
-</symbol>
-<symbol id="i-lock" viewbox="0 0 64 64">
-<g fill="none" stroke="#165cc9" stroke-linecap="round" stroke-linejoin="round" stroke-width="3">
-<rect height="28" rx="5" width="36" x="14" y="28"></rect>
-<path d="M22 28v-6c0-6 4-10 10-10s10 4 10 10v6"></path>
-<path d="M32 40v8"></path>
-</g>
-</symbol>
-<symbol id="i-hand-heart" viewbox="0 0 64 64">
-<g fill="none" stroke-linecap="round" stroke-linejoin="round">
-<path d="M32 22c-3-5-11-6-15-1-3 4-3 9 1 13l14 12 14-12c4-4 4-9 1-13-4-5-12-4-15 1Z" stroke="#f59b24" stroke-width="2.6"></path>
-<path d="M10 44c6 0 10 5 14 8 4 3 8 4 12 4 6 0 11-3 18-10 2-2 2-5 0-7-2-2-5-2-7 0l-4 4-8-1" stroke="#165cc9" stroke-width="2.8"></path>
-<path d="M9 41 5 44l7 11 5-4" stroke="#165cc9" stroke-width="2.8"></path>
-</g>
-</symbol>
-<symbol id="i-phone" viewbox="0 0 64 64">
-<path d="M19 10h10l4 11-6 4c3 7 7 13 14 18l6-6 11 4v10c0 3-2 5-5 5C28 56 8 36 8 15c0-3 2-5 5-5h6Z" fill="none" stroke="#165cc9" stroke-linecap="round" stroke-linejoin="round" stroke-width="3"></path>
-</symbol>
-<symbol id="i-check-round" viewbox="0 0 24 24">
-<circle cx="12" cy="12" fill="#24a25b" r="10"></circle>
-<path d="M7 12.5 10.5 16 17 9" fill="none" stroke="#fff" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5"></path>
-</symbol>
-<symbol id="i-check-square" viewbox="0 0 24 24">
-<rect fill="none" height="19" rx="4" stroke="#165cc9" stroke-width="2.6" width="19" x="2.5" y="2.5"></rect>
-<path d="M6 12 10 16 18 8" fill="none" stroke="#165cc9" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.6"></path>
-</symbol>
-<symbol id="i-flow-call" viewbox="0 0 64 64">
-<g fill="none" stroke-linecap="round" stroke-linejoin="round">
-<path d="M18 16h8l3 8-5 3c2 5 5 9 10 13l5-5 8 3v8c0 3-2 5-5 5-16 0-30-14-30-30 0-3 2-5 5-5Z" stroke="#165cc9" stroke-width="3"></path>
-<path d="M43 17c5 0 9 4 9 9" stroke="#165cc9" stroke-width="2.4"></path>
-<path d="M43 10c9 0 16 7 16 16" stroke="#165cc9" stroke-width="2.4"></path>
-</g>
-</symbol>
-<symbol id="i-flow-chat" viewbox="0 0 64 64">
-<g fill="none" stroke="#165cc9" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.8">
-<circle cx="22" cy="31" r="10"></circle>
-<circle cx="42" cy="31" r="10"></circle>
-<path d="M14 48c1-3 4-6 8-7"></path>
-<path d="M50 48c-1-3-4-6-8-7"></path>
-<path d="M41 15h13v11l-4-2"></path>
-<circle cx="46" cy="20.5" fill="#165cc9" r="1.3" stroke="none"></circle>
-<circle cx="50" cy="20.5" fill="#165cc9" r="1.3" stroke="none"></circle>
-</g>
-</symbol>
-<symbol id="i-flow-search" viewbox="0 0 64 64">
-<g fill="none" stroke-linecap="round" stroke-linejoin="round">
-<path d="M10 29 30 13l20 16v24H10Z" stroke="#165cc9" stroke-width="3"></path>
-<path d="M6 31 30 11l24 20" stroke="#f59b24" stroke-width="3"></path>
-<rect height="18" stroke="#165cc9" stroke-width="2.6" width="12" x="24" y="35"></rect>
-<circle cx="47" cy="41" r="9" stroke="#165cc9" stroke-width="2.8"></circle>
-<path d="M53 47 60 54" stroke="#165cc9" stroke-width="2.8"></path>
-</g>
-</symbol>
-<symbol id="i-flow-handshake" viewbox="0 0 64 64">
-<g fill="none" stroke="#165cc9" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.8">
-<path d="M10 24 21 14l11 10-6 5a4 4 0 0 1-6 0l-2-2"></path>
-<path d="M54 24 43 14 32 24l6 5a4 4 0 0 0 6 0l2-2"></path>
-<path d="M20 28 31 39a4 4 0 0 0 6 0l7-7"></path>
-<path d="M16 28 10 34l6 6M48 28l6 6-6 6"></path>
-</g>
-</symbol>
-<symbol id="i-flow-bank" viewbox="0 0 64 64">
-<g fill="none" stroke="#165cc9" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.8">
-<path d="M8 24 32 12l24 12H8Z"></path>
-<path d="M14 24v22M26 24v22M38 24v22M50 24v22"></path>
-<path d="M8 46h48M6 54h52"></path>
-</g>
-</symbol>
-<symbol id="i-process-1" viewbox="0 0 260 140">
-<ellipse cx="35" cy="115" fill="#d8e6ff" rx="25" ry="7"></ellipse>
-<path d="M40 60 L90 30 L140 60 L140 115 L40 115 Z" fill="#fff" stroke="#143b8a" stroke-linejoin="round" stroke-width="2.5"></path>
-<path d="M30 65 L90 25 L150 65" fill="none" stroke="#ff7a1a" stroke-linecap="round" stroke-linejoin="round" stroke-width="3"></path>
-<path d="M40 60 L90 30 L140 60 Z" fill="#ffe2cc"></path>
-<rect fill="#cfe0ff" height="20" stroke="#143b8a" stroke-width="2" width="22" x="60" y="80"></rect>
-<rect fill="#fff" height="35" stroke="#143b8a" stroke-width="2" width="22" x="100" y="80"></rect>
-<circle cx="116" cy="98" fill="#143b8a" r="1.5"></circle>
-<rect fill="#fff" height="90" rx="4" stroke="#143b8a" stroke-width="2.5" width="75" x="160" y="30"></rect>
-<rect fill="#143b8a" height="12" rx="2" width="40" x="170" y="42"></rect>
-<text fill="#fff" font-family="sans-serif" font-size="8" font-weight="700" text-anchor="middle" x="190" y="51">契約書</text>
-<line stroke="#cfd8e6" stroke-width="2" x1="170" x2="225" y1="68" y2="68"></line>
-<line stroke="#cfd8e6" stroke-width="2" x1="170" x2="225" y1="78" y2="78"></line>
-<line stroke="#cfd8e6" stroke-width="2" x1="170" x2="210" y1="88" y2="88"></line>
-<path d="M172 102 C180 94, 192 112, 208 98" fill="none" stroke="#ff7a1a" stroke-linecap="round" stroke-width="2.5"></path>
-<path d="M215 95 L240 70 L246 76 L221 101 Z" fill="#ff7a1a" stroke="#143b8a" stroke-linejoin="round" stroke-width="2"></path>
-<path d="M215 95 L221 101 L218 108 Z" fill="#143b8a"></path>
-</symbol>
-<symbol id="i-process-2" viewbox="0 0 260 140">
-<path d="M10 70 Q25 60 55 68 L75 75 L75 105 L10 105 Z" fill="#ffd4b0" stroke="#143b8a" stroke-linejoin="round" stroke-width="2"></path>
-<rect fill="#ff7a1a" height="20" stroke="#143b8a" stroke-width="2" width="20" x="5" y="95"></rect>
-<rect fill="#fff4c4" height="45" rx="3" stroke="#143b8a" stroke-width="2" width="120" x="70" y="55"></rect>
-<rect fill="#ffeca0" height="45" rx="3" stroke="#143b8a" stroke-width="2" width="120" x="65" y="62"></rect>
-<rect fill="#ffe277" height="45" rx="3" stroke="#143b8a" stroke-width="2" width="120" x="60" y="70"></rect>
-<circle cx="120" cy="92" fill="none" r="14" stroke="#143b8a" stroke-width="2"></circle>
-<text fill="#143b8a" font-family="sans-serif" font-size="18" font-weight="900" text-anchor="middle" x="120" y="98">¥</text>
-<ellipse cx="52" cy="118" fill="#143b8a" opacity=".15" rx="15" ry="4"></ellipse>
-<rect fill="#ff7a1a" height="22" rx="2" stroke="#143b8a" stroke-width="2" width="28" x="38" y="92"></rect>
-<rect fill="#143b8a" height="4" opacity=".2" width="28" x="38" y="96"></rect>
-<rect fill="#143b8a" height="4" opacity=".2" width="28" x="38" y="102"></rect>
-<circle cx="70" cy="118" fill="#ffe277" r="11" stroke="#143b8a" stroke-width="2"></circle>
-<text fill="#143b8a" font-family="sans-serif" font-size="11" font-weight="900" text-anchor="middle" x="70" y="123">¥</text>
-<path d="M250 70 Q235 60 205 68 L185 75 L185 105 L250 105 Z" fill="#ffd4b0" stroke="#143b8a" stroke-linejoin="round" stroke-width="2"></path>
-<rect fill="#ff7a1a" height="20" stroke="#143b8a" stroke-width="2" width="20" x="235" y="95"></rect>
-</symbol>
-<symbol id="i-process-3" viewbox="0 0 260 140">
-<path d="M40 75 L90 40 L140 75 L140 115 L40 115 Z" fill="#fff" stroke="#143b8a" stroke-linejoin="round" stroke-width="2.5"></path>
-<path d="M28 82 L90 35 L152 82" fill="#ffb35c" stroke="#143b8a" stroke-linejoin="round" stroke-width="3"></path>
-<path d="M58 115 C58 98 70 88 82 88 C94 88 106 98 106 115" fill="none" stroke="#143b8a" stroke-linecap="round" stroke-width="2.6"></path>
-<circle cx="82" cy="78" fill="#fff" r="10" stroke="#143b8a" stroke-width="2.6"></circle>
-<path d="M90 115 C90 103 99 95 108 95 C117 95 126 103 126 115" fill="none" stroke="#143b8a" stroke-linecap="round" stroke-width="2.6"></path>
-<circle cx="108" cy="85" fill="#fff" r="9" stroke="#143b8a" stroke-width="2.6"></circle>
-<path d="M26 106c4-7 12-12 19-12M135 93c8 2 15 8 18 16" fill="none" stroke="#165cc9" stroke-linecap="round" stroke-width="3"></path>
-<path d="M166 26c0-10 8-18 18-18 9 0 17 8 17 17 0 14-20 22-35 37-15-15-35-23-35-37 0-9 8-17 17-17 10 0 18 8 18 18Z" fill="#ffb35c" stroke="#ff7a1a" stroke-width="6" transform="translate(-20 4) scale(.23)"></path>
-</symbol>
-<symbol id="i-reason-chart" viewbox="0 0 140 140">
-<polyline fill="none" points="10,60 35,45 55,55 80,25" stroke="#143b8a" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5"></polyline>
-<circle cx="10" cy="60" fill="#143b8a" r="3"></circle>
-<circle cx="35" cy="45" fill="#143b8a" r="3"></circle>
-<circle cx="55" cy="55" fill="#143b8a" r="3"></circle>
-<path d="M72 30 L85 18 L75 15 M85 18 L82 28" fill="none" stroke="#ff7a1a" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5"></path>
-<path d="M20 75 L55 50 L90 75 L90 120 L20 120 Z" fill="#fff" stroke="#143b8a" stroke-linejoin="round" stroke-width="2.5"></path>
-<path d="M15 78 L55 46 L95 78" fill="#ff7a1a" stroke="#143b8a" stroke-linejoin="round" stroke-width="2.5"></path>
-<rect fill="#cfe0ff" height="14" stroke="#143b8a" stroke-width="2" width="14" x="35" y="90"></rect>
-<rect fill="#fff" height="22" stroke="#143b8a" stroke-width="2" width="14" x="60" y="90"></rect>
-<circle cx="105" cy="78" fill="#fff" opacity=".95" r="22" stroke="#ff7a1a" stroke-width="3.5"></circle>
-<circle cx="105" cy="78" fill="#cfe0ff" opacity=".35" r="22"></circle>
-<line stroke="#ff7a1a" stroke-linecap="round" stroke-width="5" x1="121" x2="135" y1="94" y2="110"></line>
-</symbol>
-<symbol id="i-reason-buyback" viewbox="0 0 140 140">
-<path d="M20 60 A50 50 0 0 1 115 45" fill="none" stroke="#2f72e0" stroke-linecap="round" stroke-width="3"></path>
-<path d="M115 45 L108 38 M115 45 L105 50" fill="none" stroke="#2f72e0" stroke-linecap="round" stroke-width="3"></path>
-<path d="M120 80 A50 50 0 0 1 25 95" fill="none" stroke="#ff7a1a" stroke-linecap="round" stroke-width="3"></path>
-<path d="M25 95 L32 102 M25 95 L35 90" fill="none" stroke="#ff7a1a" stroke-linecap="round" stroke-width="3"></path>
-<path d="M40 75 L70 50 L100 75 L100 115 L40 115 Z" fill="#fff" stroke="#143b8a" stroke-linejoin="round" stroke-width="2.5"></path>
-<path d="M35 78 L70 46 L105 78" fill="#ff7a1a" stroke="#143b8a" stroke-linejoin="round" stroke-width="2.5"></path>
-<rect fill="#fff" height="22" stroke="#143b8a" stroke-width="2" width="14" x="52" y="90"></rect>
-<rect fill="#cfe0ff" height="14" stroke="#143b8a" stroke-width="2" width="14" x="76" y="90"></rect>
-<circle cx="100" cy="95" fill="none" r="7" stroke="#ff7a1a" stroke-width="3"></circle>
-<line stroke="#ff7a1a" stroke-linecap="round" stroke-width="3" x1="106" x2="120" y1="99" y2="113"></line>
-<line stroke="#ff7a1a" stroke-linecap="round" stroke-width="3" x1="113" x2="118" y1="106" y2="101"></line>
-</symbol>
-<symbol id="i-merit-truck" viewbox="0 0 80 80">
-<rect fill="#eaf2ff" height="26" rx="2" stroke="#ff7a1a" stroke-width="2.5" width="38" x="8" y="28"></rect>
-<path d="M46 38 L60 38 L68 48 L68 54 L46 54 Z" fill="#eaf2ff" stroke="#ff7a1a" stroke-linejoin="round" stroke-width="2.5"></path>
-<rect fill="#cfe0ff" height="9" stroke="#ff7a1a" stroke-width="1.5" width="14" x="49" y="41"></rect>
-<circle cx="22" cy="58" fill="#fff" r="5" stroke="#ff7a1a" stroke-width="2.5"></circle>
-<circle cx="56" cy="58" fill="#fff" r="5" stroke="#ff7a1a" stroke-width="2.5"></circle>
-<text fill="#ff7a1a" font-family="sans-serif" font-size="11" font-weight="900" text-anchor="middle" x="27" y="46">引越</text>
-<circle cx="40" cy="40" fill="none" opacity=".85" r="32" stroke="#ff4a1a" stroke-width="4.5"></circle>
-<line opacity=".85" stroke="#ff4a1a" stroke-linecap="round" stroke-width="4.5" x1="17" x2="63" y1="17" y2="63"></line>
-</symbol>
-<symbol id="i-merit-bag" viewbox="0 0 80 80">
-<path d="M40 20c0-5 4-9 9-9 2 0 4 .5 6 1.5" fill="none" stroke="#165cc9" stroke-linecap="round" stroke-width="2.5"></path>
-<path d="M24 28c-2 4-3 7-4 14-2 18 8 25 20 25s22-7 20-25c-1-7-2-10-4-14H24Z" fill="#fff" stroke="#165cc9" stroke-linejoin="round" stroke-width="2.5"></path>
-<path d="M30 24c3-4 6-6 10-6s7 2 10 6" fill="none" stroke="#165cc9" stroke-linecap="round" stroke-width="2.5"></path>
-<text fill="#ff7a1a" font-family="sans-serif" font-size="28" font-weight="900" text-anchor="middle" x="40" y="50">¥</text>
-<path d="M24 14l3-6M39 10V4M54 14l3-6" stroke="#ff7a1a" stroke-linecap="round" stroke-width="2.6"></path>
-</symbol>
-<symbol id="i-merit-doc" viewbox="0 0 80 80">
-<path d="M24 15h24l14 14v34a4 4 0 0 1-4 4H24a4 4 0 0 1-4-4V19a4 4 0 0 1 4-4Z" fill="#fff" stroke="#165cc9" stroke-linejoin="round" stroke-width="2.4"></path>
-<path d="M48 15v14h14" fill="none" stroke="#165cc9" stroke-width="2.4"></path>
-<path d="M30 38h22M30 46h22M30 54h16" stroke="#165cc9" stroke-linecap="round" stroke-width="2.4"></path>
-<path d="M54 61l10-20 7 7-20 10-4 1 1-4Z" fill="#ffb35c" stroke="#165cc9" stroke-width="2"></path>
-<circle cx="24" cy="62" fill="#fff" r="8" stroke="#ff7a1a" stroke-width="2.4"></circle>
-<path d="M20 62l3 3 5-6" fill="none" stroke="#ff7a1a" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.2"></path>
-</symbol>
-<symbol id="i-merit-family" viewbox="0 0 80 80">
-<g fill="none" stroke="#165cc9" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.4">
-<circle cx="24" cy="28" r="7"></circle>
-<circle cx="40" cy="23" r="8"></circle>
-<circle cx="56" cy="28" r="7"></circle>
-<path d="M15 49c0-6 4-11 9-13"></path>
-<path d="M31 52c0-8 4-15 9-17"></path>
-<path d="M49 36c5 2 9 7 9 13"></path>
-<path d="M25 61V49h30v12"></path>
-</g>
-</symbol>
-</svg><main class="lp">
-<section class="hero hero--editorial section">
-<div class="hero__side-rail" aria-hidden="true">
-<span>リースバック無料相談</span>
-<span>売却後も住み続ける選択。</span>
-</div>
-<div class="hero__corner-proof" aria-label="無料相談受付中">
-<span>売却後も</span>
-<strong>住める</strong>
-<em>無料相談</em>
-</div>
-<div class="hero__grid">
-<div class="hero__content">
-<p class="hero__eyebrow">リースバック<span>無料相談窓口</span></p>
-<h1 class="hero__title"><span class="hero__title-line">家を手放す<span class="hero__accent">不安</span>に、</span><br/><span class="hero__title-line">住み続ける<span class="hero__accent">安心</span>を。</span></h1>
-<p class="hero__lead"><strong class="hero__lead-keyword">リースバック</strong>なら、売却してもそのまま住み続けられます。<br/>まとまった資金を手にしながら、今の暮らしをそのままに。</p>
-<p class="hero__support-copy">あなたに合う不動産会社をご紹介します。</p>
-<div class="hero__point-row" aria-label="ご紹介前に確認する4つのこと">
-<div class="hero__point-intro">ご紹介前に確認<br/><strong>4つのこと</strong></div>
-<ul class="hero__points">
-<li><img loading="lazy" decoding="async" width="128" height="128" alt="" src="assets/img/generated-icons/cash.webp"/><strong>資金計画</strong><span>必要な資金や<br/>残債を確認</span></li>
-<li><img loading="lazy" decoding="async" width="128" height="128" alt="" src="assets/img/generated-icons/house.webp"/><strong>ご自宅状況</strong><span>物件情報を<br/>丁寧に確認</span></li>
-<li><img loading="lazy" decoding="async" width="128" height="128" alt="" src="assets/img/generated-icons/contract.webp"/><strong>暮らし方</strong><span>住み続ける希望を<br/>お伺い</span></li>
-<li><img loading="lazy" decoding="async" width="128" height="128" alt="" src="assets/img/generated-icons/buyback.webp"/><strong>会社紹介</strong><span>相性のよい会社へ<br/>おつなぎ</span></li>
-</ul>
-</div>
-<div class="hero__actions">
-<a class="btn btn--primary" href="#desktop-form"><span class="hero__free-badge">無料</span><span>まずは無料相談してみる</span><span class="btn__arrow">›</span></a>
-</div>
-<p class="hero__note">※ 相談件数は当社調べ。条件によりご案内内容は異なります。</p>
-</div>
-<div class="hero__visual" aria-label="リースバック相談のイメージ">
-<figure class="hero__house-frame">
-<img fetchpriority="high" loading="eager" decoding="async" width="1122" height="1402" alt="リースバック相談の対象となる日本の戸建て住宅" src="assets/img/hero-editorial-house.webp"/>
-</figure>
-<figure class="hero__couple-frame">
-<img loading="eager" decoding="async" width="720" height="720" alt="住み慣れた家で安心して暮らすシニア夫婦" src="assets/img/hero-editorial-couple.webp"/>
-</figure>
-<div class="hero__image-caption">
-<span>ご自宅と、これからの暮らしを</span>
-<strong>両方<span>守る</span>選択を。</strong>
-</div>
-</div>
-</div>
-</section>
-<section class="worries section">
-<div class="container">
-<p aria-hidden="true" class="section-dots">•••</p>
-<div class="worries__layout">
-<div class="worries__intro">
-<h2 class="section-title">こんなお悩み、<br/><span>一人で抱えていませんか？</span></h2>
-<p class="section-copy">人生100年時代と言われる今、<br/>お金の不安は誰にでもあります。<br/>けれど、長年住み慣れた家を離れるのは寂しい…</p>
-</div>
-<div class="worries__photo"><img loading="lazy" decoding="async" width="346" height="268" alt="悩みながら相談する夫婦" src="assets/img/worry-couple.webp"/></div>
-<ul class="worries__list">
-<li><svg class="icon"><use href="#i-check-square"></use></svg><span>年金だけでは老後の生活が不安…</span></li>
-<li><svg class="icon"><use href="#i-check-square"></use></svg><span>退職後も住宅ローンの<br class="br-tablet"/>返済が続いてつらい</span></li>
-<li><svg class="icon"><use href="#i-check-square"></use></svg><span>急に大きな資金が必要になった</span></li>
-<li><svg class="icon"><use href="#i-check-square"></use></svg><span>子どもに家のことで<br class="br-tablet"/>迷惑をかけたくない</span></li>
-<li><svg class="icon"><use href="#i-check-square"></use></svg><span>でも、住み慣れたこの家を<br class="br-tablet"/>離れたくない</span></li>
-<li><svg class="icon"><use href="#i-check-square"></use></svg><span>近所や親戚に知られずに<br class="br-tablet"/>解決したい</span></li>
-</ul>
-</div>
-<div class="worries__cta-wrap">
-<div class="pointer"></div>
-<div class="choice-box">一つでも当てはまるなら<br/><strong>リースバック</strong>という選択肢があります</div>
-</div>
-</div>
-</section>
-<section class="process section section--blue">
-<div class="container">
-<p aria-hidden="true" class="section-dots">•••</p>
-<h2 class="section-title section-title--center">家に住んだまま、<br/><span>まとまった資金</span>が手に入る</h2>
-<p class="section-copy section-copy--center">リースバックとは、ご自宅を不動産会社に売却したあとも、家賃を払いながら同じ家に住み続けられる仕組みです。</p>
-<div class="process__grid">
-<article class="process-card">
-<span class="process-card__badge">STEP 01</span>
-<div class="process-card__icon"><img loading="lazy" decoding="async" width="128" height="128" alt="" src="assets/img/generated-icons/contract.webp"/></div>
-<h3>あなたに合う会社をお探しします</h3>
-<p>ご自宅の査定後、あなたに合った不動産会社をご紹介します。</p>
-</article>
-<div aria-hidden="true" class="process__arrow"></div>
-<article class="process-card">
-<span class="process-card__badge">STEP 02</span>
-<div class="process-card__icon"><img loading="lazy" decoding="async" width="128" height="128" alt="" src="assets/img/generated-icons/cash.webp"/></div>
-<h3>売却のお金をまとめて<br/>お受け取り</h3>
-<p>老後の生活費やローン返済など、使い道は自由です。</p>
-</article>
-<div aria-hidden="true" class="process__arrow"></div>
-<article class="process-card">
-<span class="process-card__badge">STEP 03</span>
-<div class="process-card__icon"><img loading="lazy" decoding="async" width="128" height="128" alt="" src="assets/img/generated-icons/family-home.webp"/></div>
-<h3>そのまま住み続ける<br/>条件を確認</h3>
-<p>条件が合えば、引っ越しなしで同じ家に住み続けられます。</p>
-</article>
-</div>
-<p class="pill-note"><span class="pill-note__icon">i</span>条件が合えば、引越しを避けながら住み慣れた我が家での暮らしを続けられます。</p>
-</div>
-</section>
-<section class="reasons section">
-<div class="container">
-<p aria-hidden="true" class="section-dots">•••</p>
-<h2 class="section-title section-title--center">選ばれる、<span>3つの理由</span></h2>
-<p class="section-copy section-copy--center">お客様の暮らしを第一に考え、不動産会社選びをサポートします。</p>
-<div class="reasons__grid">
-<article class="reason-card reason-card--photo">
-<span class="reason-card__num">01</span>
-<div class="reason-card__photo"><img loading="lazy" decoding="async" width="391" height="470" alt="笑顔で座る夫婦" src="assets/img/hero-couple.webp"/></div>
-<div class="reason-card__content">
-<h3>住み慣れた我が家に<br/>住み続ける選択肢</h3>
-<p>引っ越しをせずに、住み慣れたご自宅で暮らし続けることができます。ご近所付き合いや通い慣れた病院など、今の暮らしを変えたくない方に向いた仕組みです。</p>
-</div>
-</article>
-<article class="reason-card">
-<span class="reason-card__num">02</span>
-<div class="reason-card__visual"><img loading="lazy" decoding="async" width="128" height="128" alt="" src="assets/img/generated-icons/chart.webp"/></div>
-<h3>ご状況に合わせた<br/>会社紹介</h3>
-<p>ご自宅の状況やご事情を確認し、あなたに合う不動産会社をお探しします。無理にすすめることはありませんので、ご安心ください。</p>
-</article>
-<article class="reason-card">
-<span class="reason-card__num">03</span>
-<div class="reason-card__visual"><img loading="lazy" decoding="async" width="128" height="128" alt="" src="assets/img/generated-icons/buyback.webp"/></div>
-<h3>買戻しも相談できる安心</h3>
-<p>「いつかは買い戻したい」というご希望にも対応できる会社をお探しします。大切な思い出が詰まった家を、将来また自分のものにできる可能性があります。</p>
-</article>
-</div>
-<div class="support-banner">
-<div class="support-banner__lead"><svg class="icon"><use href="#i-lock"></use></svg><strong>安心してご利用いただくために</strong></div>
-<p>スタッフがお一人おひとりに寄り添い、あなたに合う不動産会社選びをお手伝いします。どうぞお気軽にご相談ください。</p>
-</div>
-</div>
-</section>
-<section class="merits section">
-<div class="container">
-<p aria-hidden="true" class="section-dots">•••</p>
-<h2 class="section-title section-title--center">リースバックで得られる、<span>6つのメリット</span></h2>
-<p class="section-copy section-copy--center">資金面だけでなく、生活・相続・プライバシーまで、幅広いメリットがあります。</p>
-<div class="merits__layout">
-<article class="merit-feature">
-<div class="merit-feature__media merit-feature__media--desktop">
-<div class="merit-feature__room"><img loading="lazy" decoding="async" width="960" height="540" alt="自宅で資金計画を確認する夫婦" src="assets/img/merit-funds-generated.webp"/></div>
-</div>
-<div class="merit-feature__media merit-feature__media--tablet">
-<img loading="lazy" decoding="async" width="960" height="540" alt="自宅で資金計画を確認する夫婦" src="assets/img/merit-funds-generated.webp"/>
-</div>
-<div class="merit-feature__content">
-<p class="merit-feature__tag">メリット <strong>01</strong></p>
-<h3>まとまった資金を<br/>すぐに確保できる</h3>
-<p>売却のお金をまとめて受け取れるため、老後の生活費や医療費、急な出費への備えに使えます。</p>
-</div>
-</article>
-<div class="merits__list">
-<article class="merit-row"><div class="merit-row__icon"><img loading="lazy" decoding="async" width="128" height="128" alt="" src="assets/img/generated-icons/no-moving.webp"/></div><div class="merit-row__text"><span class="merit-row__num">02</span><h3>引越しを避けて、<br/>住み続ける選択肢</h3><p>条件が合えば、住み慣れた我が家で生活を大きく変えずに進められます。</p></div></article>
-<article class="merit-row"><div class="merit-row__icon"><img loading="lazy" decoding="async" width="128" height="128" alt="" src="assets/img/generated-icons/money-bag.webp"/></div><div class="merit-row__text"><span class="merit-row__num">03</span><h3>固定資産税などの負担が軽くなる</h3><p>所有者が買主となる会社に移るため、固定資産税や都市計画税などの維持費の負担がなくなり、家計にゆとりが生まれます。</p></div></article>
-<article class="merit-row"><div class="merit-row__icon"><img loading="lazy" decoding="async" width="128" height="128" alt="" src="assets/img/generated-icons/lock.webp"/></div><div class="merit-row__text"><span class="merit-row__num">04</span><h3>プライバシーに配慮し、<br/><span class="keep-ja">周囲に知られにくい</span>形で<br/>進められる</h3><p>一般的な売却活動とは異なり、個人情報の取扱いに配慮しながらご相談いただけます。</p></div></article>
-<article class="merit-row"><div class="merit-row__icon"><img loading="lazy" decoding="async" width="128" height="128" alt="" src="assets/img/generated-icons/buyback.webp"/></div><div class="merit-row__text"><span class="merit-row__num">05</span><h3>将来の買戻しも相談できて安心</h3><p>買戻し希望がある場合は、対応可能な会社や条件を確認しながら進められます。</p></div></article>
-<article class="merit-row"><div class="merit-row__icon"><img loading="lazy" decoding="async" width="128" height="128" alt="" src="assets/img/generated-icons/family.webp"/></div><div class="merit-row__text"><span class="merit-row__num">06</span><h3>相続対策としても<br/>活用できる</h3><p>現金化することで相続時の資産分割がしやすくなり、相続トラブルの予防にもつながります。</p></div></article>
-</div>
-</div>
-<div class="merits__banner"><svg class="icon"><use href="#i-lock"></use></svg><p>大切なご家族の未来と、穏やかな暮らしを守る選択肢、それが<strong>リースバック</strong>です。</p></div>
-</div>
-</section>
-<section class="flow section section--blue-soft">
-<div class="container">
-<p aria-hidden="true" class="section-dots">•••</p>
-<h2 class="section-title section-title--center">ご利用までの、<span>5ステップ</span></h2>
-<p class="section-copy section-copy--center">ご相談内容に合わせて、会社選びからお手続きまで丁寧に進めます。</p>
-<div class="flow__list">
-<article class="flow-card">
-<span class="flow-card__step">01</span>
-<span class="flow-card__time">ご相談</span>
-<div class="flow-card__icon"><img loading="lazy" decoding="async" width="128" height="128" class="icon generated-icon" alt="" src="assets/img/generated-icons/phone.webp"/></div>
-<div class="flow-card__body"><h3>お問い合わせ</h3><p>Webフォームからお気軽にご相談ください。経験豊富なスタッフが丁寧に対応します。</p></div>
-</article>
-<article class="flow-card">
-<span class="flow-card__step">02</span>
-<span class="flow-card__time">確認</span>
-<div class="flow-card__icon"><img loading="lazy" decoding="async" width="128" height="128" class="icon generated-icon" alt="" src="assets/img/generated-icons/chat.webp"/></div>
-<div class="flow-card__body"><h3>ヒアリング・<br class="br-tablet"/>ご説明</h3><p>お客様のご状況やご希望を伺い、リースバックの仕組みを分かりやすくご説明します。</p></div>
-</article>
-<article class="flow-card">
-<span class="flow-card__step">03</span>
-<span class="flow-card__time">査定</span>
-<div class="flow-card__icon"><img loading="lazy" decoding="async" width="128" height="128" class="icon generated-icon" alt="" src="assets/img/generated-icons/chart.webp"/></div>
-<div class="flow-card__body"><h3>査定・会社選定</h3><p>お伺いした内容をもとに、対応可能な提携会社を選定してご案内します。</p></div>
-</article>
-<article class="flow-card">
-<span class="flow-card__step">04</span>
-<span class="flow-card__time">ご契約</span>
-<div class="flow-card__icon"><img loading="lazy" decoding="async" width="128" height="128" class="icon generated-icon" alt="" src="assets/img/generated-icons/heart-hand.webp"/></div>
-<div class="flow-card__body"><h3>売買契約・賃貸契約</h3><p>条件にご納得いただけましたら、選定先の会社と売買契約・賃貸契約へ進みます。</p></div>
-</article>
-<article class="flow-card">
-<span class="flow-card__step">05</span>
-<span class="flow-card__time">お振込み</span>
-<div class="flow-card__icon"><img loading="lazy" decoding="async" width="128" height="128" class="icon generated-icon" alt="" src="assets/img/generated-icons/bank-transfer.webp"/></div>
-<div class="flow-card__body"><h3>お振込み・<br class="br-tablet"/>新生活スタート</h3><p>選定先の会社から売却代金が振り込まれ、お住まいはそのまま新しい暮らしが始まります。</p></div>
-</article>
-</div>
-<p class="flow__footnote">※ご状況により進行内容は異なります。</p>
-</div>
-</section>
-<section class="faq section">
-<div class="container faq__container">
-<h2 class="section-title section-title--center">よくある、<span>ご質問</span></h2>
-<div class="faq__grid">
-<div class="faq__col">
-<article class="faq-item is-open">
-<button aria-expanded="true" class="faq-item__q" type="button"><span class="faq-item__bubble">Q</span><span>査定や相談に費用はかかりますか？</span><span class="faq-item__toggle"></span></button>
-<div class="faq-item__a"><div class="faq-item__answer"><span class="faq-item__bubble faq-item__bubble--a">A</span><p>査定・ご相談はすべて無料です。最終的に契約に至らなかった場合も、費用は一切いただきませんのでご安心ください。</p></div></div>
-</article>
-<article class="faq-item">
-<button aria-expanded="false" class="faq-item__q" type="button"><span class="faq-item__bubble">Q</span><span>住宅ローンが残っていても利用できますか？</span><span class="faq-item__toggle"></span></button>
-<div class="faq-item__a"><div class="faq-item__answer"><span class="faq-item__bubble faq-item__bubble--a">A</span><p>住宅ローンが残っていても利用できる場合があります。残りのローンや家の値段によって進め方が変わりますので、まずはお気軽にご相談ください。</p></div></div>
-</article>
-<article class="faq-item">
-<button aria-expanded="false" class="faq-item__q" type="button"><span class="faq-item__bubble">Q</span><span>家族や近所に知られずに進められますか？</span><span class="faq-item__toggle"></span></button>
-<div class="faq-item__a"><div class="faq-item__answer"><span class="faq-item__bubble faq-item__bubble--a">A</span><p>看板を出したりチラシを配ったりせずに進められるので、ご近所や親戚に知られる心配はほとんどありません。</p></div></div>
-</article>
-<article class="faq-item">
-<button aria-expanded="false" class="faq-item__q" type="button"><span class="faq-item__bubble">Q</span><span>賃料はどれくらいになりますか？</span><span class="faq-item__toggle"></span></button>
-<div class="faq-item__a"><div class="faq-item__answer"><span class="faq-item__bubble faq-item__bubble--a">A</span><p>毎月の家賃は、家の値段や周りの相場をもとに決まります。具体的な金額は、ご紹介先の会社からご説明します。</p></div></div>
-</article>
-</div>
-<div class="faq__col">
-<article class="faq-item">
-<button aria-expanded="false" class="faq-item__q" type="button"><span class="faq-item__bubble">Q</span><span>賃貸契約に期限はありますか？</span><span class="faq-item__toggle"></span></button>
-<div class="faq-item__a"><div class="faq-item__answer"><span class="faq-item__bubble faq-item__bubble--a">A</span><p>住み続けたい期間のご希望をお聞きし、長く住めるプランがあるか確認してご案内します。</p></div></div>
-</article>
-<article class="faq-item">
-<button aria-expanded="false" class="faq-item__q" type="button"><span class="faq-item__bubble">Q</span><span>将来、本当に買い戻せますか？</span><span class="faq-item__toggle"></span></button>
-<div class="faq-item__a"><div class="faq-item__answer"><span class="faq-item__bubble faq-item__bubble--a">A</span><p>買い戻しをご希望の場合は、それができる会社や条件を事前に確認してご案内します。将来の見通しを立ててから契約できるので安心です。</p></div></div>
-</article>
-<article class="faq-item">
-<button aria-expanded="false" class="faq-item__q" type="button"><span class="faq-item__bubble">Q</span><span>古い家やマンションでも対応できますか？</span><span class="faq-item__toggle"></span></button>
-<div class="faq-item__a"><div class="faq-item__answer"><span class="faq-item__bubble faq-item__bubble--a">A</span><p>古い家やマンションでも対応できる場合があります。場所や建物の状態を確認し、対応できる会社をお探しします。</p></div></div>
-</article>
-<article class="faq-item">
-<button aria-expanded="false" class="faq-item__q" type="button"><span class="faq-item__bubble">Q</span><span>売却や賃貸契約を断ることはできますか？</span><span class="faq-item__toggle"></span></button>
-<div class="faq-item__a"><div class="faq-item__answer"><span class="faq-item__bubble faq-item__bubble--a">A</span><p>もちろん可能です。ご提示内容にご納得いただけない場合は、契約前であればお断りいただけます。</p></div></div>
-</article>
-<article class="faq-item">
-<button aria-expanded="false" class="faq-item__q" type="button"><span class="faq-item__bubble">Q</span><span>申込みから入金までどのくらいかかりますか？</span><span class="faq-item__toggle"></span></button>
-<div class="faq-item__a"><div class="faq-item__answer"><span class="faq-item__bubble faq-item__bubble--a">A</span><p>お手続きにかかる期間はお家の状況によって変わります。まずはご相談いただければ、おおよその目安をお伝えします。</p></div></div>
-</article>
-</div>
-</div>
-<p class="faq__contact"><svg class="icon"><use href="#i-phone"></use></svg>その他のご質問は、お気軽にフォームからお問い合わせください。</p>
-</div>
-</section>
-<section aria-label="相談フォーム" class="desktop-form-sec section" id="desktop-form">
-<div class="container">
-<div class="desktop-form-head">
-<span class="desktop-form-badge">かんたん入力</span>
-<h2 class="desktop-form-title">あなたに合う<span>不動産会社</span>を<br/>ご紹介</h2>
-<p>ご自宅の状況を入力いただくと、担当スタッフが内容を確認し、状況に応じた候補へおつなぎします。</p>
-</div>
-<form class="desktop-form-box" accept-charset="UTF-8" action="/thanks.html" data-contact-form data-netlify="true" data-success-url="thanks.html" method="post" name="leaseback-contact" netlify-honeypot="bot-field">
-<input name="form-name" type="hidden" value="leaseback-contact"/>
-<input name="通知内容" type="hidden" value="リースバック無料条件確認フォームより、新しいお問い合わせがありました。下記内容をご確認のうえ、ご対応をお願いいたします。"/>
-<input name="送信元" type="hidden" value="desktop-form"/>
-<p hidden><label>この項目は入力しないでください <input autocomplete="off" name="bot-field" tabindex="-1" type="text"/></label></p>
-<div class="desktop-form-grid">
-<div class="desktop-fld">
-<div class="desktop-fld-label">物件の種類 <span class="desktop-req">必須</span></div>
-<div class="desktop-radios">
-<label class="desktop-radio-opt"><input name="物件種別" required="" type="radio" value="戸建て"/> 戸建て</label>
-<label class="desktop-radio-opt"><input name="物件種別" type="radio" value="マンション"/> マンション</label>
-<label class="desktop-radio-opt"><input name="物件種別" type="radio" value="その他"/> その他</label>
-</div>
-</div>
-<div class="desktop-fld">
-<div class="desktop-fld-label">都道府県 <span class="desktop-req">必須</span></div>
-<select class="desktop-sel sel" name="都道府県" required="">
-<option value="">選択してください</option>
-<option>東京都</option><option>神奈川県</option><option>千葉県</option><option>埼玉県</option><option>大阪府</option><option>奈良県</option><option>福岡県</option><option>長野県</option><option>山梨県</option><option>熊本県</option><option>長崎県</option><option>高知県</option><option>その他</option>
-</select>
-</div>
-<div class="desktop-fld">
-<div class="desktop-fld-label">ご希望の売却時期 <span class="desktop-req">必須</span></div>
-<select class="desktop-sel sel" name="売却希望時期" required="">
-<option value="">選択してください</option>
-<option>1ヶ月以内</option>
-<option>3ヶ月以内</option>
-<option>半年以内</option>
-<option>1年以内</option>
-<option>未定</option>
-</select>
-</div>
-<div class="desktop-fld">
-<div class="desktop-fld-label">お名前（ニックネームも可） <span class="desktop-req">必須</span></div>
-<input autocomplete="name" class="desktop-inp" maxlength="80" name="お名前" placeholder="山田 太郎" required="" type="text"/>
-</div>
-<div class="desktop-fld">
-<div class="desktop-fld-label">電話番号 <span class="desktop-req">必須</span></div>
-<input autocomplete="tel" class="desktop-inp" inputmode="tel" maxlength="20" name="電話番号" pattern="[0-9+()\s-]{8,20}" placeholder="09012345678" required="" type="tel"/>
-</div>
-<div class="desktop-fld desktop-fld--wide">
-<div class="desktop-fld-label">メールアドレス <span class="desktop-req">必須</span></div>
-<input autocomplete="email" class="desktop-inp" maxlength="254" name="メールアドレス" placeholder="example@mail.com" required="" type="email"/>
-</div>
-</div>
-<div class="desktop-privacy">
-<input aria-label="プライバシーポリシーに同意する" checked="" name="同意状況" required="" type="checkbox" value="同意済み"/>
-<span><a href="privacy-policy.html">プライバシーポリシー</a> に同意のうえ送信します</span>
-</div>
-<button class="desktop-submit" type="submit">上記内容で送信する</button>
-<p aria-live="polite" class="form-status desktop-form-status" data-form-status></p>
-</form>
-</div>
-</section>
-</main><footer class="footer">
-<p class="footer__company">運営会社 asp management　<a href="privacy-policy.html">プライバシーポリシー</a></p>
-</footer>
-</div>
+      <section class="worries page">
+        <p class="eyebrow">このような</p>
+        <h2>お悩みはありませんか？</h2>
+        <span class="gold-rule"></span>
+        <figure class="review-visual worries-review-visual">
+          <img
+            src="/assets/variant-b/images/worries-review.jpg"
+            width="1100"
+            height="1100"
+            loading="lazy"
+            decoding="async"
+            alt="住宅ローンや老後資金について悩むご夫婦"
+          />
+        </figure>
+        <div class="worry-grid">
+          <article>
+            <span class="sprite worry-sprite s1"></span>
+            <h3>住宅ローン返済が厳しい</h3>
+            <i></i>
+            <p>毎月の返済が負担に。家計を見直したいとお考えの方に。</p>
+          </article>
+          <article>
+            <span class="sprite worry-sprite s2"></span>
+            <h3>老後資金を確保したい</h3>
+            <i></i>
+            <p>
+              将来の生活や医療・介護費用に備え、安心できる資金を準備したい方に。
+            </p>
+          </article>
+          <article>
+            <span class="sprite worry-sprite s3"></span>
+            <h3>相続前に資産を整理したい</h3>
+            <i></i>
+            <p>相続対策として、不動産を現金化し、資産を整理したい方に。</p>
+          </article>
+          <article>
+            <span class="sprite worry-sprite s4"></span>
+            <h3>住み慣れた家を離れたくない</h3>
+            <i></i>
+            <p>
+              思い出の詰まったご自宅で、これからも安心して暮らし続けたい方に。
+            </p>
+          </article>
+        </div>
+        <div class="section-cta cta-block">
+          <p>＼ 弁護士監修あり！最短即日回答！ ／</p>
+          <a class="unified-cta" href="#final-inputs"
+            ><span>簡単<br />30秒</span><strong>無料査定はこちら</strong><i>›</i></a
+          >
+        </div>
+      </section>
 
-</body>
+      <section class="mechanism page">
+        <p class="number-strap">リースバックなら、</p>
+        <h2>売却後もそのまま<br />住み続けられます</h2>
+        <p class="intro">
+          リースバックは、住まいを売却したあとも、賃貸としてそのまま住み続けられるサービスです。
+        </p>
+        <div class="step-cards">
+          <article>
+            <span class="step-no">1</span
+            ><span class="sprite process-sprite p1"></span>
+            <div>
+              <h3>売却</h3>
+              <p>ご自宅を当社に売却します。</p>
+            </div>
+          </article>
+          <article>
+            <span class="step-no">2</span
+            ><span class="sprite process-sprite p2"></span>
+            <div>
+              <h3>資金受取</h3>
+              <p>売却代金を受け取り、まとまった資金を確保します。</p>
+            </div>
+          </article>
+          <article>
+            <span class="step-no">3</span
+            ><span class="sprite process-sprite p3"></span>
+            <div>
+              <h3>賃貸契約</h3>
+              <p>当社と賃貸借契約を結び、毎月家賃をお支払いいただきます。</p>
+            </div>
+          </article>
+          <article>
+            <span class="step-no">4</span
+            ><span class="sprite process-sprite p4"></span>
+            <div>
+              <h3>そのまま居住</h3>
+              <p>ご契約中も、これまで通りご自宅に住み続けられます。</p>
+            </div>
+          </article>
+        </div>
+        <div class="mechanism-summary">
+          <span>⌂</span>
+          <p>売却後も住み慣れた家に<br />そのまま住める仕組みです。</p>
+        </div>
+      </section>
+
+      <section class="support page">
+        <p class="navy-pill">安心のサポート体制</p>
+        <h2>
+          <span>安心してご相談いただける</span
+          ><span class="support-heading-count"><strong>3</strong>つの理由</span>
+        </h2>
+        <figure class="review-visual support-review-visual">
+          <img
+            src="/assets/variant-b/images/support-review.jpg"
+            width="1100"
+            height="733"
+            loading="lazy"
+            decoding="async"
+            alt="電話で相談を受け付ける不動産スタッフ"
+          />
+        </figure>
+        <div class="reason-list">
+          <article>
+            <span class="reason-no">01</span><span class="reason-art">♙⌂</span>
+            <div>
+              <h3>不動産の専門家が<br />丁寧に対応</h3>
+              <p>
+                豊富な経験を持つ専任担当者が、お客様の状況やご希望に寄り添い、最適なプランをご提案します。
+              </p>
+            </div>
+          </article>
+          <article>
+            <span class="reason-no">02</span
+            ><span class="reason-art yen">¥0</span>
+            <div>
+              <h3>査定・相談は<br />完全<span>無料</span></h3>
+              <p>
+                査定からご相談・ご提案まで、すべて無料でご利用いただけます。費用は一切かかりません。
+              </p>
+            </div>
+          </article>
+          <article>
+            <span class="reason-no">03</span><span class="reason-art">▢</span>
+            <div>
+              <h3>ご相談内容は<br /><span>秘密厳守</span></h3>
+              <p>
+                ご相談内容や個人情報は厳重に管理し、外部に漏れることはありません。周囲に知られず安心してご相談いただけます。
+              </p>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <section class="comparison page">
+        <h2>通常売却との違い</h2>
+        <p class="intro">
+          リースバックは「住み続けながら資金化できる」<br />選択肢です。
+        </p>
+        <div class="compare-table">
+          <div class="cell head">比較項目</div>
+          <div class="cell head featured"><b>リースバック</b></div>
+          <div class="cell head">通常売却</div>
+          <div class="cell label"><span class="compare-icon">住</span><b>住み続けられる</b></div>
+          <div class="cell featured">
+            <strong>○</strong><span>そのまま住み続けられます</span>
+          </div>
+          <div class="cell">
+            <strong>×</strong><span>売却後は退去が必要です</span>
+          </div>
+          <div class="cell label"><span class="compare-icon">資</span><b>資金の使途が自由</b></div>
+          <div class="cell featured">
+            <strong>○</strong><span>自由に使えます</span>
+          </div>
+          <div class="cell"><strong>○</strong><span>自由に使えます</span></div>
+          <div class="cell label"><span class="compare-icon">年</span><b>年齢条件</b></div>
+          <div class="cell featured">
+            <b>なし</b><span>年齢制限はありません</span>
+          </div>
+          <div class="cell"><b>なし</b><span>年齢制限はありません</span></div>
+          <div class="cell label"><span class="compare-icon">権</span><b>所有権</b></div>
+          <div class="cell featured"><span>売却後は当社が所有</span></div>
+          <div class="cell"><span>売却後は買主が所有</span></div>
+          <div class="cell label"><span class="compare-icon">円</span><b>月々の支払い</b></div>
+          <div class="cell featured"><span>家賃のお支払いがあります</span></div>
+          <div class="cell"><b>なし</b></div>
+        </div>
+        <div class="point-box price-proof">
+          <img
+            src="/assets/variant-b/images/highest-price-review.png"
+            width="900"
+            height="451"
+            loading="lazy"
+            decoding="async"
+            alt="複数社の査定額を比較して最高額を確認できるイメージ"
+          />
+        </div>
+        <div class="comparison-cta cta-block">
+          <p>＼ 弁護士監修あり！最短即日回答！ ／</p>
+          <a class="faq-contact unified-cta" href="#final-inputs"
+            ><span>簡単<br />30秒</span><strong>無料査定はこちら</strong><i>›</i></a
+          >
+        </div>
+      </section>
+
+      <section class="cases page">
+        <h2>リースバックを<br />ご利用いただいた事例</h2>
+        <p class="intro">
+          ご自宅を売却してまとまった資金を確保しながら、そのまま住み続けられる安心を選ばれた方の声です。
+        </p>
+        <div
+          class="case-list"
+          id="case-carousel"
+          role="region"
+          aria-roledescription="カルーセル"
+          aria-label="リースバックのご利用事例"
+        >
+          <article role="group" aria-label="1 / 3">
+            <div class="case-photo">
+              <span>事例 01</span
+              ><img
+                src="/assets/variant-b/images/case-review-01.jpg"
+                width="1100"
+                height="733"
+                loading="lazy"
+                decoding="async"
+                alt="60代ご夫婦"
+              />
+            </div>
+            <div class="case-body">
+              <h3>住宅ローン返済の負担軽減</h3>
+              <dl>
+                <dt>¥ 売却金額</dt>
+                <dd class="amount">2,800<small>万円</small></dd>
+                <dt>⌂ 利用後の変化</dt>
+                <dd>
+                  ローンを完済し、毎月のお支払いがゼロに。生活にゆとりが生まれました。
+                </dd>
+              </dl>
+            </div>
+          </article>
+          <article role="group" aria-label="2 / 3">
+            <div class="case-photo">
+              <span>事例 02</span
+              ><img
+                src="/assets/variant-b/images/case-review-02.jpg"
+                width="1100"
+                height="734"
+                loading="lazy"
+                decoding="async"
+                alt="ご自宅でくつろぐご夫婦"
+              />
+            </div>
+            <div class="case-body">
+              <h3>老後資金の確保</h3>
+              <dl>
+                <dt>¥ 売却金額</dt>
+                <dd class="amount">2,050<small>万円</small></dd>
+                <dt>⌂ 利用後の変化</dt>
+                <dd>
+                  老後の生活資金にゆとりができ、趣味や旅行などを楽しむ余裕が生まれました。
+                </dd>
+              </dl>
+            </div>
+          </article>
+          <article role="group" aria-label="3 / 3">
+            <div class="case-photo">
+              <span>事例 03</span
+              ><img
+                src="/assets/variant-b/images/case-review-03.jpg"
+                width="1100"
+                height="734"
+                loading="lazy"
+                decoding="async"
+                alt="明るい室内で微笑むシニア女性"
+              />
+            </div>
+            <div class="case-body">
+              <h3>相続対策</h3>
+              <dl>
+                <dt>¥ 売却金額</dt>
+                <dd class="amount">3,100<small>万円</small></dd>
+                <dt>⌂ 利用後の変化</dt>
+                <dd>
+                  現金化することで相続がスムーズになり、家族に負担をかけず安心できました。
+                </dd>
+              </dl>
+            </div>
+          </article>
+        </div>
+        <div class="case-carousel-controls" aria-label="事例カルーセルの操作">
+          <div class="case-carousel-dots" role="group" aria-label="表示する事例">
+            <button type="button" aria-label="事例1を表示" aria-current="true"></button>
+            <button type="button" aria-label="事例2を表示"></button>
+            <button type="button" aria-label="事例3を表示"></button>
+          </div>
+          <button
+            class="case-autoplay-toggle"
+            type="button"
+            aria-pressed="false"
+            aria-label="事例の自動再生を停止"
+          >
+            <span aria-hidden="true"></span>
+          </button>
+        </div>
+        <p class="case-note">
+          ●　事例に記載の金額は一例であり、物件の条件やエリアによって結果は異なります。
+        </p>
+        <small class="fineprint"
+          >※上記は実際のご利用者様の声をもとに、プライバシーに配慮し、内容を一部編集・要約しています。※リースバックのご利用には審査があり、すべての方がご利用いただけるとは限りません。</small
+        >
+      </section>
+
+      <section class="flow page">
+        <h2>ご相談からご契約まで、<br />わかりやすくサポート</h2>
+        <p class="intro">
+          初めての方でも安心してご利用いただけるよう、ご相談からご契約までを丁寧にサポートします。
+        </p>
+        <div class="timeline">
+          <article>
+            <span class="timeline-no">1</span>
+            <div>
+              <h3>無料相談</h3>
+              <p>
+                お電話またはフォームからお気軽にご相談ください。ご状況をお伺いし、仕組みやメリットをご説明します。
+              </p>
+            </div>
+          </article>
+          <article>
+            <span class="timeline-no">2</span>
+            <div>
+              <h3>簡易査定</h3>
+              <p>
+                物件の基本情報をもとに、机上での簡易査定を行います。おおよその査定価格や可能性をご案内します。
+              </p>
+            </div>
+          </article>
+          <article>
+            <span class="timeline-no">3</span>
+            <div>
+              <h3>訪問査定</h3>
+              <p>
+                専門スタッフがご自宅を訪問し、建物の状態や周辺環境などを確認のうえ、正確な査定を行います。
+              </p>
+            </div>
+          </article>
+          <article>
+            <span class="timeline-no">4</span>
+            <div>
+              <h3>条件提示</h3>
+              <p>
+                査定結果をもとに、買取価格や家賃、契約条件などをご提示します。ご不明点は丁寧にご説明します。
+              </p>
+            </div>
+          </article>
+          <article>
+            <span class="timeline-no">5</span>
+            <div>
+              <h3>契約・資金受取</h3>
+              <p>
+                ご契約の手続きを行い、売却代金をお受け取りいただきます。ご契約後もそのままご自宅に住めます。
+              </p>
+            </div>
+          </article>
+        </div>
+        <div class="staff-banner">
+          <div>
+            <h3>専門スタッフが<br />丁寧にご案内します</h3>
+            <p>
+              お客様に寄り添い、納得してご判断いただけるよう丁寧にご案内します。お気軽にご相談ください。
+            </p>
+          </div>
+          <img
+            src="/assets/variant-b/images/staff-pair-mobile.webp"
+            width="1090"
+            height="516"
+            loading="lazy"
+            decoding="async"
+            alt="専門スタッフ"
+          />
+        </div>
+      </section>
+
+      <section class="faq page">
+        <h2>よくあるご質問</h2>
+        <span class="gold-rule"></span>
+        <div class="faq-panel">
+          <details open>
+            <summary><span>Q</span>本当に住み続けられますか<i></i></summary>
+            <div class="answer">
+              <span>A</span>
+              <p>
+                売却後は賃貸借契約に基づいて、ご自宅に住み続けます。ただし、契約期間や更新・再契約の条件は契約ごとに異なります。希望する期間住み続けられるか、契約前に確認しましょう。
+              </p>
+            </div>
+          </details>
+          <details>
+            <summary><span>Q</span>家族に知られず相談できますか<i></i></summary>
+            <div class="answer">
+              <span>A</span>
+              <p>
+                ご相談内容と個人情報は厳重に管理します。お客様の同意なく第三者へお伝えすることはありません。
+              </p>
+            </div>
+          </details>
+          <details>
+            <summary>
+              <span>Q</span>住宅ローンが残っていても利用できますか<i></i>
+            </summary>
+            <div class="answer">
+              <span>A</span>
+              <p>
+                売却代金でローンを完済できる見込みがあればご利用可能です。まずは無料査定で確認します。
+              </p>
+            </div>
+          </details>
+          <details>
+            <summary><span>Q</span>将来買い戻すことはできますか<i></i></summary>
+            <div class="answer">
+              <span>A</span>
+              <p>
+                契約条件により買い戻せる場合があります。担当者が条件をわかりやすくご案内します。
+              </p>
+            </div>
+          </details>
+          <details>
+            <summary>
+              <span>Q</span>リースバックの注意点は何ですか<i></i>
+            </summary>
+            <div class="answer">
+              <span>A</span>
+              <p>
+                売却後は所有権を手放し、毎月の家賃が発生します。売却価格、家賃、契約期間、更新条件、修繕費の負担などを通常売却とも比較して判断することが大切です。
+              </p>
+            </div>
+          </details>
+          <details>
+            <summary>
+              <span>Q</span>家賃や契約期間はどう決まりますか<i></i>
+            </summary>
+            <div class="answer">
+              <span>A</span>
+              <p>
+                物件の査定結果や契約条件などをもとに提示されます。毎月無理なく支払える金額か、希望する期間住み続けられる契約かを、契約書でご確認ください。
+              </p>
+            </div>
+          </details>
+          <details>
+            <summary><span>Q</span>査定後に断っても大丈夫ですか<i></i></summary>
+            <div class="answer">
+              <span>A</span>
+              <p>
+                はい。査定や相談をしただけで売却を決める必要はありません。売却価格、家賃、契約条件を確認し、納得したうえでご判断ください。
+              </p>
+            </div>
+          </details>
+        </div>
+      </section>
+
+      <section class="closing page" id="final-guide">
+        <form
+          class="closing-form"
+          name="leaseback-contact"
+          method="POST"
+          action="/thanks.html"
+          data-success-url="/thanks.html"
+          accept-charset="UTF-8"
+          data-netlify="true"
+          netlify-honeypot="bot-field"
+          data-contact-form
+        >
+          <input type="hidden" name="form-name" value="leaseback-contact" />
+          <input
+            type="hidden"
+            name="通知内容"
+            value="リースバック無料条件確認フォームより、新しいお問い合わせがありました。下記内容をご確認のうえ、ご対応をお願いいたします。"
+          />
+          <input type="hidden" name="送信元" value="main-variant-b-form" />
+          <input type="hidden" name="送信ページ" value="/" />
+          <p hidden>
+            <label
+              >この項目は入力しないでください
+              <input
+                type="text"
+                name="bot-field"
+                autocomplete="off"
+                tabindex="-1"
+            /></label>
+          </p>
+          <div class="closing-hero">
+            <p class="closing-ribbon">最後のご案内</p>
+            <h2>
+              <span>まずは、ご自宅の</span>
+              <span class="closing-heading-offer"
+                >価値を<strong>無料</strong>で</span
+              >
+              <span>確認しませんか</span>
+            </h2>
+            <p>相談したからといって、<b>売却を決める必要はありません。</b></p>
+          </div>
+
+          <div class="closing-price-proof price-proof">
+            <img
+              src="/assets/variant-b/images/highest-price-review.png"
+              width="900"
+              height="451"
+              loading="lazy"
+              decoding="async"
+              alt="複数社の査定額を比較して最高額を確認できるイメージ"
+            />
+          </div>
+
+          <div class="closing-cta-block cta-block">
+            <p>＼ 弁護士監修あり！最短即日回答！ ／</p>
+            <a class="closing-cta unified-cta" href="#final-inputs">
+              <span class="closing-medal">簡単<br />30秒</span>
+              <strong>無料査定はこちら</strong>
+              <i>›</i>
+            </a>
+          </div>
+
+          <div class="closing-inputs" id="final-inputs">
+            <div class="form-heading">
+              <span>無料査定フォーム</span>
+              <h3>ご自宅の査定価格をチェック</h3>
+              <p>必要事項をご入力ください</p>
+            </div>
+            <label
+              ><b><span>物件の種類</span><small>必須</small></b
+              ><select name="物件種別" required>
+                <option value="">選択してください</option>
+                <option>戸建て</option>
+                <option>マンション</option>
+                <option>その他</option>
+              </select></label
+            >
+            <label
+              ><b><span>都道府県</span><small>必須</small></b
+              ><select name="都道府県" required>
+                <option value="">選択してください</option>
+                <option>東京都</option>
+                <option>神奈川県</option>
+                <option>千葉県</option>
+                <option>埼玉県</option>
+                <option>大阪府</option>
+                <option>奈良県</option>
+                <option>福岡県</option>
+                <option>長野県</option>
+                <option>山梨県</option>
+                <option>熊本県</option>
+                <option>長崎県</option>
+                <option>高知県</option>
+                <option>その他</option>
+              </select></label
+            >
+            <label
+              ><b><span>ご希望の売却時期</span><small>必須</small></b
+              ><select name="売却希望時期" required>
+                <option value="">選択してください</option>
+                <option>1ヶ月以内</option>
+                <option>3ヶ月以内</option>
+                <option>半年以内</option>
+                <option>1年以内</option>
+                <option>未定</option>
+              </select></label
+            >
+            <label
+              ><b
+                ><span>お名前<em>（ニックネームも可）</em></span
+                ><small>必須</small></b
+              ><input
+                name="お名前"
+                autocomplete="name"
+                maxlength="80"
+                required
+                placeholder="例）山田 太郎"
+            /></label>
+            <label
+              ><b><span>電話番号</span><small>必須</small></b
+              ><input
+                type="tel"
+                name="電話番号"
+                autocomplete="tel"
+                inputmode="tel"
+                maxlength="20"
+                pattern="[0-9+()\s-]{8,20}"
+                required
+                placeholder="例）09012345678"
+            /></label>
+            <label
+              ><b><span>メールアドレス</span><small>必須</small></b
+              ><input
+                type="email"
+                name="メールアドレス"
+                autocomplete="email"
+                inputmode="email"
+                maxlength="254"
+                required
+                placeholder="例）sample@example.com"
+            /></label>
+            <label class="consent-row"
+              ><input
+                type="checkbox"
+                name="同意状況"
+                value="同意済み"
+                checked
+                required
+              /><span
+                ><a href="/privacy-policy.html" target="_blank" rel="noopener"
+                  >プライバシーポリシー</a
+                >
+                に同意のうえ送信します</span
+              ></label
+            >
+            <button class="quick-submit closing-submit" type="submit">
+              無料査定を申し込む <i>›</i>
+            </button>
+            <p class="form-status" aria-live="polite" data-form-status></p>
+          </div>
+        </form>
+
+        <a class="closing-phone" href="tel:05018094557"
+          ><span>☎</span
+          ><span
+            ><small>お電話でのご相談もお気軽にどうぞ</small
+            ><strong>050-1809-4557</strong
+            ><em>受付時間 9:00〜18:00（年中無休）</em></span
+          ><b>相談無料</b></a
+        >
+
+        <div class="closing-trust">
+          <div>
+            <span class="closing-trust-lock" aria-hidden="true"></span>
+            <p>
+              <b>秘密厳守</b><small>プライバシーを<br />厳守します</small>
+            </p>
+          </div>
+          <div>
+            <span>¥0</span>
+            <p>
+              <b>相談無料</b><small>費用は一切<br />かかりません</small>
+            </p>
+          </div>
+          <div>
+            <span>♥</span>
+            <p>
+              <b>しつこい<br />営業なし</b
+              ><small>安心して<br />ご相談ください</small>
+            </p>
+          </div>
+        </div>
+
+        <footer class="company-footer">
+          <img
+            src="/assets/variant-b/images/logo-ietoku-mobile.webp"
+            width="774"
+            height="235"
+            loading="lazy"
+            decoding="async"
+            alt="イエトク！ リースバック一括査定"
+          />
+          <div id="company-info">
+            <p class="company-label">運営会社</p>
+            <h3>株式会社シード</h3>
+            <dl class="company-profile">
+              <div><dt>代表者</dt><dd>代表取締役 宮澤 直幸</dd></div>
+              <div><dt>設立</dt><dd>2018年6月22日</dd></div>
+              <div><dt>所在地</dt><dd>東京都港区芝公園三丁目4番30号<br />32芝公園ビル8階</dd></div>
+              <div><dt>宅建免許</dt><dd>東京都知事（2）第102596号</dd></div>
+            </dl>
+          </div>
+        </footer>
+        <nav class="footer-links" aria-label="運営情報">
+          <a href="/privacy-policy.html">プライバシーポリシー</a>
+          <a href="/operator.html">運営者情報</a>
+        </nav>
+        <p class="copyright">
+          © 2026 イエトク All rights reserved
+        </p>
+      </section>
+    </main>
+    <script src="/assets/form-submit.js?v=20260829"></script>
+    <script src="/assets/affilicode-tracking.js?v=20260829"></script>
+    <script src="/assets/variant-b/app.js?v=20260829"></script>
+  </body>
 </html>

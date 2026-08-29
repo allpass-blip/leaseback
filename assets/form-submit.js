@@ -42,6 +42,9 @@
         select.classList.remove("is-filled");
       });
       setStatus(form, "success", "送信しました。完了ページへ移動します。");
+      try {
+        sessionStorage.setItem("leaseback_submission_pending", "1");
+      } catch (_) {}
       window.location.href = form.dataset.successUrl || "thanks.html";
     } catch (error) {
       setStatus(form, "error", error.message || "送信できませんでした。時間をおいて再度お試しください。");
