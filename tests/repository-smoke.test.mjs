@@ -49,10 +49,13 @@ test("クライアント確認用ページは計測も本番送信も行わな�
   assert.doesNotMatch(formScript, /fetch\s*\(/);
 });
 
-test("/test配下はEdge Functionの保護対象", () => {
+test("/test配下はパスワードなしで公開する", () => {
   const config = read("netlify.toml");
-  assert.match(config, /path = "\/test"/);
-  assert.match(config, /path = "\/test\/\*"/);
+  const testHtml = read("test/index.html");
+  const testThanks = read("test/thanks.html");
+  assert.doesNotMatch(config, /test-auth|\[\[edge_functions\]\]/);
+  assert.equal(existsSync(join(root, "netlify/edge-functions/test-auth.ts")), false);
+  assert.doesNotMatch(`${testHtml}${testThanks}`, /logout|type="password"/i);
   assert.match(config, /command = "node --test \\"tests\/\*\.test\.mjs\\""/);
 });
 

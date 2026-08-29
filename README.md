@@ -5,11 +5,11 @@ Netlifyで公開する静的LPです。1つのNetlifyサイトで本番とクラ
 ## 公開範囲
 
 - 本番: `/`。広告計測と `leaseback-contact` のNetlify Forms送信を有効にします。
-- クライアント確認: `/test/`。パスワード保護し、広告計測・フォーム保存・営業通知を行いません。
+- クライアント確認: `/test/`。パスワードなしで閲覧でき、広告計測・フォーム保存・営業通知を行いません。
 - `/thanks.html` は本番フォームの送信成功直後だけコンバージョンを送ります。直接表示や再読み込みでは送りません。
 - サイト全体に `noindex, nofollow, noarchive` を付け、検索結果への掲載を抑止します。
 
-`TEST_SITE_PASSWORD` はNetlifyのSecret環境変数に設定します。値をリポジトリへ保存しないでください。
+`/test/` はURLを知っている人なら閲覧できます。検索結果への掲載は抑止していますが、機密情報は置かないでください。
 
 ## ディレクトリ
 
@@ -18,7 +18,6 @@ index.html                 本番LP
 assets/                    本番とテストで共有する素材・処理
 test/                      クライアント確認用ページと専用素材
 tests/                     デプロイ前の自動テスト
-netlify/edge-functions/    /test のパスワード保護
 netlify/functions/         本番フォームのChatwork通知
 ```
 
@@ -40,7 +39,6 @@ netlify/functions/         本番フォームのChatwork通知
 - Base directory: 未指定
 - Build command: `node --test "tests/*.test.mjs"`（`netlify.toml` で設定済み）
 - Publish directory: `.`
-- Secret: `TEST_SITE_PASSWORD`
 - フォーム通知: Netlify管理画面の `Form submission notifications`
 - Chatwork通知: [FORM_SETUP.md](FORM_SETUP.md) の手順に従います。
 
