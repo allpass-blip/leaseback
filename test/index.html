@@ -1,16 +1,13 @@
 <!doctype html>
 <html lang="ja">
   <head>
-    <!-- Google Tag Manager -->
-    <script src="/test/assets/gtm.js?v=20260803"></script>
-    <!-- End Google Tag Manager -->
     <meta charset="utf-8" />
     <meta
       name="viewport"
       content="width=device-width, initial-scale=1, viewport-fit=cover"
     />
     <meta name="robots" content="noindex, nofollow, noarchive" />
-    <title>イエトク！リースバック一括査定｜自宅を売っても住み続けられる</title>
+    <title>【テスト環境】イエトク！リースバック一括査定</title>
     <meta
       name="description"
       content="イエトク！のリースバック一括査定。自宅を売っても住み続けながら、複数社の査定条件を無料で比較できます。"
@@ -30,16 +27,13 @@
     />
   </head>
   <body>
-    <!-- Google Tag Manager (noscript) -->
-    <noscript
-      ><iframe
-        src="https://www.googletagmanager.com/ns.html?id=GTM-KNK5T8S4"
-        height="0"
-        width="0"
-        style="display: none; visibility: hidden"
-      ></iframe
-    ></noscript>
-    <!-- End Google Tag Manager (noscript) -->
+    <aside
+      role="status"
+      style="position: sticky; top: 0; z-index: 10000; padding: 8px 16px; background: #8f2113; color: #fff; text-align: center; font-weight: 700"
+    >
+      テスト環境です。送信内容は営業通知されません。
+      <a href="/test/?logout=1" style="margin-left: 12px; color: #fff">ログアウト</a>
+    </aside>
     <main class="lp">
       <section class="hero page" id="top">
         <header class="site-header">
@@ -630,33 +624,15 @@
       <section class="closing page" id="final-guide">
         <form
           class="closing-form"
-          name="leaseback-contact"
+          name="leaseback-contact-test"
           method="POST"
           action="/test/thanks.html"
           data-success-url="/test/thanks.html"
           accept-charset="UTF-8"
-          data-netlify="true"
-          netlify-honeypot="bot-field"
           data-contact-form
         >
-          <input type="hidden" name="form-name" value="leaseback-contact" />
-          <input
-            type="hidden"
-            name="通知内容"
-            value="リースバック無料条件確認フォームより、新しいお問い合わせがありました。下記内容をご確認のうえ、ご対応をお願いいたします。"
-          />
-          <input type="hidden" name="送信元" value="main-variant-b-form" />
-          <input type="hidden" name="送信ページ" value="/" />
-          <p hidden>
-            <label
-              >この項目は入力しないでください
-              <input
-                type="text"
-                name="bot-field"
-                autocomplete="off"
-                tabindex="-1"
-            /></label>
-          </p>
+          <input type="hidden" name="送信元" value="test-environment" />
+          <input type="hidden" name="送信ページ" value="/test/" />
           <div class="closing-hero">
             <p class="closing-ribbon">最後のご案内</p>
             <h2>
@@ -850,7 +826,6 @@
       </section>
     </main>
     <script src="/test/assets/form-submit.js?v=20260722"></script>
-    <script src="/test/assets/affilicode-tracking.js?v=20260722"></script>
     <script src="/test/assets/variant-b/app.js?v=20260722c"></script>
   </body>
 </html>

@@ -1,0 +1,13 @@
+[build]
+  publish = "."
+
+[functions]
+  directory = "netlify/functions"
+
+[[edge_functions]]
+  function = "test-auth"
+  path = "/test"
+
+[[edge_functions]]
+  function = "test-auth"
+  path = "/test/*"

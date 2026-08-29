@@ -9,48 +9,16 @@
     status.dataset.status = type;
   }
 
-  function toUrlEncoded(form) {
-    var data = new FormData(form);
-    data.set("送信ページ", window.location.href);
-    return new URLSearchParams(data).toString();
-  }
-
-  async function submitForm(form) {
+  function completeTest(form) {
     var submit = form.querySelector('[type="submit"]');
-    var originalText = submit ? submit.textContent : "";
 
     if (submit) {
       submit.disabled = true;
-      submit.textContent = "送信中...";
+      submit.textContent = "確認中...";
     }
 
-    setStatus(form, "pending", "送信しています。しばらくお待ちください。");
-
-    try {
-      var response = await fetch("/", {
-        method: "POST",
-        headers: { "Content-Type": "application/x-www-form-urlencoded" },
-        body: toUrlEncoded(form),
-      });
-
-      if (!response.ok) {
-        throw new Error("送信に失敗しました。");
-      }
-
-      form.reset();
-      form.querySelectorAll(".sel").forEach(function (select) {
-        select.classList.remove("is-filled");
-      });
-      setStatus(form, "success", "送信しました。完了ページへ移動します。");
-      window.location.href = form.dataset.successUrl || "thanks.html";
-    } catch (error) {
-      setStatus(form, "error", error.message || "送信できませんでした。時間をおいて再度お試しください。");
-    } finally {
-      if (submit) {
-        submit.disabled = false;
-        submit.textContent = originalText;
-      }
-    }
+    setStatus(form, "success", "テスト入力を確認しました。完了ページへ移動します。");
+    window.location.href = form.dataset.successUrl || "/test/thanks.html";
   }
 
   document.addEventListener("DOMContentLoaded", function () {
@@ -62,7 +30,7 @@
           return;
         }
 
-        submitForm(form);
+        completeTest(form);
       });
     });
   });

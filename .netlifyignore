@@ -5,6 +5,9 @@
 .gitignore
 .env
 .env.*
+*.log
+*.zip
+submissions/
 README.md
 FORM_SETUP.md
 PRODUCT.md
