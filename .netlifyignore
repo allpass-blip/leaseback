@@ -2,6 +2,7 @@
 .netlify/
 .claude/
 .impeccable/
+.playwright-cli/
 .gitignore
 .env
 .env.*

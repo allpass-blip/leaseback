@@ -3,6 +3,7 @@ submissions/
 server.out.log
 server.err.log
 *.zip
+.playwright-cli/
 
 # Local Netlify folder
 .netlify
