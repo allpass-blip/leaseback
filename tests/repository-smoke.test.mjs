@@ -5,6 +5,16 @@ import test from "node:test";
 import { fileURLToPath } from "node:url";
 
 const root = resolve(dirname(fileURLToPath(import.meta.url)), "..");
+const ignoredDirectories = new Set([
+  ".claude",
+  ".codex-remote-attachments",
+  ".git",
+  ".impeccable",
+  ".netlify",
+  ".playwright-cli",
+  "sites-test-backup",
+  "tests",
+]);
 
 function read(path) {
   return readFileSync(join(root, path), "utf8");
@@ -12,7 +22,7 @@ function read(path) {
 
 function filesUnder(directory = root) {
   return readdirSync(directory, { withFileTypes: true }).flatMap((entry) => {
-    if (entry.isDirectory() && [".git", ".netlify", ".playwright-cli", "tests"].includes(entry.name)) {
+    if (entry.isDirectory() && ignoredDirectories.has(entry.name)) {
       return [];
     }
     const path = join(directory, entry.name);
@@ -47,6 +57,17 @@ test("クライアント確認用ページは計測も本番送信も行わな�
   assert.match(html, /\/test\/assets\/form-submit\.js/);
   assert.match(formScript, /event\.preventDefault\(\)/);
   assert.doesNotMatch(formScript, /fetch\s*\(/);
+});
+
+test("確認用LPはリースバック訴求と更新済みの査定導線を表示する", () => {
+  const html = read("test/index.html");
+  assert.match(html, /自宅を売却しても/);
+  assert.match(html, /住宅ローン[\s\S]*老後資金[\s\S]*相続/);
+  assert.equal((html.match(/class="hero-needs__item"/g) ?? []).length, 3);
+  assert.equal((html.match(/お電話は1社のみ！最短即日査定/g) ?? []).length, 4);
+  assert.equal((html.match(/最短即日査定はこちら/g) ?? []).length, 4);
+  assert.match(html, /複数社の買取価格と家賃条件を無料で比較できます。/);
+  assert.doesNotMatch(html, /弁護士と連携した相談体制|提携|セミナー/);
 });
 
 test("/test配下はパスワードなしで公開する", () => {
