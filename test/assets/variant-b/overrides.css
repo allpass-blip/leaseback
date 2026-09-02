@@ -39,6 +39,10 @@ body > aside[role="status"] {
   white-space: nowrap;
 }
 
+.hero h1 {
+  font-size: 35px;
+}
+
 .hero-kicker > span,
 .hero-kicker > strong {
   white-space: nowrap;
