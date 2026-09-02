@@ -318,6 +318,20 @@ body > aside[role="status"] {
   text-wrap: pretty;
 }
 
+/* Heading emphasis ------------------------------------------------------ */
+.page h2,
+.page h3,
+.page h2 strong,
+.page h3 strong,
+.worries .eyebrow,
+.number-strap,
+.navy-pill,
+.closing-ribbon,
+.faq summary,
+.faq-question-text {
+  font-weight: 700;
+}
+
 /* Narrow-screen reflow -------------------------------------------------- */
 .support.page,
 .comparison.page,
