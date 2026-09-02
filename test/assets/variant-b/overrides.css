@@ -5,116 +5,6 @@ body > aside[role="status"] {
   white-space: nowrap;
 }
 
-.hero-visual {
-  height: 545px;
-}
-
-.hero-copy {
-  padding-top: 12px;
-}
-
-.hero h1 {
-  width: 350px;
-  font-size: 32px;
-  line-height: 1.25;
-  letter-spacing: -0.035em;
-  text-wrap: balance;
-}
-
-.hero-needs {
-  width: 194px;
-  margin-top: 218px;
-}
-
-.hero-needs__label {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 7px;
-  margin: 0 0 7px;
-  color: var(--navy);
-  font-size: 13.5px;
-  font-weight: 800;
-  line-height: 1.4;
-  letter-spacing: 0.04em;
-  text-align: center;
-  white-space: nowrap;
-}
-
-.hero-needs__label::before,
-.hero-needs__label::after {
-  width: 28px;
-  height: 2px;
-  background: var(--gold);
-  content: "";
-}
-
-.hero-needs__items {
-  display: flex;
-  flex-direction: column;
-  margin: 0;
-  padding: 0;
-  list-style: none;
-}
-
-.hero-needs__item {
-  display: grid;
-  min-width: 0;
-  min-height: 30px;
-  align-items: center;
-  grid-template-columns: 22px 72px minmax(0, 1fr);
-  padding: 4px 0;
-  color: var(--navy);
-  line-height: 1.3;
-  text-align: left;
-}
-
-.hero-needs__item + .hero-needs__item {
-  border-top: 1px solid rgba(201, 158, 57, 0.62);
-}
-
-.hero-needs__item svg {
-  width: 20px;
-  height: 20px;
-  margin: 0;
-  fill: none;
-  stroke: var(--gold);
-  stroke-linecap: round;
-  stroke-linejoin: round;
-  stroke-width: 1.8;
-}
-
-.hero-needs__item b {
-  color: var(--navy);
-  font-size: 14px;
-  font-weight: 800;
-  letter-spacing: -0.025em;
-  white-space: nowrap;
-}
-
-.hero-needs__item small {
-  display: block;
-  margin: 0;
-  color: #263443;
-  font-size: 12.5px;
-  font-weight: 700;
-  line-height: 1.4;
-  white-space: nowrap;
-}
-
-.hero-lead {
-  width: 255px;
-  max-width: 255px;
-  margin-top: 12px;
-  color: #172b35;
-  font-size: 14px;
-  line-height: 1.65;
-}
-
-.hero-lead strong {
-  font-size: 15px;
-}
-
 .cta-block > p,
 .section-cta.cta-block > p {
   font-size: 15.5px;
@@ -145,7 +35,12 @@ body > aside[role="status"] {
 
 /* Text wrapping adjustments -------------------------------------------- */
 .hero-kicker {
-  font-size: 21px;
+  font-size: 23px;
+  white-space: nowrap;
+}
+
+.hero-kicker > span,
+.hero-kicker > strong {
   white-space: nowrap;
 }
 
@@ -463,20 +358,8 @@ body > aside[role="status"] {
     font-size: 13px;
   }
 
-  .hero-visual {
-    background-position: center, center, 20px center;
-  }
-
-  .hero h1 {
-    width: calc(100vw - 36px);
-    font-size: clamp(28px, 8.2vw, 32px);
-  }
-
-  .hero-lead {
-    width: min(252px, calc(100vw - 36px));
-    max-width: none;
-    font-size: 14px;
-    line-height: 1.6;
+  .hero-kicker {
+    font-size: clamp(20px, 6vw, 23px);
   }
 
   .cta-block .unified-cta,
@@ -560,14 +443,6 @@ body > aside[role="status"] {
     font-size: 12.5px;
   }
 
-  .hero-copy {
-    padding-left: 14px;
-  }
-
-  .hero-visual {
-    background-position: center, center, 36px center;
-  }
-
   .hero-kicker {
     gap: 4px;
     font-size: 19px;
@@ -576,14 +451,6 @@ body > aside[role="status"] {
   .hero-kicker > span,
   .hero-kicker > strong {
     white-space: nowrap;
-  }
-
-  .hero-needs {
-    width: 206px;
-  }
-
-  .hero-needs__item {
-    grid-template-columns: 22px 68px minmax(0, 1fr);
   }
 
   .trust-row b {

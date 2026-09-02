@@ -64,10 +64,9 @@ test("クライアント確認用ページは計測も本番送信も行わな�
 
 test("確認用LPはリースバック訴求と更新済みの査定導線を表示する", () => {
   const html = read("test/index.html");
-  assert.match(html, /自宅を売っても[\s\S]*住み続けられる！[\s\S]*<h1>リースバック一括査定<\/h1>/);
-  assert.doesNotMatch(html, /自宅を売却しても|そのまま住み続ける/);
-  assert.match(html, /住宅ローン[\s\S]*老後資金[\s\S]*相続/);
-  assert.equal((html.match(/class="hero-needs__item"/g) ?? []).length, 3);
+  assert.match(html, /自宅を売っても[\s\S]*住み続けられる！[\s\S]*<h1>リースバック一括査定<br \/>最高額で自宅が売れる<\/h1>/);
+  assert.doesNotMatch(html, /住み続けれる！|自宅を売却しても|そのまま住み続ける/);
+  assert.equal((html.match(/class="hero-needs__item"/g) ?? []).length, 0);
   assert.equal((html.match(/お電話は1社のみ！最短即日査定/g) ?? []).length, 4);
   assert.equal((html.match(/最短即日査定はこちら/g) ?? []).length, 4);
   assert.doesNotMatch(html, /こんなお悩みに|売却後も、賃貸として今の家に住める。|複数社の買取価格と家賃条件を無料で比較できます。/);
