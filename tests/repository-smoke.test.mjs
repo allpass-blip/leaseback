@@ -54,19 +54,24 @@ test("クライアント確認用ページは計測も本番送信も行わな�
   const html = read("test/index.html");
   const formScript = read("test/assets/form-submit.js");
   assert.doesNotMatch(html, /googletagmanager|affilicode|data-netlify|form-name/i);
-  assert.match(html, /\/test\/assets\/form-submit\.js/);
+  assert.match(html, /\.\/assets\/form-submit\.js/);
+  assert.match(html, /\.\.\/assets\/variant-b\/mobile\.css/);
+  assert.match(html, /\.\/assets\/variant-b\/overrides\.css/);
+  assert.doesNotMatch(html, /(?:src|href)=["']\/(?:test\/)?assets\//);
   assert.match(formScript, /event\.preventDefault\(\)/);
   assert.doesNotMatch(formScript, /fetch\s*\(/);
 });
 
 test("確認用LPはリースバック訴求と更新済みの査定導線を表示する", () => {
   const html = read("test/index.html");
-  assert.match(html, /自宅を売却しても/);
+  assert.match(html, /自宅を売っても[\s\S]*住み続けられる！[\s\S]*<h1>リースバック一括査定<\/h1>/);
+  assert.doesNotMatch(html, /自宅を売却しても|そのまま住み続ける/);
   assert.match(html, /住宅ローン[\s\S]*老後資金[\s\S]*相続/);
   assert.equal((html.match(/class="hero-needs__item"/g) ?? []).length, 3);
   assert.equal((html.match(/お電話は1社のみ！最短即日査定/g) ?? []).length, 4);
   assert.equal((html.match(/最短即日査定はこちら/g) ?? []).length, 4);
-  assert.match(html, /複数社の買取価格と家賃条件を無料で比較できます。/);
+  assert.doesNotMatch(html, /こんなお悩みに|売却後も、賃貸として今の家に住める。|複数社の買取価格と家賃条件を無料で比較できます。/);
+  assert.doesNotMatch(html, /監修の範囲|リースバック業務の監修|契約上の確認点を整理/);
   assert.doesNotMatch(html, /弁護士と連携した相談体制|提携|セミナー/);
 });
 
