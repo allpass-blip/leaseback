@@ -627,3 +627,165 @@ body > aside[role="status"] {
   }
 
 }
+
+/* 2026-09-04 fidelity polish ------------------------------------------ */
+.floating-cta-shell.is-suppressed {
+  display: none;
+}
+
+.case-carousel-dots button {
+  width: 44px;
+  height: 44px;
+}
+
+@media (max-width: 899px) {
+  .lp {
+    padding-bottom: 0;
+  }
+
+  /* Every mobile chapter already contains its own CTA. Keeping another
+     fixed CTA over the content obscures the phone and final consent row. */
+  .floating-cta-shell {
+    display: none;
+  }
+
+  .worries-review-visual {
+    width: min(68vw, 260px);
+    margin-top: 26px;
+  }
+
+  .worry-grid {
+    gap: 0;
+    border-top: 1px solid #cfd9e2;
+  }
+
+  .worry-grid article {
+    min-height: 0;
+    grid-template-columns: 76px minmax(0, 1fr);
+    grid-template-rows: auto auto;
+    padding: 22px 0;
+    border: 0;
+    border-bottom: 1px solid #cfd9e2;
+    border-radius: 0;
+    background: transparent;
+    box-shadow: none;
+  }
+
+  .worry-sprite {
+    grid-row: 1 / 3;
+  }
+
+  .worry-grid i {
+    display: none;
+  }
+
+  .worry-grid p {
+    grid-row: 2;
+    margin-top: 7px;
+  }
+
+  .step-cards {
+    gap: 0;
+    border-top: 1px solid #d4dde6;
+  }
+
+  .step-cards article {
+    min-height: 0;
+    grid-template-columns: 44px 76px minmax(0, 1fr);
+    padding: 22px 0;
+    border: 0;
+    border-bottom: 1px solid #d4dde6;
+    border-radius: 0;
+    background: transparent;
+  }
+
+  .step-no {
+    width: auto;
+    height: auto;
+    border-radius: 0;
+    background: transparent;
+    color: #b9820a;
+    font-family: "Noto Serif JP", "Yu Mincho", serif;
+    font-size: 30px;
+  }
+
+  .process-sprite {
+    width: 76px;
+    height: 76px;
+    background-size: 228px 228px;
+  }
+
+  .process-sprite.p2 {
+    background-position: -76px 0;
+  }
+
+  .process-sprite.p3 {
+    background-position: -152px 0;
+  }
+
+  .process-sprite.p4 {
+    background-position: 0 -76px;
+  }
+
+  .support .navy-pill {
+    margin-bottom: 14px;
+    padding: 0;
+    border-radius: 0;
+    background: transparent;
+    color: #8a6416;
+    letter-spacing: 0.06em;
+  }
+
+  .support-review-visual {
+    width: calc(100% + 32px);
+    margin: 24px -16px 0;
+  }
+
+  .support-review-visual img {
+    max-height: 238px;
+    border-radius: 0;
+    object-fit: cover;
+    object-position: center 34%;
+  }
+
+  .support .reason-list {
+    margin-top: 0;
+    border-top: 1px solid #cfd9e2;
+  }
+
+  .support .reason-list article {
+    grid-template-columns: 56px minmax(0, 1fr);
+    padding: 23px 0;
+    border: 0;
+    border-bottom: 1px solid #cfd9e2;
+    border-radius: 0;
+    background: transparent;
+  }
+
+  .support .reason-list article + article {
+    margin-top: 0;
+  }
+
+  .support .reason-no {
+    position: static;
+    width: auto;
+    height: auto;
+    align-self: start;
+    margin-top: 2px;
+    border-radius: 0;
+    background: transparent;
+    color: #b9820a;
+    font-family: "Noto Serif JP", "Yu Mincho", serif;
+    font-size: 30px;
+    font-weight: 500;
+  }
+
+  .support .reason-art {
+    display: none;
+  }
+
+  .support .reason-list article > div {
+    grid-column: 2;
+  }
+
+}
