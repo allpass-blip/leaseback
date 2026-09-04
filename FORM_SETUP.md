@@ -21,7 +21,7 @@ Form submission notifications
 leaseback-contact
 ```
 
-Netlifyが検出しやすいように、`index.html` の `<body>` 直下に静的な隠しフォーム定義を追加しています。
+Netlifyが検出できるように、`index.html` に静的なフォーム定義を置いています。
 
 ## Chatwork通知
 

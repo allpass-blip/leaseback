@@ -9,6 +9,7 @@
 *.log
 *.zip
 submissions/
+sites-test-backup/
 tests/
 README.md
 FORM_SETUP.md

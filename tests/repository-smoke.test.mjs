@@ -106,6 +106,27 @@ test("コンバージョンは本番フォーム送信直後の一度だけ許�
   assert.match(affiliate, /window\.__leasebackConversionReady === true/);
 });
 
+test("本番と確認用の完了ページは共通スタイルを使う", () => {
+  const production = read("thanks.html");
+  const preview = read("test/thanks.html");
+  const stylesheetPattern = /href="(\/assets\/thanks\.css\?v=\d+)"/;
+
+  for (const html of [production, preview]) {
+    assert.match(html, stylesheetPattern);
+    assert.doesNotMatch(html, /<style>/);
+  }
+
+  assert.equal(
+    production.match(stylesheetPattern)[1],
+    preview.match(stylesheetPattern)[1],
+  );
+});
+
+test("ローカルのバックアップはGitとNetlifyの対象外にする", () => {
+  assert.match(read(".gitignore"), /^sites-test-backup\/$/m);
+  assert.match(read(".netlifyignore"), /^sites-test-backup\/$/m);
+});
+
 test("公開HTMLとCSSのローカル参照先が存在する", () => {
   const missing = [];
   for (const file of filesUnder()) {
