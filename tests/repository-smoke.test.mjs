@@ -68,7 +68,7 @@ test("確認用LPはリースバック訴求と更新済みの査定導線を表
   assert.doesNotMatch(html, /住み続けれる！|自宅を売却しても|そのまま住み続ける/);
   assert.equal((html.match(/class="hero-needs__item"/g) ?? []).length, 0);
   assert.equal((html.match(/お電話は1社のみ！最短即日査定/g) ?? []).length, 4);
-  assert.equal((html.match(/最短即日査定はこちら/g) ?? []).length, 5);
+  assert.equal((html.match(/最短即日査定はこちら/g) ?? []).length, 6);
   assert.match(html, /class="floating-cta" href="#final-inputs"/);
   assert.doesNotMatch(html, /こんなお悩みに|売却後も、賃貸として今の家に住める。|複数社の買取価格と家賃条件を無料で比較できます。/);
   assert.doesNotMatch(html, /監修の範囲|リースバック業務の監修|契約上の確認点を整理/);

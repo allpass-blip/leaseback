@@ -20,11 +20,15 @@
       rel="stylesheet"
     />
     <link rel="stylesheet" href="../assets/variant-b/mobile.css?v=20260829" />
-    <link rel="stylesheet" href="./assets/variant-b/overrides.css?v=20260902-17" />
+    <link rel="stylesheet" href="./assets/variant-b/overrides.css?v=20260902-19" />
+    <link
+      rel="stylesheet"
+      href="./assets/variant-b/fullscreen-desktop.css?v=20260904-8"
+    />
     <link
       rel="preload"
       as="image"
-      href="../assets/variant-b/images/hero-couple-house-mobile.webp"
+      href="../assets/variant-b/images/hero-couple-front-mobile-v2.webp"
       fetchpriority="high"
     />
   </head>
@@ -498,37 +502,60 @@
             </div>
           </article>
         </div>
-        <div class="staff-banner">
-          <div>
-            <h3>専門スタッフが<br />丁寧にご案内します</h3>
+        <div class="flow-support-row">
+          <div class="flow-contact">
             <p>
-              お客様に寄り添い、納得してご判断いただけるよう丁寧にご案内します。お気軽にご相談ください。
+              どんなご相談でも構いません。<br />
+              強引な営業は一切いたしませんので、安心してご相談ください。<br />
+              お客様の状況に合わせて、最適なご提案をいたします。
             </p>
+            <a href="tel:05018094557"><span aria-hidden="true">☎</span>050-1809-4557</a>
           </div>
-          <figure class="staff-banner__portraits" aria-label="担当営業">
-            <img
-              src="./assets/variant-b/images/sales-miyazawa.webp"
-              width="560"
-              height="700"
-              loading="lazy"
-              decoding="async"
-              alt="担当営業の宮澤"
-            />
-            <img
-              src="./assets/variant-b/images/sales-iwase.webp"
-              width="560"
-              height="700"
-              loading="lazy"
-              decoding="async"
-              alt="担当営業の岩瀬"
-            />
-          </figure>
+          <div class="staff-banner">
+            <div>
+              <h3>専門スタッフが<br />丁寧にご案内します</h3>
+              <p>
+                お客様に寄り添い、納得してご判断いただけるよう丁寧にご案内します。お気軽にご相談ください。
+              </p>
+            </div>
+            <figure class="staff-banner__portraits" aria-label="担当営業">
+              <img
+                src="./assets/variant-b/images/sales-miyazawa.webp"
+                width="560"
+                height="700"
+                loading="lazy"
+                decoding="async"
+                alt="担当営業の宮澤"
+              />
+              <img
+                src="./assets/variant-b/images/sales-iwase.webp"
+                width="560"
+                height="700"
+                loading="lazy"
+                decoding="async"
+                alt="担当営業の岩瀬"
+              />
+            </figure>
+          </div>
         </div>
       </section>
 
       <section class="faq page">
         <h2>よくあるご質問</h2>
         <span class="gold-rule"></span>
+        <div class="faq-side-actions">
+          <p>お客様からよくいただくご質問にお答えします。</p>
+          <a class="faq-side-phone" href="tel:05018094557">
+            <span class="icon-phone" aria-hidden="true"></span>
+            <span>
+              <strong>050-1809-4557</strong>
+              <small>受付時間 9:00〜18:00（年中無休）</small>
+            </span>
+          </a>
+          <a class="faq-side-cta" href="#final-inputs">
+            最短即日査定はこちら <span aria-hidden="true">›</span>
+          </a>
+        </div>
         <div class="faq-panel">
           <details open>
             <summary><span>Q</span>本当に住み続けられますか<i></i></summary>
@@ -764,7 +791,6 @@
             </button>
             <p class="form-status" aria-live="polite" data-form-status></p>
           </div>
-        </form>
 
         <a class="closing-phone" href="tel:05018094557"
           ><span>☎</span
@@ -796,6 +822,7 @@
             </p>
           </div>
         </div>
+        </form>
 
         <footer class="company-footer">
           <img
@@ -827,9 +854,16 @@
       </section>
     </main>
     <div class="floating-cta-shell">
+      <a class="floating-phone" href="tel:05018094557">
+        <span class="icon-phone" aria-hidden="true"></span>
+        <span>
+          <strong>050-1809-4557</strong>
+          <small>受付時間 9:00〜18:00（年中無休）</small>
+        </span>
+      </a>
       <a class="floating-cta" href="#final-inputs">最短即日査定はこちら</a>
     </div>
     <script src="./assets/form-submit.js?v=20260829"></script>
-    <script src="../assets/variant-b/app.js?v=20260829"></script>
+    <script src="../assets/variant-b/app.js?v=20260904-1"></script>
   </body>
 </html>

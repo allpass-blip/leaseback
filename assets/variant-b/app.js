@@ -186,6 +186,7 @@
     const cards = Array.from(carousel.querySelectorAll("article"));
     const dots = Array.from(document.querySelectorAll(SELECTORS.caseDots));
     const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)");
+    const desktopLayout = window.matchMedia("(min-width: 900px)");
     const AUTOPLAY_DELAY = 4500;
     const INTERACTION_PAUSE = 8000;
     let activeIndex = 0;
@@ -199,6 +200,9 @@
 
     const setActiveIndex = (index) => {
       activeIndex = index;
+      cards.forEach((card, cardIndex) => {
+        card.classList.toggle("is-active", cardIndex === index);
+      });
       dots.forEach((dot, dotIndex) => {
         if (dotIndex === index) dot.setAttribute("aria-current", "true");
         else dot.removeAttribute("aria-current");
@@ -214,6 +218,7 @@
     const goToCard = (index, behavior = "smooth") => {
       const normalizedIndex = (index + cards.length) % cards.length;
       setActiveIndex(normalizedIndex);
+      if (desktopLayout.matches) return;
       carousel.scrollTo({
         left: getCardScrollLeft(cards[normalizedIndex]),
         behavior,
@@ -298,6 +303,7 @@
     carousel.addEventListener(
       "scroll",
       () => {
+        if (desktopLayout.matches) return;
         window.cancelAnimationFrame(scrollFrame);
         scrollFrame = window.requestAnimationFrame(() => {
           const closestIndex = cards.reduce((closest, card, index) => {
@@ -334,11 +340,30 @@
       if (reducedMotion.matches) stopAutoplay();
       else startAutoplay();
     });
+    desktopLayout.addEventListener("change", () => {
+      goToCard(activeIndex, "auto");
+    });
 
+    setActiveIndex(0);
     updateToggle();
+  };
+
+  const initFloatingCta = () => {
+    const shell = document.querySelector(".floating-cta-shell");
+    const closing = document.querySelector("#final-guide");
+    if (!shell || !closing || !("IntersectionObserver" in window)) return;
+
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        shell.classList.toggle("is-suppressed", entry.isIntersecting);
+      },
+      { threshold: 0.04 },
+    );
+    observer.observe(closing);
   };
 
   initFaqAccordion();
   initPrefecturePickers();
   initCaseCarousel();
+  initFloatingCta();
 })();

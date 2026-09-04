@@ -114,6 +114,30 @@ body > aside[role="status"] {
 }
 
 /* Text wrapping adjustments -------------------------------------------- */
+.hero-visual {
+  background:
+    linear-gradient(
+      180deg,
+      rgba(234, 245, 251, 0.72) 0,
+      rgba(234, 245, 251, 0.34) 24px,
+      rgba(234, 245, 251, 0) 58px
+    ),
+    linear-gradient(
+      180deg,
+      rgba(255, 255, 255, 0.2) 0%,
+      rgba(255, 255, 255, 0.08) 28%,
+      rgba(255, 255, 255, 0) 52%
+    ),
+    linear-gradient(
+      180deg,
+      rgba(255, 255, 255, 0) 72%,
+      rgba(255, 255, 255, 0.13) 100%
+    ),
+    url(../../../assets/variant-b/images/hero-couple-front-mobile-v2.webp)
+      center center / cover no-repeat;
+  background-color: #eaf5fb;
+}
+
 .hero-kicker {
   position: relative;
   width: 100%;
