@@ -66,9 +66,13 @@ test("認証エラーは再試行せず、設定不足では外部接続しな�
 
 test("Netlifyの生リクエストを受け付けて通知処理につなぐ（外部通信はモック）", async (t) => {
   const previous = { token: process.env.CHATWORK_API_TOKEN, room: process.env.CHATWORK_ROOM_ID };
+  const previousSheetsEnabled = process.env.GOOGLE_SHEETS_ENABLED;
+  process.env.GOOGLE_SHEETS_ENABLED = "false";
   process.env.CHATWORK_API_TOKEN = env.CHATWORK_API_TOKEN;
   process.env.CHATWORK_ROOM_ID = env.CHATWORK_ROOM_ID;
   t.after(() => {
+    if (previousSheetsEnabled === undefined) delete process.env.GOOGLE_SHEETS_ENABLED;
+    else process.env.GOOGLE_SHEETS_ENABLED = previousSheetsEnabled;
     for (const [key, value] of [["CHATWORK_API_TOKEN",previous.token],["CHATWORK_ROOM_ID",previous.room]]) {
       if (value === undefined) delete process.env[key]; else process.env[key] = value;
     }
