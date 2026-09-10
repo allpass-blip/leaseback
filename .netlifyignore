@@ -1,6 +1,7 @@
 .git/
 .netlify/
 .claude/
+.codex-remote-attachments/
 .impeccable/
 .playwright-cli/
 .gitignore
@@ -13,4 +14,11 @@ sites-test-backup/
 tests/
 README.md
 FORM_SETUP.md
+integrations/
+tmp/
+output/
+.clasp.json
 PRODUCT.md
+design/
+scripts/
+netlify/lib/

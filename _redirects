@@ -10,11 +10,11 @@
 
 # Retired landing-page routes. Keep redirects to avoid breaking old ad URLs.
 /index.html / 301!
-/lp/1 / 301!
-/lp/1/ / 301!
-/lp/2 / 301!
-/lp/2/ / 301!
 /variant-b / 301!
 /variant-b/* / 301!
 /variant-b-desktop / 301!
 /variant-b-desktop/* / 301!
+
+# Numbered live LP revisions.
+/lp/1/index.html /lp/1/ 301!
+/lp/2/index.html /lp/2/ 301!

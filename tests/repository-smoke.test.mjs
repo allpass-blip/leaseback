@@ -12,8 +12,11 @@ const ignoredDirectories = new Set([
   ".impeccable",
   ".netlify",
   ".playwright-cli",
+  "design",
+  "output",
   "sites-test-backup",
   "tests",
+  "tmp",
 ]);
 
 function read(path) {
@@ -87,12 +90,42 @@ test("/test配下はパスワードなしで公開する", () => {
 
 test("旧LP経路はルートへ恒久転送し、旧ページは残さない", () => {
   const redirects = read("_redirects");
-  for (const route of ["/index.html", "/lp/1", "/lp/2", "/variant-b", "/variant-b-desktop"]) {
+  for (const route of ["/index.html", "/variant-b", "/variant-b-desktop"]) {
     assert.match(redirects, new RegExp(`^${route.replace("/", "\\/")}\\S* \\/ 301!$`, "m"));
   }
   assert.doesNotMatch(redirects, /^\/ \/variant-b\/ 200!$/m);
   assert.equal(existsSync(join(root, "variant-b")), false);
   assert.equal(existsSync(join(root, "variant-b-desktop")), false);
+});
+
+test("番号付きLPは独立した実体を持ち、本番と同じ受付・計測を使う", () => {
+  for (const version of [1, 2]) {
+    const html = read(`lp/${version}/index.html`);
+    assert.match(html, /name="leaseback-contact"/);
+    assert.match(html, /data-netlify="true"/);
+    assert.match(html, /name="form-name" value="leaseback-contact"/);
+    assert.match(html, /netlify-honeypot="bot-field"/);
+    assert.match(html, /data-success-url="\/thanks\.html"/);
+    assert.ok(html.includes(`name="送信元" value="lp-${version}"`));
+    assert.ok(html.includes(`name="送信ページ" value="/lp/${version}/"`));
+    assert.match(html, /src="\.\/shared\/gtm\.js/);
+    assert.match(html, /src="\.\/shared\/affilicode-tracking\.js/);
+    assert.match(html, /src="\.\/shared\/form-submit\.js/);
+    assert.doesNotMatch(html, /leaseback-contact-test|test-environment|テスト環境|["'](?:\.\.\/|\/)assets\//);
+    assert.match(read(`lp/${version}/shared/form-submit.js`), /fetch\("\/",/);
+    assert.match(read(`lp/${version}/shared/form-submit.js`), /leaseback_submission_pending/);
+    assert.doesNotMatch(read('_redirects'), new RegExp(`^/lp/${version}/? / 301!$`, 'm'));
+  }
+  assert.match(read('lp/2/index.html'), /reading-layout\.css/);
+  assert.doesNotMatch(read('lp/1/index.html'), /reading-layout\.css/);
+});
+
+
+test("制作資料と作業ファイルはWeb公開から除外する", () => {
+  const excluded = new Set(read(".netlifyignore").split(/\r?\n/).map((line) => line.trim()));
+  for (const directory of ["design/", ".codex-remote-attachments/", "tests/", "integrations/", "tmp/", "output/"]) {
+    assert.ok(excluded.has(directory), `${directory} must not be published`);
+  }
 });
 
 test("コンバージョンは本番フォーム送信直後の一度だけ許可する", () => {

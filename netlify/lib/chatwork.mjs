@@ -56,19 +56,27 @@ export function buildChatworkMessage(data, toAccountIds = "") {
   ].join("\n");
 }
 
-async function postToChatwork({ token, roomId, message }) {
+async function postToChatwork({ token, roomId, message, fetchImpl, sleep }) {
   const endpoint = `${CHATWORK_API_BASE}/rooms/${encodeURIComponent(roomId)}/messages`;
   const body = new URLSearchParams({ body: message });
 
   for (let attempt = 0; attempt < 3; attempt += 1) {
-    const response = await fetch(endpoint, {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/x-www-form-urlencoded",
-        "X-ChatWorkToken": token,
-      },
-      body,
-    });
+    let response;
+    try {
+      response = await fetchImpl(endpoint, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/x-www-form-urlencoded",
+          "X-ChatWorkToken": token,
+        },
+        body,
+        signal: AbortSignal.timeout(10000),
+      });
+    } catch {
+      if (attempt === 2) throw new Error("Chatwork connection failed after 3 attempts");
+      await sleep(500 * 2 ** attempt);
+      continue;
+    }
 
     if (response.ok) return;
 
@@ -77,31 +85,37 @@ async function postToChatwork({ token, roomId, message }) {
       throw new Error(`Chatwork API returned HTTP ${response.status}`);
     }
 
-    await new Promise((resolve) => setTimeout(resolve, 500 * 2 ** attempt));
+    await sleep(500 * 2 ** attempt);
   }
 }
 
-export default {
-  async formSubmitted(event) {
-    const data = event?.data || {};
-    const formName = data["form-name"];
+export async function notifySubmission(payload, {
+  env = process.env,
+  fetchImpl = globalThis.fetch,
+  sleep = (ms) => new Promise((resolve) => setTimeout(resolve, ms)),
+} = {}) {
+  const data = payload?.data || {};
+  // Netlify stores the form identity in payload.form_name, not in data.
+  // The typed formSubmitted adapter drops that metadata; use the raw event.
+  const formName = payload?.form_name || data["form-name"];
+  if (formName !== TARGET_FORM || payload?.spam === true || data["bot-field"]) {
+    return { skipped: true };
+  }
 
-    if (formName !== TARGET_FORM) return;
+  const token = env.CHATWORK_API_TOKEN?.trim();
+  const roomId = env.CHATWORK_ROOM_ID?.trim();
 
-    const token = process.env.CHATWORK_API_TOKEN?.trim();
-    const roomId = process.env.CHATWORK_ROOM_ID?.trim();
-
-    if (!token || !roomId) {
-      throw new Error(
-        "CHATWORK_API_TOKEN and CHATWORK_ROOM_ID must be configured in Netlify",
-      );
-    }
-
-    const message = buildChatworkMessage(
-      data,
-      process.env.CHATWORK_TO_ACCOUNT_IDS,
+  if (!token || !/^\d+$/.test(roomId || "")) {
+    throw new Error(
+      "CHATWORK_API_TOKEN and CHATWORK_ROOM_ID must be configured in Netlify",
     );
+  }
 
-    await postToChatwork({ token, roomId, message });
-  },
-};
+  const message = buildChatworkMessage(
+    data,
+    env.CHATWORK_TO_ACCOUNT_IDS,
+  );
+
+  await postToChatwork({ token, roomId, message, fetchImpl, sleep });
+  return { sent: true };
+}
